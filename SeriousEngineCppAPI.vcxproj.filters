@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Base">
+      <UniqueIdentifier>{b745c141-7bd4-4db8-9e8d-e7bd2adac453}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{7b479359-3ab5-4a71-a5b8-b7802e05678e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Templates">
+      <UniqueIdentifier>{b17d44ee-9ebd-4ad4-8066-a5f6b1ce9a77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models">
+      <UniqueIdentifier>{2448e3b3-123c-4ce0-b883-8d9358651a08}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Base\CTString.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\FileName.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\Lists.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\Types.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Object3D.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Vector.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Templates\StaticArray.h">
+      <Filter>Templates</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\RenderModel.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineGUI.h" />
+    <ClInclude Include="Math\Matrix.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\API.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\Stream.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Math\Matrix.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Vector.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
