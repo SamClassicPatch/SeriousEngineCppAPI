@@ -48,6 +48,8 @@ public:
 
   inline FLOATmatrix2D_* C_Handle() { return mp_matrix; }
   inline const FLOATmatrix2D_* C_Handle() const { return mp_matrix; }
+  inline operator FLOATmatrix2D_* () { return C_Handle(); }
+  inline operator const FLOATmatrix2D_* () const { return C_Handle(); }
 private:
   bool m_owner = true;
   FLOATmatrix2D_* mp_matrix = nullptr;
@@ -103,6 +105,8 @@ public:
 
   inline FLOATmatrix3D_* C_Handle() { return mp_matrix; }
   inline const FLOATmatrix3D_* C_Handle() const { return mp_matrix; }
+  inline operator FLOATmatrix3D_* () { return C_Handle(); }
+  inline operator const FLOATmatrix3D_* () const { return C_Handle(); }
 private:
   bool m_owner = true;
   FLOATmatrix3D_* mp_matrix = nullptr;
@@ -157,6 +161,8 @@ public:
 
   inline FLOATmatrix4D_* C_Handle() { return mp_matrix; }
   inline const FLOATmatrix4D_* C_Handle() const { return mp_matrix; }
+  inline operator FLOATmatrix4D_* () { return C_Handle(); }
+  inline operator const FLOATmatrix4D_* () const { return C_Handle(); }
 private:
   bool m_owner = true;
   FLOATmatrix4D_* mp_matrix = nullptr;
@@ -209,6 +215,8 @@ public:
 
   inline DOUBLEmatrix2D_* C_Handle() { return mp_matrix; }
   inline const DOUBLEmatrix2D_* C_Handle() const { return mp_matrix; }
+  inline operator DOUBLEmatrix2D_* () { return C_Handle(); }
+  inline operator const DOUBLEmatrix2D_* () const { return C_Handle(); }
 private:
   bool m_owner = true;
   DOUBLEmatrix2D_* mp_matrix = nullptr;
@@ -264,6 +272,8 @@ public:
 
   inline DOUBLEmatrix3D_* C_Handle() { return mp_matrix; }
   inline const DOUBLEmatrix3D_* C_Handle() const { return mp_matrix; }
+  inline operator DOUBLEmatrix3D_* () { return C_Handle(); }
+  inline operator const DOUBLEmatrix3D_* () const { return C_Handle(); }
 private:
   bool m_owner = true;
   DOUBLEmatrix3D_* mp_matrix = nullptr;
@@ -318,6 +328,8 @@ public:
 
   inline DOUBLEmatrix4D_* C_Handle() { return mp_matrix; }
   inline const DOUBLEmatrix4D_* C_Handle() const { return mp_matrix; }
+  inline operator DOUBLEmatrix4D_* () { return C_Handle(); }
+  inline operator const DOUBLEmatrix4D_* () const { return C_Handle(); }
 private:
   bool m_owner = true;
   DOUBLEmatrix4D_* mp_matrix = nullptr;
@@ -370,6 +382,8 @@ public:
 
   inline INDEXmatrix2D_* C_Handle() { return mp_matrix; }
   inline const INDEXmatrix2D_* C_Handle() const { return mp_matrix; }
+  inline operator INDEXmatrix2D_* () { return C_Handle(); }
+  inline operator const INDEXmatrix2D_* () const { return C_Handle(); }
 private:
   bool m_owner = true;
   INDEXmatrix2D_* mp_matrix = nullptr;
@@ -425,6 +439,8 @@ public:
 
   inline INDEXmatrix3D_* C_Handle() { return mp_matrix; }
   inline const INDEXmatrix3D_* C_Handle() const { return mp_matrix; }
+  inline operator INDEXmatrix3D_* () { return C_Handle(); }
+  inline operator const INDEXmatrix3D_* () const { return C_Handle(); }
 private:
   bool m_owner = true;
   INDEXmatrix3D_* mp_matrix = nullptr;
@@ -479,6 +495,8 @@ public:
 
   inline INDEXmatrix4D_* C_Handle() { return mp_matrix; }
   inline const INDEXmatrix4D_* C_Handle() const { return mp_matrix; }
+  inline operator INDEXmatrix4D_* () { return C_Handle(); }
+  inline operator const INDEXmatrix4D_* () const { return C_Handle(); }
 private:
   bool m_owner = true;
   INDEXmatrix4D_* mp_matrix = nullptr;

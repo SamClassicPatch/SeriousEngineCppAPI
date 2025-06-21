@@ -41,7 +41,9 @@ public:
   SECPPAPI friend CTStream& operator<<(CTStream& strmStream, const CTFileName& fnmFileName);
 
   inline CTFileName_* C_Handle() { return (CTFileName_*)mp_string; }
-  inline const CTFileName_* C_Handle() const { return (CTFileName_*)mp_string; }
+  inline const CTFileName_* C_Handle() const { return (const CTFileName_*)mp_string; }
+  inline operator CTFileName_* () { return C_Handle(); }
+  inline operator const CTFileName_* () const { return C_Handle(); }
 };
 
 // macro for defining a literal filename in code (EFNM = exe-filename)

@@ -1,6 +1,5 @@
 #pragma once
-#include <SeriousEngineCAPI/Base/Stream.h>
-#include "../Base/API.h"
+#include "../Base/Types.h"
 
 class SECPPAPI CTStream
 {

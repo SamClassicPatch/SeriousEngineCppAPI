@@ -24,20 +24,26 @@
     <ClInclude Include="Base\FileName.h" />
     <ClInclude Include="Base\Lists.h" />
     <ClInclude Include="Base\Stream.h" />
+    <ClInclude Include="Base\Translation.h" />
+    <ClInclude Include="Base\TranslationPair.h" />
     <ClInclude Include="Base\Types.h" />
     <ClInclude Include="EngineGUI.h" />
     <ClInclude Include="Math\Matrix.h" />
     <ClInclude Include="Math\Object3D.h" />
     <ClInclude Include="Math\Vector.h" />
     <ClInclude Include="Models\RenderModel.h" />
+    <ClInclude Include="Templates\DynamicArray.h" />
     <ClInclude Include="Templates\StaticArray.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Base\CTString.cpp" />
     <ClCompile Include="Base\Exception.cpp" />
     <ClCompile Include="Base\FileName.cpp" />
+    <ClCompile Include="Base\Translation.cpp" />
+    <ClCompile Include="Base\TranslationPair.cpp" />
     <ClCompile Include="Math\Matrix.cpp" />
     <ClCompile Include="Math\Vector.cpp" />
+    <ClCompile Include="Templates\DynamicArray.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

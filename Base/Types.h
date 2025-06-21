@@ -26,5 +26,8 @@ class INDEXmatrix4D;
 class CTString;
 class CTFileName;
 class CTStream;
+class CTranslationPair;
+class CDynamicArray_CTFileName;
+class CDynamicArray_CTranslationPair;
 
 void SECppAPI_CheckException();

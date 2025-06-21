@@ -59,7 +59,8 @@ public:
 
   inline FLOAT2D_* C_Handle() { return mp_vector; }
   inline const FLOAT2D_* C_Handle() const { return mp_vector; }
-
+  inline operator FLOAT2D_* () { return C_Handle(); }
+  inline operator const FLOAT2D_* () const { return C_Handle(); }
 private:
   bool m_owner = true;
   FLOAT2D_* mp_vector = nullptr;
@@ -126,6 +127,8 @@ public:
 
   inline FLOAT3D_* C_Handle() { return mp_vector; }
   inline const FLOAT3D_* C_Handle() const { return mp_vector; }
+  inline operator FLOAT3D_* () { return C_Handle(); }
+  inline operator const FLOAT3D_* () const { return C_Handle(); }
 
 private:
   bool m_owner = true;
@@ -190,6 +193,8 @@ public:
 
   inline FLOAT4D_* C_Handle() { return mp_vector; }
   inline const FLOAT4D_* C_Handle() const { return mp_vector; }
+  inline operator FLOAT4D_* () { return C_Handle(); }
+  inline operator const FLOAT4D_* () const { return C_Handle(); }
 
 private:
   bool m_owner = true;
@@ -254,6 +259,8 @@ public:
 
   inline DOUBLE2D_* C_Handle() { return mp_vector; }
   inline const DOUBLE2D_* C_Handle() const { return mp_vector; }
+  inline operator DOUBLE2D_* () { return C_Handle(); }
+  inline operator const DOUBLE2D_* () const { return C_Handle(); }
 
 private:
   bool m_owner = true;
@@ -321,6 +328,8 @@ public:
 
   inline DOUBLE3D_* C_Handle() { return mp_vector; }
   inline const DOUBLE3D_* C_Handle() const { return mp_vector; }
+  inline operator DOUBLE3D_* () { return C_Handle(); }
+  inline operator const DOUBLE3D_* () const { return C_Handle(); }
 
 private:
   bool m_owner = true;
@@ -385,6 +394,8 @@ public:
 
   inline DOUBLE4D_* C_Handle() { return mp_vector; }
   inline const DOUBLE4D_* C_Handle() const { return mp_vector; }
+  inline operator DOUBLE4D_* () { return C_Handle(); }
+  inline operator const DOUBLE4D_* () const { return C_Handle(); }
 
 private:
   bool m_owner = true;
@@ -449,6 +460,8 @@ public:
 
   inline INDEX2D_* C_Handle() { return mp_vector; }
   inline const INDEX2D_* C_Handle() const { return mp_vector; }
+  inline operator INDEX2D_* () { return C_Handle(); }
+  inline operator const INDEX2D_* () const { return C_Handle(); }
 
 private:
   bool m_owner = true;
@@ -516,6 +529,8 @@ public:
 
   inline INDEX3D_* C_Handle() { return mp_vector; }
   inline const INDEX3D_* C_Handle() const { return mp_vector; }
+  inline operator INDEX3D_* () { return C_Handle(); }
+  inline operator const INDEX3D_* () const { return C_Handle(); }
 
 private:
   bool m_owner = true;
@@ -580,6 +595,8 @@ public:
 
   inline INDEX4D_* C_Handle() { return mp_vector; }
   inline const INDEX4D_* C_Handle() const { return mp_vector; }
+  inline operator INDEX4D_* () { return C_Handle(); }
+  inline operator const INDEX4D_* () const { return C_Handle(); }
 
 private:
   bool m_owner = true;

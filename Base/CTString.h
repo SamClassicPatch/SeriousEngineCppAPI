@@ -102,8 +102,10 @@ public:
   void LoadVar(const CTFileName& fnmFile);
   void SaveVar(const CTFileName& fnmFile);
 
-  CTString_* C_Handle() { return mp_string; }
-  const CTString_* C_Handle() const { return mp_string; }
+  inline CTString_* C_Handle() { return mp_string; }
+  inline const CTString_* C_Handle() const { return mp_string; }
+  inline operator CTString_* () { return C_Handle(); }
+  inline operator const CTString_* () const { return C_Handle(); }
 protected:
   bool m_owner = true;
   CTString_* mp_string = nullptr;

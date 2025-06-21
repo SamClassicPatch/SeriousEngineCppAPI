@@ -49,6 +49,15 @@
     <ClInclude Include="Base\Stream.h">
       <Filter>Base</Filter>
     </ClInclude>
+    <ClInclude Include="Templates\DynamicArray.h">
+      <Filter>Templates</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\TranslationPair.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\Translation.h">
+      <Filter>Base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\Matrix.cpp">
@@ -64,6 +73,15 @@
       <Filter>Base</Filter>
     </ClCompile>
     <ClCompile Include="Base\FileName.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Templates\DynamicArray.cpp">
+      <Filter>Templates</Filter>
+    </ClCompile>
+    <ClCompile Include="Base\TranslationPair.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Base\Translation.cpp">
       <Filter>Base</Filter>
     </ClCompile>
   </ItemGroup>
