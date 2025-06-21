@@ -63,5 +63,8 @@
     <ClCompile Include="Base\Exception.cpp">
       <Filter>Base</Filter>
     </ClCompile>
+    <ClCompile Include="Base\FileName.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

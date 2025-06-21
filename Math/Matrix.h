@@ -10,8 +10,6 @@ public:
   FLOATmatrix2D(const FLOATmatrix2D& o);
   ~FLOATmatrix2D();
 
-  FLOATmatrix2D(FLOATmatrix2D&& o);
-  FLOATmatrix2D& operator=(FLOATmatrix2D&& o);
   FLOATmatrix2D& operator=(const FLOATmatrix2D& o);
 
   /* Reference matrix member by it's row and column indices (1-based indices!). */
@@ -64,8 +62,6 @@ public:
   FLOATmatrix3D(const FLOATmatrix3D& o);
   ~FLOATmatrix3D();
 
-  FLOATmatrix3D(FLOATmatrix3D&& o);
-  FLOATmatrix3D& operator=(FLOATmatrix3D&& o);
   FLOATmatrix3D& operator=(const FLOATmatrix3D& o);
 
   /* Reference matrix member by it's row and column indices (1-based indices!). */
@@ -121,8 +117,6 @@ public:
   FLOATmatrix4D(const FLOATmatrix4D& o);
   ~FLOATmatrix4D();
 
-  FLOATmatrix4D(FLOATmatrix4D&& o);
-  FLOATmatrix4D& operator=(FLOATmatrix4D&& o);
   FLOATmatrix4D& operator=(const FLOATmatrix4D& o);
 
   /* Reference matrix member by it's row and column indices (1-based indices!). */
@@ -177,8 +171,6 @@ public:
   DOUBLEmatrix2D(const DOUBLEmatrix2D& o);
   ~DOUBLEmatrix2D();
 
-  DOUBLEmatrix2D(DOUBLEmatrix2D&& o);
-  DOUBLEmatrix2D& operator=(DOUBLEmatrix2D&& o);
   DOUBLEmatrix2D& operator=(const DOUBLEmatrix2D& o);
 
   /* Reference matrix member by it's row and column indices (1-based indices!). */
@@ -231,8 +223,6 @@ public:
   DOUBLEmatrix3D(const DOUBLEmatrix3D& o);
   ~DOUBLEmatrix3D();
 
-  DOUBLEmatrix3D(DOUBLEmatrix3D&& o);
-  DOUBLEmatrix3D& operator=(DOUBLEmatrix3D&& o);
   DOUBLEmatrix3D& operator=(const DOUBLEmatrix3D& o);
 
   /* Reference matrix member by it's row and column indices (1-based indices!). */
@@ -288,8 +278,6 @@ public:
   DOUBLEmatrix4D(const DOUBLEmatrix4D& o);
   ~DOUBLEmatrix4D();
 
-  DOUBLEmatrix4D(DOUBLEmatrix4D&& o);
-  DOUBLEmatrix4D& operator=(DOUBLEmatrix4D&& o);
   DOUBLEmatrix4D& operator=(const DOUBLEmatrix4D& o);
 
   /* Reference matrix member by it's row and column indices (1-based indices!). */
@@ -344,8 +332,6 @@ public:
   INDEXmatrix2D(const INDEXmatrix2D& o);
   ~INDEXmatrix2D();
 
-  INDEXmatrix2D(INDEXmatrix2D&& o);
-  INDEXmatrix2D& operator=(INDEXmatrix2D&& o);
   INDEXmatrix2D& operator=(const INDEXmatrix2D& o);
 
   /* Reference matrix member by it's row and column indices (1-based indices!). */
@@ -398,8 +384,6 @@ public:
   INDEXmatrix3D(const INDEXmatrix3D& o);
   ~INDEXmatrix3D();
 
-  INDEXmatrix3D(INDEXmatrix3D&& o);
-  INDEXmatrix3D& operator=(INDEXmatrix3D&& o);
   INDEXmatrix3D& operator=(const INDEXmatrix3D& o);
 
   /* Reference matrix member by it's row and column indices (1-based indices!). */
@@ -455,8 +439,6 @@ public:
   INDEXmatrix4D(const INDEXmatrix4D& o);
   ~INDEXmatrix4D();
 
-  INDEXmatrix4D(INDEXmatrix4D&& o);
-  INDEXmatrix4D& operator=(INDEXmatrix4D&& o);
   INDEXmatrix4D& operator=(const INDEXmatrix4D& o);
 
   /* Reference matrix member by it's row and column indices (1-based indices!). */

@@ -184,47 +184,9 @@ CTStream& operator<<(CTStream& strm, INDEX4D& vector)
   return strm;
 }
 
-FLOAT2D::FLOAT2D(FLOAT2D&& o)
-  : m_owner(o.m_owner)
-  , mp_vector(o.mp_vector)
-{
-  o.m_owner = false;
-  o.mp_vector = nullptr;
-}
-
-FLOAT2D& FLOAT2D::operator=(FLOAT2D&& o)
-{
-  if (m_owner)
-    FLOAT2D_delete(mp_vector);
-  m_owner = o.m_owner;
-  mp_vector = o.mp_vector;
-  o.m_owner = false;
-  o.mp_vector = nullptr;
-  return *this;
-}
-
 FLOAT2D& FLOAT2D::operator=(const FLOAT2D& o)
 {
   FLOAT2D_copy(mp_vector, o.mp_vector);
-  return *this;
-}
-
-FLOAT3D::FLOAT3D(FLOAT3D&& o)
-  : m_owner(o.m_owner)
-  , mp_vector(o.mp_vector)
-{
-  o.m_owner = false;
-  o.mp_vector = nullptr;
-}
-
-FLOAT3D& FLOAT3D::operator=(FLOAT3D&& o)
-{
-  if (m_owner)
-    FLOAT3D_delete(mp_vector);
-  m_owner = o.m_owner;
-  mp_vector = o.mp_vector;
-  o.m_owner = false;
-  o.mp_vector = nullptr;
   return *this;
 }
 
@@ -234,47 +196,9 @@ FLOAT3D& FLOAT3D::operator=(const FLOAT3D& o)
   return *this;
 }
 
-FLOAT4D::FLOAT4D(FLOAT4D&& o)
-  : m_owner(o.m_owner)
-  , mp_vector(o.mp_vector)
-{
-  o.m_owner = false;
-  o.mp_vector = nullptr;
-}
-
-FLOAT4D& FLOAT4D::operator=(FLOAT4D&& o)
-{
-  if (m_owner)
-    FLOAT4D_delete(mp_vector);
-  m_owner = o.m_owner;
-  mp_vector = o.mp_vector;
-  o.m_owner = false;
-  o.mp_vector = nullptr;
-  return *this;
-}
-
 FLOAT4D& FLOAT4D::operator=(const FLOAT4D& o)
 {
   FLOAT4D_copy(mp_vector, o.mp_vector);
-  return *this;
-}
-
-DOUBLE2D::DOUBLE2D(DOUBLE2D&& o)
-  : m_owner(o.m_owner)
-  , mp_vector(o.mp_vector)
-{
-  o.m_owner = false;
-  o.mp_vector = nullptr;
-}
-
-DOUBLE2D& DOUBLE2D::operator=(DOUBLE2D&& o)
-{
-  if (m_owner)
-    DOUBLE2D_delete(mp_vector);
-  m_owner = o.m_owner;
-  mp_vector = o.mp_vector;
-  o.m_owner = false;
-  o.mp_vector = nullptr;
   return *this;
 }
 
@@ -284,47 +208,9 @@ DOUBLE2D& DOUBLE2D::operator=(const DOUBLE2D& o)
   return *this;
 }
 
-DOUBLE3D::DOUBLE3D(DOUBLE3D&& o)
-  : m_owner(o.m_owner)
-  , mp_vector(o.mp_vector)
-{
-  o.m_owner = false;
-  o.mp_vector = nullptr;
-}
-
-DOUBLE3D& DOUBLE3D::operator=(DOUBLE3D&& o)
-{
-  if (m_owner)
-    DOUBLE3D_delete(mp_vector);
-  m_owner = o.m_owner;
-  mp_vector = o.mp_vector;
-  o.m_owner = false;
-  o.mp_vector = nullptr;
-  return *this;
-}
-
 DOUBLE3D& DOUBLE3D::operator=(const DOUBLE3D& o)
 {
   DOUBLE3D_copy(mp_vector, o.mp_vector);
-  return *this;
-}
-
-DOUBLE4D::DOUBLE4D(DOUBLE4D&& o)
-  : m_owner(o.m_owner)
-  , mp_vector(o.mp_vector)
-{
-  o.m_owner = false;
-  o.mp_vector = nullptr;
-}
-
-DOUBLE4D& DOUBLE4D::operator=(DOUBLE4D&& o)
-{
-  if (m_owner)
-    DOUBLE4D_delete(mp_vector);
-  m_owner = o.m_owner;
-  mp_vector = o.mp_vector;
-  o.m_owner = false;
-  o.mp_vector = nullptr;
   return *this;
 }
 
@@ -334,72 +220,15 @@ DOUBLE4D& DOUBLE4D::operator=(const DOUBLE4D& o)
   return *this;
 }
 
-INDEX2D::INDEX2D(INDEX2D&& o)
-  : m_owner(o.m_owner)
-  , mp_vector(o.mp_vector)
-{
-  o.m_owner = false;
-  o.mp_vector = nullptr;
-}
-
-INDEX2D& INDEX2D::operator=(INDEX2D&& o)
-{
-  if (m_owner)
-    INDEX2D_delete(mp_vector);
-  m_owner = o.m_owner;
-  mp_vector = o.mp_vector;
-  o.m_owner = false;
-  o.mp_vector = nullptr;
-  return *this;
-}
-
 INDEX2D& INDEX2D::operator=(const INDEX2D& o)
 {
   INDEX2D_copy(mp_vector, o.mp_vector);
   return *this;
 }
 
-INDEX3D::INDEX3D(INDEX3D&& o)
-  : m_owner(o.m_owner)
-  , mp_vector(o.mp_vector)
-{
-  o.m_owner = false;
-  o.mp_vector = nullptr;
-}
-
-INDEX3D& INDEX3D::operator=(INDEX3D&& o)
-{
-  if (m_owner)
-    INDEX3D_delete(mp_vector);
-  m_owner = o.m_owner;
-  mp_vector = o.mp_vector;
-  o.m_owner = false;
-  o.mp_vector = nullptr;
-  return *this;
-}
-
 INDEX3D& INDEX3D::operator=(const INDEX3D& o)
 {
   INDEX3D_copy(mp_vector, o.mp_vector);
-  return *this;
-}
-
-INDEX4D::INDEX4D(INDEX4D&& o)
-  : m_owner(o.m_owner)
-  , mp_vector(o.mp_vector)
-{
-  o.m_owner = false;
-  o.mp_vector = nullptr;
-}
-
-INDEX4D& INDEX4D::operator=(INDEX4D&& o)
-{
-  if (m_owner)
-    INDEX4D_delete(mp_vector);
-  m_owner = o.m_owner;
-  mp_vector = o.mp_vector;
-  o.m_owner = false;
-  o.mp_vector = nullptr;
   return *this;
 }
 

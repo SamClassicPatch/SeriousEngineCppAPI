@@ -139,47 +139,9 @@ CTStream& operator<<(CTStream& strm, INDEXmatrix4D& matrix)
   return strm;
 }
 
-FLOATmatrix2D::FLOATmatrix2D(FLOATmatrix2D&& o)
-  : m_owner(o.m_owner)
-  , mp_matrix(o.mp_matrix)
-{
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
-}
-
-FLOATmatrix2D& FLOATmatrix2D::operator=(FLOATmatrix2D&& o)
-{
-  if (m_owner)
-    FLOATmatrix2D_delete(mp_matrix);
-  m_owner = o.m_owner;
-  mp_matrix = o.mp_matrix;
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
-  return *this;
-}
-
 FLOATmatrix2D& FLOATmatrix2D::operator=(const FLOATmatrix2D& o)
 {
   FLOATmatrix2D_copy(mp_matrix, o.mp_matrix);
-  return *this;
-}
-
-FLOATmatrix3D::FLOATmatrix3D(FLOATmatrix3D&& o)
-  : m_owner(o.m_owner)
-  , mp_matrix(o.mp_matrix)
-{
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
-}
-
-FLOATmatrix3D& FLOATmatrix3D::operator=(FLOATmatrix3D&& o)
-{
-  if (m_owner)
-    FLOATmatrix3D_delete(mp_matrix);
-  m_owner = o.m_owner;
-  mp_matrix = o.mp_matrix;
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
   return *this;
 }
 
@@ -189,47 +151,9 @@ FLOATmatrix3D& FLOATmatrix3D::operator=(const FLOATmatrix3D& o)
   return *this;
 }
 
-FLOATmatrix4D::FLOATmatrix4D(FLOATmatrix4D&& o)
-  : m_owner(o.m_owner)
-  , mp_matrix(o.mp_matrix)
-{
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
-}
-
-FLOATmatrix4D& FLOATmatrix4D::operator=(FLOATmatrix4D&& o)
-{
-  if (m_owner)
-    FLOATmatrix4D_delete(mp_matrix);
-  m_owner = o.m_owner;
-  mp_matrix = o.mp_matrix;
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
-  return *this;
-}
-
 FLOATmatrix4D& FLOATmatrix4D::operator=(const FLOATmatrix4D& o)
 {
   FLOATmatrix4D_copy(mp_matrix, o.mp_matrix);
-  return *this;
-}
-
-DOUBLEmatrix2D::DOUBLEmatrix2D(DOUBLEmatrix2D&& o)
-  : m_owner(o.m_owner)
-  , mp_matrix(o.mp_matrix)
-{
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
-}
-
-DOUBLEmatrix2D& DOUBLEmatrix2D::operator=(DOUBLEmatrix2D&& o)
-{
-  if (m_owner)
-    DOUBLEmatrix2D_delete(mp_matrix);
-  m_owner = o.m_owner;
-  mp_matrix = o.mp_matrix;
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
   return *this;
 }
 
@@ -239,47 +163,9 @@ DOUBLEmatrix2D& DOUBLEmatrix2D::operator=(const DOUBLEmatrix2D& o)
   return *this;
 }
 
-DOUBLEmatrix3D::DOUBLEmatrix3D(DOUBLEmatrix3D&& o)
-  : m_owner(o.m_owner)
-  , mp_matrix(o.mp_matrix)
-{
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
-}
-
-DOUBLEmatrix3D& DOUBLEmatrix3D::operator=(DOUBLEmatrix3D&& o)
-{
-  if (m_owner)
-    DOUBLEmatrix3D_delete(mp_matrix);
-  m_owner = o.m_owner;
-  mp_matrix = o.mp_matrix;
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
-  return *this;
-}
-
 DOUBLEmatrix3D& DOUBLEmatrix3D::operator=(const DOUBLEmatrix3D& o)
 {
   DOUBLEmatrix3D_copy(mp_matrix, o.mp_matrix);
-  return *this;
-}
-
-DOUBLEmatrix4D::DOUBLEmatrix4D(DOUBLEmatrix4D&& o)
-  : m_owner(o.m_owner)
-  , mp_matrix(o.mp_matrix)
-{
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
-}
-
-DOUBLEmatrix4D& DOUBLEmatrix4D::operator=(DOUBLEmatrix4D&& o)
-{
-  if (m_owner)
-    DOUBLEmatrix4D_delete(mp_matrix);
-  m_owner = o.m_owner;
-  mp_matrix = o.mp_matrix;
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
   return *this;
 }
 
@@ -289,72 +175,15 @@ DOUBLEmatrix4D& DOUBLEmatrix4D::operator=(const DOUBLEmatrix4D& o)
   return *this;
 }
 
-INDEXmatrix2D::INDEXmatrix2D(INDEXmatrix2D&& o)
-  : m_owner(o.m_owner)
-  , mp_matrix(o.mp_matrix)
-{
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
-}
-
-INDEXmatrix2D& INDEXmatrix2D::operator=(INDEXmatrix2D&& o)
-{
-  if (m_owner)
-    INDEXmatrix2D_delete(mp_matrix);
-  m_owner = o.m_owner;
-  mp_matrix = o.mp_matrix;
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
-  return *this;
-}
-
 INDEXmatrix2D& INDEXmatrix2D::operator=(const INDEXmatrix2D& o)
 {
   INDEXmatrix2D_copy(mp_matrix, o.mp_matrix);
   return *this;
 }
 
-INDEXmatrix3D::INDEXmatrix3D(INDEXmatrix3D&& o)
-  : m_owner(o.m_owner)
-  , mp_matrix(o.mp_matrix)
-{
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
-}
-
-INDEXmatrix3D& INDEXmatrix3D::operator=(INDEXmatrix3D&& o)
-{
-  if (m_owner)
-    INDEXmatrix3D_delete(mp_matrix);
-  m_owner = o.m_owner;
-  mp_matrix = o.mp_matrix;
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
-  return *this;
-}
-
 INDEXmatrix3D& INDEXmatrix3D::operator=(const INDEXmatrix3D& o)
 {
   INDEXmatrix3D_copy(mp_matrix, o.mp_matrix);
-  return *this;
-}
-
-INDEXmatrix4D::INDEXmatrix4D(INDEXmatrix4D&& o)
-  : m_owner(o.m_owner)
-  , mp_matrix(o.mp_matrix)
-{
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
-}
-
-INDEXmatrix4D& INDEXmatrix4D::operator=(INDEXmatrix4D&& o)
-{
-  if (m_owner)
-    INDEXmatrix4D_delete(mp_matrix);
-  m_owner = o.m_owner;
-  mp_matrix = o.mp_matrix;
-  o.m_owner = false;
-  o.mp_matrix = nullptr;
   return *this;
 }
 

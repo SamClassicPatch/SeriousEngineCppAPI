@@ -11,9 +11,6 @@ public:
   CTString(INDEX iDummy, const char* strFormat, ...);
   ~CTString();
 
-  CTString(CTString&& o);
-  CTString& operator=(CTString&& o);
-
   using TStrType = char*;
   TStrType& str_String();
   const TStrType& str_String() const;
@@ -107,7 +104,7 @@ public:
 
   CTString_* C_Handle() { return mp_string; }
   const CTString_* C_Handle() const { return mp_string; }
-private:
+protected:
   bool m_owner = true;
   CTString_* mp_string = nullptr;
 };

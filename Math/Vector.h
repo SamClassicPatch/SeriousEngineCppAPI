@@ -10,8 +10,6 @@ public:
   FLOAT2D(const FLOAT2D& o);
   ~FLOAT2D();
 
-  FLOAT2D(FLOAT2D&& o);
-  FLOAT2D& operator=(FLOAT2D&& o);
   FLOAT2D& operator=(const FLOAT2D& o);
 
   /* Clear function */
@@ -76,8 +74,6 @@ public:
   FLOAT3D(const FLOAT3D& o);
   ~FLOAT3D();
 
-  FLOAT3D(FLOAT3D&& o);
-  FLOAT3D& operator=(FLOAT3D&& o);
   FLOAT3D& operator=(const FLOAT3D& o);
 
   /* Clear function */
@@ -145,8 +141,6 @@ public:
   FLOAT4D(const FLOAT4D& o);
   ~FLOAT4D();
 
-  FLOAT4D(FLOAT4D&& o);
-  FLOAT4D& operator=(FLOAT4D&& o);
   FLOAT4D& operator=(const FLOAT4D& o);
 
   /* Clear function */
@@ -211,8 +205,6 @@ public:
   DOUBLE2D(const DOUBLE2D& o);
   ~DOUBLE2D();
 
-  DOUBLE2D(DOUBLE2D&& o);
-  DOUBLE2D& operator=(DOUBLE2D&& o);
   DOUBLE2D& operator=(const DOUBLE2D& o);
 
   /* Clear function */
@@ -277,8 +269,6 @@ public:
   DOUBLE3D(const DOUBLE3D& o);
   ~DOUBLE3D();
 
-  DOUBLE3D(DOUBLE3D&& o);
-  DOUBLE3D& operator=(DOUBLE3D&& o);
   DOUBLE3D& operator=(const DOUBLE3D& o);
 
   /* Clear function */
@@ -346,8 +336,6 @@ public:
   DOUBLE4D(const DOUBLE4D& o);
   ~DOUBLE4D();
 
-  DOUBLE4D(DOUBLE4D&& o);
-  DOUBLE4D& operator=(DOUBLE4D&& o);
   DOUBLE4D& operator=(const DOUBLE4D& o);
 
   /* Clear function */
@@ -412,8 +400,6 @@ public:
   INDEX2D(const INDEX2D& o);
   ~INDEX2D();
 
-  INDEX2D(INDEX2D&& o);
-  INDEX2D& operator=(INDEX2D&& o);
   INDEX2D& operator=(const INDEX2D& o);
 
   /* Clear function */
@@ -478,8 +464,6 @@ public:
   INDEX3D(const INDEX3D& o);
   ~INDEX3D();
 
-  INDEX3D(INDEX3D&& o);
-  INDEX3D& operator=(INDEX3D&& o);
   INDEX3D& operator=(const INDEX3D& o);
 
   /* Clear function */
@@ -547,8 +531,6 @@ public:
   INDEX4D(const INDEX4D& o);
   ~INDEX4D();
 
-  INDEX4D(INDEX4D&& o);
-  INDEX4D& operator=(INDEX4D&& o);
   INDEX4D& operator=(const INDEX4D& o);
 
   /* Clear function */

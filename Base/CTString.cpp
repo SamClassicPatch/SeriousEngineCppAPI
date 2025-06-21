@@ -11,25 +11,6 @@ CTString::CTString(CTString_* p, bool owner)
 {
 }
 
-CTString::CTString(CTString&& o)
-  : m_owner(o.m_owner)
-  , mp_string(o.mp_string)
-{
-  o.m_owner = false;
-  o.mp_string = nullptr;
-}
-
-CTString& CTString::operator=(CTString&& o)
-{
-  if (m_owner)
-    CTString_delete(mp_string);
-  m_owner = o.m_owner;
-  mp_string = o.mp_string;
-  o.m_owner = false;
-  o.mp_string = nullptr;
-  return *this;
-}
-
 CTString::CTString()
   : m_owner(true)
   , mp_string(CTString_new())

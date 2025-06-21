@@ -35,6 +35,7 @@
   <ItemGroup>
     <ClCompile Include="Base\CTString.cpp" />
     <ClCompile Include="Base\Exception.cpp" />
+    <ClCompile Include="Base\FileName.cpp" />
     <ClCompile Include="Math\Matrix.cpp" />
     <ClCompile Include="Math\Vector.cpp" />
   </ItemGroup>
