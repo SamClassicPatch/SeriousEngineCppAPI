@@ -1,8 +1,5 @@
 #pragma once
-#include <SeriousEngineCAPI/Math/Vector.h>
-#include "../Base/API.h"
-#include "../Base/Stream.h"
-#include "Matrix.h"
+#include "../Base/Types.h"
 
 class SECPPAPI FLOAT2D
 {
@@ -12,6 +9,10 @@ public:
   FLOAT2D(FLOAT x, FLOAT y);
   FLOAT2D(const FLOAT2D& o);
   ~FLOAT2D();
+
+  FLOAT2D(FLOAT2D&& o);
+  FLOAT2D& operator=(FLOAT2D&& o);
+  FLOAT2D& operator=(const FLOAT2D& o);
 
   /* Clear function */
   void Clear();
@@ -50,28 +51,19 @@ public:
   FLOAT2D& operator*=(const FLOATmatrix2D& matrix2);
   // scalar product - dot product, inner product
   FLOAT operator%(const FLOAT2D& vector2) const;
-  // vector product - cross product, outer product
-  FLOAT2D operator*(const FLOAT2D& vector2) const;
-  FLOAT2D& operator*=(const FLOAT2D& vector2);
   // comparing vectors
   BOOL operator==(const FLOAT2D& vector2) const;
   BOOL operator!=(const FLOAT2D& vector2) const;
 
   /* Stream operations */
-  friend inline CTStream& operator>>(CTStream& strm, FLOAT2D& vector) {
-    FLOAT2D_operator_extraction(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
-  friend inline CTStream& operator<<(CTStream& strm, FLOAT2D& vector) {
-    FLOAT2D_operator_insertion(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
+  SECPPAPI friend CTStream& operator>>(CTStream& strm, FLOAT2D& vector);
+  SECPPAPI friend CTStream& operator<<(CTStream& strm, FLOAT2D& vector);
 
   inline FLOAT2D_* C_Handle() { return mp_vector; }
   inline const FLOAT2D_* C_Handle() const { return mp_vector; }
 
 private:
-  const bool m_owner = true;
+  bool m_owner = true;
   FLOAT2D_* mp_vector = nullptr;
 };
 
@@ -83,6 +75,10 @@ public:
   FLOAT3D(FLOAT x, FLOAT y, FLOAT z);
   FLOAT3D(const FLOAT3D& o);
   ~FLOAT3D();
+
+  FLOAT3D(FLOAT3D&& o);
+  FLOAT3D& operator=(FLOAT3D&& o);
+  FLOAT3D& operator=(const FLOAT3D& o);
 
   /* Clear function */
   void Clear();
@@ -129,20 +125,14 @@ public:
   BOOL operator!=(const FLOAT3D& vector2) const;
 
   /* Stream operations */
-  friend inline CTStream& operator>>(CTStream& strm, FLOAT3D& vector) {
-    FLOAT3D_operator_extraction(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
-  friend inline CTStream& operator<<(CTStream& strm, FLOAT3D& vector) {
-    FLOAT3D_operator_insertion(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
+  SECPPAPI friend CTStream& operator>>(CTStream& strm, FLOAT3D& vector);
+  SECPPAPI friend CTStream& operator<<(CTStream& strm, FLOAT3D& vector);
 
   inline FLOAT3D_* C_Handle() { return mp_vector; }
   inline const FLOAT3D_* C_Handle() const { return mp_vector; }
 
 private:
-  const bool m_owner = true;
+  bool m_owner = true;
   FLOAT3D_* mp_vector = nullptr;
 };
 
@@ -154,6 +144,10 @@ public:
   FLOAT4D(FLOAT x, FLOAT y, FLOAT z, FLOAT w);
   FLOAT4D(const FLOAT4D& o);
   ~FLOAT4D();
+
+  FLOAT4D(FLOAT4D&& o);
+  FLOAT4D& operator=(FLOAT4D&& o);
+  FLOAT4D& operator=(const FLOAT4D& o);
 
   /* Clear function */
   void Clear();
@@ -192,28 +186,19 @@ public:
   FLOAT4D& operator*=(const FLOATmatrix4D& matrix2);
   // scalar product - dot product, inner product
   FLOAT operator%(const FLOAT4D& vector2) const;
-  // vector product - cross product, outer product
-  FLOAT4D operator*(const FLOAT4D& vector2) const;
-  FLOAT4D& operator*=(const FLOAT4D& vector2);
   // comparing vectors
   BOOL operator==(const FLOAT4D& vector2) const;
   BOOL operator!=(const FLOAT4D& vector2) const;
 
   /* Stream operations */
-  friend inline CTStream& operator>>(CTStream& strm, FLOAT4D& vector) {
-    FLOAT4D_operator_extraction(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
-  friend inline CTStream& operator<<(CTStream& strm, FLOAT4D& vector) {
-    FLOAT4D_operator_insertion(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
+  SECPPAPI friend CTStream& operator>>(CTStream& strm, FLOAT4D& vector);
+  SECPPAPI friend CTStream& operator<<(CTStream& strm, FLOAT4D& vector);
 
   inline FLOAT4D_* C_Handle() { return mp_vector; }
   inline const FLOAT4D_* C_Handle() const { return mp_vector; }
 
 private:
-  const bool m_owner = true;
+  bool m_owner = true;
   FLOAT4D_* mp_vector = nullptr;
 };
 
@@ -225,6 +210,10 @@ public:
   DOUBLE2D(DOUBLE x, DOUBLE y);
   DOUBLE2D(const DOUBLE2D& o);
   ~DOUBLE2D();
+
+  DOUBLE2D(DOUBLE2D&& o);
+  DOUBLE2D& operator=(DOUBLE2D&& o);
+  DOUBLE2D& operator=(const DOUBLE2D& o);
 
   /* Clear function */
   void Clear();
@@ -263,28 +252,19 @@ public:
   DOUBLE2D& operator*=(const DOUBLEmatrix2D& matrix2);
   // scalar product - dot product, inner product
   DOUBLE operator%(const DOUBLE2D& vector2) const;
-  // vector product - cross product, outer product
-  DOUBLE2D operator*(const DOUBLE2D& vector2) const;
-  DOUBLE2D& operator*=(const DOUBLE2D& vector2);
   // comparing vectors
   BOOL operator==(const DOUBLE2D& vector2) const;
   BOOL operator!=(const DOUBLE2D& vector2) const;
 
   /* Stream operations */
-  friend inline CTStream& operator>>(CTStream& strm, DOUBLE2D& vector) {
-    DOUBLE2D_operator_extraction(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
-  friend inline CTStream& operator<<(CTStream& strm, DOUBLE2D& vector) {
-    DOUBLE2D_operator_insertion(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
+  SECPPAPI friend CTStream& operator>>(CTStream& strm, DOUBLE2D& vector);
+  SECPPAPI friend CTStream& operator<<(CTStream& strm, DOUBLE2D& vector);
 
   inline DOUBLE2D_* C_Handle() { return mp_vector; }
   inline const DOUBLE2D_* C_Handle() const { return mp_vector; }
 
 private:
-  const bool m_owner = true;
+  bool m_owner = true;
   DOUBLE2D_* mp_vector = nullptr;
 };
 
@@ -296,6 +276,10 @@ public:
   DOUBLE3D(DOUBLE x, DOUBLE y, DOUBLE z);
   DOUBLE3D(const DOUBLE3D& o);
   ~DOUBLE3D();
+
+  DOUBLE3D(DOUBLE3D&& o);
+  DOUBLE3D& operator=(DOUBLE3D&& o);
+  DOUBLE3D& operator=(const DOUBLE3D& o);
 
   /* Clear function */
   void Clear();
@@ -342,20 +326,14 @@ public:
   BOOL operator!=(const DOUBLE3D& vector2) const;
 
   /* Stream operations */
-  friend inline CTStream& operator>>(CTStream& strm, DOUBLE3D& vector) {
-    DOUBLE3D_operator_extraction(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
-  friend inline CTStream& operator<<(CTStream& strm, DOUBLE3D& vector) {
-    DOUBLE3D_operator_insertion(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
+  SECPPAPI friend CTStream& operator>>(CTStream& strm, DOUBLE3D& vector);
+  SECPPAPI friend CTStream& operator<<(CTStream& strm, DOUBLE3D& vector);
 
   inline DOUBLE3D_* C_Handle() { return mp_vector; }
   inline const DOUBLE3D_* C_Handle() const { return mp_vector; }
 
 private:
-  const bool m_owner = true;
+  bool m_owner = true;
   DOUBLE3D_* mp_vector = nullptr;
 };
 
@@ -367,6 +345,10 @@ public:
   DOUBLE4D(DOUBLE x, DOUBLE y, DOUBLE z, DOUBLE w);
   DOUBLE4D(const DOUBLE4D& o);
   ~DOUBLE4D();
+
+  DOUBLE4D(DOUBLE4D&& o);
+  DOUBLE4D& operator=(DOUBLE4D&& o);
+  DOUBLE4D& operator=(const DOUBLE4D& o);
 
   /* Clear function */
   void Clear();
@@ -405,28 +387,19 @@ public:
   DOUBLE4D& operator*=(const DOUBLEmatrix4D& matrix2);
   // scalar product - dot product, inner product
   DOUBLE operator%(const DOUBLE4D& vector2) const;
-  // vector product - cross product, outer product
-  DOUBLE4D operator*(const DOUBLE4D& vector2) const;
-  DOUBLE4D& operator*=(const DOUBLE4D& vector2);
   // comparing vectors
   BOOL operator==(const DOUBLE4D& vector2) const;
   BOOL operator!=(const DOUBLE4D& vector2) const;
 
   /* Stream operations */
-  friend inline CTStream& operator>>(CTStream& strm, DOUBLE4D& vector) {
-    DOUBLE4D_operator_extraction(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
-  friend inline CTStream& operator<<(CTStream& strm, DOUBLE4D& vector) {
-    DOUBLE4D_operator_insertion(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
+  SECPPAPI friend CTStream& operator>>(CTStream& strm, DOUBLE4D& vector);
+  SECPPAPI friend CTStream& operator<<(CTStream& strm, DOUBLE4D& vector);
 
   inline DOUBLE4D_* C_Handle() { return mp_vector; }
   inline const DOUBLE4D_* C_Handle() const { return mp_vector; }
 
 private:
-  const bool m_owner = true;
+  bool m_owner = true;
   DOUBLE4D_* mp_vector = nullptr;
 };
 
@@ -438,6 +411,10 @@ public:
   INDEX2D(INDEX x, INDEX y);
   INDEX2D(const INDEX2D& o);
   ~INDEX2D();
+
+  INDEX2D(INDEX2D&& o);
+  INDEX2D& operator=(INDEX2D&& o);
+  INDEX2D& operator=(const INDEX2D& o);
 
   /* Clear function */
   void Clear();
@@ -476,28 +453,19 @@ public:
   INDEX2D& operator*=(const INDEXmatrix2D& matrix2);
   // scalar product - dot product, inner product
   INDEX operator%(const INDEX2D& vector2) const;
-  // vector product - cross product, outer product
-  INDEX2D operator*(const INDEX2D& vector2) const;
-  INDEX2D& operator*=(const INDEX2D& vector2);
   // comparing vectors
   BOOL operator==(const INDEX2D& vector2) const;
   BOOL operator!=(const INDEX2D& vector2) const;
 
   /* Stream operations */
-  friend inline CTStream& operator>>(CTStream& strm, INDEX2D& vector) {
-    INDEX2D_operator_extraction(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
-  friend inline CTStream& operator<<(CTStream& strm, INDEX2D& vector) {
-    INDEX2D_operator_insertion(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
+  SECPPAPI friend CTStream& operator>>(CTStream& strm, INDEX2D& vector);
+  SECPPAPI friend CTStream& operator<<(CTStream& strm, INDEX2D& vector);
 
   inline INDEX2D_* C_Handle() { return mp_vector; }
   inline const INDEX2D_* C_Handle() const { return mp_vector; }
 
 private:
-  const bool m_owner = true;
+  bool m_owner = true;
   INDEX2D_* mp_vector = nullptr;
 };
 
@@ -509,6 +477,10 @@ public:
   INDEX3D(INDEX x, INDEX y, INDEX z);
   INDEX3D(const INDEX3D& o);
   ~INDEX3D();
+
+  INDEX3D(INDEX3D&& o);
+  INDEX3D& operator=(INDEX3D&& o);
+  INDEX3D& operator=(const INDEX3D& o);
 
   /* Clear function */
   void Clear();
@@ -555,20 +527,14 @@ public:
   BOOL operator!=(const INDEX3D& vector2) const;
 
   /* Stream operations */
-  friend inline CTStream& operator>>(CTStream& strm, INDEX3D& vector) {
-    INDEX3D_operator_extraction(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
-  friend inline CTStream& operator<<(CTStream& strm, INDEX3D& vector) {
-    INDEX3D_operator_insertion(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
+  SECPPAPI friend CTStream& operator>>(CTStream& strm, INDEX3D& vector);
+  SECPPAPI friend CTStream& operator<<(CTStream& strm, INDEX3D& vector);
 
   inline INDEX3D_* C_Handle() { return mp_vector; }
   inline const INDEX3D_* C_Handle() const { return mp_vector; }
 
 private:
-  const bool m_owner = true;
+  bool m_owner = true;
   INDEX3D_* mp_vector = nullptr;
 };
 
@@ -580,6 +546,10 @@ public:
   INDEX4D(INDEX x, INDEX y, INDEX z, INDEX w);
   INDEX4D(const INDEX4D& o);
   ~INDEX4D();
+
+  INDEX4D(INDEX4D&& o);
+  INDEX4D& operator=(INDEX4D&& o);
+  INDEX4D& operator=(const INDEX4D& o);
 
   /* Clear function */
   void Clear();
@@ -618,27 +588,32 @@ public:
   INDEX4D& operator*=(const INDEXmatrix4D& matrix2);
   // scalar product - dot product, inner product
   INDEX operator%(const INDEX4D& vector2) const;
-  // vector product - cross product, outer product
-  INDEX4D operator*(const INDEX4D& vector2) const;
-  INDEX4D& operator*=(const INDEX4D& vector2);
   // comparing vectors
   BOOL operator==(const INDEX4D& vector2) const;
   BOOL operator!=(const INDEX4D& vector2) const;
 
   /* Stream operations */
-  friend inline CTStream& operator>>(CTStream& strm, INDEX4D& vector) {
-    INDEX4D_operator_extraction(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
-  friend inline CTStream& operator<<(CTStream& strm, INDEX4D& vector) {
-    INDEX4D_operator_insertion(strm.C_Handle(), vector.C_Handle());
-    return strm;
-  }
+  SECPPAPI friend CTStream& operator>>(CTStream& strm, INDEX4D& vector);
+  SECPPAPI friend CTStream& operator<<(CTStream& strm, INDEX4D& vector);
 
   inline INDEX4D_* C_Handle() { return mp_vector; }
   inline const INDEX4D_* C_Handle() const { return mp_vector; }
 
 private:
-  const bool m_owner = true;
+  bool m_owner = true;
   INDEX4D_* mp_vector = nullptr;
 };
+
+SECPPAPI FLOAT2D ComponentProduct(const FLOAT2D& a, const FLOAT2D& b);
+SECPPAPI FLOAT3D ComponentProduct(const FLOAT3D& a, const FLOAT3D& b);
+SECPPAPI FLOAT4D ComponentProduct(const FLOAT4D& a, const FLOAT4D& b);
+SECPPAPI DOUBLE2D ComponentProduct(const DOUBLE2D& a, const DOUBLE2D& b);
+SECPPAPI DOUBLE3D ComponentProduct(const DOUBLE3D& a, const DOUBLE3D& b);
+SECPPAPI DOUBLE4D ComponentProduct(const DOUBLE4D& a, const DOUBLE4D& b);
+SECPPAPI INDEX2D ComponentProduct(const INDEX2D& a, const INDEX2D& b);
+SECPPAPI INDEX3D ComponentProduct(const INDEX3D& a, const INDEX3D& b);
+SECPPAPI INDEX4D ComponentProduct(const INDEX4D& a, const INDEX4D& b);
+
+// helper functions for converting between FLOAT and DOUBLE vectors
+SECPPAPI DOUBLE3D FLOATtoDOUBLE(const FLOAT3D& vf);
+SECPPAPI FLOAT3D DOUBLEtoFLOAT(const DOUBLE3D& vd);

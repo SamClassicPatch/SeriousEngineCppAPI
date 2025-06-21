@@ -1,2 +1,121 @@
 #pragma once
 #include "Types.h"
+
+class SECPPAPI CTString
+{
+public:
+  explicit CTString(CTString_* p, bool owner = false);
+  CTString();
+  CTString(const CTString& strOriginal);
+  CTString(const char* pString);
+  CTString(INDEX iDummy, const char* strFormat, ...);
+  ~CTString();
+
+  CTString(CTString&& o);
+  CTString& operator=(CTString&& o);
+
+  using TStrType = char*;
+  TStrType& str_String();
+  const TStrType& str_String() const;
+
+  void Clear();
+
+  /* Conversion into character string. */
+  operator const char* () const;
+
+  /* Assignment. */
+  CTString& operator=(const char* strCharString);
+  CTString& operator=(const CTString& strOther);
+
+  /* Check if string data is valid. */
+  BOOL IsValid() const;
+
+  // return length of the string
+  INDEX Length() const;
+  INDEX LengthNaked() const;
+
+  // strip decorations from the string
+  CTString Undecorated() const;
+
+  /* Find index of a substring in a string (returns -1 if not found). */
+  INDEX FindSubstr(const CTString& strSub);
+  /* Replace a substring in a string. */
+  BOOL ReplaceSubstr(const CTString& strSub, const CTString& strNewSub);
+  /* Check if has given prefix */
+  BOOL HasPrefix(const CTString& strPrefix) const;
+  /* Remove given prefix string from this string */
+  BOOL RemovePrefix(const CTString& strPrefix);
+  /* Trim the string to contain at most given number of characters. */
+  INDEX TrimLeft(INDEX ctCharacters);
+  INDEX TrimRight(INDEX ctCharacters);
+  /* Trim the string from spaces. */
+  INDEX TrimSpacesLeft();
+  INDEX TrimSpacesRight();
+  /* Calcuate hashing value for the string. */
+  ULONG GetHash() const;
+  // retain only first line of the string
+  void OnlyFirstLine();
+
+  /* Equality comparison. */
+  BOOL operator==(const CTString& strOther) const;
+  BOOL operator==(const char* strOther) const;
+  SECPPAPI friend BOOL operator==(const char* strThis, const CTString& strOther);
+  /* Inequality comparison. */
+  BOOL operator!=(const CTString& strOther) const;
+  BOOL operator!=(const char* strOther) const;
+  SECPPAPI friend BOOL operator!=(const char* strThis, const CTString& strOther);
+  // wild card comparison (other string may contain wildcards)
+  BOOL Matches(const CTString& strOther) const;
+  BOOL Matches(const char* strOther) const;
+
+  /* String concatenation. */
+  CTString operator+(const CTString& strSecond) const;
+  CTString& operator+=(const CTString& strSecond);
+  SECPPAPI friend CTString operator+(const char* strFirst, const CTString& strSecond);
+
+  // split string in two strings at specified position (char AT splitting position goes to str2)
+  void Split(INDEX iPos, CTString& str1, CTString& str2);
+  void InsertChar(INDEX iPos, char cChr); // insert char at position
+  void DeleteChar(INDEX iPos); // delete char at position
+
+  /* Throw exception */
+  void Throw_t();
+
+  /* Read from stream. */
+  SECPPAPI friend CTStream& operator>>(CTStream& strmStream, CTString& strString);
+  void ReadFromText_t(CTStream& strmStream, const CTString& strKeyword); // throw char *
+  /* Write to stream. */
+  SECPPAPI friend CTStream& operator<<(CTStream& strmStream, const CTString& strString);
+
+  /* Load an entire text file into a string. */
+  void Load_t(const CTFileName& fnmFile);  // throw char *
+  void LoadKeepCRLF_t(const CTFileName& fnmFile);  // throw char *
+  void ReadUntilEOF_t(CTStream& strmStream);  // throw char *
+  /* Save an entire string into a text file. */
+  void Save_t(const CTFileName& fnmFile);  // throw char *
+  void SaveKeepCRLF_t(const CTFileName& fnmFile);  // throw char *
+
+  // Print formatted to a string
+  INDEX PrintF(const char* strFormat, ...);
+  INDEX VPrintF(const char* strFormat, va_list arg);
+  // Scan formatted from a string
+  INDEX ScanF(const char* strFormat, ...);
+
+  // variable management functions
+  void LoadVar(const CTFileName& fnmFile);
+  void SaveVar(const CTFileName& fnmFile);
+
+  CTString_* C_Handle() { return mp_string; }
+  const CTString_* C_Handle() const { return mp_string; }
+private:
+  bool m_owner = true;
+  CTString_* mp_string = nullptr;
+};
+
+// general variable functions
+SECPPAPI void LoadStringVar(const CTFileName& fnmVar, CTString& strVar);
+SECPPAPI void SaveStringVar(const CTFileName& fnmVar, CTString& strVar);
+SECPPAPI void LoadIntVar(const CTFileName& fnmVar, INDEX& iVar);
+SECPPAPI void SaveIntVar(const CTFileName& fnmVar, INDEX iVar);
+
+SECPPAPI CTString RemoveSpecialCodes(const CTString& str);

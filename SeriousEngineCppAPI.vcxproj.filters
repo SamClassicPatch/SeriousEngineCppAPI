@@ -57,5 +57,11 @@
     <ClCompile Include="Math\Vector.cpp">
       <Filter>Math</Filter>
     </ClCompile>
+    <ClCompile Include="Base\CTString.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Base\Exception.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

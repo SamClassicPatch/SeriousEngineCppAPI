@@ -1,4 +1,413 @@
 #include "Vector.h"
+#include "Matrix.h"
+#include "../Base/Stream.h"
+#include <SeriousEngineCAPI/Math/Vector.h>
+
+FLOAT2D ComponentProduct(const FLOAT2D& a, const FLOAT2D& b)
+{
+  return FLOAT2D(FLOAT2D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
+}
+
+FLOAT3D ComponentProduct(const FLOAT3D& a, const FLOAT3D& b)
+{
+  return FLOAT3D(FLOAT3D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
+}
+
+FLOAT4D ComponentProduct(const FLOAT4D& a, const FLOAT4D& b)
+{
+  return FLOAT4D(FLOAT4D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
+}
+
+DOUBLE2D ComponentProduct(const DOUBLE2D& a, const DOUBLE2D& b)
+{
+  return DOUBLE2D(DOUBLE2D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
+}
+
+DOUBLE3D ComponentProduct(const DOUBLE3D& a, const DOUBLE3D& b)
+{
+  return DOUBLE3D(DOUBLE3D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
+}
+
+DOUBLE4D ComponentProduct(const DOUBLE4D& a, const DOUBLE4D& b)
+{
+  return DOUBLE4D(DOUBLE4D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
+}
+
+INDEX2D ComponentProduct(const INDEX2D& a, const INDEX2D& b)
+{
+  return INDEX2D(INDEX2D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
+}
+
+INDEX3D ComponentProduct(const INDEX3D& a, const INDEX3D& b)
+{
+  return INDEX3D(INDEX3D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
+}
+
+INDEX4D ComponentProduct(const INDEX4D& a, const INDEX4D& b)
+{
+  return INDEX4D(INDEX4D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
+}
+
+DOUBLE3D FLOATtoDOUBLE(const FLOAT3D& vf)
+{
+  return DOUBLE3D(FLOAT2DOUBLE(vf.C_Handle()), true);
+}
+
+FLOAT3D DOUBLEtoFLOAT(const DOUBLE3D& vd)
+{
+  return FLOAT3D(DOUBLE2FLOAT(vd.C_Handle()), true);
+}
+
+CTStream& operator>>(CTStream& strm, FLOAT2D& vector)
+{
+  FLOAT2D_extract(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator<<(CTStream& strm, FLOAT2D& vector)
+{
+  FLOAT2D_insert(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator>>(CTStream& strm, FLOAT3D& vector)
+{
+  FLOAT3D_extract(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator<<(CTStream& strm, FLOAT3D& vector)
+{
+  FLOAT3D_insert(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator>>(CTStream& strm, FLOAT4D& vector)
+{
+  FLOAT4D_extract(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator<<(CTStream& strm, FLOAT4D& vector)
+{
+  FLOAT4D_insert(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator>>(CTStream& strm, DOUBLE2D& vector)
+{
+  DOUBLE2D_extract(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator<<(CTStream& strm, DOUBLE2D& vector)
+{
+  DOUBLE2D_insert(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator>>(CTStream& strm, DOUBLE3D& vector)
+{
+  DOUBLE3D_extract(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator<<(CTStream& strm, DOUBLE3D& vector)
+{
+  DOUBLE3D_insert(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator>>(CTStream& strm, DOUBLE4D& vector)
+{
+  DOUBLE4D_extract(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator<<(CTStream& strm, DOUBLE4D& vector)
+{
+  DOUBLE4D_insert(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator>>(CTStream& strm, INDEX2D& vector)
+{
+  INDEX2D_extract(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator<<(CTStream& strm, INDEX2D& vector)
+{
+  INDEX2D_insert(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator>>(CTStream& strm, INDEX3D& vector)
+{
+  INDEX3D_extract(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator<<(CTStream& strm, INDEX3D& vector)
+{
+  INDEX3D_insert(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator>>(CTStream& strm, INDEX4D& vector)
+{
+  INDEX4D_extract(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+CTStream& operator<<(CTStream& strm, INDEX4D& vector)
+{
+  INDEX4D_insert(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+FLOAT2D::FLOAT2D(FLOAT2D&& o)
+  : m_owner(o.m_owner)
+  , mp_vector(o.mp_vector)
+{
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+}
+
+FLOAT2D& FLOAT2D::operator=(FLOAT2D&& o)
+{
+  if (m_owner)
+    FLOAT2D_delete(mp_vector);
+  m_owner = o.m_owner;
+  mp_vector = o.mp_vector;
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+  return *this;
+}
+
+FLOAT2D& FLOAT2D::operator=(const FLOAT2D& o)
+{
+  FLOAT2D_copy(mp_vector, o.mp_vector);
+  return *this;
+}
+
+FLOAT3D::FLOAT3D(FLOAT3D&& o)
+  : m_owner(o.m_owner)
+  , mp_vector(o.mp_vector)
+{
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+}
+
+FLOAT3D& FLOAT3D::operator=(FLOAT3D&& o)
+{
+  if (m_owner)
+    FLOAT3D_delete(mp_vector);
+  m_owner = o.m_owner;
+  mp_vector = o.mp_vector;
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+  return *this;
+}
+
+FLOAT3D& FLOAT3D::operator=(const FLOAT3D& o)
+{
+  FLOAT3D_copy(mp_vector, o.mp_vector);
+  return *this;
+}
+
+FLOAT4D::FLOAT4D(FLOAT4D&& o)
+  : m_owner(o.m_owner)
+  , mp_vector(o.mp_vector)
+{
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+}
+
+FLOAT4D& FLOAT4D::operator=(FLOAT4D&& o)
+{
+  if (m_owner)
+    FLOAT4D_delete(mp_vector);
+  m_owner = o.m_owner;
+  mp_vector = o.mp_vector;
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+  return *this;
+}
+
+FLOAT4D& FLOAT4D::operator=(const FLOAT4D& o)
+{
+  FLOAT4D_copy(mp_vector, o.mp_vector);
+  return *this;
+}
+
+DOUBLE2D::DOUBLE2D(DOUBLE2D&& o)
+  : m_owner(o.m_owner)
+  , mp_vector(o.mp_vector)
+{
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+}
+
+DOUBLE2D& DOUBLE2D::operator=(DOUBLE2D&& o)
+{
+  if (m_owner)
+    DOUBLE2D_delete(mp_vector);
+  m_owner = o.m_owner;
+  mp_vector = o.mp_vector;
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+  return *this;
+}
+
+DOUBLE2D& DOUBLE2D::operator=(const DOUBLE2D& o)
+{
+  DOUBLE2D_copy(mp_vector, o.mp_vector);
+  return *this;
+}
+
+DOUBLE3D::DOUBLE3D(DOUBLE3D&& o)
+  : m_owner(o.m_owner)
+  , mp_vector(o.mp_vector)
+{
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+}
+
+DOUBLE3D& DOUBLE3D::operator=(DOUBLE3D&& o)
+{
+  if (m_owner)
+    DOUBLE3D_delete(mp_vector);
+  m_owner = o.m_owner;
+  mp_vector = o.mp_vector;
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+  return *this;
+}
+
+DOUBLE3D& DOUBLE3D::operator=(const DOUBLE3D& o)
+{
+  DOUBLE3D_copy(mp_vector, o.mp_vector);
+  return *this;
+}
+
+DOUBLE4D::DOUBLE4D(DOUBLE4D&& o)
+  : m_owner(o.m_owner)
+  , mp_vector(o.mp_vector)
+{
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+}
+
+DOUBLE4D& DOUBLE4D::operator=(DOUBLE4D&& o)
+{
+  if (m_owner)
+    DOUBLE4D_delete(mp_vector);
+  m_owner = o.m_owner;
+  mp_vector = o.mp_vector;
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+  return *this;
+}
+
+DOUBLE4D& DOUBLE4D::operator=(const DOUBLE4D& o)
+{
+  DOUBLE4D_copy(mp_vector, o.mp_vector);
+  return *this;
+}
+
+INDEX2D::INDEX2D(INDEX2D&& o)
+  : m_owner(o.m_owner)
+  , mp_vector(o.mp_vector)
+{
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+}
+
+INDEX2D& INDEX2D::operator=(INDEX2D&& o)
+{
+  if (m_owner)
+    INDEX2D_delete(mp_vector);
+  m_owner = o.m_owner;
+  mp_vector = o.mp_vector;
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+  return *this;
+}
+
+INDEX2D& INDEX2D::operator=(const INDEX2D& o)
+{
+  INDEX2D_copy(mp_vector, o.mp_vector);
+  return *this;
+}
+
+INDEX3D::INDEX3D(INDEX3D&& o)
+  : m_owner(o.m_owner)
+  , mp_vector(o.mp_vector)
+{
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+}
+
+INDEX3D& INDEX3D::operator=(INDEX3D&& o)
+{
+  if (m_owner)
+    INDEX3D_delete(mp_vector);
+  m_owner = o.m_owner;
+  mp_vector = o.mp_vector;
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+  return *this;
+}
+
+INDEX3D& INDEX3D::operator=(const INDEX3D& o)
+{
+  INDEX3D_copy(mp_vector, o.mp_vector);
+  return *this;
+}
+
+INDEX4D::INDEX4D(INDEX4D&& o)
+  : m_owner(o.m_owner)
+  , mp_vector(o.mp_vector)
+{
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+}
+
+INDEX4D& INDEX4D::operator=(INDEX4D&& o)
+{
+  if (m_owner)
+    INDEX4D_delete(mp_vector);
+  m_owner = o.m_owner;
+  mp_vector = o.mp_vector;
+  o.m_owner = false;
+  o.mp_vector = nullptr;
+  return *this;
+}
+
+INDEX4D& INDEX4D::operator=(const INDEX4D& o)
+{
+  INDEX4D_copy(mp_vector, o.mp_vector);
+  return *this;
+}
 
 FLOAT2D::FLOAT2D(FLOAT2D_* p, bool owner)
   : m_owner(owner)
@@ -52,12 +461,12 @@ FLOAT FLOAT2D::MaxNorm() const
 
 FLOAT& FLOAT2D::operator()(INDEX i)
 {
-  return *FLOAT2D_operator_braces(mp_vector, i);
+  return *FLOAT2D_Element(mp_vector, i);
 }
 
 FLOAT FLOAT2D::operator()(INDEX i) const
 {
-  return FLOAT2D_operator_braces_const(mp_vector, i);
+  return FLOAT2D_Element_const(mp_vector, i);
 }
 
 FLOAT2D& FLOAT2D::Normalize()
@@ -80,61 +489,61 @@ FLOAT2D& FLOAT2D::Flip()
 
 FLOAT2D FLOAT2D::operator-() const
 {
-  return FLOAT2D(FLOAT2D_operator_unary_minus(mp_vector), true);
+  return FLOAT2D(FLOAT2D_Negative(mp_vector), true);
 }
 
 FLOAT2D FLOAT2D::operator+(const FLOAT2D& vector2) const
 {
-  return FLOAT2D(FLOAT2D_operator_plus(mp_vector, vector2.mp_vector), true);
+  return FLOAT2D(FLOAT2D_Plus(mp_vector, vector2.mp_vector), true);
 }
 
 FLOAT2D& FLOAT2D::operator+=(const FLOAT2D& vector2)
 {
-  FLOAT2D_operator_plusequal(mp_vector, vector2.mp_vector);
+  FLOAT2D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 FLOAT2D FLOAT2D::operator-(const FLOAT2D& vector2) const
 {
-  return FLOAT2D(FLOAT2D_operator_minus(mp_vector, vector2.mp_vector), true);
+  return FLOAT2D(FLOAT2D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 FLOAT2D& FLOAT2D::operator-=(const FLOAT2D& vector2)
 {
-  FLOAT2D_operator_minusequal(mp_vector, vector2.mp_vector);
+  FLOAT2D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 FLOAT2D FLOAT2D::operator*(const FLOAT scalar) const
 {
-  return FLOAT2D(FLOAT2D_operator_mul(mp_vector, scalar), true);
+  return FLOAT2D(FLOAT2D_Multiply(mp_vector, scalar), true);
 }
 
 FLOAT2D& FLOAT2D::operator*=(const FLOAT scalar)
 {
-  FLOAT2D_operator_mulequal(mp_vector, scalar);
+  FLOAT2D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
 FLOAT2D FLOAT2D::operator/(const FLOAT scalar) const
 {
-  return FLOAT2D(FLOAT2D_operator_div(mp_vector, scalar), true);
+  return FLOAT2D(FLOAT2D_Divide(mp_vector, scalar), true);
 }
 
 FLOAT2D& FLOAT2D::operator/=(const FLOAT scalar)
 {
-  FLOAT2D_operator_divequal(mp_vector, scalar);
+  FLOAT2D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
 FLOAT2D FLOAT2D::operator*(const FLOATmatrix2D& matrix2) const
 {
-  return FLOAT2D(FLOAT2D_operator_mul_matrix(mp_vector, matrix2.C_Handle()), true);
+  return FLOAT2D(FLOAT2D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 FLOAT2D& FLOAT2D::operator*=(const FLOATmatrix2D& matrix2)
 {
-  FLOAT2D_operator_mulequal_matrix(mp_vector, matrix2.C_Handle());
+  FLOAT2D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
@@ -143,25 +552,14 @@ FLOAT FLOAT2D::operator%(const FLOAT2D& vector2) const
   return FLOAT2D_Dot(mp_vector, vector2.mp_vector);
 }
 
-FLOAT2D FLOAT2D::operator*(const FLOAT2D& vector2) const
-{
-  return FLOAT2D(FLOAT2D_operator_mul_vector(mp_vector, vector2.mp_vector), true);
-}
-
-FLOAT2D& FLOAT2D::operator*=(const FLOAT2D& vector2)
-{
-  FLOAT2D_operator_mulequal_vector(mp_vector, vector2.mp_vector);
-  return *this;
-}
-
 BOOL FLOAT2D::operator==(const FLOAT2D& vector2) const
 {
-  return FLOAT2D_operator_equals(mp_vector, vector2.mp_vector);
+  return FLOAT2D_equal(mp_vector, vector2.mp_vector);
 }
 
 BOOL FLOAT2D::operator!=(const FLOAT2D& vector2) const
 {
-  return FLOAT2D_operator_notequals(mp_vector, vector2.mp_vector);
+  return FLOAT2D_notequal(mp_vector, vector2.mp_vector);
 }
 
 FLOAT3D::FLOAT3D(FLOAT3D_* p, bool owner)
@@ -216,12 +614,12 @@ FLOAT FLOAT3D::MaxNorm() const
 
 FLOAT& FLOAT3D::operator()(INDEX i)
 {
-  return *FLOAT3D_operator_braces(mp_vector, i);
+  return *FLOAT3D_Element(mp_vector, i);
 }
 
 FLOAT FLOAT3D::operator()(INDEX i) const
 {
-  return FLOAT3D_operator_braces_const(mp_vector, i);
+  return FLOAT3D_Element_const(mp_vector, i);
 }
 
 FLOAT3D& FLOAT3D::Normalize()
@@ -244,61 +642,61 @@ FLOAT3D& FLOAT3D::Flip()
 
 FLOAT3D FLOAT3D::operator-() const
 {
-  return FLOAT3D(FLOAT3D_operator_unary_minus(mp_vector), true);
+  return FLOAT3D(FLOAT3D_Negative(mp_vector), true);
 }
 
 FLOAT3D FLOAT3D::operator+(const FLOAT3D& vector2) const
 {
-  return FLOAT3D(FLOAT3D_operator_plus(mp_vector, vector2.mp_vector), true);
+  return FLOAT3D(FLOAT3D_Plus(mp_vector, vector2.mp_vector), true);
 }
 
 FLOAT3D& FLOAT3D::operator+=(const FLOAT3D& vector2)
 {
-  FLOAT3D_operator_plusequal(mp_vector, vector2.mp_vector);
+  FLOAT3D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 FLOAT3D FLOAT3D::operator-(const FLOAT3D& vector2) const
 {
-  return FLOAT3D(FLOAT3D_operator_minus(mp_vector, vector2.mp_vector), true);
+  return FLOAT3D(FLOAT3D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 FLOAT3D& FLOAT3D::operator-=(const FLOAT3D& vector2)
 {
-  FLOAT3D_operator_minusequal(mp_vector, vector2.mp_vector);
+  FLOAT3D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 FLOAT3D FLOAT3D::operator*(const FLOAT scalar) const
 {
-  return FLOAT3D(FLOAT3D_operator_mul(mp_vector, scalar), true);
+  return FLOAT3D(FLOAT3D_Multiply(mp_vector, scalar), true);
 }
 
 FLOAT3D& FLOAT3D::operator*=(const FLOAT scalar)
 {
-  FLOAT3D_operator_mulequal(mp_vector, scalar);
+  FLOAT3D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
 FLOAT3D FLOAT3D::operator/(const FLOAT scalar) const
 {
-  return FLOAT3D(FLOAT3D_operator_div(mp_vector, scalar), true);
+  return FLOAT3D(FLOAT3D_Divide(mp_vector, scalar), true);
 }
 
 FLOAT3D& FLOAT3D::operator/=(const FLOAT scalar)
 {
-  FLOAT3D_operator_divequal(mp_vector, scalar);
+  FLOAT3D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
 FLOAT3D FLOAT3D::operator*(const FLOATmatrix3D& matrix2) const
 {
-  return FLOAT3D(FLOAT3D_operator_mul_matrix(mp_vector, matrix2.C_Handle()), true);
+  return FLOAT3D(FLOAT3D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 FLOAT3D& FLOAT3D::operator*=(const FLOATmatrix3D& matrix2)
 {
-  FLOAT3D_operator_mulequal_matrix(mp_vector, matrix2.C_Handle());
+  FLOAT3D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
@@ -309,23 +707,23 @@ FLOAT FLOAT3D::operator%(const FLOAT3D& vector2) const
 
 FLOAT3D FLOAT3D::operator*(const FLOAT3D& vector2) const
 {
-  return FLOAT3D(FLOAT3D_operator_mul_vector(mp_vector, vector2.mp_vector), true);
+  return FLOAT3D(FLOAT3D_Multiply_vector(mp_vector, vector2.mp_vector), true);
 }
 
 FLOAT3D& FLOAT3D::operator*=(const FLOAT3D& vector2)
 {
-  FLOAT3D_operator_mulequal_vector(mp_vector, vector2.mp_vector);
+  FLOAT3D_MultiplyInplace_vector(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 BOOL FLOAT3D::operator==(const FLOAT3D& vector2) const
 {
-  return FLOAT3D_operator_equals(mp_vector, vector2.mp_vector);
+  return FLOAT3D_equal(mp_vector, vector2.mp_vector);
 }
 
 BOOL FLOAT3D::operator!=(const FLOAT3D& vector2) const
 {
-  return FLOAT3D_operator_notequals(mp_vector, vector2.mp_vector);
+  return FLOAT3D_notequal(mp_vector, vector2.mp_vector);
 }
 
 FLOAT4D::FLOAT4D(FLOAT4D_* p, bool owner)
@@ -380,12 +778,12 @@ FLOAT FLOAT4D::MaxNorm() const
 
 FLOAT& FLOAT4D::operator()(INDEX i)
 {
-  return *FLOAT4D_operator_braces(mp_vector, i);
+  return *FLOAT4D_Element(mp_vector, i);
 }
 
 FLOAT FLOAT4D::operator()(INDEX i) const
 {
-  return FLOAT4D_operator_braces_const(mp_vector, i);
+  return FLOAT4D_Element_const(mp_vector, i);
 }
 
 FLOAT4D& FLOAT4D::Normalize()
@@ -408,61 +806,61 @@ FLOAT4D& FLOAT4D::Flip()
 
 FLOAT4D FLOAT4D::operator-() const
 {
-  return FLOAT4D(FLOAT4D_operator_unary_minus(mp_vector), true);
+  return FLOAT4D(FLOAT4D_Negative(mp_vector), true);
 }
 
 FLOAT4D FLOAT4D::operator+(const FLOAT4D& vector2) const
 {
-  return FLOAT4D(FLOAT4D_operator_plus(mp_vector, vector2.mp_vector), true);
+  return FLOAT4D(FLOAT4D_Plus(mp_vector, vector2.mp_vector), true);
 }
 
 FLOAT4D& FLOAT4D::operator+=(const FLOAT4D& vector2)
 {
-  FLOAT4D_operator_plusequal(mp_vector, vector2.mp_vector);
+  FLOAT4D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 FLOAT4D FLOAT4D::operator-(const FLOAT4D& vector2) const
 {
-  return FLOAT4D(FLOAT4D_operator_minus(mp_vector, vector2.mp_vector), true);
+  return FLOAT4D(FLOAT4D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 FLOAT4D& FLOAT4D::operator-=(const FLOAT4D& vector2)
 {
-  FLOAT4D_operator_minusequal(mp_vector, vector2.mp_vector);
+  FLOAT4D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 FLOAT4D FLOAT4D::operator*(const FLOAT scalar) const
 {
-  return FLOAT4D(FLOAT4D_operator_mul(mp_vector, scalar), true);
+  return FLOAT4D(FLOAT4D_Multiply(mp_vector, scalar), true);
 }
 
 FLOAT4D& FLOAT4D::operator*=(const FLOAT scalar)
 {
-  FLOAT4D_operator_mulequal(mp_vector, scalar);
+  FLOAT4D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
 FLOAT4D FLOAT4D::operator/(const FLOAT scalar) const
 {
-  return FLOAT4D(FLOAT4D_operator_div(mp_vector, scalar), true);
+  return FLOAT4D(FLOAT4D_Divide(mp_vector, scalar), true);
 }
 
 FLOAT4D& FLOAT4D::operator/=(const FLOAT scalar)
 {
-  FLOAT4D_operator_divequal(mp_vector, scalar);
+  FLOAT4D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
 FLOAT4D FLOAT4D::operator*(const FLOATmatrix4D& matrix2) const
 {
-  return FLOAT4D(FLOAT4D_operator_mul_matrix(mp_vector, matrix2.C_Handle()), true);
+  return FLOAT4D(FLOAT4D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 FLOAT4D& FLOAT4D::operator*=(const FLOATmatrix4D& matrix2)
 {
-  FLOAT4D_operator_mulequal_matrix(mp_vector, matrix2.C_Handle());
+  FLOAT4D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
@@ -471,25 +869,14 @@ FLOAT FLOAT4D::operator%(const FLOAT4D& vector2) const
   return FLOAT4D_Dot(mp_vector, vector2.mp_vector);
 }
 
-FLOAT4D FLOAT4D::operator*(const FLOAT4D& vector2) const
-{
-  return FLOAT4D(FLOAT4D_operator_mul_vector(mp_vector, vector2.mp_vector), true);
-}
-
-FLOAT4D& FLOAT4D::operator*=(const FLOAT4D& vector2)
-{
-  FLOAT4D_operator_mulequal_vector(mp_vector, vector2.mp_vector);
-  return *this;
-}
-
 BOOL FLOAT4D::operator==(const FLOAT4D& vector2) const
 {
-  return FLOAT4D_operator_equals(mp_vector, vector2.mp_vector);
+  return FLOAT4D_equal(mp_vector, vector2.mp_vector);
 }
 
 BOOL FLOAT4D::operator!=(const FLOAT4D& vector2) const
 {
-  return FLOAT4D_operator_notequals(mp_vector, vector2.mp_vector);
+  return FLOAT4D_notequal(mp_vector, vector2.mp_vector);
 }
 
 DOUBLE2D::DOUBLE2D(DOUBLE2D_* p, bool owner)
@@ -544,12 +931,12 @@ DOUBLE DOUBLE2D::MaxNorm() const
 
 DOUBLE& DOUBLE2D::operator()(INDEX i)
 {
-  return *DOUBLE2D_operator_braces(mp_vector, i);
+  return *DOUBLE2D_Element(mp_vector, i);
 }
 
 DOUBLE DOUBLE2D::operator()(INDEX i) const
 {
-  return DOUBLE2D_operator_braces_const(mp_vector, i);
+  return DOUBLE2D_Element_const(mp_vector, i);
 }
 
 DOUBLE2D& DOUBLE2D::Normalize()
@@ -572,61 +959,61 @@ DOUBLE2D& DOUBLE2D::Flip()
 
 DOUBLE2D DOUBLE2D::operator-() const
 {
-  return DOUBLE2D(DOUBLE2D_operator_unary_minus(mp_vector), true);
+  return DOUBLE2D(DOUBLE2D_Negative(mp_vector), true);
 }
 
 DOUBLE2D DOUBLE2D::operator+(const DOUBLE2D& vector2) const
 {
-  return DOUBLE2D(DOUBLE2D_operator_plus(mp_vector, vector2.mp_vector), true);
+  return DOUBLE2D(DOUBLE2D_Plus(mp_vector, vector2.mp_vector), true);
 }
 
 DOUBLE2D& DOUBLE2D::operator+=(const DOUBLE2D& vector2)
 {
-  DOUBLE2D_operator_plusequal(mp_vector, vector2.mp_vector);
+  DOUBLE2D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 DOUBLE2D DOUBLE2D::operator-(const DOUBLE2D& vector2) const
 {
-  return DOUBLE2D(DOUBLE2D_operator_minus(mp_vector, vector2.mp_vector), true);
+  return DOUBLE2D(DOUBLE2D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 DOUBLE2D& DOUBLE2D::operator-=(const DOUBLE2D& vector2)
 {
-  DOUBLE2D_operator_minusequal(mp_vector, vector2.mp_vector);
+  DOUBLE2D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 DOUBLE2D DOUBLE2D::operator*(const DOUBLE scalar) const
 {
-  return DOUBLE2D(DOUBLE2D_operator_mul(mp_vector, scalar), true);
+  return DOUBLE2D(DOUBLE2D_Multiply(mp_vector, scalar), true);
 }
 
 DOUBLE2D& DOUBLE2D::operator*=(const DOUBLE scalar)
 {
-  DOUBLE2D_operator_mulequal(mp_vector, scalar);
+  DOUBLE2D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
 DOUBLE2D DOUBLE2D::operator/(const DOUBLE scalar) const
 {
-  return DOUBLE2D(DOUBLE2D_operator_div(mp_vector, scalar), true);
+  return DOUBLE2D(DOUBLE2D_Divide(mp_vector, scalar), true);
 }
 
 DOUBLE2D& DOUBLE2D::operator/=(const DOUBLE scalar)
 {
-  DOUBLE2D_operator_divequal(mp_vector, scalar);
+  DOUBLE2D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
 DOUBLE2D DOUBLE2D::operator*(const DOUBLEmatrix2D& matrix2) const
 {
-  return DOUBLE2D(DOUBLE2D_operator_mul_matrix(mp_vector, matrix2.C_Handle()), true);
+  return DOUBLE2D(DOUBLE2D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 DOUBLE2D& DOUBLE2D::operator*=(const DOUBLEmatrix2D& matrix2)
 {
-  DOUBLE2D_operator_mulequal_matrix(mp_vector, matrix2.C_Handle());
+  DOUBLE2D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
@@ -635,25 +1022,14 @@ DOUBLE DOUBLE2D::operator%(const DOUBLE2D& vector2) const
   return DOUBLE2D_Dot(mp_vector, vector2.mp_vector);
 }
 
-DOUBLE2D DOUBLE2D::operator*(const DOUBLE2D& vector2) const
-{
-  return DOUBLE2D(DOUBLE2D_operator_mul_vector(mp_vector, vector2.mp_vector), true);
-}
-
-DOUBLE2D& DOUBLE2D::operator*=(const DOUBLE2D& vector2)
-{
-  DOUBLE2D_operator_mulequal_vector(mp_vector, vector2.mp_vector);
-  return *this;
-}
-
 BOOL DOUBLE2D::operator==(const DOUBLE2D& vector2) const
 {
-  return DOUBLE2D_operator_equals(mp_vector, vector2.mp_vector);
+  return DOUBLE2D_equal(mp_vector, vector2.mp_vector);
 }
 
 BOOL DOUBLE2D::operator!=(const DOUBLE2D& vector2) const
 {
-  return DOUBLE2D_operator_notequals(mp_vector, vector2.mp_vector);
+  return DOUBLE2D_notequal(mp_vector, vector2.mp_vector);
 }
 
 DOUBLE3D::DOUBLE3D(DOUBLE3D_* p, bool owner)
@@ -708,12 +1084,12 @@ DOUBLE DOUBLE3D::MaxNorm() const
 
 DOUBLE& DOUBLE3D::operator()(INDEX i)
 {
-  return *DOUBLE3D_operator_braces(mp_vector, i);
+  return *DOUBLE3D_Element(mp_vector, i);
 }
 
 DOUBLE DOUBLE3D::operator()(INDEX i) const
 {
-  return DOUBLE3D_operator_braces_const(mp_vector, i);
+  return DOUBLE3D_Element_const(mp_vector, i);
 }
 
 DOUBLE3D& DOUBLE3D::Normalize()
@@ -736,61 +1112,61 @@ DOUBLE3D& DOUBLE3D::Flip()
 
 DOUBLE3D DOUBLE3D::operator-() const
 {
-  return DOUBLE3D(DOUBLE3D_operator_unary_minus(mp_vector), true);
+  return DOUBLE3D(DOUBLE3D_Negative(mp_vector), true);
 }
 
 DOUBLE3D DOUBLE3D::operator+(const DOUBLE3D& vector2) const
 {
-  return DOUBLE3D(DOUBLE3D_operator_plus(mp_vector, vector2.mp_vector), true);
+  return DOUBLE3D(DOUBLE3D_Plus(mp_vector, vector2.mp_vector), true);
 }
 
 DOUBLE3D& DOUBLE3D::operator+=(const DOUBLE3D& vector2)
 {
-  DOUBLE3D_operator_plusequal(mp_vector, vector2.mp_vector);
+  DOUBLE3D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 DOUBLE3D DOUBLE3D::operator-(const DOUBLE3D& vector2) const
 {
-  return DOUBLE3D(DOUBLE3D_operator_minus(mp_vector, vector2.mp_vector), true);
+  return DOUBLE3D(DOUBLE3D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 DOUBLE3D& DOUBLE3D::operator-=(const DOUBLE3D& vector2)
 {
-  DOUBLE3D_operator_minusequal(mp_vector, vector2.mp_vector);
+  DOUBLE3D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 DOUBLE3D DOUBLE3D::operator*(const DOUBLE scalar) const
 {
-  return DOUBLE3D(DOUBLE3D_operator_mul(mp_vector, scalar), true);
+  return DOUBLE3D(DOUBLE3D_Multiply(mp_vector, scalar), true);
 }
 
 DOUBLE3D& DOUBLE3D::operator*=(const DOUBLE scalar)
 {
-  DOUBLE3D_operator_mulequal(mp_vector, scalar);
+  DOUBLE3D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
 DOUBLE3D DOUBLE3D::operator/(const DOUBLE scalar) const
 {
-  return DOUBLE3D(DOUBLE3D_operator_div(mp_vector, scalar), true);
+  return DOUBLE3D(DOUBLE3D_Divide(mp_vector, scalar), true);
 }
 
 DOUBLE3D& DOUBLE3D::operator/=(const DOUBLE scalar)
 {
-  DOUBLE3D_operator_divequal(mp_vector, scalar);
+  DOUBLE3D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
 DOUBLE3D DOUBLE3D::operator*(const DOUBLEmatrix3D& matrix2) const
 {
-  return DOUBLE3D(DOUBLE3D_operator_mul_matrix(mp_vector, matrix2.C_Handle()), true);
+  return DOUBLE3D(DOUBLE3D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 DOUBLE3D& DOUBLE3D::operator*=(const DOUBLEmatrix3D& matrix2)
 {
-  DOUBLE3D_operator_mulequal_matrix(mp_vector, matrix2.C_Handle());
+  DOUBLE3D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
@@ -801,23 +1177,23 @@ DOUBLE DOUBLE3D::operator%(const DOUBLE3D& vector2) const
 
 DOUBLE3D DOUBLE3D::operator*(const DOUBLE3D& vector2) const
 {
-  return DOUBLE3D(DOUBLE3D_operator_mul_vector(mp_vector, vector2.mp_vector), true);
+  return DOUBLE3D(DOUBLE3D_Multiply_vector(mp_vector, vector2.mp_vector), true);
 }
 
 DOUBLE3D& DOUBLE3D::operator*=(const DOUBLE3D& vector2)
 {
-  DOUBLE3D_operator_mulequal_vector(mp_vector, vector2.mp_vector);
+  DOUBLE3D_MultiplyInplace_vector(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 BOOL DOUBLE3D::operator==(const DOUBLE3D& vector2) const
 {
-  return DOUBLE3D_operator_equals(mp_vector, vector2.mp_vector);
+  return DOUBLE3D_equal(mp_vector, vector2.mp_vector);
 }
 
 BOOL DOUBLE3D::operator!=(const DOUBLE3D& vector2) const
 {
-  return DOUBLE3D_operator_notequals(mp_vector, vector2.mp_vector);
+  return DOUBLE3D_notequal(mp_vector, vector2.mp_vector);
 }
 
 DOUBLE4D::DOUBLE4D(DOUBLE4D_* p, bool owner)
@@ -872,12 +1248,12 @@ DOUBLE DOUBLE4D::MaxNorm() const
 
 DOUBLE& DOUBLE4D::operator()(INDEX i)
 {
-  return *DOUBLE4D_operator_braces(mp_vector, i);
+  return *DOUBLE4D_Element(mp_vector, i);
 }
 
 DOUBLE DOUBLE4D::operator()(INDEX i) const
 {
-  return DOUBLE4D_operator_braces_const(mp_vector, i);
+  return DOUBLE4D_Element_const(mp_vector, i);
 }
 
 DOUBLE4D& DOUBLE4D::Normalize()
@@ -900,61 +1276,61 @@ DOUBLE4D& DOUBLE4D::Flip()
 
 DOUBLE4D DOUBLE4D::operator-() const
 {
-  return DOUBLE4D(DOUBLE4D_operator_unary_minus(mp_vector), true);
+  return DOUBLE4D(DOUBLE4D_Negative(mp_vector), true);
 }
 
 DOUBLE4D DOUBLE4D::operator+(const DOUBLE4D& vector2) const
 {
-  return DOUBLE4D(DOUBLE4D_operator_plus(mp_vector, vector2.mp_vector), true);
+  return DOUBLE4D(DOUBLE4D_Plus(mp_vector, vector2.mp_vector), true);
 }
 
 DOUBLE4D& DOUBLE4D::operator+=(const DOUBLE4D& vector2)
 {
-  DOUBLE4D_operator_plusequal(mp_vector, vector2.mp_vector);
+  DOUBLE4D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 DOUBLE4D DOUBLE4D::operator-(const DOUBLE4D& vector2) const
 {
-  return DOUBLE4D(DOUBLE4D_operator_minus(mp_vector, vector2.mp_vector), true);
+  return DOUBLE4D(DOUBLE4D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 DOUBLE4D& DOUBLE4D::operator-=(const DOUBLE4D& vector2)
 {
-  DOUBLE4D_operator_minusequal(mp_vector, vector2.mp_vector);
+  DOUBLE4D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 DOUBLE4D DOUBLE4D::operator*(const DOUBLE scalar) const
 {
-  return DOUBLE4D(DOUBLE4D_operator_mul(mp_vector, scalar), true);
+  return DOUBLE4D(DOUBLE4D_Multiply(mp_vector, scalar), true);
 }
 
 DOUBLE4D& DOUBLE4D::operator*=(const DOUBLE scalar)
 {
-  DOUBLE4D_operator_mulequal(mp_vector, scalar);
+  DOUBLE4D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
 DOUBLE4D DOUBLE4D::operator/(const DOUBLE scalar) const
 {
-  return DOUBLE4D(DOUBLE4D_operator_div(mp_vector, scalar), true);
+  return DOUBLE4D(DOUBLE4D_Divide(mp_vector, scalar), true);
 }
 
 DOUBLE4D& DOUBLE4D::operator/=(const DOUBLE scalar)
 {
-  DOUBLE4D_operator_divequal(mp_vector, scalar);
+  DOUBLE4D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
 DOUBLE4D DOUBLE4D::operator*(const DOUBLEmatrix4D& matrix2) const
 {
-  return DOUBLE4D(DOUBLE4D_operator_mul_matrix(mp_vector, matrix2.C_Handle()), true);
+  return DOUBLE4D(DOUBLE4D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 DOUBLE4D& DOUBLE4D::operator*=(const DOUBLEmatrix4D& matrix2)
 {
-  DOUBLE4D_operator_mulequal_matrix(mp_vector, matrix2.C_Handle());
+  DOUBLE4D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
@@ -963,25 +1339,14 @@ DOUBLE DOUBLE4D::operator%(const DOUBLE4D& vector2) const
   return DOUBLE4D_Dot(mp_vector, vector2.mp_vector);
 }
 
-DOUBLE4D DOUBLE4D::operator*(const DOUBLE4D& vector2) const
-{
-  return DOUBLE4D(DOUBLE4D_operator_mul_vector(mp_vector, vector2.mp_vector), true);
-}
-
-DOUBLE4D& DOUBLE4D::operator*=(const DOUBLE4D& vector2)
-{
-  DOUBLE4D_operator_mulequal_vector(mp_vector, vector2.mp_vector);
-  return *this;
-}
-
 BOOL DOUBLE4D::operator==(const DOUBLE4D& vector2) const
 {
-  return DOUBLE4D_operator_equals(mp_vector, vector2.mp_vector);
+  return DOUBLE4D_equal(mp_vector, vector2.mp_vector);
 }
 
 BOOL DOUBLE4D::operator!=(const DOUBLE4D& vector2) const
 {
-  return DOUBLE4D_operator_notequals(mp_vector, vector2.mp_vector);
+  return DOUBLE4D_notequal(mp_vector, vector2.mp_vector);
 }
 
 INDEX2D::INDEX2D(INDEX2D_* p, bool owner)
@@ -1036,12 +1401,12 @@ INDEX INDEX2D::MaxNorm() const
 
 INDEX& INDEX2D::operator()(INDEX i)
 {
-  return *INDEX2D_operator_braces(mp_vector, i);
+  return *INDEX2D_Element(mp_vector, i);
 }
 
 INDEX INDEX2D::operator()(INDEX i) const
 {
-  return INDEX2D_operator_braces_const(mp_vector, i);
+  return INDEX2D_Element_const(mp_vector, i);
 }
 
 INDEX2D& INDEX2D::Normalize()
@@ -1064,61 +1429,61 @@ INDEX2D& INDEX2D::Flip()
 
 INDEX2D INDEX2D::operator-() const
 {
-  return INDEX2D(INDEX2D_operator_unary_minus(mp_vector), true);
+  return INDEX2D(INDEX2D_Negative(mp_vector), true);
 }
 
 INDEX2D INDEX2D::operator+(const INDEX2D& vector2) const
 {
-  return INDEX2D(INDEX2D_operator_plus(mp_vector, vector2.mp_vector), true);
+  return INDEX2D(INDEX2D_Plus(mp_vector, vector2.mp_vector), true);
 }
 
 INDEX2D& INDEX2D::operator+=(const INDEX2D& vector2)
 {
-  INDEX2D_operator_plusequal(mp_vector, vector2.mp_vector);
+  INDEX2D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 INDEX2D INDEX2D::operator-(const INDEX2D& vector2) const
 {
-  return INDEX2D(INDEX2D_operator_minus(mp_vector, vector2.mp_vector), true);
+  return INDEX2D(INDEX2D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 INDEX2D& INDEX2D::operator-=(const INDEX2D& vector2)
 {
-  INDEX2D_operator_minusequal(mp_vector, vector2.mp_vector);
+  INDEX2D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 INDEX2D INDEX2D::operator*(const INDEX scalar) const
 {
-  return INDEX2D(INDEX2D_operator_mul(mp_vector, scalar), true);
+  return INDEX2D(INDEX2D_Multiply(mp_vector, scalar), true);
 }
 
 INDEX2D& INDEX2D::operator*=(const INDEX scalar)
 {
-  INDEX2D_operator_mulequal(mp_vector, scalar);
+  INDEX2D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
 INDEX2D INDEX2D::operator/(const INDEX scalar) const
 {
-  return INDEX2D(INDEX2D_operator_div(mp_vector, scalar), true);
+  return INDEX2D(INDEX2D_Divide(mp_vector, scalar), true);
 }
 
 INDEX2D& INDEX2D::operator/=(const INDEX scalar)
 {
-  INDEX2D_operator_divequal(mp_vector, scalar);
+  INDEX2D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
 INDEX2D INDEX2D::operator*(const INDEXmatrix2D& matrix2) const
 {
-  return INDEX2D(INDEX2D_operator_mul_matrix(mp_vector, matrix2.C_Handle()), true);
+  return INDEX2D(INDEX2D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 INDEX2D& INDEX2D::operator*=(const INDEXmatrix2D& matrix2)
 {
-  INDEX2D_operator_mulequal_matrix(mp_vector, matrix2.C_Handle());
+  INDEX2D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
@@ -1127,25 +1492,14 @@ INDEX INDEX2D::operator%(const INDEX2D& vector2) const
   return INDEX2D_Dot(mp_vector, vector2.mp_vector);
 }
 
-INDEX2D INDEX2D::operator*(const INDEX2D& vector2) const
-{
-  return INDEX2D(INDEX2D_operator_mul_vector(mp_vector, vector2.mp_vector), true);
-}
-
-INDEX2D& INDEX2D::operator*=(const INDEX2D& vector2)
-{
-  INDEX2D_operator_mulequal_vector(mp_vector, vector2.mp_vector);
-  return *this;
-}
-
 BOOL INDEX2D::operator==(const INDEX2D& vector2) const
 {
-  return INDEX2D_operator_equals(mp_vector, vector2.mp_vector);
+  return INDEX2D_equal(mp_vector, vector2.mp_vector);
 }
 
 BOOL INDEX2D::operator!=(const INDEX2D& vector2) const
 {
-  return INDEX2D_operator_notequals(mp_vector, vector2.mp_vector);
+  return INDEX2D_notequal(mp_vector, vector2.mp_vector);
 }
 
 INDEX3D::INDEX3D(INDEX3D_* p, bool owner)
@@ -1200,12 +1554,12 @@ INDEX INDEX3D::MaxNorm() const
 
 INDEX& INDEX3D::operator()(INDEX i)
 {
-  return *INDEX3D_operator_braces(mp_vector, i);
+  return *INDEX3D_Element(mp_vector, i);
 }
 
 INDEX INDEX3D::operator()(INDEX i) const
 {
-  return INDEX3D_operator_braces_const(mp_vector, i);
+  return INDEX3D_Element_const(mp_vector, i);
 }
 
 INDEX3D& INDEX3D::Normalize()
@@ -1228,61 +1582,61 @@ INDEX3D& INDEX3D::Flip()
 
 INDEX3D INDEX3D::operator-() const
 {
-  return INDEX3D(INDEX3D_operator_unary_minus(mp_vector), true);
+  return INDEX3D(INDEX3D_Negative(mp_vector), true);
 }
 
 INDEX3D INDEX3D::operator+(const INDEX3D& vector2) const
 {
-  return INDEX3D(INDEX3D_operator_plus(mp_vector, vector2.mp_vector), true);
+  return INDEX3D(INDEX3D_Plus(mp_vector, vector2.mp_vector), true);
 }
 
 INDEX3D& INDEX3D::operator+=(const INDEX3D& vector2)
 {
-  INDEX3D_operator_plusequal(mp_vector, vector2.mp_vector);
+  INDEX3D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 INDEX3D INDEX3D::operator-(const INDEX3D& vector2) const
 {
-  return INDEX3D(INDEX3D_operator_minus(mp_vector, vector2.mp_vector), true);
+  return INDEX3D(INDEX3D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 INDEX3D& INDEX3D::operator-=(const INDEX3D& vector2)
 {
-  INDEX3D_operator_minusequal(mp_vector, vector2.mp_vector);
+  INDEX3D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 INDEX3D INDEX3D::operator*(const INDEX scalar) const
 {
-  return INDEX3D(INDEX3D_operator_mul(mp_vector, scalar), true);
+  return INDEX3D(INDEX3D_Multiply(mp_vector, scalar), true);
 }
 
 INDEX3D& INDEX3D::operator*=(const INDEX scalar)
 {
-  INDEX3D_operator_mulequal(mp_vector, scalar);
+  INDEX3D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
 INDEX3D INDEX3D::operator/(const INDEX scalar) const
 {
-  return INDEX3D(INDEX3D_operator_div(mp_vector, scalar), true);
+  return INDEX3D(INDEX3D_Divide(mp_vector, scalar), true);
 }
 
 INDEX3D& INDEX3D::operator/=(const INDEX scalar)
 {
-  INDEX3D_operator_divequal(mp_vector, scalar);
+  INDEX3D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
 INDEX3D INDEX3D::operator*(const INDEXmatrix3D& matrix2) const
 {
-  return INDEX3D(INDEX3D_operator_mul_matrix(mp_vector, matrix2.C_Handle()), true);
+  return INDEX3D(INDEX3D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 INDEX3D& INDEX3D::operator*=(const INDEXmatrix3D& matrix2)
 {
-  INDEX3D_operator_mulequal_matrix(mp_vector, matrix2.C_Handle());
+  INDEX3D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
@@ -1293,23 +1647,23 @@ INDEX INDEX3D::operator%(const INDEX3D& vector2) const
 
 INDEX3D INDEX3D::operator*(const INDEX3D& vector2) const
 {
-  return INDEX3D(INDEX3D_operator_mul_vector(mp_vector, vector2.mp_vector), true);
+  return INDEX3D(INDEX3D_Multiply_vector(mp_vector, vector2.mp_vector), true);
 }
 
 INDEX3D& INDEX3D::operator*=(const INDEX3D& vector2)
 {
-  INDEX3D_operator_mulequal_vector(mp_vector, vector2.mp_vector);
+  INDEX3D_MultiplyInplace_vector(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 BOOL INDEX3D::operator==(const INDEX3D& vector2) const
 {
-  return INDEX3D_operator_equals(mp_vector, vector2.mp_vector);
+  return INDEX3D_equal(mp_vector, vector2.mp_vector);
 }
 
 BOOL INDEX3D::operator!=(const INDEX3D& vector2) const
 {
-  return INDEX3D_operator_notequals(mp_vector, vector2.mp_vector);
+  return INDEX3D_notequal(mp_vector, vector2.mp_vector);
 }
 
 INDEX4D::INDEX4D(INDEX4D_* p, bool owner)
@@ -1364,12 +1718,12 @@ INDEX INDEX4D::MaxNorm() const
 
 INDEX& INDEX4D::operator()(INDEX i)
 {
-  return *INDEX4D_operator_braces(mp_vector, i);
+  return *INDEX4D_Element(mp_vector, i);
 }
 
 INDEX INDEX4D::operator()(INDEX i) const
 {
-  return INDEX4D_operator_braces_const(mp_vector, i);
+  return INDEX4D_Element_const(mp_vector, i);
 }
 
 INDEX4D& INDEX4D::Normalize()
@@ -1392,61 +1746,61 @@ INDEX4D& INDEX4D::Flip()
 
 INDEX4D INDEX4D::operator-() const
 {
-  return INDEX4D(INDEX4D_operator_unary_minus(mp_vector), true);
+  return INDEX4D(INDEX4D_Negative(mp_vector), true);
 }
 
 INDEX4D INDEX4D::operator+(const INDEX4D& vector2) const
 {
-  return INDEX4D(INDEX4D_operator_plus(mp_vector, vector2.mp_vector), true);
+  return INDEX4D(INDEX4D_Plus(mp_vector, vector2.mp_vector), true);
 }
 
 INDEX4D& INDEX4D::operator+=(const INDEX4D& vector2)
 {
-  INDEX4D_operator_plusequal(mp_vector, vector2.mp_vector);
+  INDEX4D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 INDEX4D INDEX4D::operator-(const INDEX4D& vector2) const
 {
-  return INDEX4D(INDEX4D_operator_minus(mp_vector, vector2.mp_vector), true);
+  return INDEX4D(INDEX4D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 INDEX4D& INDEX4D::operator-=(const INDEX4D& vector2)
 {
-  INDEX4D_operator_minusequal(mp_vector, vector2.mp_vector);
+  INDEX4D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
 INDEX4D INDEX4D::operator*(const INDEX scalar) const
 {
-  return INDEX4D(INDEX4D_operator_mul(mp_vector, scalar), true);
+  return INDEX4D(INDEX4D_Multiply(mp_vector, scalar), true);
 }
 
 INDEX4D& INDEX4D::operator*=(const INDEX scalar)
 {
-  INDEX4D_operator_mulequal(mp_vector, scalar);
+  INDEX4D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
 INDEX4D INDEX4D::operator/(const INDEX scalar) const
 {
-  return INDEX4D(INDEX4D_operator_div(mp_vector, scalar), true);
+  return INDEX4D(INDEX4D_Divide(mp_vector, scalar), true);
 }
 
 INDEX4D& INDEX4D::operator/=(const INDEX scalar)
 {
-  INDEX4D_operator_divequal(mp_vector, scalar);
+  INDEX4D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
 INDEX4D INDEX4D::operator*(const INDEXmatrix4D& matrix2) const
 {
-  return INDEX4D(INDEX4D_operator_mul_matrix(mp_vector, matrix2.C_Handle()), true);
+  return INDEX4D(INDEX4D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 INDEX4D& INDEX4D::operator*=(const INDEXmatrix4D& matrix2)
 {
-  INDEX4D_operator_mulequal_matrix(mp_vector, matrix2.C_Handle());
+  INDEX4D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
@@ -1455,23 +1809,12 @@ INDEX INDEX4D::operator%(const INDEX4D& vector2) const
   return INDEX4D_Dot(mp_vector, vector2.mp_vector);
 }
 
-INDEX4D INDEX4D::operator*(const INDEX4D& vector2) const
-{
-  return INDEX4D(INDEX4D_operator_mul_vector(mp_vector, vector2.mp_vector), true);
-}
-
-INDEX4D& INDEX4D::operator*=(const INDEX4D& vector2)
-{
-  INDEX4D_operator_mulequal_vector(mp_vector, vector2.mp_vector);
-  return *this;
-}
-
 BOOL INDEX4D::operator==(const INDEX4D& vector2) const
 {
-  return INDEX4D_operator_equals(mp_vector, vector2.mp_vector);
+  return INDEX4D_equal(mp_vector, vector2.mp_vector);
 }
 
 BOOL INDEX4D::operator!=(const INDEX4D& vector2) const
 {
-  return INDEX4D_operator_notequals(mp_vector, vector2.mp_vector);
+  return INDEX4D_notequal(mp_vector, vector2.mp_vector);
 }

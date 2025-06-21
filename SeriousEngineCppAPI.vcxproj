@@ -33,6 +33,8 @@
     <ClInclude Include="Templates\StaticArray.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Base\CTString.cpp" />
+    <ClCompile Include="Base\Exception.cpp" />
     <ClCompile Include="Math\Matrix.cpp" />
     <ClCompile Include="Math\Vector.cpp" />
   </ItemGroup>
