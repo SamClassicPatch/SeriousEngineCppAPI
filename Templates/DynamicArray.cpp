@@ -37,17 +37,17 @@
   {\
     CDynamicArray_##TYPE##_ShrinkPointers(mp_array, count);\
   }\
-  TYPE CDynamicArray_##TYPE::AllocBlock(INDEX count)\
+  TYPE##_* CDynamicArray_##TYPE::AllocBlock(INDEX count)\
   {\
-    return TYPE(CDynamicArray_##TYPE##_AllocBlock(mp_array, count));\
+    return CDynamicArray_##TYPE##_AllocBlock(mp_array, count);\
   }\
   INDEX CDynamicArray_##TYPE::GetIndex(TYPE##_* element)\
   {\
     return CDynamicArray_##TYPE##_GetIndex(mp_array, element);\
   }\
-  TYPE CDynamicArray_##TYPE::New(INDEX iCount)\
+  TYPE##_* CDynamicArray_##TYPE::New(INDEX iCount)\
   {\
-    return TYPE(CDynamicArray_##TYPE##_New(mp_array, iCount));\
+    return CDynamicArray_##TYPE##_New(mp_array, iCount);\
   }\
   void CDynamicArray_##TYPE::Delete(TYPE##_* ptObject)\
   {\
@@ -57,21 +57,21 @@
   {\
     CDynamicArray_##TYPE##_Clear(mp_array);\
   }\
-  TYPE CDynamicArray_##TYPE::Pointer(INDEX iObject)\
+  TYPE##_* CDynamicArray_##TYPE::Pointer(INDEX iObject)\
   {\
-    return TYPE(CDynamicArray_##TYPE##_Element(mp_array, iObject));\
+    return CDynamicArray_##TYPE##_Element(mp_array, iObject);\
   }\
-  const TYPE CDynamicArray_##TYPE::Pointer(INDEX iObject) const\
+  const TYPE##_* CDynamicArray_##TYPE::Pointer(INDEX iObject) const\
   {\
-    return TYPE((TYPE##_*)CDynamicArray_##TYPE##_Element_const(mp_array, iObject));\
+    return CDynamicArray_##TYPE##_Element_const(mp_array, iObject);\
   }\
-  TYPE CDynamicArray_##TYPE::operator[](INDEX iObject)\
+  TYPE##_* CDynamicArray_##TYPE::operator[](INDEX iObject)\
   {\
-    return TYPE(CDynamicArray_##TYPE##_Element(mp_array, iObject));\
+    return CDynamicArray_##TYPE##_Element(mp_array, iObject);\
   }\
-  const TYPE CDynamicArray_##TYPE::operator[](INDEX iObject) const\
+  const TYPE##_* CDynamicArray_##TYPE::operator[](INDEX iObject) const\
   {\
-    return TYPE((TYPE##_*)CDynamicArray_##TYPE##_Element_const(mp_array, iObject));\
+    return CDynamicArray_##TYPE##_Element_const(mp_array, iObject);\
   }\
   void CDynamicArray_##TYPE::MoveArray(CDynamicArray_##TYPE& arOther)\
   {\

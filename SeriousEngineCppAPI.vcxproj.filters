@@ -84,5 +84,8 @@
     <ClCompile Include="Base\Translation.cpp">
       <Filter>Base</Filter>
     </ClCompile>
+    <ClCompile Include="Base\Lists.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

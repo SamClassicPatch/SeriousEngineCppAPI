@@ -17,11 +17,11 @@ public:
   BOOL& m_bUsed();
   BOOL m_bUsed() const;
 
-  CTString tp_strSrc();
-  const CTString tp_strSrc() const;
+  CTString_* tp_strSrc();
+  const CTString_* tp_strSrc() const;
 
-  CTString tp_strDst();
-  const CTString tp_strDst() const;
+  CTString_* tp_strDst();
+  const CTString_* tp_strDst() const;
 
   inline CTranslationPair_* C_Handle() { return mp_handle; }
   inline const CTranslationPair_* C_Handle() const { return mp_handle; }

@@ -52,22 +52,22 @@ BOOL CTranslationPair::m_bUsed() const
   return *CTranslationPair_m_bUsed_const(mp_handle);
 }
 
-CTString CTranslationPair::tp_strSrc()
+CTString_* CTranslationPair::tp_strSrc()
 {
-  return CTString(CTranslationPair_tp_strSrc(mp_handle));
+  return CTranslationPair_tp_strSrc(mp_handle);
 }
 
-const CTString CTranslationPair::tp_strSrc() const
+const CTString_* CTranslationPair::tp_strSrc() const
 {
-  return CTString((CTString_*)CTranslationPair_tp_strSrc_const(mp_handle));
+  return CTranslationPair_tp_strSrc_const(mp_handle);
 }
 
-CTString CTranslationPair::tp_strDst()
+CTString_* CTranslationPair::tp_strDst()
 {
-  return CTString(CTranslationPair_tp_strDst(mp_handle));
+  return CTranslationPair_tp_strDst(mp_handle);
 }
 
-const CTString CTranslationPair::tp_strDst() const
+const CTString_* CTranslationPair::tp_strDst() const
 {
-  return CTString((CTString_*)CTranslationPair_tp_strDst_const(mp_handle));
+  return CTranslationPair_tp_strDst_const(mp_handle);
 }
