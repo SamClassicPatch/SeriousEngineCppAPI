@@ -4,7 +4,7 @@
 class SECPPAPI CTFileName : public CTString
 {
 public:
-  explicit CTFileName(CTFileName_* p, bool owner = false);
+  CTFileName(CTFileName_* p, bool owner = false);
   CTFileName();
   CTFileName(const CTFileName& o);
   CTFileName(const CTString& o);

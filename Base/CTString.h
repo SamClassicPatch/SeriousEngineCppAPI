@@ -4,16 +4,12 @@
 class SECPPAPI CTString
 {
 public:
-  explicit CTString(CTString_* p, bool owner = false);
+  CTString(CTString_* p, bool owner = false);
   CTString();
   CTString(const CTString& strOriginal);
   CTString(const char* pString);
   CTString(INDEX iDummy, const char* strFormat, ...);
   ~CTString();
-
-  using TStrType = char*;
-  TStrType& str_String();
-  const TStrType& str_String() const;
 
   void Clear();
 

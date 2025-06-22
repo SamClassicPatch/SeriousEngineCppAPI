@@ -4,7 +4,7 @@
 class SECPPAPI FLOAT2D
 {
 public:
-  explicit FLOAT2D(FLOAT2D_* p, bool owner = false);
+  FLOAT2D(FLOAT2D_* p, bool owner = false);
   FLOAT2D();
   FLOAT2D(FLOAT x, FLOAT y);
   FLOAT2D(const FLOAT2D& o);
@@ -69,7 +69,7 @@ private:
 class SECPPAPI FLOAT3D
 {
 public:
-  explicit FLOAT3D(FLOAT3D_* p, bool owner = false);
+  FLOAT3D(FLOAT3D_* p, bool owner = false);
   FLOAT3D();
   FLOAT3D(FLOAT x, FLOAT y, FLOAT z);
   FLOAT3D(const FLOAT3D& o);
@@ -138,7 +138,7 @@ private:
 class SECPPAPI FLOAT4D
 {
 public:
-  explicit FLOAT4D(FLOAT4D_* p, bool owner = false);
+  FLOAT4D(FLOAT4D_* p, bool owner = false);
   FLOAT4D();
   FLOAT4D(FLOAT x, FLOAT y, FLOAT z, FLOAT w);
   FLOAT4D(const FLOAT4D& o);
@@ -204,7 +204,7 @@ private:
 class SECPPAPI DOUBLE2D
 {
 public:
-  explicit DOUBLE2D(DOUBLE2D_* p, bool owner = false);
+  DOUBLE2D(DOUBLE2D_* p, bool owner = false);
   DOUBLE2D();
   DOUBLE2D(DOUBLE x, DOUBLE y);
   DOUBLE2D(const DOUBLE2D& o);
@@ -270,7 +270,7 @@ private:
 class SECPPAPI DOUBLE3D
 {
 public:
-  explicit DOUBLE3D(DOUBLE3D_* p, bool owner = false);
+  DOUBLE3D(DOUBLE3D_* p, bool owner = false);
   DOUBLE3D();
   DOUBLE3D(DOUBLE x, DOUBLE y, DOUBLE z);
   DOUBLE3D(const DOUBLE3D& o);
@@ -339,7 +339,7 @@ private:
 class SECPPAPI DOUBLE4D
 {
 public:
-  explicit DOUBLE4D(DOUBLE4D_* p, bool owner = false);
+  DOUBLE4D(DOUBLE4D_* p, bool owner = false);
   DOUBLE4D();
   DOUBLE4D(DOUBLE x, DOUBLE y, DOUBLE z, DOUBLE w);
   DOUBLE4D(const DOUBLE4D& o);
@@ -405,7 +405,7 @@ private:
 class SECPPAPI INDEX2D
 {
 public:
-  explicit INDEX2D(INDEX2D_* p, bool owner = false);
+  INDEX2D(INDEX2D_* p, bool owner = false);
   INDEX2D();
   INDEX2D(INDEX x, INDEX y);
   INDEX2D(const INDEX2D& o);
@@ -471,7 +471,7 @@ private:
 class SECPPAPI INDEX3D
 {
 public:
-  explicit INDEX3D(INDEX3D_* p, bool owner = false);
+  INDEX3D(INDEX3D_* p, bool owner = false);
   INDEX3D();
   INDEX3D(INDEX x, INDEX y, INDEX z);
   INDEX3D(const INDEX3D& o);
@@ -540,7 +540,7 @@ private:
 class SECPPAPI INDEX4D
 {
 public:
-  explicit INDEX4D(INDEX4D_* p, bool owner = false);
+  INDEX4D(INDEX4D_* p, bool owner = false);
   INDEX4D();
   INDEX4D(INDEX x, INDEX y, INDEX z, INDEX w);
   INDEX4D(const INDEX4D& o);

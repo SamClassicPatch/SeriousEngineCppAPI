@@ -4,7 +4,7 @@
 class SECPPAPI CTranslationPair
 {
 public:
-  explicit CTranslationPair(CTranslationPair_* p, bool owner = false);
+  CTranslationPair(CTranslationPair_* p, bool owner = false);
   CTranslationPair();
   CTranslationPair(const CTranslationPair& strOriginal);
   ~CTranslationPair();

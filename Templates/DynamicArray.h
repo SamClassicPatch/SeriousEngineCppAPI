@@ -5,7 +5,7 @@
   class SECPPAPI CDynamicArray_##TYPE\
   {\
     public:\
-      explicit CDynamicArray_##TYPE(CDynamicArray_##TYPE##_* p, bool owner = false);\
+      CDynamicArray_##TYPE(CDynamicArray_##TYPE##_* p, bool owner = false);\
       CDynamicArray_##TYPE();\
       CDynamicArray_##TYPE(CDynamicArray_##TYPE& o);\
       ~CDynamicArray_##TYPE();\

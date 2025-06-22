@@ -44,16 +44,6 @@ CTString::~CTString()
     CTString_delete(mp_string);
 }
 
-CTString::TStrType& CTString::str_String()
-{
-  return *CTString_access_string(mp_string);
-}
-
-const CTString::TStrType& CTString::str_String() const
-{
-  return *CTString_access_string_const(mp_string);
-}
-
 void CTString::Clear()
 {
   CTString_Clear(mp_string);

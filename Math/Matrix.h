@@ -4,7 +4,7 @@
 class SECPPAPI FLOATmatrix2D
 {
 public:
-  explicit FLOATmatrix2D(FLOATmatrix2D_* p, bool owner = false);
+  FLOATmatrix2D(FLOATmatrix2D_* p, bool owner = false);
   FLOATmatrix2D();
   explicit FLOATmatrix2D(FLOAT x);
   FLOATmatrix2D(const FLOATmatrix2D& o);
@@ -58,7 +58,7 @@ private:
 class SECPPAPI FLOATmatrix3D
 {
 public:
-  explicit FLOATmatrix3D(FLOATmatrix3D_* p, bool owner = false);
+  FLOATmatrix3D(FLOATmatrix3D_* p, bool owner = false);
   FLOATmatrix3D();
   explicit FLOATmatrix3D(FLOAT x);
   FLOATmatrix3D(const FLOATmatrix3D& o);
@@ -115,7 +115,7 @@ private:
 class SECPPAPI FLOATmatrix4D
 {
 public:
-  explicit FLOATmatrix4D(FLOATmatrix4D_* p, bool owner = false);
+  FLOATmatrix4D(FLOATmatrix4D_* p, bool owner = false);
   FLOATmatrix4D();
   explicit FLOATmatrix4D(FLOAT x);
   FLOATmatrix4D(const FLOATmatrix4D& o);
@@ -171,7 +171,7 @@ private:
 class SECPPAPI DOUBLEmatrix2D
 {
 public:
-  explicit DOUBLEmatrix2D(DOUBLEmatrix2D_* p, bool owner = false);
+  DOUBLEmatrix2D(DOUBLEmatrix2D_* p, bool owner = false);
   DOUBLEmatrix2D();
   explicit DOUBLEmatrix2D(DOUBLE x);
   DOUBLEmatrix2D(const DOUBLEmatrix2D& o);
@@ -225,7 +225,7 @@ private:
 class SECPPAPI DOUBLEmatrix3D
 {
 public:
-  explicit DOUBLEmatrix3D(DOUBLEmatrix3D_* p, bool owner = false);
+  DOUBLEmatrix3D(DOUBLEmatrix3D_* p, bool owner = false);
   DOUBLEmatrix3D();
   explicit DOUBLEmatrix3D(DOUBLE x);
   DOUBLEmatrix3D(const DOUBLEmatrix3D& o);
@@ -282,7 +282,7 @@ private:
 class SECPPAPI DOUBLEmatrix4D
 {
 public:
-  explicit DOUBLEmatrix4D(DOUBLEmatrix4D_* p, bool owner = false);
+  DOUBLEmatrix4D(DOUBLEmatrix4D_* p, bool owner = false);
   DOUBLEmatrix4D();
   explicit DOUBLEmatrix4D(DOUBLE x);
   DOUBLEmatrix4D(const DOUBLEmatrix4D& o);
@@ -338,7 +338,7 @@ private:
 class SECPPAPI INDEXmatrix2D
 {
 public:
-  explicit INDEXmatrix2D(INDEXmatrix2D_* p, bool owner = false);
+  INDEXmatrix2D(INDEXmatrix2D_* p, bool owner = false);
   INDEXmatrix2D();
   explicit INDEXmatrix2D(INDEX x);
   INDEXmatrix2D(const INDEXmatrix2D& o);
@@ -392,7 +392,7 @@ private:
 class SECPPAPI INDEXmatrix3D
 {
 public:
-  explicit INDEXmatrix3D(INDEXmatrix3D_* p, bool owner = false);
+  INDEXmatrix3D(INDEXmatrix3D_* p, bool owner = false);
   INDEXmatrix3D();
   explicit INDEXmatrix3D(INDEX x);
   INDEXmatrix3D(const INDEXmatrix3D& o);
@@ -449,7 +449,7 @@ private:
 class SECPPAPI INDEXmatrix4D
 {
 public:
-  explicit INDEXmatrix4D(INDEXmatrix4D_* p, bool owner = false);
+  INDEXmatrix4D(INDEXmatrix4D_* p, bool owner = false);
   INDEXmatrix4D();
   explicit INDEXmatrix4D(INDEX x);
   INDEXmatrix4D(const INDEXmatrix4D& o);
