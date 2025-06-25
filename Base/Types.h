@@ -29,6 +29,8 @@ class CTStream;
 class CTranslationPair;
 class CListHead;
 class CListNode;
+class CDynamicArray_FLOAT;
+class CDynamicArray_CTString;
 class CDynamicArray_CTFileName;
 class CDynamicArray_CTranslationPair;
 

@@ -58,6 +58,9 @@
     <ClInclude Include="Base\Translation.h">
       <Filter>Base</Filter>
     </ClInclude>
+    <ClInclude Include="Templates\DynamicStackArray.h">
+      <Filter>Templates</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\Matrix.cpp">
@@ -86,6 +89,9 @@
     </ClCompile>
     <ClCompile Include="Base\Lists.cpp">
       <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Templates\DynamicStackArray.cpp">
+      <Filter>Templates</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

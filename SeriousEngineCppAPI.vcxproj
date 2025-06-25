@@ -33,6 +33,7 @@
     <ClInclude Include="Math\Vector.h" />
     <ClInclude Include="Models\RenderModel.h" />
     <ClInclude Include="Templates\DynamicArray.h" />
+    <ClInclude Include="Templates\DynamicStackArray.h" />
     <ClInclude Include="Templates\StaticArray.h" />
   </ItemGroup>
   <ItemGroup>
@@ -45,6 +46,7 @@
     <ClCompile Include="Math\Matrix.cpp" />
     <ClCompile Include="Math\Vector.cpp" />
     <ClCompile Include="Templates\DynamicArray.cpp" />
+    <ClCompile Include="Templates\DynamicStackArray.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
