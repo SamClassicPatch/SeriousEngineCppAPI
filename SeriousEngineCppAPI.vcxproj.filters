@@ -93,5 +93,8 @@
     <ClCompile Include="Templates\DynamicStackArray.cpp">
       <Filter>Templates</Filter>
     </ClCompile>
+    <ClCompile Include="Base\Stream.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -25,6 +25,7 @@ class INDEXmatrix3D;
 class INDEXmatrix4D;
 class CTString;
 class CTFileName;
+class CChunkID;
 class CTStream;
 class CTranslationPair;
 class CListHead;
@@ -33,5 +34,8 @@ class CDynamicArray_FLOAT;
 class CDynamicArray_CTString;
 class CDynamicArray_CTFileName;
 class CDynamicArray_CTranslationPair;
+class CDynamicStackArray_FLOAT;
+class CDynamicStackArray_CTString;
+class CDynamicStackArray_CTFileName;
 
 void SECppAPI_CheckException();

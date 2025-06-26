@@ -41,6 +41,7 @@
     <ClCompile Include="Base\Exception.cpp" />
     <ClCompile Include="Base\FileName.cpp" />
     <ClCompile Include="Base\Lists.cpp" />
+    <ClCompile Include="Base\Stream.cpp" />
     <ClCompile Include="Base\Translation.cpp" />
     <ClCompile Include="Base\TranslationPair.cpp" />
     <ClCompile Include="Math\Matrix.cpp" />
