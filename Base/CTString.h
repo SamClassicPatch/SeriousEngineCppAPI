@@ -1,5 +1,6 @@
 #pragma once
 #include "Types.h"
+#include <SeriousEngineCAPI/Base/CTString.h>
 
 class SECPPAPI CTString
 {
@@ -28,7 +29,7 @@ public:
   INDEX LengthNaked() const;
 
   // strip decorations from the string
-  CTString Undecorated() const;
+  __forceinline CTString Undecorated() const { return CTString(CTString_Undecorated(mp_string), true); }
 
   /* Find index of a substring in a string (returns -1 if not found). */
   INDEX FindSubstr(const CTString& strSub);
@@ -62,9 +63,14 @@ public:
   BOOL Matches(const char* strOther) const;
 
   /* String concatenation. */
-  CTString operator+(const CTString& strSecond) const;
+  __forceinline CTString operator+(const CTString& strSecond) const { return CTString(CTString_Concatenate(mp_string, strSecond.mp_string), true); }
   CTString& operator+=(const CTString& strSecond);
-  SECPPAPI friend CTString operator+(const char* strFirst, const CTString& strSecond);
+  __forceinline friend CTString operator+(const char* strFirst, const CTString& strSecond)
+  {
+    CTString_* pFirst = CTString_new_str(strFirst);
+    CTString_ConcatenateInplace(pFirst, strSecond.C_Handle());
+    return CTString(pFirst, true);
+  }
 
   // split string in two strings at specified position (char AT splitting position goes to str2)
   void Split(INDEX iPos, CTString& str1, CTString& str2);

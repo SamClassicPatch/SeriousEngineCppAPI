@@ -38,4 +38,4 @@ class CDynamicStackArray_FLOAT;
 class CDynamicStackArray_CTString;
 class CDynamicStackArray_CTFileName;
 
-void SECppAPI_CheckException();
+SECPPAPI void SECppAPI_CheckException();

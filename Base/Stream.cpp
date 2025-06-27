@@ -2,7 +2,6 @@
 #include "Stream.h"
 #include "FileName.h"
 #include "../Templates/DynamicStackArray.h"
-#include <SeriousEngineCAPI/Base/Stream.h>
 #include <stdarg.h>
 
 CChunkID::CChunkID(CChunkID_* p, bool owner)
@@ -133,20 +132,6 @@ void CTStream::GetLine_t(CTString& strLine, char cDelimiter)
 {
   CTStream_GetLine_t_str(mp_stream, strLine, cDelimiter);
   SECppAPI_CheckException();
-}
-
-std::unique_ptr<CChunkID> CTStream::GetID_t()
-{
-  auto id = std::make_unique<CChunkID>(CTStream_GetID_t(mp_stream), true);
-  SECppAPI_CheckException();
-  return id;
-}
-
-std::unique_ptr<CChunkID> CTStream::PeekID_t()
-{
-  auto id = std::make_unique<CChunkID>(CTStream_PeekID_t(mp_stream), true);
-  SECppAPI_CheckException();
-  return id;
 }
 
 void CTStream::ExpectID_t(const CChunkID& cidExpected)

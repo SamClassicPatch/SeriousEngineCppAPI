@@ -1,183 +1,126 @@
 #include "Vector.h"
-#include "Matrix.h"
 #include "../Base/Stream.h"
-#include <SeriousEngineCAPI/Math/Vector.h>
 
-FLOAT2D ComponentProduct(const FLOAT2D& a, const FLOAT2D& b)
-{
-  return FLOAT2D(FLOAT2D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
-}
-
-FLOAT3D ComponentProduct(const FLOAT3D& a, const FLOAT3D& b)
-{
-  return FLOAT3D(FLOAT3D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
-}
-
-FLOAT4D ComponentProduct(const FLOAT4D& a, const FLOAT4D& b)
-{
-  return FLOAT4D(FLOAT4D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
-}
-
-DOUBLE2D ComponentProduct(const DOUBLE2D& a, const DOUBLE2D& b)
-{
-  return DOUBLE2D(DOUBLE2D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
-}
-
-DOUBLE3D ComponentProduct(const DOUBLE3D& a, const DOUBLE3D& b)
-{
-  return DOUBLE3D(DOUBLE3D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
-}
-
-DOUBLE4D ComponentProduct(const DOUBLE4D& a, const DOUBLE4D& b)
-{
-  return DOUBLE4D(DOUBLE4D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
-}
-
-INDEX2D ComponentProduct(const INDEX2D& a, const INDEX2D& b)
-{
-  return INDEX2D(INDEX2D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
-}
-
-INDEX3D ComponentProduct(const INDEX3D& a, const INDEX3D& b)
-{
-  return INDEX3D(INDEX3D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
-}
-
-INDEX4D ComponentProduct(const INDEX4D& a, const INDEX4D& b)
-{
-  return INDEX4D(INDEX4D_ComponentProduct(a.C_Handle(), b.C_Handle()), true);
-}
-
-DOUBLE3D FLOATtoDOUBLE(const FLOAT3D& vf)
-{
-  return DOUBLE3D(FLOAT2DOUBLE(vf.C_Handle()), true);
-}
-
-FLOAT3D DOUBLEtoFLOAT(const DOUBLE3D& vd)
-{
-  return FLOAT3D(DOUBLE2FLOAT(vd.C_Handle()), true);
-}
-
-CTStream& operator>>(CTStream& strm, FLOAT2D& vector)
+SECPPAPI CTStream& operator>>(CTStream& strm, FLOAT2D& vector)
 {
   FLOAT2D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, FLOAT2D& vector)
+SECPPAPI CTStream& operator<<(CTStream& strm, FLOAT2D& vector)
 {
   FLOAT2D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator>>(CTStream& strm, FLOAT3D& vector)
+SECPPAPI CTStream& operator>>(CTStream& strm, FLOAT3D& vector)
 {
   FLOAT3D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, FLOAT3D& vector)
+SECPPAPI CTStream& operator<<(CTStream& strm, FLOAT3D& vector)
 {
   FLOAT3D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator>>(CTStream& strm, FLOAT4D& vector)
+SECPPAPI CTStream& operator>>(CTStream& strm, FLOAT4D& vector)
 {
   FLOAT4D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, FLOAT4D& vector)
+SECPPAPI CTStream& operator<<(CTStream& strm, FLOAT4D& vector)
 {
   FLOAT4D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator>>(CTStream& strm, DOUBLE2D& vector)
+SECPPAPI CTStream& operator>>(CTStream& strm, DOUBLE2D& vector)
 {
   DOUBLE2D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, DOUBLE2D& vector)
+SECPPAPI CTStream& operator<<(CTStream& strm, DOUBLE2D& vector)
 {
   DOUBLE2D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator>>(CTStream& strm, DOUBLE3D& vector)
+SECPPAPI CTStream& operator>>(CTStream& strm, DOUBLE3D& vector)
 {
   DOUBLE3D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, DOUBLE3D& vector)
+SECPPAPI CTStream& operator<<(CTStream& strm, DOUBLE3D& vector)
 {
   DOUBLE3D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator>>(CTStream& strm, DOUBLE4D& vector)
+SECPPAPI CTStream& operator>>(CTStream& strm, DOUBLE4D& vector)
 {
   DOUBLE4D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, DOUBLE4D& vector)
+SECPPAPI CTStream& operator<<(CTStream& strm, DOUBLE4D& vector)
 {
   DOUBLE4D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator>>(CTStream& strm, INDEX2D& vector)
+SECPPAPI CTStream& operator>>(CTStream& strm, INDEX2D& vector)
 {
   INDEX2D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, INDEX2D& vector)
+SECPPAPI CTStream& operator<<(CTStream& strm, INDEX2D& vector)
 {
   INDEX2D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator>>(CTStream& strm, INDEX3D& vector)
+SECPPAPI CTStream& operator>>(CTStream& strm, INDEX3D& vector)
 {
   INDEX3D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, INDEX3D& vector)
+SECPPAPI CTStream& operator<<(CTStream& strm, INDEX3D& vector)
 {
   INDEX3D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator>>(CTStream& strm, INDEX4D& vector)
+SECPPAPI CTStream& operator>>(CTStream& strm, INDEX4D& vector)
 {
   INDEX4D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, INDEX4D& vector)
+SECPPAPI CTStream& operator<<(CTStream& strm, INDEX4D& vector)
 {
   INDEX4D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
@@ -316,25 +259,10 @@ FLOAT2D& FLOAT2D::Flip()
   return *this;
 }
 
-FLOAT2D FLOAT2D::operator-() const
-{
-  return FLOAT2D(FLOAT2D_Negative(mp_vector), true);
-}
-
-FLOAT2D FLOAT2D::operator+(const FLOAT2D& vector2) const
-{
-  return FLOAT2D(FLOAT2D_Plus(mp_vector, vector2.mp_vector), true);
-}
-
 FLOAT2D& FLOAT2D::operator+=(const FLOAT2D& vector2)
 {
   FLOAT2D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
-}
-
-FLOAT2D FLOAT2D::operator-(const FLOAT2D& vector2) const
-{
-  return FLOAT2D(FLOAT2D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 FLOAT2D& FLOAT2D::operator-=(const FLOAT2D& vector2)
@@ -343,31 +271,16 @@ FLOAT2D& FLOAT2D::operator-=(const FLOAT2D& vector2)
   return *this;
 }
 
-FLOAT2D FLOAT2D::operator*(const FLOAT scalar) const
-{
-  return FLOAT2D(FLOAT2D_Multiply(mp_vector, scalar), true);
-}
-
 FLOAT2D& FLOAT2D::operator*=(const FLOAT scalar)
 {
   FLOAT2D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-FLOAT2D FLOAT2D::operator/(const FLOAT scalar) const
-{
-  return FLOAT2D(FLOAT2D_Divide(mp_vector, scalar), true);
-}
-
 FLOAT2D& FLOAT2D::operator/=(const FLOAT scalar)
 {
   FLOAT2D_DivideInplace(mp_vector, scalar);
   return *this;
-}
-
-FLOAT2D FLOAT2D::operator*(const FLOATmatrix2D& matrix2) const
-{
-  return FLOAT2D(FLOAT2D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 FLOAT2D& FLOAT2D::operator*=(const FLOATmatrix2D& matrix2)
@@ -469,25 +382,10 @@ FLOAT3D& FLOAT3D::Flip()
   return *this;
 }
 
-FLOAT3D FLOAT3D::operator-() const
-{
-  return FLOAT3D(FLOAT3D_Negative(mp_vector), true);
-}
-
-FLOAT3D FLOAT3D::operator+(const FLOAT3D& vector2) const
-{
-  return FLOAT3D(FLOAT3D_Plus(mp_vector, vector2.mp_vector), true);
-}
-
 FLOAT3D& FLOAT3D::operator+=(const FLOAT3D& vector2)
 {
   FLOAT3D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
-}
-
-FLOAT3D FLOAT3D::operator-(const FLOAT3D& vector2) const
-{
-  return FLOAT3D(FLOAT3D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 FLOAT3D& FLOAT3D::operator-=(const FLOAT3D& vector2)
@@ -496,31 +394,16 @@ FLOAT3D& FLOAT3D::operator-=(const FLOAT3D& vector2)
   return *this;
 }
 
-FLOAT3D FLOAT3D::operator*(const FLOAT scalar) const
-{
-  return FLOAT3D(FLOAT3D_Multiply(mp_vector, scalar), true);
-}
-
 FLOAT3D& FLOAT3D::operator*=(const FLOAT scalar)
 {
   FLOAT3D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-FLOAT3D FLOAT3D::operator/(const FLOAT scalar) const
-{
-  return FLOAT3D(FLOAT3D_Divide(mp_vector, scalar), true);
-}
-
 FLOAT3D& FLOAT3D::operator/=(const FLOAT scalar)
 {
   FLOAT3D_DivideInplace(mp_vector, scalar);
   return *this;
-}
-
-FLOAT3D FLOAT3D::operator*(const FLOATmatrix3D& matrix2) const
-{
-  return FLOAT3D(FLOAT3D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 FLOAT3D& FLOAT3D::operator*=(const FLOATmatrix3D& matrix2)
@@ -532,11 +415,6 @@ FLOAT3D& FLOAT3D::operator*=(const FLOATmatrix3D& matrix2)
 FLOAT FLOAT3D::operator%(const FLOAT3D& vector2) const
 {
   return FLOAT3D_Dot(mp_vector, vector2.mp_vector);
-}
-
-FLOAT3D FLOAT3D::operator*(const FLOAT3D& vector2) const
-{
-  return FLOAT3D(FLOAT3D_Multiply_vector(mp_vector, vector2.mp_vector), true);
 }
 
 FLOAT3D& FLOAT3D::operator*=(const FLOAT3D& vector2)
@@ -633,25 +511,10 @@ FLOAT4D& FLOAT4D::Flip()
   return *this;
 }
 
-FLOAT4D FLOAT4D::operator-() const
-{
-  return FLOAT4D(FLOAT4D_Negative(mp_vector), true);
-}
-
-FLOAT4D FLOAT4D::operator+(const FLOAT4D& vector2) const
-{
-  return FLOAT4D(FLOAT4D_Plus(mp_vector, vector2.mp_vector), true);
-}
-
 FLOAT4D& FLOAT4D::operator+=(const FLOAT4D& vector2)
 {
   FLOAT4D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
-}
-
-FLOAT4D FLOAT4D::operator-(const FLOAT4D& vector2) const
-{
-  return FLOAT4D(FLOAT4D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 FLOAT4D& FLOAT4D::operator-=(const FLOAT4D& vector2)
@@ -660,31 +523,16 @@ FLOAT4D& FLOAT4D::operator-=(const FLOAT4D& vector2)
   return *this;
 }
 
-FLOAT4D FLOAT4D::operator*(const FLOAT scalar) const
-{
-  return FLOAT4D(FLOAT4D_Multiply(mp_vector, scalar), true);
-}
-
 FLOAT4D& FLOAT4D::operator*=(const FLOAT scalar)
 {
   FLOAT4D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-FLOAT4D FLOAT4D::operator/(const FLOAT scalar) const
-{
-  return FLOAT4D(FLOAT4D_Divide(mp_vector, scalar), true);
-}
-
 FLOAT4D& FLOAT4D::operator/=(const FLOAT scalar)
 {
   FLOAT4D_DivideInplace(mp_vector, scalar);
   return *this;
-}
-
-FLOAT4D FLOAT4D::operator*(const FLOATmatrix4D& matrix2) const
-{
-  return FLOAT4D(FLOAT4D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 FLOAT4D& FLOAT4D::operator*=(const FLOATmatrix4D& matrix2)
@@ -786,25 +634,10 @@ DOUBLE2D& DOUBLE2D::Flip()
   return *this;
 }
 
-DOUBLE2D DOUBLE2D::operator-() const
-{
-  return DOUBLE2D(DOUBLE2D_Negative(mp_vector), true);
-}
-
-DOUBLE2D DOUBLE2D::operator+(const DOUBLE2D& vector2) const
-{
-  return DOUBLE2D(DOUBLE2D_Plus(mp_vector, vector2.mp_vector), true);
-}
-
 DOUBLE2D& DOUBLE2D::operator+=(const DOUBLE2D& vector2)
 {
   DOUBLE2D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
-}
-
-DOUBLE2D DOUBLE2D::operator-(const DOUBLE2D& vector2) const
-{
-  return DOUBLE2D(DOUBLE2D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 DOUBLE2D& DOUBLE2D::operator-=(const DOUBLE2D& vector2)
@@ -813,31 +646,16 @@ DOUBLE2D& DOUBLE2D::operator-=(const DOUBLE2D& vector2)
   return *this;
 }
 
-DOUBLE2D DOUBLE2D::operator*(const DOUBLE scalar) const
-{
-  return DOUBLE2D(DOUBLE2D_Multiply(mp_vector, scalar), true);
-}
-
 DOUBLE2D& DOUBLE2D::operator*=(const DOUBLE scalar)
 {
   DOUBLE2D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-DOUBLE2D DOUBLE2D::operator/(const DOUBLE scalar) const
-{
-  return DOUBLE2D(DOUBLE2D_Divide(mp_vector, scalar), true);
-}
-
 DOUBLE2D& DOUBLE2D::operator/=(const DOUBLE scalar)
 {
   DOUBLE2D_DivideInplace(mp_vector, scalar);
   return *this;
-}
-
-DOUBLE2D DOUBLE2D::operator*(const DOUBLEmatrix2D& matrix2) const
-{
-  return DOUBLE2D(DOUBLE2D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 DOUBLE2D& DOUBLE2D::operator*=(const DOUBLEmatrix2D& matrix2)
@@ -939,25 +757,10 @@ DOUBLE3D& DOUBLE3D::Flip()
   return *this;
 }
 
-DOUBLE3D DOUBLE3D::operator-() const
-{
-  return DOUBLE3D(DOUBLE3D_Negative(mp_vector), true);
-}
-
-DOUBLE3D DOUBLE3D::operator+(const DOUBLE3D& vector2) const
-{
-  return DOUBLE3D(DOUBLE3D_Plus(mp_vector, vector2.mp_vector), true);
-}
-
 DOUBLE3D& DOUBLE3D::operator+=(const DOUBLE3D& vector2)
 {
   DOUBLE3D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
-}
-
-DOUBLE3D DOUBLE3D::operator-(const DOUBLE3D& vector2) const
-{
-  return DOUBLE3D(DOUBLE3D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 DOUBLE3D& DOUBLE3D::operator-=(const DOUBLE3D& vector2)
@@ -966,31 +769,16 @@ DOUBLE3D& DOUBLE3D::operator-=(const DOUBLE3D& vector2)
   return *this;
 }
 
-DOUBLE3D DOUBLE3D::operator*(const DOUBLE scalar) const
-{
-  return DOUBLE3D(DOUBLE3D_Multiply(mp_vector, scalar), true);
-}
-
 DOUBLE3D& DOUBLE3D::operator*=(const DOUBLE scalar)
 {
   DOUBLE3D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-DOUBLE3D DOUBLE3D::operator/(const DOUBLE scalar) const
-{
-  return DOUBLE3D(DOUBLE3D_Divide(mp_vector, scalar), true);
-}
-
 DOUBLE3D& DOUBLE3D::operator/=(const DOUBLE scalar)
 {
   DOUBLE3D_DivideInplace(mp_vector, scalar);
   return *this;
-}
-
-DOUBLE3D DOUBLE3D::operator*(const DOUBLEmatrix3D& matrix2) const
-{
-  return DOUBLE3D(DOUBLE3D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 DOUBLE3D& DOUBLE3D::operator*=(const DOUBLEmatrix3D& matrix2)
@@ -1002,11 +790,6 @@ DOUBLE3D& DOUBLE3D::operator*=(const DOUBLEmatrix3D& matrix2)
 DOUBLE DOUBLE3D::operator%(const DOUBLE3D& vector2) const
 {
   return DOUBLE3D_Dot(mp_vector, vector2.mp_vector);
-}
-
-DOUBLE3D DOUBLE3D::operator*(const DOUBLE3D& vector2) const
-{
-  return DOUBLE3D(DOUBLE3D_Multiply_vector(mp_vector, vector2.mp_vector), true);
 }
 
 DOUBLE3D& DOUBLE3D::operator*=(const DOUBLE3D& vector2)
@@ -1103,25 +886,10 @@ DOUBLE4D& DOUBLE4D::Flip()
   return *this;
 }
 
-DOUBLE4D DOUBLE4D::operator-() const
-{
-  return DOUBLE4D(DOUBLE4D_Negative(mp_vector), true);
-}
-
-DOUBLE4D DOUBLE4D::operator+(const DOUBLE4D& vector2) const
-{
-  return DOUBLE4D(DOUBLE4D_Plus(mp_vector, vector2.mp_vector), true);
-}
-
 DOUBLE4D& DOUBLE4D::operator+=(const DOUBLE4D& vector2)
 {
   DOUBLE4D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
-}
-
-DOUBLE4D DOUBLE4D::operator-(const DOUBLE4D& vector2) const
-{
-  return DOUBLE4D(DOUBLE4D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 DOUBLE4D& DOUBLE4D::operator-=(const DOUBLE4D& vector2)
@@ -1130,31 +898,16 @@ DOUBLE4D& DOUBLE4D::operator-=(const DOUBLE4D& vector2)
   return *this;
 }
 
-DOUBLE4D DOUBLE4D::operator*(const DOUBLE scalar) const
-{
-  return DOUBLE4D(DOUBLE4D_Multiply(mp_vector, scalar), true);
-}
-
 DOUBLE4D& DOUBLE4D::operator*=(const DOUBLE scalar)
 {
   DOUBLE4D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-DOUBLE4D DOUBLE4D::operator/(const DOUBLE scalar) const
-{
-  return DOUBLE4D(DOUBLE4D_Divide(mp_vector, scalar), true);
-}
-
 DOUBLE4D& DOUBLE4D::operator/=(const DOUBLE scalar)
 {
   DOUBLE4D_DivideInplace(mp_vector, scalar);
   return *this;
-}
-
-DOUBLE4D DOUBLE4D::operator*(const DOUBLEmatrix4D& matrix2) const
-{
-  return DOUBLE4D(DOUBLE4D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 DOUBLE4D& DOUBLE4D::operator*=(const DOUBLEmatrix4D& matrix2)
@@ -1256,25 +1009,10 @@ INDEX2D& INDEX2D::Flip()
   return *this;
 }
 
-INDEX2D INDEX2D::operator-() const
-{
-  return INDEX2D(INDEX2D_Negative(mp_vector), true);
-}
-
-INDEX2D INDEX2D::operator+(const INDEX2D& vector2) const
-{
-  return INDEX2D(INDEX2D_Plus(mp_vector, vector2.mp_vector), true);
-}
-
 INDEX2D& INDEX2D::operator+=(const INDEX2D& vector2)
 {
   INDEX2D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
-}
-
-INDEX2D INDEX2D::operator-(const INDEX2D& vector2) const
-{
-  return INDEX2D(INDEX2D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 INDEX2D& INDEX2D::operator-=(const INDEX2D& vector2)
@@ -1283,31 +1021,16 @@ INDEX2D& INDEX2D::operator-=(const INDEX2D& vector2)
   return *this;
 }
 
-INDEX2D INDEX2D::operator*(const INDEX scalar) const
-{
-  return INDEX2D(INDEX2D_Multiply(mp_vector, scalar), true);
-}
-
 INDEX2D& INDEX2D::operator*=(const INDEX scalar)
 {
   INDEX2D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-INDEX2D INDEX2D::operator/(const INDEX scalar) const
-{
-  return INDEX2D(INDEX2D_Divide(mp_vector, scalar), true);
-}
-
 INDEX2D& INDEX2D::operator/=(const INDEX scalar)
 {
   INDEX2D_DivideInplace(mp_vector, scalar);
   return *this;
-}
-
-INDEX2D INDEX2D::operator*(const INDEXmatrix2D& matrix2) const
-{
-  return INDEX2D(INDEX2D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 INDEX2D& INDEX2D::operator*=(const INDEXmatrix2D& matrix2)
@@ -1409,25 +1132,10 @@ INDEX3D& INDEX3D::Flip()
   return *this;
 }
 
-INDEX3D INDEX3D::operator-() const
-{
-  return INDEX3D(INDEX3D_Negative(mp_vector), true);
-}
-
-INDEX3D INDEX3D::operator+(const INDEX3D& vector2) const
-{
-  return INDEX3D(INDEX3D_Plus(mp_vector, vector2.mp_vector), true);
-}
-
 INDEX3D& INDEX3D::operator+=(const INDEX3D& vector2)
 {
   INDEX3D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
-}
-
-INDEX3D INDEX3D::operator-(const INDEX3D& vector2) const
-{
-  return INDEX3D(INDEX3D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 INDEX3D& INDEX3D::operator-=(const INDEX3D& vector2)
@@ -1436,31 +1144,16 @@ INDEX3D& INDEX3D::operator-=(const INDEX3D& vector2)
   return *this;
 }
 
-INDEX3D INDEX3D::operator*(const INDEX scalar) const
-{
-  return INDEX3D(INDEX3D_Multiply(mp_vector, scalar), true);
-}
-
 INDEX3D& INDEX3D::operator*=(const INDEX scalar)
 {
   INDEX3D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-INDEX3D INDEX3D::operator/(const INDEX scalar) const
-{
-  return INDEX3D(INDEX3D_Divide(mp_vector, scalar), true);
-}
-
 INDEX3D& INDEX3D::operator/=(const INDEX scalar)
 {
   INDEX3D_DivideInplace(mp_vector, scalar);
   return *this;
-}
-
-INDEX3D INDEX3D::operator*(const INDEXmatrix3D& matrix2) const
-{
-  return INDEX3D(INDEX3D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 INDEX3D& INDEX3D::operator*=(const INDEXmatrix3D& matrix2)
@@ -1472,11 +1165,6 @@ INDEX3D& INDEX3D::operator*=(const INDEXmatrix3D& matrix2)
 INDEX INDEX3D::operator%(const INDEX3D& vector2) const
 {
   return INDEX3D_Dot(mp_vector, vector2.mp_vector);
-}
-
-INDEX3D INDEX3D::operator*(const INDEX3D& vector2) const
-{
-  return INDEX3D(INDEX3D_Multiply_vector(mp_vector, vector2.mp_vector), true);
 }
 
 INDEX3D& INDEX3D::operator*=(const INDEX3D& vector2)
@@ -1573,25 +1261,10 @@ INDEX4D& INDEX4D::Flip()
   return *this;
 }
 
-INDEX4D INDEX4D::operator-() const
-{
-  return INDEX4D(INDEX4D_Negative(mp_vector), true);
-}
-
-INDEX4D INDEX4D::operator+(const INDEX4D& vector2) const
-{
-  return INDEX4D(INDEX4D_Plus(mp_vector, vector2.mp_vector), true);
-}
-
 INDEX4D& INDEX4D::operator+=(const INDEX4D& vector2)
 {
   INDEX4D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
-}
-
-INDEX4D INDEX4D::operator-(const INDEX4D& vector2) const
-{
-  return INDEX4D(INDEX4D_Minus(mp_vector, vector2.mp_vector), true);
 }
 
 INDEX4D& INDEX4D::operator-=(const INDEX4D& vector2)
@@ -1600,31 +1273,16 @@ INDEX4D& INDEX4D::operator-=(const INDEX4D& vector2)
   return *this;
 }
 
-INDEX4D INDEX4D::operator*(const INDEX scalar) const
-{
-  return INDEX4D(INDEX4D_Multiply(mp_vector, scalar), true);
-}
-
 INDEX4D& INDEX4D::operator*=(const INDEX scalar)
 {
   INDEX4D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-INDEX4D INDEX4D::operator/(const INDEX scalar) const
-{
-  return INDEX4D(INDEX4D_Divide(mp_vector, scalar), true);
-}
-
 INDEX4D& INDEX4D::operator/=(const INDEX scalar)
 {
   INDEX4D_DivideInplace(mp_vector, scalar);
   return *this;
-}
-
-INDEX4D INDEX4D::operator*(const INDEXmatrix4D& matrix2) const
-{
-  return INDEX4D(INDEX4D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true);
 }
 
 INDEX4D& INDEX4D::operator*=(const INDEXmatrix4D& matrix2)

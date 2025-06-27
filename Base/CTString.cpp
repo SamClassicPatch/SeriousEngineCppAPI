@@ -1,7 +1,6 @@
 #include "CTString.h"
 #include "Stream.h"
 #include "FileName.h"
-#include <SeriousEngineCAPI/Base/CTString.h>
 #include <stdio.h>
 #include <stdarg.h>
 
@@ -74,11 +73,6 @@ INDEX CTString::Length() const
 INDEX CTString::LengthNaked() const
 {
   return CTString_LengthNaked(mp_string);
-}
-
-CTString CTString::Undecorated() const
-{
-  return CTString(CTString_Undecorated(mp_string), true);
 }
 
 INDEX CTString::FindSubstr(const CTString& strSub)
@@ -159,11 +153,6 @@ BOOL CTString::Matches(const CTString& strOther) const
 BOOL CTString::Matches(const char* strOther) const
 {
   return CTString_Matches_str(mp_string, strOther);
-}
-
-CTString CTString::operator+(const CTString& strSecond) const
-{
-  return CTString(CTString_Concatenate(mp_string, strSecond.mp_string), true);
 }
 
 CTString& CTString::operator+=(const CTString& strSecond)
@@ -303,21 +292,14 @@ BOOL operator!=(const char* strThis, const CTString& strOther)
   return CTString_notequal_str(strOther.C_Handle(), strThis);
 }
 
-CTString operator+(const char* strFirst, const CTString& strSecond)
-{
-  CTString_* pFirst = CTString_new_str(strFirst);
-  CTString_ConcatenateInplace(pFirst, strSecond.C_Handle());
-  return CTString(pFirst, true);
-}
-
-CTStream& operator>>(CTStream& strmStream, CTString& strString)
+SECPPAPI CTStream& operator>>(CTStream& strmStream, CTString& strString)
 {
   CTString_extract(strmStream.C_Handle(), strString.C_Handle());
   SECppAPI_CheckException();
   return strmStream;
 }
 
-CTStream& operator<<(CTStream& strmStream, const CTString& strString)
+SECPPAPI CTStream& operator<<(CTStream& strmStream, const CTString& strString)
 {
   CTString_insert(strmStream.C_Handle(), strString.C_Handle());
   SECppAPI_CheckException();

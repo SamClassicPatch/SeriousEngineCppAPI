@@ -1,6 +1,5 @@
 #include "FileName.h"
 #include "Stream.h"
-#include <SeriousEngineCAPI/Base/FileName.h>
 
 CTFileName::CTFileName(CTFileName_* p, bool owner)
   : CTString((CTString_*)p, owner)
@@ -52,26 +51,6 @@ void CTFileName::operator=(const CTString& strOther)
   CTFileName_assign(C_Handle(), strOther.C_Handle());
 }
 
-CTFileName CTFileName::FileDir() const
-{
-  return CTFileName(CTFileName_FileDir(C_Handle()), true);
-}
-
-CTFileName CTFileName::FileName() const
-{
-  return CTFileName(CTFileName_FileName(C_Handle()), true);
-}
-
-CTFileName CTFileName::FileExt() const
-{
-  return CTFileName(CTFileName_FileExt(C_Handle()), true);
-}
-
-CTFileName CTFileName::NoExt() const
-{
-  return CTFileName(CTFileName_NoExt(C_Handle()), true);
-}
-
 void CTFileName::SetAbsolutePath()
 {
   CTFileName_SetAbsolutePath(C_Handle());
@@ -89,14 +68,14 @@ void CTFileName::ReadFromText_t(CTStream& strmStream, const char* strKeyword)
   SECppAPI_CheckException();
 }
 
-CTStream& operator>>(CTStream& strmStream, CTFileName& fnmFileName)
+SECPPAPI CTStream& operator>>(CTStream& strmStream, CTFileName& fnmFileName)
 {
   CTFileName_extract(strmStream.C_Handle(), fnmFileName.C_Handle());
   SECppAPI_CheckException();
   return strmStream;
 }
 
-CTStream& operator<<(CTStream& strmStream, const CTFileName& fnmFileName)
+SECPPAPI CTStream& operator<<(CTStream& strmStream, const CTFileName& fnmFileName)
 {
   CTFileName_insert(strmStream.C_Handle(), fnmFileName.C_Handle());
   SECppAPI_CheckException();

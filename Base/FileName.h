@@ -1,5 +1,6 @@
 #pragma once
 #include "CTString.h"
+#include <SeriousEngineCAPI/Base/FileName.h>
 
 class SECPPAPI CTFileName : public CTString
 {
@@ -18,13 +19,13 @@ public:
   void operator=(const CTString& strOther);
 
   /* Get directory part of a filename. */
-  CTFileName FileDir() const;
+  __forceinline CTFileName FileDir() const { return CTFileName(CTFileName_FileDir(C_Handle()), true); }
   /* Get name part of a filename. */
-  CTFileName FileName() const;
+  __forceinline CTFileName FileName() const { return CTFileName(CTFileName_FileName(C_Handle()), true); }
   /* Get extension part of a filename. */
-  CTFileName FileExt() const;
+  __forceinline CTFileName FileExt() const { return CTFileName(CTFileName_FileExt(C_Handle()), true); }
   /* Get path and file name without extension. */
-  CTFileName NoExt() const;
+  __forceinline CTFileName NoExt() const { return CTFileName(CTFileName_NoExt(C_Handle()), true); }
   /* Set path to the absolute path, taking \.. and /.. into account. */
   void SetAbsolutePath();
   /* Remove application path from a file name. */

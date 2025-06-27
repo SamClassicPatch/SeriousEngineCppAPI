@@ -1,5 +1,7 @@
 #pragma once
 #include "../Base/Types.h"
+#include "Matrix.h"
+#include <SeriousEngineCAPI/Math/Vector.h>
 
 class SECPPAPI FLOAT2D
 {
@@ -32,20 +34,20 @@ public:
   /* Mathematical operators. */
   // unary minus
   FLOAT2D& Flip();
-  FLOAT2D operator-() const;
+  __forceinline FLOAT2D operator-() const { return FLOAT2D(FLOAT2D_Negative(mp_vector), true); }
   // between two vectors
-  FLOAT2D operator+(const FLOAT2D& vector2) const;
+  __forceinline FLOAT2D operator+(const FLOAT2D& vector2) const { return FLOAT2D(FLOAT2D_Plus(mp_vector, vector2.mp_vector), true); }
   FLOAT2D& operator+=(const FLOAT2D& vector2);
-  FLOAT2D operator-(const FLOAT2D& vector2) const;
+  __forceinline FLOAT2D operator-(const FLOAT2D& vector2) const { return FLOAT2D(FLOAT2D_Minus(mp_vector, vector2.mp_vector), true); }
   FLOAT2D& operator-=(const FLOAT2D& vector2);
   // multiplication with scalar
-  FLOAT2D operator*(const FLOAT scalar) const;
+  __forceinline FLOAT2D operator*(const FLOAT scalar) const { return FLOAT2D(FLOAT2D_Multiply(mp_vector, scalar), true); }
   FLOAT2D& operator*=(const FLOAT scalar);
   // division with scalar
-  FLOAT2D operator/(const FLOAT scalar) const;
+  __forceinline FLOAT2D operator/(const FLOAT scalar) const { return FLOAT2D(FLOAT2D_Divide(mp_vector, scalar), true); }
   FLOAT2D& operator/=(const FLOAT scalar);
   // multiplication by a square matrix (sides swapped)
-  FLOAT2D operator*(const FLOATmatrix2D& matrix2) const;
+  __forceinline FLOAT2D operator*(const FLOATmatrix2D& matrix2) const { return FLOAT2D(FLOAT2D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true); }
   FLOAT2D& operator*=(const FLOATmatrix2D& matrix2);
   // scalar product - dot product, inner product
   FLOAT operator%(const FLOAT2D& vector2) const;
@@ -97,25 +99,25 @@ public:
   /* Mathematical operators. */
   // unary minus
   FLOAT3D& Flip();
-  FLOAT3D operator-() const;
+  __forceinline FLOAT3D operator-() const { return FLOAT3D(FLOAT3D_Negative(mp_vector), true); }
   // between two vectors
-  FLOAT3D operator+(const FLOAT3D& vector2) const;
+  __forceinline FLOAT3D operator+(const FLOAT3D& vector2) const { return FLOAT3D(FLOAT3D_Plus(mp_vector, vector2.mp_vector), true); }
   FLOAT3D& operator+=(const FLOAT3D& vector2);
-  FLOAT3D operator-(const FLOAT3D& vector2) const;
+  __forceinline FLOAT3D operator-(const FLOAT3D& vector2) const { return FLOAT3D(FLOAT3D_Minus(mp_vector, vector2.mp_vector), true); }
   FLOAT3D& operator-=(const FLOAT3D& vector2);
   // multiplication with scalar
-  FLOAT3D operator*(const FLOAT scalar) const;
+  __forceinline FLOAT3D operator*(const FLOAT scalar) const { return FLOAT3D(FLOAT3D_Multiply(mp_vector, scalar), true); }
   FLOAT3D& operator*=(const FLOAT scalar);
   // division with scalar
-  FLOAT3D operator/(const FLOAT scalar) const;
+  __forceinline FLOAT3D operator/(const FLOAT scalar) const { return FLOAT3D(FLOAT3D_Divide(mp_vector, scalar), true); }
   FLOAT3D& operator/=(const FLOAT scalar);
   // multiplication by a square matrix (sides swapped)
-  FLOAT3D operator*(const FLOATmatrix3D& matrix2) const;
+  __forceinline FLOAT3D operator*(const FLOATmatrix3D& matrix2) const { return FLOAT3D(FLOAT3D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true); }
   FLOAT3D& operator*=(const FLOATmatrix3D& matrix2);
   // scalar product - dot product, inner product
   FLOAT operator%(const FLOAT3D& vector2) const;
   // vector product - cross product, outer product
-  FLOAT3D operator*(const FLOAT3D& vector2) const;
+  __forceinline FLOAT3D operator*(const FLOAT3D& vector2) const { return FLOAT3D(FLOAT3D_Multiply_vector(mp_vector, vector2.mp_vector), true); }
   FLOAT3D& operator*=(const FLOAT3D& vector2);
   // comparing vectors
   BOOL operator==(const FLOAT3D& vector2) const;
@@ -166,20 +168,20 @@ public:
   /* Mathematical operators. */
   // unary minus
   FLOAT4D& Flip();
-  FLOAT4D operator-() const;
+  __forceinline FLOAT4D operator-() const { return FLOAT4D(FLOAT4D_Negative(mp_vector), true); }
   // between two vectors
-  FLOAT4D operator+(const FLOAT4D& vector2) const;
+  __forceinline FLOAT4D operator+(const FLOAT4D& vector2) const { return FLOAT4D(FLOAT4D_Plus(mp_vector, vector2.mp_vector), true); }
   FLOAT4D& operator+=(const FLOAT4D& vector2);
-  FLOAT4D operator-(const FLOAT4D& vector2) const;
+  __forceinline FLOAT4D operator-(const FLOAT4D& vector2) const { return FLOAT4D(FLOAT4D_Minus(mp_vector, vector2.mp_vector), true); }
   FLOAT4D& operator-=(const FLOAT4D& vector2);
   // multiplication with scalar
-  FLOAT4D operator*(const FLOAT scalar) const;
+  __forceinline FLOAT4D operator*(const FLOAT scalar) const { return FLOAT4D(FLOAT4D_Multiply(mp_vector, scalar), true); }
   FLOAT4D& operator*=(const FLOAT scalar);
   // division with scalar
-  FLOAT4D operator/(const FLOAT scalar) const;
+  __forceinline FLOAT4D operator/(const FLOAT scalar) const { return FLOAT4D(FLOAT4D_Divide(mp_vector, scalar), true); }
   FLOAT4D& operator/=(const FLOAT scalar);
   // multiplication by a square matrix (sides swapped)
-  FLOAT4D operator*(const FLOATmatrix4D& matrix2) const;
+  __forceinline FLOAT4D operator*(const FLOATmatrix4D& matrix2) const { return FLOAT4D(FLOAT4D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true); }
   FLOAT4D& operator*=(const FLOATmatrix4D& matrix2);
   // scalar product - dot product, inner product
   FLOAT operator%(const FLOAT4D& vector2) const;
@@ -232,20 +234,20 @@ public:
   /* Mathematical operators. */
   // unary minus
   DOUBLE2D& Flip();
-  DOUBLE2D operator-() const;
+  __forceinline DOUBLE2D operator-() const { return DOUBLE2D(DOUBLE2D_Negative(mp_vector), true); }
   // between two vectors
-  DOUBLE2D operator+(const DOUBLE2D& vector2) const;
+  __forceinline DOUBLE2D operator+(const DOUBLE2D& vector2) const { return DOUBLE2D(DOUBLE2D_Plus(mp_vector, vector2.mp_vector), true); }
   DOUBLE2D& operator+=(const DOUBLE2D& vector2);
-  DOUBLE2D operator-(const DOUBLE2D& vector2) const;
+  __forceinline DOUBLE2D operator-(const DOUBLE2D& vector2) const { return DOUBLE2D(DOUBLE2D_Minus(mp_vector, vector2.mp_vector), true); }
   DOUBLE2D& operator-=(const DOUBLE2D& vector2);
   // multiplication with scalar
-  DOUBLE2D operator*(const DOUBLE scalar) const;
+  __forceinline DOUBLE2D operator*(const DOUBLE scalar) const { return DOUBLE2D(DOUBLE2D_Multiply(mp_vector, scalar), true); }
   DOUBLE2D& operator*=(const DOUBLE scalar);
   // division with scalar
-  DOUBLE2D operator/(const DOUBLE scalar) const;
+  __forceinline DOUBLE2D operator/(const DOUBLE scalar) const { return DOUBLE2D(DOUBLE2D_Divide(mp_vector, scalar), true); }
   DOUBLE2D& operator/=(const DOUBLE scalar);
   // multiplication by a square matrix (sides swapped)
-  DOUBLE2D operator*(const DOUBLEmatrix2D& matrix2) const;
+  __forceinline DOUBLE2D operator*(const DOUBLEmatrix2D& matrix2) const { return DOUBLE2D(DOUBLE2D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true); }
   DOUBLE2D& operator*=(const DOUBLEmatrix2D& matrix2);
   // scalar product - dot product, inner product
   DOUBLE operator%(const DOUBLE2D& vector2) const;
@@ -261,7 +263,6 @@ public:
   inline const DOUBLE2D_* C_Handle() const { return mp_vector; }
   inline operator DOUBLE2D_* () { return C_Handle(); }
   inline operator const DOUBLE2D_* () const { return C_Handle(); }
-
 private:
   bool m_owner = true;
   DOUBLE2D_* mp_vector = nullptr;
@@ -298,25 +299,25 @@ public:
   /* Mathematical operators. */
   // unary minus
   DOUBLE3D& Flip();
-  DOUBLE3D operator-() const;
+  __forceinline DOUBLE3D operator-() const { return DOUBLE3D(DOUBLE3D_Negative(mp_vector), true); }
   // between two vectors
-  DOUBLE3D operator+(const DOUBLE3D& vector2) const;
+  __forceinline DOUBLE3D operator+(const DOUBLE3D& vector2) const { return DOUBLE3D(DOUBLE3D_Plus(mp_vector, vector2.mp_vector), true); }
   DOUBLE3D& operator+=(const DOUBLE3D& vector2);
-  DOUBLE3D operator-(const DOUBLE3D& vector2) const;
+  __forceinline DOUBLE3D operator-(const DOUBLE3D& vector2) const { return DOUBLE3D(DOUBLE3D_Minus(mp_vector, vector2.mp_vector), true); }
   DOUBLE3D& operator-=(const DOUBLE3D& vector2);
   // multiplication with scalar
-  DOUBLE3D operator*(const DOUBLE scalar) const;
+  __forceinline DOUBLE3D operator*(const DOUBLE scalar) const { return DOUBLE3D(DOUBLE3D_Multiply(mp_vector, scalar), true); }
   DOUBLE3D& operator*=(const DOUBLE scalar);
   // division with scalar
-  DOUBLE3D operator/(const DOUBLE scalar) const;
+  __forceinline DOUBLE3D operator/(const DOUBLE scalar) const { return DOUBLE3D(DOUBLE3D_Divide(mp_vector, scalar), true); }
   DOUBLE3D& operator/=(const DOUBLE scalar);
   // multiplication by a square matrix (sides swapped)
-  DOUBLE3D operator*(const DOUBLEmatrix3D& matrix2) const;
+  __forceinline DOUBLE3D operator*(const DOUBLEmatrix3D& matrix2) const { return DOUBLE3D(DOUBLE3D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true); }
   DOUBLE3D& operator*=(const DOUBLEmatrix3D& matrix2);
   // scalar product - dot product, inner product
   DOUBLE operator%(const DOUBLE3D& vector2) const;
   // vector product - cross product, outer product
-  DOUBLE3D operator*(const DOUBLE3D& vector2) const;
+  __forceinline DOUBLE3D operator*(const DOUBLE3D& vector2) const { return DOUBLE3D(DOUBLE3D_Multiply_vector(mp_vector, vector2.mp_vector), true); }
   DOUBLE3D& operator*=(const DOUBLE3D& vector2);
   // comparing vectors
   BOOL operator==(const DOUBLE3D& vector2) const;
@@ -367,20 +368,20 @@ public:
   /* Mathematical operators. */
   // unary minus
   DOUBLE4D& Flip();
-  DOUBLE4D operator-() const;
+  __forceinline DOUBLE4D operator-() const { return DOUBLE4D(DOUBLE4D_Negative(mp_vector), true); }
   // between two vectors
-  DOUBLE4D operator+(const DOUBLE4D& vector2) const;
+  __forceinline DOUBLE4D operator+(const DOUBLE4D& vector2) const { return DOUBLE4D(DOUBLE4D_Plus(mp_vector, vector2.mp_vector), true); }
   DOUBLE4D& operator+=(const DOUBLE4D& vector2);
-  DOUBLE4D operator-(const DOUBLE4D& vector2) const;
+  __forceinline DOUBLE4D operator-(const DOUBLE4D& vector2) const { return DOUBLE4D(DOUBLE4D_Minus(mp_vector, vector2.mp_vector), true); }
   DOUBLE4D& operator-=(const DOUBLE4D& vector2);
   // multiplication with scalar
-  DOUBLE4D operator*(const DOUBLE scalar) const;
+  __forceinline DOUBLE4D operator*(const DOUBLE scalar) const { return DOUBLE4D(DOUBLE4D_Multiply(mp_vector, scalar), true); }
   DOUBLE4D& operator*=(const DOUBLE scalar);
   // division with scalar
-  DOUBLE4D operator/(const DOUBLE scalar) const;
+  __forceinline DOUBLE4D operator/(const DOUBLE scalar) const { return DOUBLE4D(DOUBLE4D_Divide(mp_vector, scalar), true); }
   DOUBLE4D& operator/=(const DOUBLE scalar);
   // multiplication by a square matrix (sides swapped)
-  DOUBLE4D operator*(const DOUBLEmatrix4D& matrix2) const;
+  __forceinline DOUBLE4D operator*(const DOUBLEmatrix4D& matrix2) const { return DOUBLE4D(DOUBLE4D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true); }
   DOUBLE4D& operator*=(const DOUBLEmatrix4D& matrix2);
   // scalar product - dot product, inner product
   DOUBLE operator%(const DOUBLE4D& vector2) const;
@@ -433,20 +434,20 @@ public:
   /* Mathematical operators. */
   // unary minus
   INDEX2D& Flip();
-  INDEX2D operator-() const;
+  __forceinline INDEX2D operator-() const { return INDEX2D(INDEX2D_Negative(mp_vector), true); }
   // between two vectors
-  INDEX2D operator+(const INDEX2D& vector2) const;
+  __forceinline INDEX2D operator+(const INDEX2D& vector2) const { return INDEX2D(INDEX2D_Plus(mp_vector, vector2.mp_vector), true); }
   INDEX2D& operator+=(const INDEX2D& vector2);
-  INDEX2D operator-(const INDEX2D& vector2) const;
+  __forceinline INDEX2D operator-(const INDEX2D& vector2) const { return INDEX2D(INDEX2D_Minus(mp_vector, vector2.mp_vector), true); }
   INDEX2D& operator-=(const INDEX2D& vector2);
   // multiplication with scalar
-  INDEX2D operator*(const INDEX scalar) const;
+  __forceinline INDEX2D operator*(const INDEX scalar) const { return INDEX2D(INDEX2D_Multiply(mp_vector, scalar), true); }
   INDEX2D& operator*=(const INDEX scalar);
   // division with scalar
-  INDEX2D operator/(const INDEX scalar) const;
+  __forceinline INDEX2D operator/(const INDEX scalar) const { return INDEX2D(INDEX2D_Divide(mp_vector, scalar), true); }
   INDEX2D& operator/=(const INDEX scalar);
   // multiplication by a square matrix (sides swapped)
-  INDEX2D operator*(const INDEXmatrix2D& matrix2) const;
+  __forceinline INDEX2D operator*(const INDEXmatrix2D& matrix2) const { return INDEX2D(INDEX2D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true); }
   INDEX2D& operator*=(const INDEXmatrix2D& matrix2);
   // scalar product - dot product, inner product
   INDEX operator%(const INDEX2D& vector2) const;
@@ -462,7 +463,6 @@ public:
   inline const INDEX2D_* C_Handle() const { return mp_vector; }
   inline operator INDEX2D_* () { return C_Handle(); }
   inline operator const INDEX2D_* () const { return C_Handle(); }
-
 private:
   bool m_owner = true;
   INDEX2D_* mp_vector = nullptr;
@@ -499,25 +499,25 @@ public:
   /* Mathematical operators. */
   // unary minus
   INDEX3D& Flip();
-  INDEX3D operator-() const;
+  __forceinline INDEX3D operator-() const { return INDEX3D(INDEX3D_Negative(mp_vector), true); }
   // between two vectors
-  INDEX3D operator+(const INDEX3D& vector2) const;
+  __forceinline INDEX3D operator+(const INDEX3D& vector2) const { return INDEX3D(INDEX3D_Plus(mp_vector, vector2.mp_vector), true); }
   INDEX3D& operator+=(const INDEX3D& vector2);
-  INDEX3D operator-(const INDEX3D& vector2) const;
+  __forceinline INDEX3D operator-(const INDEX3D& vector2) const { return INDEX3D(INDEX3D_Minus(mp_vector, vector2.mp_vector), true); }
   INDEX3D& operator-=(const INDEX3D& vector2);
   // multiplication with scalar
-  INDEX3D operator*(const INDEX scalar) const;
+  __forceinline INDEX3D operator*(const INDEX scalar) const { return INDEX3D(INDEX3D_Multiply(mp_vector, scalar), true); }
   INDEX3D& operator*=(const INDEX scalar);
   // division with scalar
-  INDEX3D operator/(const INDEX scalar) const;
+  __forceinline INDEX3D operator/(const INDEX scalar) const { return INDEX3D(INDEX3D_Divide(mp_vector, scalar), true); }
   INDEX3D& operator/=(const INDEX scalar);
   // multiplication by a square matrix (sides swapped)
-  INDEX3D operator*(const INDEXmatrix3D& matrix2) const;
+  __forceinline INDEX3D operator*(const INDEXmatrix3D& matrix2) const { return INDEX3D(INDEX3D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true); }
   INDEX3D& operator*=(const INDEXmatrix3D& matrix2);
   // scalar product - dot product, inner product
   INDEX operator%(const INDEX3D& vector2) const;
   // vector product - cross product, outer product
-  INDEX3D operator*(const INDEX3D& vector2) const;
+  __forceinline INDEX3D operator*(const INDEX3D& vector2) const { return INDEX3D(INDEX3D_Multiply_vector(mp_vector, vector2.mp_vector), true); }
   INDEX3D& operator*=(const INDEX3D& vector2);
   // comparing vectors
   BOOL operator==(const INDEX3D& vector2) const;
@@ -568,20 +568,20 @@ public:
   /* Mathematical operators. */
   // unary minus
   INDEX4D& Flip();
-  INDEX4D operator-() const;
+  __forceinline INDEX4D operator-() const { return INDEX4D(INDEX4D_Negative(mp_vector), true); }
   // between two vectors
-  INDEX4D operator+(const INDEX4D& vector2) const;
+  __forceinline INDEX4D operator+(const INDEX4D& vector2) const { return INDEX4D(INDEX4D_Plus(mp_vector, vector2.mp_vector), true); }
   INDEX4D& operator+=(const INDEX4D& vector2);
-  INDEX4D operator-(const INDEX4D& vector2) const;
+  __forceinline INDEX4D operator-(const INDEX4D& vector2) const { return INDEX4D(INDEX4D_Minus(mp_vector, vector2.mp_vector), true); }
   INDEX4D& operator-=(const INDEX4D& vector2);
   // multiplication with scalar
-  INDEX4D operator*(const INDEX scalar) const;
+  __forceinline INDEX4D operator*(const INDEX scalar) const { return INDEX4D(INDEX4D_Multiply(mp_vector, scalar), true); }
   INDEX4D& operator*=(const INDEX scalar);
   // division with scalar
-  INDEX4D operator/(const INDEX scalar) const;
+  __forceinline INDEX4D operator/(const INDEX scalar) const { return INDEX4D(INDEX4D_Divide(mp_vector, scalar), true); }
   INDEX4D& operator/=(const INDEX scalar);
   // multiplication by a square matrix (sides swapped)
-  INDEX4D operator*(const INDEXmatrix4D& matrix2) const;
+  __forceinline INDEX4D operator*(const INDEXmatrix4D& matrix2) const { return INDEX4D(INDEX4D_Multiply_matrix(mp_vector, matrix2.C_Handle()), true); }
   INDEX4D& operator*=(const INDEXmatrix4D& matrix2);
   // scalar product - dot product, inner product
   INDEX operator%(const INDEX4D& vector2) const;
@@ -603,16 +603,16 @@ private:
   INDEX4D_* mp_vector = nullptr;
 };
 
-SECPPAPI FLOAT2D ComponentProduct(const FLOAT2D& a, const FLOAT2D& b);
-SECPPAPI FLOAT3D ComponentProduct(const FLOAT3D& a, const FLOAT3D& b);
-SECPPAPI FLOAT4D ComponentProduct(const FLOAT4D& a, const FLOAT4D& b);
-SECPPAPI DOUBLE2D ComponentProduct(const DOUBLE2D& a, const DOUBLE2D& b);
-SECPPAPI DOUBLE3D ComponentProduct(const DOUBLE3D& a, const DOUBLE3D& b);
-SECPPAPI DOUBLE4D ComponentProduct(const DOUBLE4D& a, const DOUBLE4D& b);
-SECPPAPI INDEX2D ComponentProduct(const INDEX2D& a, const INDEX2D& b);
-SECPPAPI INDEX3D ComponentProduct(const INDEX3D& a, const INDEX3D& b);
-SECPPAPI INDEX4D ComponentProduct(const INDEX4D& a, const INDEX4D& b);
+__forceinline FLOAT2D ComponentProduct(const FLOAT2D& a, const FLOAT2D& b) { return FLOAT2D(FLOAT2D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
+__forceinline FLOAT3D ComponentProduct(const FLOAT3D& a, const FLOAT3D& b) { return FLOAT3D(FLOAT3D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
+__forceinline FLOAT4D ComponentProduct(const FLOAT4D& a, const FLOAT4D& b) { return FLOAT4D(FLOAT4D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
+__forceinline DOUBLE2D ComponentProduct(const DOUBLE2D& a, const DOUBLE2D& b) { return DOUBLE2D(DOUBLE2D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
+__forceinline DOUBLE3D ComponentProduct(const DOUBLE3D& a, const DOUBLE3D& b) { return DOUBLE3D(DOUBLE3D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
+__forceinline DOUBLE4D ComponentProduct(const DOUBLE4D& a, const DOUBLE4D& b) { return DOUBLE4D(DOUBLE4D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
+__forceinline INDEX2D ComponentProduct(const INDEX2D& a, const INDEX2D& b) { return INDEX2D(INDEX2D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
+__forceinline INDEX3D ComponentProduct(const INDEX3D& a, const INDEX3D& b) { return INDEX3D(INDEX3D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
+__forceinline INDEX4D ComponentProduct(const INDEX4D& a, const INDEX4D& b) { return INDEX4D(INDEX4D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
 
 // helper functions for converting between FLOAT and DOUBLE vectors
-SECPPAPI DOUBLE3D FLOATtoDOUBLE(const FLOAT3D& vf);
-SECPPAPI FLOAT3D DOUBLEtoFLOAT(const DOUBLE3D& vd);
+__forceinline DOUBLE3D FLOATtoDOUBLE(const FLOAT3D& vf) { return DOUBLE3D(FLOAT2DOUBLE(vf.C_Handle()), true); }
+__forceinline FLOAT3D DOUBLEtoFLOAT(const DOUBLE3D& vd) { return FLOAT3D(DOUBLE2FLOAT(vd.C_Handle()), true); }

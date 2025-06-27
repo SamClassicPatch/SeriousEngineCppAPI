@@ -1,10 +1,7 @@
 #pragma once
 #include "../Base/Types.h"
-
-#include <memory>
+#include <SeriousEngineCAPI/Base/Stream.h>
 #include <functional>
-
-// TODO DEAL WITH RVO
 
 #define CID_LENGTH 4
 class SECPPAPI CChunkID {
@@ -90,8 +87,19 @@ public:
   void GetLine_t(char* strBuffer, SLONG slBufferSize, char cDelimiter = '\n'); // throw char *
   void GetLine_t(CTString& strLine, char cDelimiter = '\n'); // throw char *
 
-  std::unique_ptr<CChunkID> GetID_t(); // throw char *
-  std::unique_ptr<CChunkID> PeekID_t(); // throw char *
+  __forceinline CChunkID GetID_t() // throw char *
+  {
+    CChunkID id(CTStream_GetID_t(mp_stream), true);
+    SECppAPI_CheckException();
+    return id;
+  }
+
+  __forceinline CChunkID PeekID_t() // throw char *
+  {
+    CChunkID id(CTStream_PeekID_t(mp_stream), true);
+    SECppAPI_CheckException();
+    return id;
+  }
   void ExpectID_t(const CChunkID& cidExpected); // throw char *
   void ExpectKeyword_t(const CTString& strKeyword); // throw char *
   SLONG GetSize_t(); // throw char *

@@ -1,138 +1,127 @@
 #include "Matrix.h"
 #include "Vector.h"
 #include "../Base/Stream.h"
-#include <SeriousEngineCAPI/Math/Matrix.h>
 
-DOUBLEmatrix3D FLOATtoDOUBLE(const FLOATmatrix3D& vf)
-{
-  return DOUBLEmatrix3D(FLOAT2DOUBLEmx(vf.C_Handle()), true);
-}
-
-FLOATmatrix3D DOUBLEtoFLOAT(const DOUBLEmatrix3D& vd)
-{
-  return FLOATmatrix3D(DOUBLE2FLOATmx(vd.C_Handle()), true);
-}
-
-CTStream& operator>>(CTStream& strm, FLOATmatrix2D& matrix)
+SECPPAPI CTStream& operator>>(CTStream& strm, FLOATmatrix2D& matrix)
 {
   FLOATmatrix2D_extract(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, FLOATmatrix2D& matrix)
+SECPPAPI CTStream& operator<<(CTStream& strm, FLOATmatrix2D& matrix)
 {
   FLOATmatrix2D_insert(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator>>(CTStream& strm, FLOATmatrix3D& matrix)
+SECPPAPI CTStream& operator>>(CTStream& strm, FLOATmatrix3D& matrix)
 {
   FLOATmatrix3D_extract(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, FLOATmatrix3D& matrix)
+SECPPAPI CTStream& operator<<(CTStream& strm, FLOATmatrix3D& matrix)
 {
   FLOATmatrix3D_insert(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator>>(CTStream& strm, FLOATmatrix4D& matrix)
+SECPPAPI CTStream& operator>>(CTStream& strm, FLOATmatrix4D& matrix)
 {
   FLOATmatrix4D_extract(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, FLOATmatrix4D& matrix)
+SECPPAPI CTStream& operator<<(CTStream& strm, FLOATmatrix4D& matrix)
 {
   FLOATmatrix4D_insert(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator>>(CTStream& strm, DOUBLEmatrix2D& matrix)
+SECPPAPI CTStream& operator>>(CTStream& strm, DOUBLEmatrix2D& matrix)
 {
   DOUBLEmatrix2D_extract(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, DOUBLEmatrix2D& matrix)
+SECPPAPI CTStream& operator<<(CTStream& strm, DOUBLEmatrix2D& matrix)
 {
   DOUBLEmatrix2D_insert(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator>>(CTStream& strm, DOUBLEmatrix3D& matrix)
+SECPPAPI CTStream& operator>>(CTStream& strm, DOUBLEmatrix3D& matrix)
 {
   DOUBLEmatrix3D_extract(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, DOUBLEmatrix3D& matrix)
+SECPPAPI CTStream& operator<<(CTStream& strm, DOUBLEmatrix3D& matrix)
 {
   DOUBLEmatrix3D_insert(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator>>(CTStream& strm, DOUBLEmatrix4D& matrix)
+SECPPAPI CTStream& operator>>(CTStream& strm, DOUBLEmatrix4D& matrix)
 {
   DOUBLEmatrix4D_extract(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, DOUBLEmatrix4D& matrix)
+SECPPAPI CTStream& operator<<(CTStream& strm, DOUBLEmatrix4D& matrix)
 {
   DOUBLEmatrix4D_insert(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator>>(CTStream& strm, INDEXmatrix2D& matrix)
+SECPPAPI CTStream& operator>>(CTStream& strm, INDEXmatrix2D& matrix)
 {
   INDEXmatrix2D_extract(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, INDEXmatrix2D& matrix)
+SECPPAPI CTStream& operator<<(CTStream& strm, INDEXmatrix2D& matrix)
 {
   INDEXmatrix2D_insert(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator>>(CTStream& strm, INDEXmatrix3D& matrix)
+SECPPAPI CTStream& operator>>(CTStream& strm, INDEXmatrix3D& matrix)
 {
   INDEXmatrix3D_extract(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, INDEXmatrix3D& matrix)
+SECPPAPI CTStream& operator<<(CTStream& strm, INDEXmatrix3D& matrix)
 {
   INDEXmatrix3D_insert(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator>>(CTStream& strm, INDEXmatrix4D& matrix)
+SECPPAPI CTStream& operator>>(CTStream& strm, INDEXmatrix4D& matrix)
 {
   INDEXmatrix4D_extract(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-CTStream& operator<<(CTStream& strm, INDEXmatrix4D& matrix)
+SECPPAPI CTStream& operator<<(CTStream& strm, INDEXmatrix4D& matrix)
 {
   INDEXmatrix4D_insert(strm.C_Handle(), matrix.C_Handle());
   SECppAPI_CheckException();
@@ -233,20 +222,10 @@ FLOAT FLOATmatrix2D::operator()(INDEX iRow, INDEX iColumn) const
   return FLOATmatrix2D_Element_const(mp_matrix, iRow, iColumn);
 }
 
-FLOATmatrix2D FLOATmatrix2D::operator!() const
-{
-  return FLOATmatrix2D(FLOATmatrix2D_Transposed(mp_matrix), true);
-}
-
 FLOATmatrix2D& FLOATmatrix2D::operator!=(const FLOATmatrix2D& matrix2)
 {
   FLOATmatrix2D_AssignTransposed(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-FLOATmatrix2D FLOATmatrix2D::operator+(const FLOATmatrix2D& matrix2) const
-{
-  return FLOATmatrix2D(FLOATmatrix2D_Plus(mp_matrix, matrix2.mp_matrix), true);
 }
 
 FLOATmatrix2D& FLOATmatrix2D::operator+=(const FLOATmatrix2D& matrix2)
@@ -255,20 +234,10 @@ FLOATmatrix2D& FLOATmatrix2D::operator+=(const FLOATmatrix2D& matrix2)
   return *this;
 }
 
-FLOATmatrix2D FLOATmatrix2D::operator-(const FLOATmatrix2D& matrix2) const
-{
-  return FLOATmatrix2D(FLOATmatrix2D_Minus(mp_matrix, matrix2.mp_matrix), true);
-}
-
 FLOATmatrix2D& FLOATmatrix2D::operator-=(const FLOATmatrix2D& matrix2)
 {
   FLOATmatrix2D_MinusInplace(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-FLOATmatrix2D FLOATmatrix2D::operator*(const FLOATmatrix2D& matrix2) const
-{
-  return FLOATmatrix2D(FLOATmatrix2D_Multiply(mp_matrix, matrix2.mp_matrix), true);
 }
 
 FLOATmatrix2D& FLOATmatrix2D::operator*=(const FLOATmatrix2D& matrix2)
@@ -277,20 +246,10 @@ FLOATmatrix2D& FLOATmatrix2D::operator*=(const FLOATmatrix2D& matrix2)
   return *this;
 }
 
-FLOATmatrix2D FLOATmatrix2D::operator*(const FLOAT tMul) const
-{
-  return FLOATmatrix2D(FLOATmatrix2D_Multiply_scalar(mp_matrix, tMul), true);
-}
-
 FLOATmatrix2D& FLOATmatrix2D::operator*=(const FLOAT tMul)
 {
   FLOATmatrix2D_MultiplyInplace_scalar(mp_matrix, tMul);
   return *this;
-}
-
-FLOATmatrix2D FLOATmatrix2D::operator/(const FLOAT tMul) const
-{
-  return FLOATmatrix2D(FLOATmatrix2D_Divide_scalar(mp_matrix, tMul), true);
 }
 
 FLOATmatrix2D& FLOATmatrix2D::operator/=(const FLOAT tMul)
@@ -359,20 +318,10 @@ FLOAT FLOATmatrix3D::operator()(INDEX iRow, INDEX iColumn) const
   return FLOATmatrix3D_Element_const(mp_matrix, iRow, iColumn);
 }
 
-FLOATmatrix3D FLOATmatrix3D::operator!() const
-{
-  return FLOATmatrix3D(FLOATmatrix3D_Transposed(mp_matrix), true);
-}
-
 FLOATmatrix3D& FLOATmatrix3D::operator!=(const FLOATmatrix3D& matrix2)
 {
   FLOATmatrix3D_AssignTransposed(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-FLOATmatrix3D FLOATmatrix3D::operator+(const FLOATmatrix3D& matrix2) const
-{
-  return FLOATmatrix3D(FLOATmatrix3D_Plus(mp_matrix, matrix2.mp_matrix), true);
 }
 
 FLOATmatrix3D& FLOATmatrix3D::operator+=(const FLOATmatrix3D& matrix2)
@@ -381,20 +330,10 @@ FLOATmatrix3D& FLOATmatrix3D::operator+=(const FLOATmatrix3D& matrix2)
   return *this;
 }
 
-FLOATmatrix3D FLOATmatrix3D::operator-(const FLOATmatrix3D& matrix2) const
-{
-  return FLOATmatrix3D(FLOATmatrix3D_Minus(mp_matrix, matrix2.mp_matrix), true);
-}
-
 FLOATmatrix3D& FLOATmatrix3D::operator-=(const FLOATmatrix3D& matrix2)
 {
   FLOATmatrix3D_MinusInplace(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-FLOATmatrix3D FLOATmatrix3D::operator*(const FLOATmatrix3D& matrix2) const
-{
-  return FLOATmatrix3D(FLOATmatrix3D_Multiply(mp_matrix, matrix2.mp_matrix), true);
 }
 
 FLOATmatrix3D& FLOATmatrix3D::operator*=(const FLOATmatrix3D& matrix2)
@@ -403,20 +342,10 @@ FLOATmatrix3D& FLOATmatrix3D::operator*=(const FLOATmatrix3D& matrix2)
   return *this;
 }
 
-FLOATmatrix3D FLOATmatrix3D::operator*(const FLOAT tMul) const
-{
-  return FLOATmatrix3D(FLOATmatrix3D_Multiply_scalar(mp_matrix, tMul), true);
-}
-
 FLOATmatrix3D& FLOATmatrix3D::operator*=(const FLOAT tMul)
 {
   FLOATmatrix3D_MultiplyInplace_scalar(mp_matrix, tMul);
   return *this;
-}
-
-FLOATmatrix3D FLOATmatrix3D::operator/(const FLOAT tMul) const
-{
-  return FLOATmatrix3D(FLOATmatrix3D_Divide_scalar(mp_matrix, tMul), true);
 }
 
 FLOATmatrix3D& FLOATmatrix3D::operator/=(const FLOAT tMul)
@@ -448,11 +377,6 @@ FLOAT3D FLOATmatrix3D::GetColumn(INDEX iColumn) const
 FLOAT FLOATmatrix3D::Determinant() const
 {
   return FLOATmatrix3D_Determinant(mp_matrix);
-}
-
-FLOATmatrix3D FLOATmatrix3D::InverseMatrix() const
-{
-  return FLOATmatrix3D(FLOATmatrix3D_InverseMatrix(mp_matrix), true);
 }
 
 FLOATmatrix4D::FLOATmatrix4D(FLOATmatrix4D_* p, bool owner)
@@ -495,20 +419,10 @@ FLOAT FLOATmatrix4D::operator()(INDEX iRow, INDEX iColumn) const
   return FLOATmatrix4D_Element_const(mp_matrix, iRow, iColumn);
 }
 
-FLOATmatrix4D FLOATmatrix4D::operator!() const
-{
-  return FLOATmatrix4D(FLOATmatrix4D_Transposed(mp_matrix), true);
-}
-
 FLOATmatrix4D& FLOATmatrix4D::operator!=(const FLOATmatrix4D& matrix2)
 {
   FLOATmatrix4D_AssignTransposed(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-FLOATmatrix4D FLOATmatrix4D::operator+(const FLOATmatrix4D& matrix2) const
-{
-  return FLOATmatrix4D(FLOATmatrix4D_Plus(mp_matrix, matrix2.mp_matrix), true);
 }
 
 FLOATmatrix4D& FLOATmatrix4D::operator+=(const FLOATmatrix4D& matrix2)
@@ -517,20 +431,10 @@ FLOATmatrix4D& FLOATmatrix4D::operator+=(const FLOATmatrix4D& matrix2)
   return *this;
 }
 
-FLOATmatrix4D FLOATmatrix4D::operator-(const FLOATmatrix4D& matrix2) const
-{
-  return FLOATmatrix4D(FLOATmatrix4D_Minus(mp_matrix, matrix2.mp_matrix), true);
-}
-
 FLOATmatrix4D& FLOATmatrix4D::operator-=(const FLOATmatrix4D& matrix2)
 {
   FLOATmatrix4D_MinusInplace(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-FLOATmatrix4D FLOATmatrix4D::operator*(const FLOATmatrix4D& matrix2) const
-{
-  return FLOATmatrix4D(FLOATmatrix4D_Multiply(mp_matrix, matrix2.mp_matrix), true);
 }
 
 FLOATmatrix4D& FLOATmatrix4D::operator*=(const FLOATmatrix4D& matrix2)
@@ -539,20 +443,10 @@ FLOATmatrix4D& FLOATmatrix4D::operator*=(const FLOATmatrix4D& matrix2)
   return *this;
 }
 
-FLOATmatrix4D FLOATmatrix4D::operator*(const FLOAT tMul) const
-{
-  return FLOATmatrix4D(FLOATmatrix4D_Multiply_scalar(mp_matrix, tMul), true);
-}
-
 FLOATmatrix4D& FLOATmatrix4D::operator*=(const FLOAT tMul)
 {
   FLOATmatrix4D_MultiplyInplace_scalar(mp_matrix, tMul);
   return *this;
-}
-
-FLOATmatrix4D FLOATmatrix4D::operator/(const FLOAT tMul) const
-{
-  return FLOATmatrix4D(FLOATmatrix4D_Divide_scalar(mp_matrix, tMul), true);
 }
 
 FLOATmatrix4D& FLOATmatrix4D::operator/=(const FLOAT tMul)
@@ -579,11 +473,6 @@ FLOAT4D FLOATmatrix4D::GetRow(INDEX iRow) const
 FLOAT4D FLOATmatrix4D::GetColumn(INDEX iColumn) const
 {
   return FLOAT4D(FLOATmatrix4D_GetColumn(mp_matrix, iColumn), true);
-}
-
-FLOATmatrix4D FLOATmatrix4D::InverseMatrix() const
-{
-  return FLOATmatrix4D(FLOATmatrix4D_InverseMatrix(mp_matrix), true);
 }
 
 DOUBLEmatrix2D::DOUBLEmatrix2D(DOUBLEmatrix2D_* p, bool owner)
@@ -626,20 +515,10 @@ DOUBLE DOUBLEmatrix2D::operator()(INDEX iRow, INDEX iColumn) const
   return DOUBLEmatrix2D_Element_const(mp_matrix, iRow, iColumn);
 }
 
-DOUBLEmatrix2D DOUBLEmatrix2D::operator!() const
-{
-  return DOUBLEmatrix2D(DOUBLEmatrix2D_Transposed(mp_matrix), true);
-}
-
 DOUBLEmatrix2D& DOUBLEmatrix2D::operator!=(const DOUBLEmatrix2D& matrix2)
 {
   DOUBLEmatrix2D_AssignTransposed(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-DOUBLEmatrix2D DOUBLEmatrix2D::operator+(const DOUBLEmatrix2D& matrix2) const
-{
-  return DOUBLEmatrix2D(DOUBLEmatrix2D_Plus(mp_matrix, matrix2.mp_matrix), true);
 }
 
 DOUBLEmatrix2D& DOUBLEmatrix2D::operator+=(const DOUBLEmatrix2D& matrix2)
@@ -648,20 +527,10 @@ DOUBLEmatrix2D& DOUBLEmatrix2D::operator+=(const DOUBLEmatrix2D& matrix2)
   return *this;
 }
 
-DOUBLEmatrix2D DOUBLEmatrix2D::operator-(const DOUBLEmatrix2D& matrix2) const
-{
-  return DOUBLEmatrix2D(DOUBLEmatrix2D_Minus(mp_matrix, matrix2.mp_matrix), true);
-}
-
 DOUBLEmatrix2D& DOUBLEmatrix2D::operator-=(const DOUBLEmatrix2D& matrix2)
 {
   DOUBLEmatrix2D_MinusInplace(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-DOUBLEmatrix2D DOUBLEmatrix2D::operator*(const DOUBLEmatrix2D& matrix2) const
-{
-  return DOUBLEmatrix2D(DOUBLEmatrix2D_Multiply(mp_matrix, matrix2.mp_matrix), true);
 }
 
 DOUBLEmatrix2D& DOUBLEmatrix2D::operator*=(const DOUBLEmatrix2D& matrix2)
@@ -670,20 +539,10 @@ DOUBLEmatrix2D& DOUBLEmatrix2D::operator*=(const DOUBLEmatrix2D& matrix2)
   return *this;
 }
 
-DOUBLEmatrix2D DOUBLEmatrix2D::operator*(const DOUBLE tMul) const
-{
-  return DOUBLEmatrix2D(DOUBLEmatrix2D_Multiply_scalar(mp_matrix, tMul), true);
-}
-
 DOUBLEmatrix2D& DOUBLEmatrix2D::operator*=(const DOUBLE tMul)
 {
   DOUBLEmatrix2D_MultiplyInplace_scalar(mp_matrix, tMul);
   return *this;
-}
-
-DOUBLEmatrix2D DOUBLEmatrix2D::operator/(const DOUBLE tMul) const
-{
-  return DOUBLEmatrix2D(DOUBLEmatrix2D_Divide_scalar(mp_matrix, tMul), true);
 }
 
 DOUBLEmatrix2D& DOUBLEmatrix2D::operator/=(const DOUBLE tMul)
@@ -752,20 +611,10 @@ DOUBLE DOUBLEmatrix3D::operator()(INDEX iRow, INDEX iColumn) const
   return DOUBLEmatrix3D_Element_const(mp_matrix, iRow, iColumn);
 }
 
-DOUBLEmatrix3D DOUBLEmatrix3D::operator!() const
-{
-  return DOUBLEmatrix3D(DOUBLEmatrix3D_Transposed(mp_matrix), true);
-}
-
 DOUBLEmatrix3D& DOUBLEmatrix3D::operator!=(const DOUBLEmatrix3D& matrix2)
 {
   DOUBLEmatrix3D_AssignTransposed(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-DOUBLEmatrix3D DOUBLEmatrix3D::operator+(const DOUBLEmatrix3D& matrix2) const
-{
-  return DOUBLEmatrix3D(DOUBLEmatrix3D_Plus(mp_matrix, matrix2.mp_matrix), true);
 }
 
 DOUBLEmatrix3D& DOUBLEmatrix3D::operator+=(const DOUBLEmatrix3D& matrix2)
@@ -774,20 +623,10 @@ DOUBLEmatrix3D& DOUBLEmatrix3D::operator+=(const DOUBLEmatrix3D& matrix2)
   return *this;
 }
 
-DOUBLEmatrix3D DOUBLEmatrix3D::operator-(const DOUBLEmatrix3D& matrix2) const
-{
-  return DOUBLEmatrix3D(DOUBLEmatrix3D_Minus(mp_matrix, matrix2.mp_matrix), true);
-}
-
 DOUBLEmatrix3D& DOUBLEmatrix3D::operator-=(const DOUBLEmatrix3D& matrix2)
 {
   DOUBLEmatrix3D_MinusInplace(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-DOUBLEmatrix3D DOUBLEmatrix3D::operator*(const DOUBLEmatrix3D& matrix2) const
-{
-  return DOUBLEmatrix3D(DOUBLEmatrix3D_Multiply(mp_matrix, matrix2.mp_matrix), true);
 }
 
 DOUBLEmatrix3D& DOUBLEmatrix3D::operator*=(const DOUBLEmatrix3D& matrix2)
@@ -796,20 +635,10 @@ DOUBLEmatrix3D& DOUBLEmatrix3D::operator*=(const DOUBLEmatrix3D& matrix2)
   return *this;
 }
 
-DOUBLEmatrix3D DOUBLEmatrix3D::operator*(const DOUBLE tMul) const
-{
-  return DOUBLEmatrix3D(DOUBLEmatrix3D_Multiply_scalar(mp_matrix, tMul), true);
-}
-
 DOUBLEmatrix3D& DOUBLEmatrix3D::operator*=(const DOUBLE tMul)
 {
   DOUBLEmatrix3D_MultiplyInplace_scalar(mp_matrix, tMul);
   return *this;
-}
-
-DOUBLEmatrix3D DOUBLEmatrix3D::operator/(const DOUBLE tMul) const
-{
-  return DOUBLEmatrix3D(DOUBLEmatrix3D_Divide_scalar(mp_matrix, tMul), true);
 }
 
 DOUBLEmatrix3D& DOUBLEmatrix3D::operator/=(const DOUBLE tMul)
@@ -841,11 +670,6 @@ DOUBLE3D DOUBLEmatrix3D::GetColumn(INDEX iColumn) const
 DOUBLE DOUBLEmatrix3D::Determinant() const
 {
   return DOUBLEmatrix3D_Determinant(mp_matrix);
-}
-
-DOUBLEmatrix3D DOUBLEmatrix3D::InverseMatrix() const
-{
-  return DOUBLEmatrix3D(DOUBLEmatrix3D_InverseMatrix(mp_matrix), true);
 }
 
 DOUBLEmatrix4D::DOUBLEmatrix4D(DOUBLEmatrix4D_* p, bool owner)
@@ -888,20 +712,10 @@ DOUBLE DOUBLEmatrix4D::operator()(INDEX iRow, INDEX iColumn) const
   return DOUBLEmatrix4D_Element_const(mp_matrix, iRow, iColumn);
 }
 
-DOUBLEmatrix4D DOUBLEmatrix4D::operator!() const
-{
-  return DOUBLEmatrix4D(DOUBLEmatrix4D_Transposed(mp_matrix), true);
-}
-
 DOUBLEmatrix4D& DOUBLEmatrix4D::operator!=(const DOUBLEmatrix4D& matrix2)
 {
   DOUBLEmatrix4D_AssignTransposed(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-DOUBLEmatrix4D DOUBLEmatrix4D::operator+(const DOUBLEmatrix4D& matrix2) const
-{
-  return DOUBLEmatrix4D(DOUBLEmatrix4D_Plus(mp_matrix, matrix2.mp_matrix), true);
 }
 
 DOUBLEmatrix4D& DOUBLEmatrix4D::operator+=(const DOUBLEmatrix4D& matrix2)
@@ -910,20 +724,10 @@ DOUBLEmatrix4D& DOUBLEmatrix4D::operator+=(const DOUBLEmatrix4D& matrix2)
   return *this;
 }
 
-DOUBLEmatrix4D DOUBLEmatrix4D::operator-(const DOUBLEmatrix4D& matrix2) const
-{
-  return DOUBLEmatrix4D(DOUBLEmatrix4D_Minus(mp_matrix, matrix2.mp_matrix), true);
-}
-
 DOUBLEmatrix4D& DOUBLEmatrix4D::operator-=(const DOUBLEmatrix4D& matrix2)
 {
   DOUBLEmatrix4D_MinusInplace(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-DOUBLEmatrix4D DOUBLEmatrix4D::operator*(const DOUBLEmatrix4D& matrix2) const
-{
-  return DOUBLEmatrix4D(DOUBLEmatrix4D_Multiply(mp_matrix, matrix2.mp_matrix), true);
 }
 
 DOUBLEmatrix4D& DOUBLEmatrix4D::operator*=(const DOUBLEmatrix4D& matrix2)
@@ -932,20 +736,10 @@ DOUBLEmatrix4D& DOUBLEmatrix4D::operator*=(const DOUBLEmatrix4D& matrix2)
   return *this;
 }
 
-DOUBLEmatrix4D DOUBLEmatrix4D::operator*(const DOUBLE tMul) const
-{
-  return DOUBLEmatrix4D(DOUBLEmatrix4D_Multiply_scalar(mp_matrix, tMul), true);
-}
-
 DOUBLEmatrix4D& DOUBLEmatrix4D::operator*=(const DOUBLE tMul)
 {
   DOUBLEmatrix4D_MultiplyInplace_scalar(mp_matrix, tMul);
   return *this;
-}
-
-DOUBLEmatrix4D DOUBLEmatrix4D::operator/(const DOUBLE tMul) const
-{
-  return DOUBLEmatrix4D(DOUBLEmatrix4D_Divide_scalar(mp_matrix, tMul), true);
 }
 
 DOUBLEmatrix4D& DOUBLEmatrix4D::operator/=(const DOUBLE tMul)
@@ -972,11 +766,6 @@ DOUBLE4D DOUBLEmatrix4D::GetRow(INDEX iRow) const
 DOUBLE4D DOUBLEmatrix4D::GetColumn(INDEX iColumn) const
 {
   return DOUBLE4D(DOUBLEmatrix4D_GetColumn(mp_matrix, iColumn), true);
-}
-
-DOUBLEmatrix4D DOUBLEmatrix4D::InverseMatrix() const
-{
-  return DOUBLEmatrix4D(DOUBLEmatrix4D_InverseMatrix(mp_matrix), true);
 }
 
 INDEXmatrix2D::INDEXmatrix2D(INDEXmatrix2D_* p, bool owner)
@@ -1019,20 +808,10 @@ INDEX INDEXmatrix2D::operator()(INDEX iRow, INDEX iColumn) const
   return INDEXmatrix2D_Element_const(mp_matrix, iRow, iColumn);
 }
 
-INDEXmatrix2D INDEXmatrix2D::operator!() const
-{
-  return INDEXmatrix2D(INDEXmatrix2D_Transposed(mp_matrix), true);
-}
-
 INDEXmatrix2D& INDEXmatrix2D::operator!=(const INDEXmatrix2D& matrix2)
 {
   INDEXmatrix2D_AssignTransposed(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-INDEXmatrix2D INDEXmatrix2D::operator+(const INDEXmatrix2D& matrix2) const
-{
-  return INDEXmatrix2D(INDEXmatrix2D_Plus(mp_matrix, matrix2.mp_matrix), true);
 }
 
 INDEXmatrix2D& INDEXmatrix2D::operator+=(const INDEXmatrix2D& matrix2)
@@ -1041,20 +820,10 @@ INDEXmatrix2D& INDEXmatrix2D::operator+=(const INDEXmatrix2D& matrix2)
   return *this;
 }
 
-INDEXmatrix2D INDEXmatrix2D::operator-(const INDEXmatrix2D& matrix2) const
-{
-  return INDEXmatrix2D(INDEXmatrix2D_Minus(mp_matrix, matrix2.mp_matrix), true);
-}
-
 INDEXmatrix2D& INDEXmatrix2D::operator-=(const INDEXmatrix2D& matrix2)
 {
   INDEXmatrix2D_MinusInplace(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-INDEXmatrix2D INDEXmatrix2D::operator*(const INDEXmatrix2D& matrix2) const
-{
-  return INDEXmatrix2D(INDEXmatrix2D_Multiply(mp_matrix, matrix2.mp_matrix), true);
 }
 
 INDEXmatrix2D& INDEXmatrix2D::operator*=(const INDEXmatrix2D& matrix2)
@@ -1063,20 +832,10 @@ INDEXmatrix2D& INDEXmatrix2D::operator*=(const INDEXmatrix2D& matrix2)
   return *this;
 }
 
-INDEXmatrix2D INDEXmatrix2D::operator*(const INDEX tMul) const
-{
-  return INDEXmatrix2D(INDEXmatrix2D_Multiply_scalar(mp_matrix, tMul), true);
-}
-
 INDEXmatrix2D& INDEXmatrix2D::operator*=(const INDEX tMul)
 {
   INDEXmatrix2D_MultiplyInplace_scalar(mp_matrix, tMul);
   return *this;
-}
-
-INDEXmatrix2D INDEXmatrix2D::operator/(const INDEX tMul) const
-{
-  return INDEXmatrix2D(INDEXmatrix2D_Divide_scalar(mp_matrix, tMul), true);
 }
 
 INDEXmatrix2D& INDEXmatrix2D::operator/=(const INDEX tMul)
@@ -1145,20 +904,10 @@ INDEX INDEXmatrix3D::operator()(INDEX iRow, INDEX iColumn) const
   return INDEXmatrix3D_Element_const(mp_matrix, iRow, iColumn);
 }
 
-INDEXmatrix3D INDEXmatrix3D::operator!() const
-{
-  return INDEXmatrix3D(INDEXmatrix3D_Transposed(mp_matrix), true);
-}
-
 INDEXmatrix3D& INDEXmatrix3D::operator!=(const INDEXmatrix3D& matrix2)
 {
   INDEXmatrix3D_AssignTransposed(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-INDEXmatrix3D INDEXmatrix3D::operator+(const INDEXmatrix3D& matrix2) const
-{
-  return INDEXmatrix3D(INDEXmatrix3D_Plus(mp_matrix, matrix2.mp_matrix), true);
 }
 
 INDEXmatrix3D& INDEXmatrix3D::operator+=(const INDEXmatrix3D& matrix2)
@@ -1167,20 +916,10 @@ INDEXmatrix3D& INDEXmatrix3D::operator+=(const INDEXmatrix3D& matrix2)
   return *this;
 }
 
-INDEXmatrix3D INDEXmatrix3D::operator-(const INDEXmatrix3D& matrix2) const
-{
-  return INDEXmatrix3D(INDEXmatrix3D_Minus(mp_matrix, matrix2.mp_matrix), true);
-}
-
 INDEXmatrix3D& INDEXmatrix3D::operator-=(const INDEXmatrix3D& matrix2)
 {
   INDEXmatrix3D_MinusInplace(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-INDEXmatrix3D INDEXmatrix3D::operator*(const INDEXmatrix3D& matrix2) const
-{
-  return INDEXmatrix3D(INDEXmatrix3D_Multiply(mp_matrix, matrix2.mp_matrix), true);
 }
 
 INDEXmatrix3D& INDEXmatrix3D::operator*=(const INDEXmatrix3D& matrix2)
@@ -1189,20 +928,10 @@ INDEXmatrix3D& INDEXmatrix3D::operator*=(const INDEXmatrix3D& matrix2)
   return *this;
 }
 
-INDEXmatrix3D INDEXmatrix3D::operator*(const INDEX tMul) const
-{
-  return INDEXmatrix3D(INDEXmatrix3D_Multiply_scalar(mp_matrix, tMul), true);
-}
-
 INDEXmatrix3D& INDEXmatrix3D::operator*=(const INDEX tMul)
 {
   INDEXmatrix3D_MultiplyInplace_scalar(mp_matrix, tMul);
   return *this;
-}
-
-INDEXmatrix3D INDEXmatrix3D::operator/(const INDEX tMul) const
-{
-  return INDEXmatrix3D(INDEXmatrix3D_Divide_scalar(mp_matrix, tMul), true);
 }
 
 INDEXmatrix3D& INDEXmatrix3D::operator/=(const INDEX tMul)
@@ -1234,11 +963,6 @@ INDEX3D INDEXmatrix3D::GetColumn(INDEX iColumn) const
 INDEX INDEXmatrix3D::Determinant() const
 {
   return INDEXmatrix3D_Determinant(mp_matrix);
-}
-
-INDEXmatrix3D INDEXmatrix3D::InverseMatrix() const
-{
-  return INDEXmatrix3D(INDEXmatrix3D_InverseMatrix(mp_matrix), true);
 }
 
 INDEXmatrix4D::INDEXmatrix4D(INDEXmatrix4D_* p, bool owner)
@@ -1281,20 +1005,10 @@ INDEX INDEXmatrix4D::operator()(INDEX iRow, INDEX iColumn) const
   return INDEXmatrix4D_Element_const(mp_matrix, iRow, iColumn);
 }
 
-INDEXmatrix4D INDEXmatrix4D::operator!() const
-{
-  return INDEXmatrix4D(INDEXmatrix4D_Transposed(mp_matrix), true);
-}
-
 INDEXmatrix4D& INDEXmatrix4D::operator!=(const INDEXmatrix4D& matrix2)
 {
   INDEXmatrix4D_AssignTransposed(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-INDEXmatrix4D INDEXmatrix4D::operator+(const INDEXmatrix4D& matrix2) const
-{
-  return INDEXmatrix4D(INDEXmatrix4D_Plus(mp_matrix, matrix2.mp_matrix), true);
 }
 
 INDEXmatrix4D& INDEXmatrix4D::operator+=(const INDEXmatrix4D& matrix2)
@@ -1303,20 +1017,10 @@ INDEXmatrix4D& INDEXmatrix4D::operator+=(const INDEXmatrix4D& matrix2)
   return *this;
 }
 
-INDEXmatrix4D INDEXmatrix4D::operator-(const INDEXmatrix4D& matrix2) const
-{
-  return INDEXmatrix4D(INDEXmatrix4D_Minus(mp_matrix, matrix2.mp_matrix), true);
-}
-
 INDEXmatrix4D& INDEXmatrix4D::operator-=(const INDEXmatrix4D& matrix2)
 {
   INDEXmatrix4D_MinusInplace(mp_matrix, matrix2.mp_matrix);
   return *this;
-}
-
-INDEXmatrix4D INDEXmatrix4D::operator*(const INDEXmatrix4D& matrix2) const
-{
-  return INDEXmatrix4D(INDEXmatrix4D_Multiply(mp_matrix, matrix2.mp_matrix), true);
 }
 
 INDEXmatrix4D& INDEXmatrix4D::operator*=(const INDEXmatrix4D& matrix2)
@@ -1325,20 +1029,10 @@ INDEXmatrix4D& INDEXmatrix4D::operator*=(const INDEXmatrix4D& matrix2)
   return *this;
 }
 
-INDEXmatrix4D INDEXmatrix4D::operator*(const INDEX tMul) const
-{
-  return INDEXmatrix4D(INDEXmatrix4D_Multiply_scalar(mp_matrix, tMul), true);
-}
-
 INDEXmatrix4D& INDEXmatrix4D::operator*=(const INDEX tMul)
 {
   INDEXmatrix4D_MultiplyInplace_scalar(mp_matrix, tMul);
   return *this;
-}
-
-INDEXmatrix4D INDEXmatrix4D::operator/(const INDEX tMul) const
-{
-  return INDEXmatrix4D(INDEXmatrix4D_Divide_scalar(mp_matrix, tMul), true);
 }
 
 INDEXmatrix4D& INDEXmatrix4D::operator/=(const INDEX tMul)
@@ -1365,9 +1059,4 @@ INDEX4D INDEXmatrix4D::GetRow(INDEX iRow) const
 INDEX4D INDEXmatrix4D::GetColumn(INDEX iColumn) const
 {
   return INDEX4D(INDEXmatrix4D_GetColumn(mp_matrix, iColumn), true);
-}
-
-INDEXmatrix4D INDEXmatrix4D::InverseMatrix() const
-{
-  return INDEXmatrix4D(INDEXmatrix4D_InverseMatrix(mp_matrix), true);
 }
