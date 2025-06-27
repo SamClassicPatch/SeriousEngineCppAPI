@@ -1,1307 +1,1352 @@
-#include "Vector.h"
+#pragma once
 #include "../Base/Stream.h"
 
-SECPPAPI CTStream& operator>>(CTStream& strm, FLOAT2D& vector)
+inline CTStream& operator>>(CTStream& strm, FLOAT2D& vector)
 {
   FLOAT2D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator<<(CTStream& strm, FLOAT2D& vector)
+inline CTStream& operator<<(CTStream& strm, FLOAT2D& vector)
 {
   FLOAT2D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator>>(CTStream& strm, FLOAT3D& vector)
+inline CTStream& operator>>(CTStream& strm, FLOAT3D& vector)
 {
   FLOAT3D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator<<(CTStream& strm, FLOAT3D& vector)
+inline CTStream& operator<<(CTStream& strm, FLOAT3D& vector)
 {
   FLOAT3D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator>>(CTStream& strm, FLOAT4D& vector)
+inline CTStream& operator>>(CTStream& strm, FLOAT4D& vector)
 {
   FLOAT4D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator<<(CTStream& strm, FLOAT4D& vector)
+inline CTStream& operator<<(CTStream& strm, FLOAT4D& vector)
 {
   FLOAT4D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator>>(CTStream& strm, DOUBLE2D& vector)
+inline CTStream& operator>>(CTStream& strm, DOUBLE2D& vector)
 {
   DOUBLE2D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator<<(CTStream& strm, DOUBLE2D& vector)
+inline CTStream& operator<<(CTStream& strm, DOUBLE2D& vector)
 {
   DOUBLE2D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator>>(CTStream& strm, DOUBLE3D& vector)
+inline CTStream& operator>>(CTStream& strm, DOUBLE3D& vector)
 {
   DOUBLE3D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator<<(CTStream& strm, DOUBLE3D& vector)
+inline CTStream& operator<<(CTStream& strm, DOUBLE3D& vector)
 {
   DOUBLE3D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator>>(CTStream& strm, DOUBLE4D& vector)
+inline CTStream& operator>>(CTStream& strm, DOUBLE4D& vector)
 {
   DOUBLE4D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator<<(CTStream& strm, DOUBLE4D& vector)
+inline CTStream& operator<<(CTStream& strm, DOUBLE4D& vector)
 {
   DOUBLE4D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator>>(CTStream& strm, INDEX2D& vector)
+inline CTStream& operator>>(CTStream& strm, INDEX2D& vector)
 {
   INDEX2D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator<<(CTStream& strm, INDEX2D& vector)
+inline CTStream& operator<<(CTStream& strm, INDEX2D& vector)
 {
   INDEX2D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator>>(CTStream& strm, INDEX3D& vector)
+inline CTStream& operator>>(CTStream& strm, INDEX3D& vector)
 {
   INDEX3D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator<<(CTStream& strm, INDEX3D& vector)
+inline CTStream& operator<<(CTStream& strm, INDEX3D& vector)
 {
   INDEX3D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator>>(CTStream& strm, INDEX4D& vector)
+inline CTStream& operator>>(CTStream& strm, INDEX4D& vector)
 {
   INDEX4D_extract(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-SECPPAPI CTStream& operator<<(CTStream& strm, INDEX4D& vector)
+inline CTStream& operator<<(CTStream& strm, INDEX4D& vector)
 {
   INDEX4D_insert(strm.C_Handle(), vector.C_Handle());
   SECppAPI_CheckException();
   return strm;
 }
 
-FLOAT2D& FLOAT2D::operator=(const FLOAT2D& o)
+__forceinline FLOAT2D FLOAT2D::operator*(const FLOATmatrix2D& matrix) const
+{
+  return FLOAT2D(FLOAT2D_Multiply_matrix(mp_vector, matrix), true);
+}
+
+__forceinline FLOAT3D FLOAT3D::operator*(const FLOATmatrix3D& matrix) const
+{
+  return FLOAT3D(FLOAT3D_Multiply_matrix(mp_vector, matrix), true);
+}
+
+__forceinline FLOAT4D FLOAT4D::operator*(const FLOATmatrix4D& matrix) const
+{
+  return FLOAT4D(FLOAT4D_Multiply_matrix(mp_vector, matrix), true);
+}
+
+__forceinline DOUBLE2D DOUBLE2D::operator*(const DOUBLEmatrix2D& matrix) const
+{
+  return DOUBLE2D(DOUBLE2D_Multiply_matrix(mp_vector, matrix), true);
+}
+
+__forceinline DOUBLE3D DOUBLE3D::operator*(const DOUBLEmatrix3D& matrix) const
+{
+  return DOUBLE3D(DOUBLE3D_Multiply_matrix(mp_vector, matrix), true);
+}
+
+__forceinline DOUBLE4D DOUBLE4D::operator*(const DOUBLEmatrix4D& matrix) const
+{
+  return DOUBLE4D(DOUBLE4D_Multiply_matrix(mp_vector, matrix), true);
+}
+
+__forceinline INDEX2D INDEX2D::operator*(const INDEXmatrix2D& matrix) const
+{
+  return INDEX2D(INDEX2D_Multiply_matrix(mp_vector, matrix), true);
+}
+
+__forceinline INDEX3D INDEX3D::operator*(const INDEXmatrix3D& matrix) const
+{
+  return INDEX3D(INDEX3D_Multiply_matrix(mp_vector, matrix), true);
+}
+
+__forceinline INDEX4D INDEX4D::operator*(const INDEXmatrix4D& matrix) const
+{
+  return INDEX4D(INDEX4D_Multiply_matrix(mp_vector, matrix), true);
+}
+
+inline FLOAT2D& FLOAT2D::operator=(const FLOAT2D& o)
 {
   FLOAT2D_copy(mp_vector, o.mp_vector);
   return *this;
 }
 
-FLOAT3D& FLOAT3D::operator=(const FLOAT3D& o)
+inline FLOAT3D& FLOAT3D::operator=(const FLOAT3D& o)
 {
   FLOAT3D_copy(mp_vector, o.mp_vector);
   return *this;
 }
 
-FLOAT4D& FLOAT4D::operator=(const FLOAT4D& o)
+inline FLOAT4D& FLOAT4D::operator=(const FLOAT4D& o)
 {
   FLOAT4D_copy(mp_vector, o.mp_vector);
   return *this;
 }
 
-DOUBLE2D& DOUBLE2D::operator=(const DOUBLE2D& o)
+inline DOUBLE2D& DOUBLE2D::operator=(const DOUBLE2D& o)
 {
   DOUBLE2D_copy(mp_vector, o.mp_vector);
   return *this;
 }
 
-DOUBLE3D& DOUBLE3D::operator=(const DOUBLE3D& o)
+inline DOUBLE3D& DOUBLE3D::operator=(const DOUBLE3D& o)
 {
   DOUBLE3D_copy(mp_vector, o.mp_vector);
   return *this;
 }
 
-DOUBLE4D& DOUBLE4D::operator=(const DOUBLE4D& o)
+inline DOUBLE4D& DOUBLE4D::operator=(const DOUBLE4D& o)
 {
   DOUBLE4D_copy(mp_vector, o.mp_vector);
   return *this;
 }
 
-INDEX2D& INDEX2D::operator=(const INDEX2D& o)
+inline INDEX2D& INDEX2D::operator=(const INDEX2D& o)
 {
   INDEX2D_copy(mp_vector, o.mp_vector);
   return *this;
 }
 
-INDEX3D& INDEX3D::operator=(const INDEX3D& o)
+inline INDEX3D& INDEX3D::operator=(const INDEX3D& o)
 {
   INDEX3D_copy(mp_vector, o.mp_vector);
   return *this;
 }
 
-INDEX4D& INDEX4D::operator=(const INDEX4D& o)
+inline INDEX4D& INDEX4D::operator=(const INDEX4D& o)
 {
   INDEX4D_copy(mp_vector, o.mp_vector);
   return *this;
 }
 
-FLOAT2D::FLOAT2D(FLOAT2D_* p, bool owner)
+inline FLOAT2D::FLOAT2D(FLOAT2D_* p, bool owner)
   : m_owner(owner)
   , mp_vector(p)
 {
 }
 
-FLOAT2D::FLOAT2D()
+inline FLOAT2D::FLOAT2D()
   : m_owner(true)
   , mp_vector(FLOAT2D_new())
 {
 }
 
-FLOAT2D::FLOAT2D(FLOAT x, FLOAT y)
+inline FLOAT2D::FLOAT2D(FLOAT x, FLOAT y)
   : m_owner(true)
   , mp_vector(FLOAT2D_new_xy(x, y))
 {
 }
 
-FLOAT2D::FLOAT2D(const FLOAT2D& o)
+inline FLOAT2D::FLOAT2D(const FLOAT2D& o)
   : m_owner(true)
   , mp_vector(FLOAT2D_clone(o.mp_vector))
 {
 }
 
-FLOAT2D::~FLOAT2D()
+inline FLOAT2D::~FLOAT2D()
 {
   if (m_owner)
     FLOAT2D_delete(mp_vector);
 }
 
-void FLOAT2D::Clear()
+inline void FLOAT2D::Clear()
 {
   FLOAT2D_Clear(mp_vector);
 }
 
-FLOAT FLOAT2D::Length() const
+inline FLOAT FLOAT2D::Length() const
 {
   return FLOAT2D_Length(mp_vector);
 }
 
-FLOAT FLOAT2D::ManhattanNorm() const
+inline FLOAT FLOAT2D::ManhattanNorm() const
 {
   return FLOAT2D_ManhattanNorm(mp_vector);
 }
 
-FLOAT FLOAT2D::MaxNorm() const
+inline FLOAT FLOAT2D::MaxNorm() const
 {
   return FLOAT2D_MaxNorm(mp_vector);
 }
 
-FLOAT& FLOAT2D::operator()(INDEX i)
+inline FLOAT& FLOAT2D::operator()(INDEX i)
 {
   return *FLOAT2D_Element(mp_vector, i);
 }
 
-FLOAT FLOAT2D::operator()(INDEX i) const
+inline FLOAT FLOAT2D::operator()(INDEX i) const
 {
   return FLOAT2D_Element_const(mp_vector, i);
 }
 
-FLOAT2D& FLOAT2D::Normalize()
+inline FLOAT2D& FLOAT2D::Normalize()
 {
   FLOAT2D_Normalize(mp_vector);
   return *this;
 }
 
-FLOAT2D& FLOAT2D::SafeNormalize()
+inline FLOAT2D& FLOAT2D::SafeNormalize()
 {
   FLOAT2D_SafeNormalize(mp_vector);
   return *this;
 }
 
-FLOAT2D& FLOAT2D::Flip()
+inline FLOAT2D& FLOAT2D::Flip()
 {
   FLOAT2D_Flip(mp_vector);
   return *this;
 }
 
-FLOAT2D& FLOAT2D::operator+=(const FLOAT2D& vector2)
+inline FLOAT2D& FLOAT2D::operator+=(const FLOAT2D& vector2)
 {
   FLOAT2D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-FLOAT2D& FLOAT2D::operator-=(const FLOAT2D& vector2)
+inline FLOAT2D& FLOAT2D::operator-=(const FLOAT2D& vector2)
 {
   FLOAT2D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-FLOAT2D& FLOAT2D::operator*=(const FLOAT scalar)
+inline FLOAT2D& FLOAT2D::operator*=(const FLOAT scalar)
 {
   FLOAT2D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-FLOAT2D& FLOAT2D::operator/=(const FLOAT scalar)
+inline FLOAT2D& FLOAT2D::operator/=(const FLOAT scalar)
 {
   FLOAT2D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
-FLOAT2D& FLOAT2D::operator*=(const FLOATmatrix2D& matrix2)
+inline FLOAT2D& FLOAT2D::operator*=(const FLOATmatrix2D& matrix2)
 {
   FLOAT2D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
-FLOAT FLOAT2D::operator%(const FLOAT2D& vector2) const
+inline FLOAT FLOAT2D::operator%(const FLOAT2D& vector2) const
 {
   return FLOAT2D_Dot(mp_vector, vector2.mp_vector);
 }
 
-BOOL FLOAT2D::operator==(const FLOAT2D& vector2) const
+inline BOOL FLOAT2D::operator==(const FLOAT2D& vector2) const
 {
   return FLOAT2D_equal(mp_vector, vector2.mp_vector);
 }
 
-BOOL FLOAT2D::operator!=(const FLOAT2D& vector2) const
+inline BOOL FLOAT2D::operator!=(const FLOAT2D& vector2) const
 {
   return FLOAT2D_notequal(mp_vector, vector2.mp_vector);
 }
 
-FLOAT3D::FLOAT3D(FLOAT3D_* p, bool owner)
+inline FLOAT3D::FLOAT3D(FLOAT3D_* p, bool owner)
   : m_owner(owner)
   , mp_vector(p)
 {
 }
 
-FLOAT3D::FLOAT3D()
+inline FLOAT3D::FLOAT3D()
   : m_owner(true)
   , mp_vector(FLOAT3D_new())
 {
 }
 
-FLOAT3D::FLOAT3D(FLOAT x, FLOAT y, FLOAT z)
+inline FLOAT3D::FLOAT3D(FLOAT x, FLOAT y, FLOAT z)
   : m_owner(true)
   , mp_vector(FLOAT3D_new_xyz(x, y, z))
 {
 }
 
-FLOAT3D::FLOAT3D(const FLOAT3D& o)
+inline FLOAT3D::FLOAT3D(const FLOAT3D& o)
   : m_owner(true)
   , mp_vector(FLOAT3D_clone(o.mp_vector))
 {
 }
 
-FLOAT3D::~FLOAT3D()
+inline FLOAT3D::~FLOAT3D()
 {
   if (m_owner)
     FLOAT3D_delete(mp_vector);
 }
 
-void FLOAT3D::Clear()
+inline void FLOAT3D::Clear()
 {
   FLOAT3D_Clear(mp_vector);
 }
 
-FLOAT FLOAT3D::Length() const
+inline FLOAT FLOAT3D::Length() const
 {
   return FLOAT3D_Length(mp_vector);
 }
 
-FLOAT FLOAT3D::ManhattanNorm() const
+inline FLOAT FLOAT3D::ManhattanNorm() const
 {
   return FLOAT3D_ManhattanNorm(mp_vector);
 }
 
-FLOAT FLOAT3D::MaxNorm() const
+inline FLOAT FLOAT3D::MaxNorm() const
 {
   return FLOAT3D_MaxNorm(mp_vector);
 }
 
-FLOAT& FLOAT3D::operator()(INDEX i)
+inline FLOAT& FLOAT3D::operator()(INDEX i)
 {
   return *FLOAT3D_Element(mp_vector, i);
 }
 
-FLOAT FLOAT3D::operator()(INDEX i) const
+inline FLOAT FLOAT3D::operator()(INDEX i) const
 {
   return FLOAT3D_Element_const(mp_vector, i);
 }
 
-FLOAT3D& FLOAT3D::Normalize()
+inline FLOAT3D& FLOAT3D::Normalize()
 {
   FLOAT3D_Normalize(mp_vector);
   return *this;
 }
 
-FLOAT3D& FLOAT3D::SafeNormalize()
+inline FLOAT3D& FLOAT3D::SafeNormalize()
 {
   FLOAT3D_SafeNormalize(mp_vector);
   return *this;
 }
 
-FLOAT3D& FLOAT3D::Flip()
+inline FLOAT3D& FLOAT3D::Flip()
 {
   FLOAT3D_Flip(mp_vector);
   return *this;
 }
 
-FLOAT3D& FLOAT3D::operator+=(const FLOAT3D& vector2)
+inline FLOAT3D& FLOAT3D::operator+=(const FLOAT3D& vector2)
 {
   FLOAT3D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-FLOAT3D& FLOAT3D::operator-=(const FLOAT3D& vector2)
+inline FLOAT3D& FLOAT3D::operator-=(const FLOAT3D& vector2)
 {
   FLOAT3D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-FLOAT3D& FLOAT3D::operator*=(const FLOAT scalar)
+inline FLOAT3D& FLOAT3D::operator*=(const FLOAT scalar)
 {
   FLOAT3D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-FLOAT3D& FLOAT3D::operator/=(const FLOAT scalar)
+inline FLOAT3D& FLOAT3D::operator/=(const FLOAT scalar)
 {
   FLOAT3D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
-FLOAT3D& FLOAT3D::operator*=(const FLOATmatrix3D& matrix2)
+inline FLOAT3D& FLOAT3D::operator*=(const FLOATmatrix3D& matrix2)
 {
   FLOAT3D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
-FLOAT FLOAT3D::operator%(const FLOAT3D& vector2) const
+inline FLOAT FLOAT3D::operator%(const FLOAT3D& vector2) const
 {
   return FLOAT3D_Dot(mp_vector, vector2.mp_vector);
 }
 
-FLOAT3D& FLOAT3D::operator*=(const FLOAT3D& vector2)
+inline FLOAT3D& FLOAT3D::operator*=(const FLOAT3D& vector2)
 {
   FLOAT3D_MultiplyInplace_vector(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-BOOL FLOAT3D::operator==(const FLOAT3D& vector2) const
+inline BOOL FLOAT3D::operator==(const FLOAT3D& vector2) const
 {
   return FLOAT3D_equal(mp_vector, vector2.mp_vector);
 }
 
-BOOL FLOAT3D::operator!=(const FLOAT3D& vector2) const
+inline BOOL FLOAT3D::operator!=(const FLOAT3D& vector2) const
 {
   return FLOAT3D_notequal(mp_vector, vector2.mp_vector);
 }
 
-FLOAT4D::FLOAT4D(FLOAT4D_* p, bool owner)
+inline FLOAT4D::FLOAT4D(FLOAT4D_* p, bool owner)
   : m_owner(owner)
   , mp_vector(p)
 {
 }
 
-FLOAT4D::FLOAT4D()
+inline FLOAT4D::FLOAT4D()
   : m_owner(true)
   , mp_vector(FLOAT4D_new())
 {
 }
 
-FLOAT4D::FLOAT4D(FLOAT x, FLOAT y, FLOAT z, FLOAT w)
+inline FLOAT4D::FLOAT4D(FLOAT x, FLOAT y, FLOAT z, FLOAT w)
   : m_owner(true)
   , mp_vector(FLOAT4D_new_xyzw(x, y, z, w))
 {
 }
 
-FLOAT4D::FLOAT4D(const FLOAT4D& o)
+inline FLOAT4D::FLOAT4D(const FLOAT4D& o)
   : m_owner(true)
   , mp_vector(FLOAT4D_clone(o.mp_vector))
 {
 }
 
-FLOAT4D::~FLOAT4D()
+inline FLOAT4D::~FLOAT4D()
 {
   if (m_owner)
     FLOAT4D_delete(mp_vector);
 }
 
-void FLOAT4D::Clear()
+inline void FLOAT4D::Clear()
 {
   FLOAT4D_Clear(mp_vector);
 }
 
-FLOAT FLOAT4D::Length() const
+inline FLOAT FLOAT4D::Length() const
 {
   return FLOAT4D_Length(mp_vector);
 }
 
-FLOAT FLOAT4D::ManhattanNorm() const
+inline FLOAT FLOAT4D::ManhattanNorm() const
 {
   return FLOAT4D_ManhattanNorm(mp_vector);
 }
 
-FLOAT FLOAT4D::MaxNorm() const
+inline FLOAT FLOAT4D::MaxNorm() const
 {
   return FLOAT4D_MaxNorm(mp_vector);
 }
 
-FLOAT& FLOAT4D::operator()(INDEX i)
+inline FLOAT& FLOAT4D::operator()(INDEX i)
 {
   return *FLOAT4D_Element(mp_vector, i);
 }
 
-FLOAT FLOAT4D::operator()(INDEX i) const
+inline FLOAT FLOAT4D::operator()(INDEX i) const
 {
   return FLOAT4D_Element_const(mp_vector, i);
 }
 
-FLOAT4D& FLOAT4D::Normalize()
+inline FLOAT4D& FLOAT4D::Normalize()
 {
   FLOAT4D_Normalize(mp_vector);
   return *this;
 }
 
-FLOAT4D& FLOAT4D::SafeNormalize()
+inline FLOAT4D& FLOAT4D::SafeNormalize()
 {
   FLOAT4D_SafeNormalize(mp_vector);
   return *this;
 }
 
-FLOAT4D& FLOAT4D::Flip()
+inline FLOAT4D& FLOAT4D::Flip()
 {
   FLOAT4D_Flip(mp_vector);
   return *this;
 }
 
-FLOAT4D& FLOAT4D::operator+=(const FLOAT4D& vector2)
+inline FLOAT4D& FLOAT4D::operator+=(const FLOAT4D& vector2)
 {
   FLOAT4D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-FLOAT4D& FLOAT4D::operator-=(const FLOAT4D& vector2)
+inline FLOAT4D& FLOAT4D::operator-=(const FLOAT4D& vector2)
 {
   FLOAT4D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-FLOAT4D& FLOAT4D::operator*=(const FLOAT scalar)
+inline FLOAT4D& FLOAT4D::operator*=(const FLOAT scalar)
 {
   FLOAT4D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-FLOAT4D& FLOAT4D::operator/=(const FLOAT scalar)
+inline FLOAT4D& FLOAT4D::operator/=(const FLOAT scalar)
 {
   FLOAT4D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
-FLOAT4D& FLOAT4D::operator*=(const FLOATmatrix4D& matrix2)
+inline FLOAT4D& FLOAT4D::operator*=(const FLOATmatrix4D& matrix2)
 {
   FLOAT4D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
-FLOAT FLOAT4D::operator%(const FLOAT4D& vector2) const
+inline FLOAT FLOAT4D::operator%(const FLOAT4D& vector2) const
 {
   return FLOAT4D_Dot(mp_vector, vector2.mp_vector);
 }
 
-BOOL FLOAT4D::operator==(const FLOAT4D& vector2) const
+inline BOOL FLOAT4D::operator==(const FLOAT4D& vector2) const
 {
   return FLOAT4D_equal(mp_vector, vector2.mp_vector);
 }
 
-BOOL FLOAT4D::operator!=(const FLOAT4D& vector2) const
+inline BOOL FLOAT4D::operator!=(const FLOAT4D& vector2) const
 {
   return FLOAT4D_notequal(mp_vector, vector2.mp_vector);
 }
 
-DOUBLE2D::DOUBLE2D(DOUBLE2D_* p, bool owner)
+inline DOUBLE2D::DOUBLE2D(DOUBLE2D_* p, bool owner)
   : m_owner(owner)
   , mp_vector(p)
 {
 }
 
-DOUBLE2D::DOUBLE2D()
+inline DOUBLE2D::DOUBLE2D()
   : m_owner(true)
   , mp_vector(DOUBLE2D_new())
 {
 }
 
-DOUBLE2D::DOUBLE2D(DOUBLE x, DOUBLE y)
+inline DOUBLE2D::DOUBLE2D(DOUBLE x, DOUBLE y)
   : m_owner(true)
   , mp_vector(DOUBLE2D_new_xy(x, y))
 {
 }
 
-DOUBLE2D::DOUBLE2D(const DOUBLE2D& o)
+inline DOUBLE2D::DOUBLE2D(const DOUBLE2D& o)
   : m_owner(true)
   , mp_vector(DOUBLE2D_clone(o.mp_vector))
 {
 }
 
-DOUBLE2D::~DOUBLE2D()
+inline DOUBLE2D::~DOUBLE2D()
 {
   if (m_owner)
     DOUBLE2D_delete(mp_vector);
 }
 
-void DOUBLE2D::Clear()
+inline void DOUBLE2D::Clear()
 {
   DOUBLE2D_Clear(mp_vector);
 }
 
-DOUBLE DOUBLE2D::Length() const
+inline DOUBLE DOUBLE2D::Length() const
 {
   return DOUBLE2D_Length(mp_vector);
 }
 
-DOUBLE DOUBLE2D::ManhattanNorm() const
+inline DOUBLE DOUBLE2D::ManhattanNorm() const
 {
   return DOUBLE2D_ManhattanNorm(mp_vector);
 }
 
-DOUBLE DOUBLE2D::MaxNorm() const
+inline DOUBLE DOUBLE2D::MaxNorm() const
 {
   return DOUBLE2D_MaxNorm(mp_vector);
 }
 
-DOUBLE& DOUBLE2D::operator()(INDEX i)
+inline DOUBLE& DOUBLE2D::operator()(INDEX i)
 {
   return *DOUBLE2D_Element(mp_vector, i);
 }
 
-DOUBLE DOUBLE2D::operator()(INDEX i) const
+inline DOUBLE DOUBLE2D::operator()(INDEX i) const
 {
   return DOUBLE2D_Element_const(mp_vector, i);
 }
 
-DOUBLE2D& DOUBLE2D::Normalize()
+inline DOUBLE2D& DOUBLE2D::Normalize()
 {
   DOUBLE2D_Normalize(mp_vector);
   return *this;
 }
 
-DOUBLE2D& DOUBLE2D::SafeNormalize()
+inline DOUBLE2D& DOUBLE2D::SafeNormalize()
 {
   DOUBLE2D_SafeNormalize(mp_vector);
   return *this;
 }
 
-DOUBLE2D& DOUBLE2D::Flip()
+inline DOUBLE2D& DOUBLE2D::Flip()
 {
   DOUBLE2D_Flip(mp_vector);
   return *this;
 }
 
-DOUBLE2D& DOUBLE2D::operator+=(const DOUBLE2D& vector2)
+inline DOUBLE2D& DOUBLE2D::operator+=(const DOUBLE2D& vector2)
 {
   DOUBLE2D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-DOUBLE2D& DOUBLE2D::operator-=(const DOUBLE2D& vector2)
+inline DOUBLE2D& DOUBLE2D::operator-=(const DOUBLE2D& vector2)
 {
   DOUBLE2D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-DOUBLE2D& DOUBLE2D::operator*=(const DOUBLE scalar)
+inline DOUBLE2D& DOUBLE2D::operator*=(const DOUBLE scalar)
 {
   DOUBLE2D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-DOUBLE2D& DOUBLE2D::operator/=(const DOUBLE scalar)
+inline DOUBLE2D& DOUBLE2D::operator/=(const DOUBLE scalar)
 {
   DOUBLE2D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
-DOUBLE2D& DOUBLE2D::operator*=(const DOUBLEmatrix2D& matrix2)
+inline DOUBLE2D& DOUBLE2D::operator*=(const DOUBLEmatrix2D& matrix2)
 {
   DOUBLE2D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
-DOUBLE DOUBLE2D::operator%(const DOUBLE2D& vector2) const
+inline DOUBLE DOUBLE2D::operator%(const DOUBLE2D& vector2) const
 {
   return DOUBLE2D_Dot(mp_vector, vector2.mp_vector);
 }
 
-BOOL DOUBLE2D::operator==(const DOUBLE2D& vector2) const
+inline BOOL DOUBLE2D::operator==(const DOUBLE2D& vector2) const
 {
   return DOUBLE2D_equal(mp_vector, vector2.mp_vector);
 }
 
-BOOL DOUBLE2D::operator!=(const DOUBLE2D& vector2) const
+inline BOOL DOUBLE2D::operator!=(const DOUBLE2D& vector2) const
 {
   return DOUBLE2D_notequal(mp_vector, vector2.mp_vector);
 }
 
-DOUBLE3D::DOUBLE3D(DOUBLE3D_* p, bool owner)
+inline DOUBLE3D::DOUBLE3D(DOUBLE3D_* p, bool owner)
   : m_owner(owner)
   , mp_vector(p)
 {
 }
 
-DOUBLE3D::DOUBLE3D()
+inline DOUBLE3D::DOUBLE3D()
   : m_owner(true)
   , mp_vector(DOUBLE3D_new())
 {
 }
 
-DOUBLE3D::DOUBLE3D(DOUBLE x, DOUBLE y, DOUBLE z)
+inline DOUBLE3D::DOUBLE3D(DOUBLE x, DOUBLE y, DOUBLE z)
   : m_owner(true)
   , mp_vector(DOUBLE3D_new_xyz(x, y, z))
 {
 }
 
-DOUBLE3D::DOUBLE3D(const DOUBLE3D& o)
+inline DOUBLE3D::DOUBLE3D(const DOUBLE3D& o)
   : m_owner(true)
   , mp_vector(DOUBLE3D_clone(o.mp_vector))
 {
 }
 
-DOUBLE3D::~DOUBLE3D()
+inline DOUBLE3D::~DOUBLE3D()
 {
   if (m_owner)
     DOUBLE3D_delete(mp_vector);
 }
 
-void DOUBLE3D::Clear()
+inline void DOUBLE3D::Clear()
 {
   DOUBLE3D_Clear(mp_vector);
 }
 
-DOUBLE DOUBLE3D::Length() const
+inline DOUBLE DOUBLE3D::Length() const
 {
   return DOUBLE3D_Length(mp_vector);
 }
 
-DOUBLE DOUBLE3D::ManhattanNorm() const
+inline DOUBLE DOUBLE3D::ManhattanNorm() const
 {
   return DOUBLE3D_ManhattanNorm(mp_vector);
 }
 
-DOUBLE DOUBLE3D::MaxNorm() const
+inline DOUBLE DOUBLE3D::MaxNorm() const
 {
   return DOUBLE3D_MaxNorm(mp_vector);
 }
 
-DOUBLE& DOUBLE3D::operator()(INDEX i)
+inline DOUBLE& DOUBLE3D::operator()(INDEX i)
 {
   return *DOUBLE3D_Element(mp_vector, i);
 }
 
-DOUBLE DOUBLE3D::operator()(INDEX i) const
+inline DOUBLE DOUBLE3D::operator()(INDEX i) const
 {
   return DOUBLE3D_Element_const(mp_vector, i);
 }
 
-DOUBLE3D& DOUBLE3D::Normalize()
+inline DOUBLE3D& DOUBLE3D::Normalize()
 {
   DOUBLE3D_Normalize(mp_vector);
   return *this;
 }
 
-DOUBLE3D& DOUBLE3D::SafeNormalize()
+inline DOUBLE3D& DOUBLE3D::SafeNormalize()
 {
   DOUBLE3D_SafeNormalize(mp_vector);
   return *this;
 }
 
-DOUBLE3D& DOUBLE3D::Flip()
+inline DOUBLE3D& DOUBLE3D::Flip()
 {
   DOUBLE3D_Flip(mp_vector);
   return *this;
 }
 
-DOUBLE3D& DOUBLE3D::operator+=(const DOUBLE3D& vector2)
+inline DOUBLE3D& DOUBLE3D::operator+=(const DOUBLE3D& vector2)
 {
   DOUBLE3D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-DOUBLE3D& DOUBLE3D::operator-=(const DOUBLE3D& vector2)
+inline DOUBLE3D& DOUBLE3D::operator-=(const DOUBLE3D& vector2)
 {
   DOUBLE3D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-DOUBLE3D& DOUBLE3D::operator*=(const DOUBLE scalar)
+inline DOUBLE3D& DOUBLE3D::operator*=(const DOUBLE scalar)
 {
   DOUBLE3D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-DOUBLE3D& DOUBLE3D::operator/=(const DOUBLE scalar)
+inline DOUBLE3D& DOUBLE3D::operator/=(const DOUBLE scalar)
 {
   DOUBLE3D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
-DOUBLE3D& DOUBLE3D::operator*=(const DOUBLEmatrix3D& matrix2)
+inline DOUBLE3D& DOUBLE3D::operator*=(const DOUBLEmatrix3D& matrix2)
 {
   DOUBLE3D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
-DOUBLE DOUBLE3D::operator%(const DOUBLE3D& vector2) const
+inline DOUBLE DOUBLE3D::operator%(const DOUBLE3D& vector2) const
 {
   return DOUBLE3D_Dot(mp_vector, vector2.mp_vector);
 }
 
-DOUBLE3D& DOUBLE3D::operator*=(const DOUBLE3D& vector2)
+inline DOUBLE3D& DOUBLE3D::operator*=(const DOUBLE3D& vector2)
 {
   DOUBLE3D_MultiplyInplace_vector(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-BOOL DOUBLE3D::operator==(const DOUBLE3D& vector2) const
+inline BOOL DOUBLE3D::operator==(const DOUBLE3D& vector2) const
 {
   return DOUBLE3D_equal(mp_vector, vector2.mp_vector);
 }
 
-BOOL DOUBLE3D::operator!=(const DOUBLE3D& vector2) const
+inline BOOL DOUBLE3D::operator!=(const DOUBLE3D& vector2) const
 {
   return DOUBLE3D_notequal(mp_vector, vector2.mp_vector);
 }
 
-DOUBLE4D::DOUBLE4D(DOUBLE4D_* p, bool owner)
+inline DOUBLE4D::DOUBLE4D(DOUBLE4D_* p, bool owner)
   : m_owner(owner)
   , mp_vector(p)
 {
 }
 
-DOUBLE4D::DOUBLE4D()
+inline DOUBLE4D::DOUBLE4D()
   : m_owner(true)
   , mp_vector(DOUBLE4D_new())
 {
 }
 
-DOUBLE4D::DOUBLE4D(DOUBLE x, DOUBLE y, DOUBLE z, DOUBLE w)
+inline DOUBLE4D::DOUBLE4D(DOUBLE x, DOUBLE y, DOUBLE z, DOUBLE w)
   : m_owner(true)
   , mp_vector(DOUBLE4D_new_xyzw(x, y, z, w))
 {
 }
 
-DOUBLE4D::DOUBLE4D(const DOUBLE4D& o)
+inline DOUBLE4D::DOUBLE4D(const DOUBLE4D& o)
   : m_owner(true)
   , mp_vector(DOUBLE4D_clone(o.mp_vector))
 {
 }
 
-DOUBLE4D::~DOUBLE4D()
+inline DOUBLE4D::~DOUBLE4D()
 {
   if (m_owner)
     DOUBLE4D_delete(mp_vector);
 }
 
-void DOUBLE4D::Clear()
+inline void DOUBLE4D::Clear()
 {
   DOUBLE4D_Clear(mp_vector);
 }
 
-DOUBLE DOUBLE4D::Length() const
+inline DOUBLE DOUBLE4D::Length() const
 {
   return DOUBLE4D_Length(mp_vector);
 }
 
-DOUBLE DOUBLE4D::ManhattanNorm() const
+inline DOUBLE DOUBLE4D::ManhattanNorm() const
 {
   return DOUBLE4D_ManhattanNorm(mp_vector);
 }
 
-DOUBLE DOUBLE4D::MaxNorm() const
+inline DOUBLE DOUBLE4D::MaxNorm() const
 {
   return DOUBLE4D_MaxNorm(mp_vector);
 }
 
-DOUBLE& DOUBLE4D::operator()(INDEX i)
+inline DOUBLE& DOUBLE4D::operator()(INDEX i)
 {
   return *DOUBLE4D_Element(mp_vector, i);
 }
 
-DOUBLE DOUBLE4D::operator()(INDEX i) const
+inline DOUBLE DOUBLE4D::operator()(INDEX i) const
 {
   return DOUBLE4D_Element_const(mp_vector, i);
 }
 
-DOUBLE4D& DOUBLE4D::Normalize()
+inline DOUBLE4D& DOUBLE4D::Normalize()
 {
   DOUBLE4D_Normalize(mp_vector);
   return *this;
 }
 
-DOUBLE4D& DOUBLE4D::SafeNormalize()
+inline DOUBLE4D& DOUBLE4D::SafeNormalize()
 {
   DOUBLE4D_SafeNormalize(mp_vector);
   return *this;
 }
 
-DOUBLE4D& DOUBLE4D::Flip()
+inline DOUBLE4D& DOUBLE4D::Flip()
 {
   DOUBLE4D_Flip(mp_vector);
   return *this;
 }
 
-DOUBLE4D& DOUBLE4D::operator+=(const DOUBLE4D& vector2)
+inline DOUBLE4D& DOUBLE4D::operator+=(const DOUBLE4D& vector2)
 {
   DOUBLE4D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-DOUBLE4D& DOUBLE4D::operator-=(const DOUBLE4D& vector2)
+inline DOUBLE4D& DOUBLE4D::operator-=(const DOUBLE4D& vector2)
 {
   DOUBLE4D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-DOUBLE4D& DOUBLE4D::operator*=(const DOUBLE scalar)
+inline DOUBLE4D& DOUBLE4D::operator*=(const DOUBLE scalar)
 {
   DOUBLE4D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-DOUBLE4D& DOUBLE4D::operator/=(const DOUBLE scalar)
+inline DOUBLE4D& DOUBLE4D::operator/=(const DOUBLE scalar)
 {
   DOUBLE4D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
-DOUBLE4D& DOUBLE4D::operator*=(const DOUBLEmatrix4D& matrix2)
+inline DOUBLE4D& DOUBLE4D::operator*=(const DOUBLEmatrix4D& matrix2)
 {
   DOUBLE4D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
-DOUBLE DOUBLE4D::operator%(const DOUBLE4D& vector2) const
+inline DOUBLE DOUBLE4D::operator%(const DOUBLE4D& vector2) const
 {
   return DOUBLE4D_Dot(mp_vector, vector2.mp_vector);
 }
 
-BOOL DOUBLE4D::operator==(const DOUBLE4D& vector2) const
+inline BOOL DOUBLE4D::operator==(const DOUBLE4D& vector2) const
 {
   return DOUBLE4D_equal(mp_vector, vector2.mp_vector);
 }
 
-BOOL DOUBLE4D::operator!=(const DOUBLE4D& vector2) const
+inline BOOL DOUBLE4D::operator!=(const DOUBLE4D& vector2) const
 {
   return DOUBLE4D_notequal(mp_vector, vector2.mp_vector);
 }
 
-INDEX2D::INDEX2D(INDEX2D_* p, bool owner)
+inline INDEX2D::INDEX2D(INDEX2D_* p, bool owner)
   : m_owner(owner)
   , mp_vector(p)
 {
 }
 
-INDEX2D::INDEX2D()
+inline INDEX2D::INDEX2D()
   : m_owner(true)
   , mp_vector(INDEX2D_new())
 {
 }
 
-INDEX2D::INDEX2D(INDEX x, INDEX y)
+inline INDEX2D::INDEX2D(INDEX x, INDEX y)
   : m_owner(true)
   , mp_vector(INDEX2D_new_xy(x, y))
 {
 }
 
-INDEX2D::INDEX2D(const INDEX2D& o)
+inline INDEX2D::INDEX2D(const INDEX2D& o)
   : m_owner(true)
   , mp_vector(INDEX2D_clone(o.mp_vector))
 {
 }
 
-INDEX2D::~INDEX2D()
+inline INDEX2D::~INDEX2D()
 {
   if (m_owner)
     INDEX2D_delete(mp_vector);
 }
 
-void INDEX2D::Clear()
+inline void INDEX2D::Clear()
 {
   INDEX2D_Clear(mp_vector);
 }
 
-INDEX INDEX2D::Length() const
+inline INDEX INDEX2D::Length() const
 {
   return INDEX2D_Length(mp_vector);
 }
 
-INDEX INDEX2D::ManhattanNorm() const
+inline INDEX INDEX2D::ManhattanNorm() const
 {
   return INDEX2D_ManhattanNorm(mp_vector);
 }
 
-INDEX INDEX2D::MaxNorm() const
+inline INDEX INDEX2D::MaxNorm() const
 {
   return INDEX2D_MaxNorm(mp_vector);
 }
 
-INDEX& INDEX2D::operator()(INDEX i)
+inline INDEX& INDEX2D::operator()(INDEX i)
 {
   return *INDEX2D_Element(mp_vector, i);
 }
 
-INDEX INDEX2D::operator()(INDEX i) const
+inline INDEX INDEX2D::operator()(INDEX i) const
 {
   return INDEX2D_Element_const(mp_vector, i);
 }
 
-INDEX2D& INDEX2D::Normalize()
+inline INDEX2D& INDEX2D::Normalize()
 {
   INDEX2D_Normalize(mp_vector);
   return *this;
 }
 
-INDEX2D& INDEX2D::SafeNormalize()
+inline INDEX2D& INDEX2D::SafeNormalize()
 {
   INDEX2D_SafeNormalize(mp_vector);
   return *this;
 }
 
-INDEX2D& INDEX2D::Flip()
+inline INDEX2D& INDEX2D::Flip()
 {
   INDEX2D_Flip(mp_vector);
   return *this;
 }
 
-INDEX2D& INDEX2D::operator+=(const INDEX2D& vector2)
+inline INDEX2D& INDEX2D::operator+=(const INDEX2D& vector2)
 {
   INDEX2D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-INDEX2D& INDEX2D::operator-=(const INDEX2D& vector2)
+inline INDEX2D& INDEX2D::operator-=(const INDEX2D& vector2)
 {
   INDEX2D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-INDEX2D& INDEX2D::operator*=(const INDEX scalar)
+inline INDEX2D& INDEX2D::operator*=(const INDEX scalar)
 {
   INDEX2D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-INDEX2D& INDEX2D::operator/=(const INDEX scalar)
+inline INDEX2D& INDEX2D::operator/=(const INDEX scalar)
 {
   INDEX2D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
-INDEX2D& INDEX2D::operator*=(const INDEXmatrix2D& matrix2)
+inline INDEX2D& INDEX2D::operator*=(const INDEXmatrix2D& matrix2)
 {
   INDEX2D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
-INDEX INDEX2D::operator%(const INDEX2D& vector2) const
+inline INDEX INDEX2D::operator%(const INDEX2D& vector2) const
 {
   return INDEX2D_Dot(mp_vector, vector2.mp_vector);
 }
 
-BOOL INDEX2D::operator==(const INDEX2D& vector2) const
+inline BOOL INDEX2D::operator==(const INDEX2D& vector2) const
 {
   return INDEX2D_equal(mp_vector, vector2.mp_vector);
 }
 
-BOOL INDEX2D::operator!=(const INDEX2D& vector2) const
+inline BOOL INDEX2D::operator!=(const INDEX2D& vector2) const
 {
   return INDEX2D_notequal(mp_vector, vector2.mp_vector);
 }
 
-INDEX3D::INDEX3D(INDEX3D_* p, bool owner)
+inline INDEX3D::INDEX3D(INDEX3D_* p, bool owner)
   : m_owner(owner)
   , mp_vector(p)
 {
 }
 
-INDEX3D::INDEX3D()
+inline INDEX3D::INDEX3D()
   : m_owner(true)
   , mp_vector(INDEX3D_new())
 {
 }
 
-INDEX3D::INDEX3D(INDEX x, INDEX y, INDEX z)
+inline INDEX3D::INDEX3D(INDEX x, INDEX y, INDEX z)
   : m_owner(true)
   , mp_vector(INDEX3D_new_xyz(x, y, z))
 {
 }
 
-INDEX3D::INDEX3D(const INDEX3D& o)
+inline INDEX3D::INDEX3D(const INDEX3D& o)
   : m_owner(true)
   , mp_vector(INDEX3D_clone(o.mp_vector))
 {
 }
 
-INDEX3D::~INDEX3D()
+inline INDEX3D::~INDEX3D()
 {
   if (m_owner)
     INDEX3D_delete(mp_vector);
 }
 
-void INDEX3D::Clear()
+inline void INDEX3D::Clear()
 {
   INDEX3D_Clear(mp_vector);
 }
 
-INDEX INDEX3D::Length() const
+inline INDEX INDEX3D::Length() const
 {
   return INDEX3D_Length(mp_vector);
 }
 
-INDEX INDEX3D::ManhattanNorm() const
+inline INDEX INDEX3D::ManhattanNorm() const
 {
   return INDEX3D_ManhattanNorm(mp_vector);
 }
 
-INDEX INDEX3D::MaxNorm() const
+inline INDEX INDEX3D::MaxNorm() const
 {
   return INDEX3D_MaxNorm(mp_vector);
 }
 
-INDEX& INDEX3D::operator()(INDEX i)
+inline INDEX& INDEX3D::operator()(INDEX i)
 {
   return *INDEX3D_Element(mp_vector, i);
 }
 
-INDEX INDEX3D::operator()(INDEX i) const
+inline INDEX INDEX3D::operator()(INDEX i) const
 {
   return INDEX3D_Element_const(mp_vector, i);
 }
 
-INDEX3D& INDEX3D::Normalize()
+inline INDEX3D& INDEX3D::Normalize()
 {
   INDEX3D_Normalize(mp_vector);
   return *this;
 }
 
-INDEX3D& INDEX3D::SafeNormalize()
+inline INDEX3D& INDEX3D::SafeNormalize()
 {
   INDEX3D_SafeNormalize(mp_vector);
   return *this;
 }
 
-INDEX3D& INDEX3D::Flip()
+inline INDEX3D& INDEX3D::Flip()
 {
   INDEX3D_Flip(mp_vector);
   return *this;
 }
 
-INDEX3D& INDEX3D::operator+=(const INDEX3D& vector2)
+inline INDEX3D& INDEX3D::operator+=(const INDEX3D& vector2)
 {
   INDEX3D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-INDEX3D& INDEX3D::operator-=(const INDEX3D& vector2)
+inline INDEX3D& INDEX3D::operator-=(const INDEX3D& vector2)
 {
   INDEX3D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-INDEX3D& INDEX3D::operator*=(const INDEX scalar)
+inline INDEX3D& INDEX3D::operator*=(const INDEX scalar)
 {
   INDEX3D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-INDEX3D& INDEX3D::operator/=(const INDEX scalar)
+inline INDEX3D& INDEX3D::operator/=(const INDEX scalar)
 {
   INDEX3D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
-INDEX3D& INDEX3D::operator*=(const INDEXmatrix3D& matrix2)
+inline INDEX3D& INDEX3D::operator*=(const INDEXmatrix3D& matrix2)
 {
   INDEX3D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
-INDEX INDEX3D::operator%(const INDEX3D& vector2) const
+inline INDEX INDEX3D::operator%(const INDEX3D& vector2) const
 {
   return INDEX3D_Dot(mp_vector, vector2.mp_vector);
 }
 
-INDEX3D& INDEX3D::operator*=(const INDEX3D& vector2)
+inline INDEX3D& INDEX3D::operator*=(const INDEX3D& vector2)
 {
   INDEX3D_MultiplyInplace_vector(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-BOOL INDEX3D::operator==(const INDEX3D& vector2) const
+inline BOOL INDEX3D::operator==(const INDEX3D& vector2) const
 {
   return INDEX3D_equal(mp_vector, vector2.mp_vector);
 }
 
-BOOL INDEX3D::operator!=(const INDEX3D& vector2) const
+inline BOOL INDEX3D::operator!=(const INDEX3D& vector2) const
 {
   return INDEX3D_notequal(mp_vector, vector2.mp_vector);
 }
 
-INDEX4D::INDEX4D(INDEX4D_* p, bool owner)
+inline INDEX4D::INDEX4D(INDEX4D_* p, bool owner)
   : m_owner(owner)
   , mp_vector(p)
 {
 }
 
-INDEX4D::INDEX4D()
+inline INDEX4D::INDEX4D()
   : m_owner(true)
   , mp_vector(INDEX4D_new())
 {
 }
 
-INDEX4D::INDEX4D(INDEX x, INDEX y, INDEX z, INDEX w)
+inline INDEX4D::INDEX4D(INDEX x, INDEX y, INDEX z, INDEX w)
   : m_owner(true)
   , mp_vector(INDEX4D_new_xyzw(x, y, z, w))
 {
 }
 
-INDEX4D::INDEX4D(const INDEX4D& o)
+inline INDEX4D::INDEX4D(const INDEX4D& o)
   : m_owner(true)
   , mp_vector(INDEX4D_clone(o.mp_vector))
 {
 }
 
-INDEX4D::~INDEX4D()
+inline INDEX4D::~INDEX4D()
 {
   if (m_owner)
     INDEX4D_delete(mp_vector);
 }
 
-void INDEX4D::Clear()
+inline void INDEX4D::Clear()
 {
   INDEX4D_Clear(mp_vector);
 }
 
-INDEX INDEX4D::Length() const
+inline INDEX INDEX4D::Length() const
 {
   return INDEX4D_Length(mp_vector);
 }
 
-INDEX INDEX4D::ManhattanNorm() const
+inline INDEX INDEX4D::ManhattanNorm() const
 {
   return INDEX4D_ManhattanNorm(mp_vector);
 }
 
-INDEX INDEX4D::MaxNorm() const
+inline INDEX INDEX4D::MaxNorm() const
 {
   return INDEX4D_MaxNorm(mp_vector);
 }
 
-INDEX& INDEX4D::operator()(INDEX i)
+inline INDEX& INDEX4D::operator()(INDEX i)
 {
   return *INDEX4D_Element(mp_vector, i);
 }
 
-INDEX INDEX4D::operator()(INDEX i) const
+inline INDEX INDEX4D::operator()(INDEX i) const
 {
   return INDEX4D_Element_const(mp_vector, i);
 }
 
-INDEX4D& INDEX4D::Normalize()
+inline INDEX4D& INDEX4D::Normalize()
 {
   INDEX4D_Normalize(mp_vector);
   return *this;
 }
 
-INDEX4D& INDEX4D::SafeNormalize()
+inline INDEX4D& INDEX4D::SafeNormalize()
 {
   INDEX4D_SafeNormalize(mp_vector);
   return *this;
 }
 
-INDEX4D& INDEX4D::Flip()
+inline INDEX4D& INDEX4D::Flip()
 {
   INDEX4D_Flip(mp_vector);
   return *this;
 }
 
-INDEX4D& INDEX4D::operator+=(const INDEX4D& vector2)
+inline INDEX4D& INDEX4D::operator+=(const INDEX4D& vector2)
 {
   INDEX4D_PlusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-INDEX4D& INDEX4D::operator-=(const INDEX4D& vector2)
+inline INDEX4D& INDEX4D::operator-=(const INDEX4D& vector2)
 {
   INDEX4D_MinusInplace(mp_vector, vector2.mp_vector);
   return *this;
 }
 
-INDEX4D& INDEX4D::operator*=(const INDEX scalar)
+inline INDEX4D& INDEX4D::operator*=(const INDEX scalar)
 {
   INDEX4D_MultiplyInplace(mp_vector, scalar);
   return *this;
 }
 
-INDEX4D& INDEX4D::operator/=(const INDEX scalar)
+inline INDEX4D& INDEX4D::operator/=(const INDEX scalar)
 {
   INDEX4D_DivideInplace(mp_vector, scalar);
   return *this;
 }
 
-INDEX4D& INDEX4D::operator*=(const INDEXmatrix4D& matrix2)
+inline INDEX4D& INDEX4D::operator*=(const INDEXmatrix4D& matrix2)
 {
   INDEX4D_MultiplyInplace_matrix(mp_vector, matrix2.C_Handle());
   return *this;
 }
 
-INDEX INDEX4D::operator%(const INDEX4D& vector2) const
+inline INDEX INDEX4D::operator%(const INDEX4D& vector2) const
 {
   return INDEX4D_Dot(mp_vector, vector2.mp_vector);
 }
 
-BOOL INDEX4D::operator==(const INDEX4D& vector2) const
+inline BOOL INDEX4D::operator==(const INDEX4D& vector2) const
 {
   return INDEX4D_equal(mp_vector, vector2.mp_vector);
 }
 
-BOOL INDEX4D::operator!=(const INDEX4D& vector2) const
+inline BOOL INDEX4D::operator!=(const INDEX4D& vector2) const
 {
   return INDEX4D_notequal(mp_vector, vector2.mp_vector);
 }

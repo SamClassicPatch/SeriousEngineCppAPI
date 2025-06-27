@@ -2,7 +2,7 @@
 #include "../Base/Types.h"
 
 #define DECLARE_CDynamicArray(TYPE)\
-  class SECPPAPI CDynamicArray_##TYPE\
+  class CDynamicArray_##TYPE\
   {\
     public:\
       CDynamicArray_##TYPE(CDynamicArray_##TYPE##_* p, bool owner = false);\
@@ -53,7 +53,7 @@ DECLARE_CDynamicArray(CTranslationPair)
 #undef DECLARE_CDynamicArray
 
 #define DECLARE_CDynamicArray(TYPE)\
-  class SECPPAPI CDynamicArray_##TYPE\
+  class CDynamicArray_##TYPE\
   {\
     public:\
       CDynamicArray_##TYPE(CDynamicArray_##TYPE##_* p, bool owner = false);\
@@ -100,3 +100,5 @@ DECLARE_CDynamicArray(CTranslationPair)
 DECLARE_CDynamicArray(FLOAT)
 
 #undef DECLARE_CDynamicArray
+
+#include "DynamicArray.inl"

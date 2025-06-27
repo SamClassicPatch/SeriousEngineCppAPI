@@ -1,7 +1,7 @@
 #pragma once
 #include "Types.h"
 
-class SECPPAPI CTranslationPair
+class CTranslationPair
 {
 public:
   CTranslationPair(CTranslationPair_* p, bool owner = false);
@@ -31,3 +31,5 @@ protected:
   bool m_owner = true;
   CTranslationPair_* mp_handle = nullptr;
 };
+
+#include "TranslationPair.inl"

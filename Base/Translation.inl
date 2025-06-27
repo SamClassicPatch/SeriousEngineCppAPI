@@ -1,42 +1,42 @@
-#include "Translation.h"
+#pragma once
 #include "FileName.h"
 #include "../Templates/DynamicArray.h"
 #include <SeriousEngineCAPI/Base/Translation.h>
 
-void InitTranslation()
+inline void InitTranslation()
 {
   InitTranslation_();
 }
 
-void AddTranslationTable_t(const CTFileName& fnmTable)
+inline void AddTranslationTable_t(const CTFileName& fnmTable)
 {
   AddTranslationTable_t(fnmTable);
   SECppAPI_CheckException();
 }
 
-void AddTranslationTablesDir_t(const CTFileName& fnmDir, const CTFileName& fnmPattern)
+inline void AddTranslationTablesDir_t(const CTFileName& fnmDir, const CTFileName& fnmPattern)
 {
   AddTranslationTablesDir_t_(fnmDir, fnmPattern);
   SECppAPI_CheckException();
 }
 
-void FinishTranslationTable()
+inline void FinishTranslationTable()
 {
   FinishTranslationTable_();
 }
 
-void ReadTranslationTable_t(CDynamicArray_CTranslationPair& atpPairs, const CTFileName& fnmTable)
+inline void ReadTranslationTable_t(CDynamicArray_CTranslationPair& atpPairs, const CTFileName& fnmTable)
 {
   ReadTranslationTable_t_(atpPairs, fnmTable);
   SECppAPI_CheckException();
 }
 
-char* Translate(char* str, INDEX iOffset)
+inline char* Translate(char* str, INDEX iOffset)
 {
   return Translate_(str, iOffset);
 }
 
-const char* TranslateConst(const char* str, INDEX iOffset)
+inline const char* TranslateConst(const char* str, INDEX iOffset)
 {
   return TranslateConst_(str, iOffset);
 }

@@ -30,7 +30,7 @@
     <ClInclude Include="Math\Object3D.h">
       <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="Math\Vector.h">
+    <ClInclude Include="Math\VectorDecl.h">
       <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="Templates\StaticArray.h">
@@ -40,11 +40,8 @@
       <Filter>Models</Filter>
     </ClInclude>
     <ClInclude Include="EngineGUI.h" />
-    <ClInclude Include="Math\Matrix.h">
+    <ClInclude Include="Math\MatrixDecl.h">
       <Filter>Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Base\API.h">
-      <Filter>Base</Filter>
     </ClInclude>
     <ClInclude Include="Base\Stream.h">
       <Filter>Base</Filter>
@@ -61,40 +58,41 @@
     <ClInclude Include="Templates\DynamicStackArray.h">
       <Filter>Templates</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Math\Matrix.cpp">
+    <ClInclude Include="Math\Matrix.h">
       <Filter>Math</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\Vector.cpp">
+    </ClInclude>
+    <ClInclude Include="Math\Vector.h">
       <Filter>Math</Filter>
-    </ClCompile>
-    <ClCompile Include="Base\CTString.cpp">
+    </ClInclude>
+    <ClInclude Include="Base\CTString.inl">
       <Filter>Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Base\Exception.cpp">
+    </ClInclude>
+    <ClInclude Include="Base\FileName.inl">
       <Filter>Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Base\FileName.cpp">
+    </ClInclude>
+    <ClInclude Include="Base\Lists.inl">
       <Filter>Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Templates\DynamicArray.cpp">
+    </ClInclude>
+    <ClInclude Include="Base\Stream.inl">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\Translation.inl">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\TranslationPair.inl">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Matrix.inl">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Vector.inl">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Templates\DynamicArray.inl">
       <Filter>Templates</Filter>
-    </ClCompile>
-    <ClCompile Include="Base\TranslationPair.cpp">
-      <Filter>Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Base\Translation.cpp">
-      <Filter>Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Base\Lists.cpp">
-      <Filter>Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Templates\DynamicStackArray.cpp">
+    </ClInclude>
+    <ClInclude Include="Templates\DynamicStackArray.inl">
       <Filter>Templates</Filter>
-    </ClCompile>
-    <ClCompile Include="Base\Stream.cpp">
-      <Filter>Base</Filter>
-    </ClCompile>
+    </ClInclude>
   </ItemGroup>
 </Project>

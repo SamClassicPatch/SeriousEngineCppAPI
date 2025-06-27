@@ -3,7 +3,7 @@
 #include "DynamicArray.h"
 
 #define DECLARE_CDynamicStackArray(TYPE)\
-  class SECPPAPI CDynamicStackArray_##TYPE : public CDynamicArray_##TYPE\
+  class CDynamicStackArray_##TYPE : public CDynamicArray_##TYPE\
   {\
     public:\
       CDynamicStackArray_##TYPE(CDynamicStackArray_##TYPE##_* p, bool owner = false);\
@@ -37,7 +37,7 @@ DECLARE_CDynamicStackArray(CTFileName)
 #undef DECLARE_CDynamicStackArray
 
 #define DECLARE_CDynamicStackArray(TYPE)\
-  class SECPPAPI CDynamicStackArray_##TYPE : public CDynamicArray_##TYPE\
+  class CDynamicStackArray_##TYPE : public CDynamicArray_##TYPE\
   {\
     public:\
       CDynamicStackArray_##TYPE(CDynamicStackArray_##TYPE##_* p, bool owner = false);\
@@ -68,3 +68,5 @@ DECLARE_CDynamicStackArray(CTFileName)
 DECLARE_CDynamicStackArray(FLOAT)
 
 #undef DECLARE_CDynamicStackArray
+
+#include "DynamicStackArray.inl"

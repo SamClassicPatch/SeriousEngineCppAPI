@@ -4,7 +4,7 @@
 #include <functional>
 
 #define CID_LENGTH 4
-class SECPPAPI CChunkID {
+class CChunkID {
 public:
   CChunkID(CChunkID_* p, bool owner = false);
   CChunkID(const char* strString = "    ");
@@ -23,7 +23,7 @@ private:
   CChunkID_* mp_handle = nullptr;
 };
 
-class SECPPAPI CTStream
+class CTStream
 {
 public:
   // modes for opening streams
@@ -139,7 +139,7 @@ protected:
   CTStream_* mp_stream = nullptr;
 };
 
-class SECPPAPI CTFileStream : public CTStream
+class CTFileStream : public CTStream
 {
 public:
   CTFileStream(CTFileStream_* p, bool owner = false);
@@ -159,7 +159,7 @@ public:
   inline operator const CTFileStream_* () const { return C_Handle(); }
 };
 
-class SECPPAPI CTMemoryStream : public CTStream
+class CTMemoryStream : public CTStream
 {
 public:
   CTMemoryStream(CTMemoryStream_* p, bool owner = false);
@@ -179,18 +179,18 @@ public:
 };
 
 // Test if a file exists.
-SECPPAPI BOOL FileExists(const CTFileName& fnmFile);
+BOOL FileExists(const CTFileName& fnmFile);
 // Test if a file exists for writing. 
 // (this is can be diferent than normal FileExists() if a mod uses basewriteexclude.lst
-SECPPAPI BOOL FileExistsForWriting(const CTFileName& fnmFile);
+BOOL FileExistsForWriting(const CTFileName& fnmFile);
 // Get file timestamp
-SECPPAPI SLONG GetFileTimeStamp_t(const CTFileName& fnmFile); // throw char *
+SLONG GetFileTimeStamp_t(const CTFileName& fnmFile); // throw char *
 // Get CRC32 of a file
-SECPPAPI ULONG GetFileCRC32_t(const CTFileName& fnmFile); // throw char *
+ULONG GetFileCRC32_t(const CTFileName& fnmFile); // throw char *
 // Test if a file is read only (also returns FALSE if file does not exist)
-SECPPAPI BOOL IsFileReadOnly(const CTFileName& fnmFile);
+BOOL IsFileReadOnly(const CTFileName& fnmFile);
 // Delete a file (called 'remove' to avid name clashes with win32)
-SECPPAPI BOOL RemoveFile(const CTFileName& fnmFile);
+BOOL RemoveFile(const CTFileName& fnmFile);
 
 // Expand a file's filename to full path
 
@@ -204,13 +204,13 @@ SECPPAPI BOOL RemoveFile(const CTFileName& fnmFile);
 #define EFP_FILE       CTStream_EFP_FILE  // generic file on disk
 #define EFP_BASEZIP    CTStream_EFP_BASEZIP  // file in one of base zips
 #define EFP_MODZIP     CTStream_EFP_MODZIP  // file in one of mod zips
-SECPPAPI INDEX ExpandFilePath(ULONG ulType, const CTFileName& fnmFile, CTFileName& fnmExpanded);
+INDEX ExpandFilePath(ULONG ulType, const CTFileName& fnmFile, CTFileName& fnmExpanded);
 
 // these are input flags for directory reading
 #define DLI_RECURSIVE  CTStream_DLI_RECURSIVE  // recurse into subdirs
 #define DLI_SEARCHCD   CTStream_DLI_SEARCHCD  // search the CD path also
 // make a list of all files in a directory
-SECPPAPI void MakeDirList(
+void MakeDirList(
   CDynamicStackArray_CTFileName& adeDir,
   const CTFileName& fnmDir,     // directory to list
   const CTString& strPattern,   // pattern for each file to match ("" matches all)
@@ -218,21 +218,30 @@ SECPPAPI void MakeDirList(
 );
 
 // global string with application path
-SECPPAPI extern CTFileName _fnmApplicationPath;
+#define _fnmApplicationPath\
+  CTFileName(_fnmApplicationPath_(), false)
 // global string with current MOD path
-SECPPAPI extern CTFileName _fnmMod;
+#define _fnmMod\
+  CTFileName(_fnmMod_(), false)
 // global string with current name (the parameter that is passed on cmdline)
-SECPPAPI extern CTString _strModName;
+#define _strModName\
+  CTString(_strModName_(), false)
 // global string with url to be shown to users that don't have the mod installed
 // (should be set by game.dll)
-SECPPAPI extern CTString _strModURL;
+#define _strModURL\
+  CTString(_strModURL_(), false)
 // global string with current MOD extension (for adding to dlls)
-SECPPAPI extern CTString _strModExt;
+#define _strModExt\
+  CTString(_strModExt_(), false)
 // global string with CD path (for minimal installations)
-SECPPAPI extern CTFileName _fnmCDPath;
+#define _fnmCDPath\
+  CTFileName(_fnmCDPath_(), false)
 // global string with filename of the started application
-SECPPAPI extern CTFileName _fnmApplicationExe;
+#define _fnmApplicationExe\
+  CTFileName(_fnmApplicationExe_(), false)
 
 // application path usage funtions
-SECPPAPI void UseApplicationPath();
-SECPPAPI void IgnoreApplicationPath();
+void UseApplicationPath();
+void IgnoreApplicationPath();
+
+#include "Stream.inl"

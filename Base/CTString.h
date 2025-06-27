@@ -2,7 +2,7 @@
 #include "Types.h"
 #include <SeriousEngineCAPI/Base/CTString.h>
 
-class SECPPAPI CTString
+class CTString
 {
 public:
   CTString(CTString_* p, bool owner = false);
@@ -53,11 +53,11 @@ public:
   /* Equality comparison. */
   BOOL operator==(const CTString& strOther) const;
   BOOL operator==(const char* strOther) const;
-  SECPPAPI friend BOOL operator==(const char* strThis, const CTString& strOther);
+  friend BOOL operator==(const char* strThis, const CTString& strOther);
   /* Inequality comparison. */
   BOOL operator!=(const CTString& strOther) const;
   BOOL operator!=(const char* strOther) const;
-  SECPPAPI friend BOOL operator!=(const char* strThis, const CTString& strOther);
+  friend BOOL operator!=(const char* strThis, const CTString& strOther);
   // wild card comparison (other string may contain wildcards)
   BOOL Matches(const CTString& strOther) const;
   BOOL Matches(const char* strOther) const;
@@ -81,10 +81,10 @@ public:
   void Throw_t();
 
   /* Read from stream. */
-  SECPPAPI friend CTStream& operator>>(CTStream& strmStream, CTString& strString);
+  friend CTStream& operator>>(CTStream& strmStream, CTString& strString);
   void ReadFromText_t(CTStream& strmStream, const CTString& strKeyword); // throw char *
   /* Write to stream. */
-  SECPPAPI friend CTStream& operator<<(CTStream& strmStream, const CTString& strString);
+  friend CTStream& operator<<(CTStream& strmStream, const CTString& strString);
 
   /* Load an entire text file into a string. */
   void Load_t(const CTFileName& fnmFile);  // throw char *
@@ -114,9 +114,11 @@ protected:
 };
 
 // general variable functions
-SECPPAPI void LoadStringVar(const CTFileName& fnmVar, CTString& strVar);
-SECPPAPI void SaveStringVar(const CTFileName& fnmVar, CTString& strVar);
-SECPPAPI void LoadIntVar(const CTFileName& fnmVar, INDEX& iVar);
-SECPPAPI void SaveIntVar(const CTFileName& fnmVar, INDEX iVar);
+void LoadStringVar(const CTFileName& fnmVar, CTString& strVar);
+void SaveStringVar(const CTFileName& fnmVar, CTString& strVar);
+void LoadIntVar(const CTFileName& fnmVar, INDEX& iVar);
+void SaveIntVar(const CTFileName& fnmVar, INDEX iVar);
 
-SECPPAPI CTString RemoveSpecialCodes(const CTString& str);
+CTString RemoveSpecialCodes(const CTString& str);
+
+#include "CTString.inl"

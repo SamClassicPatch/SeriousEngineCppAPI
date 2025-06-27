@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Base\API.h" />
     <ClInclude Include="Base\CTString.h" />
     <ClInclude Include="Base\FileName.h" />
     <ClInclude Include="Base\Lists.h" />
@@ -29,25 +28,46 @@
     <ClInclude Include="Base\Types.h" />
     <ClInclude Include="EngineGUI.h" />
     <ClInclude Include="Math\Matrix.h" />
+    <ClInclude Include="Math\MatrixDecl.h" />
     <ClInclude Include="Math\Object3D.h" />
     <ClInclude Include="Math\Vector.h" />
+    <ClInclude Include="Math\VectorDecl.h" />
     <ClInclude Include="Models\RenderModel.h" />
     <ClInclude Include="Templates\DynamicArray.h" />
     <ClInclude Include="Templates\DynamicStackArray.h" />
     <ClInclude Include="Templates\StaticArray.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Base\CTString.cpp" />
-    <ClCompile Include="Base\Exception.cpp" />
-    <ClCompile Include="Base\FileName.cpp" />
-    <ClCompile Include="Base\Lists.cpp" />
-    <ClCompile Include="Base\Stream.cpp" />
-    <ClCompile Include="Base\Translation.cpp" />
-    <ClCompile Include="Base\TranslationPair.cpp" />
-    <ClCompile Include="Math\Matrix.cpp" />
-    <ClCompile Include="Math\Vector.cpp" />
-    <ClCompile Include="Templates\DynamicArray.cpp" />
-    <ClCompile Include="Templates\DynamicStackArray.cpp" />
+    <ClInclude Include="Base\CTString.inl">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="Base\FileName.inl">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="Base\Lists.inl">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="Base\Stream.inl">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="Base\Translation.inl">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="Base\TranslationPair.inl">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="Math\Matrix.inl">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="Math\Vector.inl">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="Templates\DynamicArray.inl">
+      <FileType>Document</FileType>
+    </ClInclude>
+    <ClInclude Include="Templates\DynamicStackArray.inl">
+      <FileType>Document</FileType>
+    </ClInclude>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

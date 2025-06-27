@@ -1,5 +1,4 @@
 #pragma once
-#include "API.h"
 #include <SeriousEngineCAPI/Base/Types.h>
 
 class FLOAT2D;
@@ -38,4 +37,8 @@ class CDynamicStackArray_FLOAT;
 class CDynamicStackArray_CTString;
 class CDynamicStackArray_CTFileName;
 
-SECPPAPI void SECppAPI_CheckException();
+inline void SECppAPI_CheckException()
+{
+  if (HasException())
+    throw GrabException();
+}

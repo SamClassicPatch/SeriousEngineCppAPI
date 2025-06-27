@@ -3,7 +3,7 @@
 
 /* structures for doubly linked lists */
 /* list node */
-class SECPPAPI CListNode
+class CListNode
 {
 public:
   CListNode(CListNode_* p, bool owner = false);
@@ -54,7 +54,7 @@ private:
   CListNode_* mp_handle = nullptr;
 };
 /* list head */
-class SECPPAPI CListHead
+class CListHead
 {
 public:
   CListHead(CListHead_* p, bool owner = false);
@@ -101,3 +101,5 @@ private:
   bool m_owner = true;
   CListHead_* mp_handle = nullptr;
 };
+
+#include "Lists.inl"
