@@ -22,6 +22,8 @@ class DOUBLEmatrix4D;
 class INDEXmatrix2D;
 class INDEXmatrix3D;
 class INDEXmatrix4D;
+class FLOATquat3D;
+class DOUBLEquat3D;
 class CPlacement3D;
 class CTString;
 class CTFileName;
