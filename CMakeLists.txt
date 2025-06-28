@@ -26,6 +26,8 @@ set(SRC_MATH
   Math/Matrix.inl
   Math/MatrixDecl.h
   Math/Object3D.h
+  Math/Placement.h
+  Math/Placement.inl
   Math/Vector.h
   Math/Vector.inl
   Math/VectorDecl.h
