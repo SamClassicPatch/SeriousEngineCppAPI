@@ -1,14 +1,15 @@
 cmake_minimum_required(VERSION 3.12)
 
 project(SeriousEngineCppAPI LANGUAGES CXX)
-target_compile_features(${PROJECT_NAME} INTERFACE cxx_std_20)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 set(SRC_BASE
   Base/CTString.h
   Base/CTString.inl
+  Base/CTStringDecl.h
   Base/FileName.h
   Base/FileName.inl
+  Base/FileNameDecl.h
   Base/Lists.h
   Base/Lists.inl
   Base/Stream.h
