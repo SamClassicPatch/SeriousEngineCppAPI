@@ -29,6 +29,8 @@ set(SRC_MATH
   Math/Object3D.h
   Math/Placement.h
   Math/Placement.inl
+  Math/Plane.h
+  Math/Plane.inl
   Math/Quaternion.h
   Math/Quaternion.inl
   Math/Vector.h

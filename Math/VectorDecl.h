@@ -63,7 +63,7 @@ public:
   inline const FLOAT2D_* C_Handle() const { return mp_vector; }
   inline operator FLOAT2D_* () { return C_Handle(); }
   inline operator const FLOAT2D_* () const { return C_Handle(); }
-private:
+protected:
   bool m_owner = true;
   FLOAT2D_* mp_vector = nullptr;
 };
@@ -132,7 +132,7 @@ public:
   inline operator FLOAT3D_* () { return C_Handle(); }
   inline operator const FLOAT3D_* () const { return C_Handle(); }
 
-private:
+protected:
   bool m_owner = true;
   FLOAT3D_* mp_vector = nullptr;
 };
@@ -198,7 +198,7 @@ public:
   inline operator FLOAT4D_* () { return C_Handle(); }
   inline operator const FLOAT4D_* () const { return C_Handle(); }
 
-private:
+protected:
   bool m_owner = true;
   FLOAT4D_* mp_vector = nullptr;
 };
@@ -263,7 +263,7 @@ public:
   inline const DOUBLE2D_* C_Handle() const { return mp_vector; }
   inline operator DOUBLE2D_* () { return C_Handle(); }
   inline operator const DOUBLE2D_* () const { return C_Handle(); }
-private:
+protected:
   bool m_owner = true;
   DOUBLE2D_* mp_vector = nullptr;
 };
@@ -332,7 +332,7 @@ public:
   inline operator DOUBLE3D_* () { return C_Handle(); }
   inline operator const DOUBLE3D_* () const { return C_Handle(); }
 
-private:
+protected:
   bool m_owner = true;
   DOUBLE3D_* mp_vector = nullptr;
 };
@@ -398,7 +398,7 @@ public:
   inline operator DOUBLE4D_* () { return C_Handle(); }
   inline operator const DOUBLE4D_* () const { return C_Handle(); }
 
-private:
+protected:
   bool m_owner = true;
   DOUBLE4D_* mp_vector = nullptr;
 };
@@ -463,7 +463,7 @@ public:
   inline const INDEX2D_* C_Handle() const { return mp_vector; }
   inline operator INDEX2D_* () { return C_Handle(); }
   inline operator const INDEX2D_* () const { return C_Handle(); }
-private:
+protected:
   bool m_owner = true;
   INDEX2D_* mp_vector = nullptr;
 };
@@ -532,7 +532,7 @@ public:
   inline operator INDEX3D_* () { return C_Handle(); }
   inline operator const INDEX3D_* () const { return C_Handle(); }
 
-private:
+protected:
   bool m_owner = true;
   INDEX3D_* mp_vector = nullptr;
 };
@@ -598,7 +598,7 @@ public:
   inline operator INDEX4D_* () { return C_Handle(); }
   inline operator const INDEX4D_* () const { return C_Handle(); }
 
-private:
+protected:
   bool m_owner = true;
   INDEX4D_* mp_vector = nullptr;
 };

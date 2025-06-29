@@ -25,6 +25,8 @@ class INDEXmatrix4D;
 class FLOATquat3D;
 class DOUBLEquat3D;
 class CPlacement3D;
+class FLOATplane3D;
+class DOUBLEplane3D;
 class CTString;
 class CTFileName;
 class CChunkID;
