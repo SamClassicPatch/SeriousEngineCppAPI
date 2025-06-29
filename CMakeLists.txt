@@ -23,6 +23,8 @@ set(SRC_BASE
 source_group("Base" FILES ${SRC_BASE})
 
 set(SRC_MATH
+  Math/AABBox.h
+  Math/AABBox.inl
   Math/Matrix.h
   Math/Matrix.inl
   Math/MatrixDecl.h
