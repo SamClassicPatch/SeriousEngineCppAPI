@@ -38,6 +38,8 @@ set(SRC_MATH
   Math/Projection.h
   Math/Quaternion.h
   Math/Quaternion.inl
+  Math/TextureMapping.h
+  Math/TextureMapping.inl
   Math/Vector.h
   Math/Vector.inl
   Math/VectorDecl.h
