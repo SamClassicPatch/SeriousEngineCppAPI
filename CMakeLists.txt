@@ -28,6 +28,8 @@ set(SRC_MATH
   Math/Matrix.h
   Math/Matrix.inl
   Math/MatrixDecl.h
+  Math/OBBox.h
+  Math/OBBox.inl
   Math/Object3D.h
   Math/Placement.h
   Math/Placement.inl

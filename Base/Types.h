@@ -20,6 +20,8 @@ class DOUBLEaabbox2D;
 class DOUBLEaabbox3D;
 using MEXaabbox2D = INDEXaabbox2D;
 using PIXaabbox2D = INDEXaabbox2D;
+class FLOATobbox3D;
+class DOUBLEobbox3D;
 class FLOATmatrix2D;
 class FLOATmatrix3D;
 class FLOATmatrix4D;
