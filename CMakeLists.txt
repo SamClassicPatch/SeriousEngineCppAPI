@@ -35,6 +35,7 @@ set(SRC_MATH
   Math/Placement.inl
   Math/Plane.h
   Math/Plane.inl
+  Math/Projection.h
   Math/Quaternion.h
   Math/Quaternion.inl
   Math/Vector.h

@@ -1,6 +1,5 @@
 #pragma once
 #include "Types.h"
-#include "FileNameDecl.h"
 #include <SeriousEngineCAPI/Base/CTString.h>
 
 class CTString
@@ -121,3 +120,5 @@ void LoadIntVar(const CTFileName& fnmVar, INDEX& iVar);
 void SaveIntVar(const CTFileName& fnmVar, INDEX iVar);
 
 CTString RemoveSpecialCodes(const CTString& str);
+
+#include "FileNameDecl.h"
