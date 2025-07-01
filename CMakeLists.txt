@@ -36,6 +36,7 @@ set(SRC_MATH
   Math/Plane.h
   Math/Plane.inl
   Math/Projection.h
+  Math/Projection.inl
   Math/Quaternion.h
   Math/Quaternion.inl
   Math/TextureMapping.h
