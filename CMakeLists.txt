@@ -4,6 +4,8 @@ project(SeriousEngineCppAPI LANGUAGES CXX)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 set(SRC_BASE
+  Base/Changeable.h
+  Base/Changeable.inl
   Base/CTString.h
   Base/CTString.inl
   Base/CTStringDecl.h
@@ -12,6 +14,8 @@ set(SRC_BASE
   Base/FileNameDecl.h
   Base/Lists.h
   Base/Lists.inl
+  Base/Serial.h
+  Base/Serial.inl
   Base/Stream.h
   Base/Stream.inl
   Base/Translation.h
@@ -19,6 +23,8 @@ set(SRC_BASE
   Base/TranslationPair.h
   Base/TranslationPair.inl
   Base/Types.h
+  Base/Updateable.h
+  Base/Updateable.inl
 )
 source_group("Base" FILES ${SRC_BASE})
 
