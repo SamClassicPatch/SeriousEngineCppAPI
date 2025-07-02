@@ -4,6 +4,8 @@ project(SeriousEngineCppAPI LANGUAGES CXX)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 set(SRC_BASE
+  Base/Anim.h
+  Base/Anim.inl
   Base/Changeable.h
   Base/Changeable.inl
   Base/CTString.h
