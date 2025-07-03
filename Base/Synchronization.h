@@ -1,0 +1,47 @@
+#pragma once
+#include "Types.h"
+#include <SeriousEngineCAPI/Base/Synchronization.h>
+
+// intra-process mutex (only used by thread of same process)
+// NOTE: mutex has no interface - it is locked using CTSingleLock
+class CTCriticalSection
+{
+public:
+  CTCriticalSection(CTCriticalSection_* p, bool owner = false);
+  CTCriticalSection();
+  ~CTCriticalSection();
+
+  inline CTCriticalSection_* C_Handle() { return mp_handle; }
+  inline const CTCriticalSection_* C_Handle() const { return mp_handle; }
+  inline operator CTCriticalSection_* () { return C_Handle(); }
+  inline operator const CTCriticalSection_* () const { return C_Handle(); }
+
+private:
+  bool m_owner = true;
+  CTCriticalSection_* mp_handle = nullptr;
+};
+
+// lock object for locking a mutex with automatic unlocking
+class CTSingleLock
+{
+public:
+  CTSingleLock(CTSingleLock_* p, bool owner = false);
+  CTSingleLock(CTCriticalSection* pcs, BOOL bLock);
+  ~CTSingleLock();
+
+  void Lock();
+  BOOL TryToLock();
+  BOOL IsLocked();
+  void Unlock();
+
+  inline CTSingleLock_* C_Handle() { return mp_handle; }
+  inline const CTSingleLock_* C_Handle() const { return mp_handle; }
+  inline operator CTSingleLock_* () { return C_Handle(); }
+  inline operator const CTSingleLock_* () const { return C_Handle(); }
+
+private:
+  bool m_owner = true;
+  CTSingleLock_* mp_handle = nullptr;
+};
+
+#include "Synchronization.inl"

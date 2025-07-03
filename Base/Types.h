@@ -40,6 +40,8 @@ class CPlanarGradients;
 class CMappingDefinitionUI;
 class CMappingVectors;
 class CMappingDefinition;
+class CTCriticalSection;
+class CTSingleLock;
 class CChangeable;
 class CUpdateable;
 class CSerial;

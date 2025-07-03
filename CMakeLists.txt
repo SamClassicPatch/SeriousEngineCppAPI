@@ -20,6 +20,8 @@ set(SRC_BASE
   Base/Serial.inl
   Base/Stream.h
   Base/Stream.inl
+  Base/Synchronization.h
+  Base/Synchronization.inl
   Base/Translation.h
   Base/Translation.inl
   Base/TranslationPair.h
