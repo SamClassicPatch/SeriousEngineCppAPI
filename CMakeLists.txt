@@ -22,6 +22,8 @@ set(SRC_BASE
   Base/Stream.inl
   Base/Synchronization.h
   Base/Synchronization.inl
+  Base/Timer.h
+  Base/Timer.inl
   Base/Translation.h
   Base/Translation.inl
   Base/TranslationPair.h
