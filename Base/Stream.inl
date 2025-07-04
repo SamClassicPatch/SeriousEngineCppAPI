@@ -45,7 +45,8 @@ inline void CTStream::ExecuteWithStreamHandling(const std::function<void()>& fun
 {
   static const std::function<void()>* p_func = nullptr;
   p_func = &func;
-  CTStream_ExecuteWithStreamHandling([] { (*p_func)(); });
+  void(__cdecl *callback)(void) = [] { (*p_func)(); };
+  CTStream_ExecuteWithStreamHandling(callback);
 }
 
 inline void CTStream::Read_t(void* pvBuffer, SLONG slSize)
