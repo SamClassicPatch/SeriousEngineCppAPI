@@ -34,6 +34,14 @@ set(SRC_BASE
 )
 source_group("Base" FILES ${SRC_BASE})
 
+set(SRC_GRAPHICS
+  Graphics/ImageInfo.h
+  Graphics/ImageInfo.inl
+  Graphics/Texture.h
+  Graphics/Texture.inl
+)
+source_group("Graphics" FILES ${SRC_GRAPHICS})
+
 set(SRC_MATH
   Math/AABBox.h
   Math/AABBox.inl
@@ -75,6 +83,7 @@ source_group("Templates" FILES ${SRC_TEMPLATES})
 
 add_library(${PROJECT_NAME} INTERFACE
   ${SRC_BASE}
+  ${SRC_GRAPHICS}
   ${SRC_MATH}
   ${SRC_MODELS}
   ${SRC_TEMPLATES}
