@@ -34,9 +34,9 @@
   {\
     CDynamicStackArray_##TYPE##_Clear(C_Handle());\
   }\
-  inline TYPE##_* CDynamicStackArray_##TYPE::Push()\
+  __forceinline TYPE CDynamicStackArray_##TYPE::Push()\
   {\
-    return CDynamicStackArray_##TYPE##_Push(C_Handle());\
+    return TYPE(CDynamicStackArray_##TYPE##_Push(C_Handle()), false);\
   }\
   inline TYPE##_* CDynamicStackArray_##TYPE::Push(INDEX ct)\
   {\

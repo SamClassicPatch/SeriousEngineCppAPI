@@ -30,8 +30,8 @@
       TYPE##_* Pointer(INDEX iObject);\
       const TYPE##_* Pointer(INDEX iObject) const;\
       /* Random access operator. */\
-      TYPE##_* operator[](INDEX iObject);\
-      const TYPE##_* operator[](INDEX iObject) const;\
+      TYPE operator[](INDEX iObject);\
+      const TYPE operator[](INDEX iObject) const;\
       /* Move all elements of another array into this one. */\
       void MoveArray(CDynamicArray_##TYPE& arOther);\
       /* Get number of objects in array. */\

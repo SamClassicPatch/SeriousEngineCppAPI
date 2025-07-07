@@ -18,7 +18,7 @@
       /* Destroy all objects, and reset the array to initial (empty) state. */\
       void Clear();\
       /* Add new object on top of stack. */\
-      TYPE##_* Push();\
+      TYPE Push();\
       TYPE##_* Push(INDEX ct);\
       /* Remove all objects from stack, but keep stack space. */\
       void PopAll();\

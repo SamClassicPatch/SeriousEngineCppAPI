@@ -65,13 +65,13 @@
   {\
     return CDynamicArray_##TYPE##_Element_const(mp_array, iObject);\
   }\
-  inline TYPE##_* CDynamicArray_##TYPE::operator[](INDEX iObject)\
+  __forceinline TYPE CDynamicArray_##TYPE::operator[](INDEX iObject)\
   {\
-    return CDynamicArray_##TYPE##_Element(mp_array, iObject);\
+    return TYPE(CDynamicArray_##TYPE##_Element(mp_array, iObject), false);\
   }\
-  inline const TYPE##_* CDynamicArray_##TYPE::operator[](INDEX iObject) const\
+  __forceinline const TYPE CDynamicArray_##TYPE::operator[](INDEX iObject) const\
   {\
-    return CDynamicArray_##TYPE##_Element_const(mp_array, iObject);\
+    return TYPE((TYPE##_*)CDynamicArray_##TYPE##_Element_const(mp_array, iObject), false);\
   }\
   inline void CDynamicArray_##TYPE::MoveArray(CDynamicArray_##TYPE& arOther)\
   {\
