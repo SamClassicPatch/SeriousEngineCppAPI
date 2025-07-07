@@ -1,5 +1,4 @@
 #pragma once
-#include <SeriousEngineCAPI/Templates/DynamicStackArray.h>
 
 #define IMPL_CDynamicStackArray(TYPE)\
   inline CDynamicStackArray_##TYPE::CDynamicStackArray_##TYPE(CDynamicStackArray_##TYPE##_* p, bool owner)\
@@ -54,9 +53,7 @@
 IMPL_CDynamicStackArray(CTString)
 IMPL_CDynamicStackArray(CTFileName)
 
-#undef IMPL_CDynamicStackArray
-
-#define IMPL_CDynamicStackArray(TYPE)\
+#define IMPL_CDynamicStackArray_simple(TYPE)\
   inline CDynamicStackArray_##TYPE::CDynamicStackArray_##TYPE(CDynamicStackArray_##TYPE##_* p, bool owner)\
     : CDynamicArray_##TYPE((CDynamicArray_##TYPE##_*)p, owner)\
   {\
@@ -106,6 +103,4 @@ IMPL_CDynamicStackArray(CTFileName)
     return CDynamicStackArray_##TYPE##_Count(C_Handle());\
   }
 
-IMPL_CDynamicStackArray(FLOAT)
-
-#undef IMPL_CDynamicStackArray
+IMPL_CDynamicStackArray_simple(FLOAT)

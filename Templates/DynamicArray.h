@@ -1,5 +1,8 @@
 #pragma once
 #include "../Base/Types.h"
+#include "../Base/FileName.h"
+#include "../Base/TranslationPair.h"
+#include <SeriousEngineCAPI/Templates/DynamicArray.h>
 
 #define DECLARE_CDynamicArray(TYPE)\
   class CDynamicArray_##TYPE\
@@ -50,9 +53,7 @@ DECLARE_CDynamicArray(CTString)
 DECLARE_CDynamicArray(CTFileName)
 DECLARE_CDynamicArray(CTranslationPair)
 
-#undef DECLARE_CDynamicArray
-
-#define DECLARE_CDynamicArray(TYPE)\
+#define DECLARE_CDynamicArray_simple(TYPE)\
   class CDynamicArray_##TYPE\
   {\
     public:\
@@ -97,8 +98,6 @@ DECLARE_CDynamicArray(CTranslationPair)
       CDynamicArray_##TYPE##_* mp_array = nullptr;\
   };
 
-DECLARE_CDynamicArray(FLOAT)
-
-#undef DECLARE_CDynamicArray
+DECLARE_CDynamicArray_simple(FLOAT)
 
 #include "DynamicArray.inl"

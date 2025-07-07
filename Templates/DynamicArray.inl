@@ -1,7 +1,4 @@
 #pragma once
-#include "../Base/FileName.h"
-#include "../Base/TranslationPair.h"
-#include <SeriousEngineCAPI/Templates/DynamicArray.h>
 
 #define IMPL_CDynamicArray(TYPE)\
   inline CDynamicArray_##TYPE::CDynamicArray_##TYPE(CDynamicArray_##TYPE##_* p, bool owner)\
@@ -86,9 +83,7 @@ IMPL_CDynamicArray(CTString)
 IMPL_CDynamicArray(CTFileName)
 IMPL_CDynamicArray(CTranslationPair)
 
-#undef IMPL_CDynamicArray
-
-#define IMPL_CDynamicArray(TYPE)\
+#define IMPL_CDynamicArray_simple(TYPE)\
   inline CDynamicArray_##TYPE::CDynamicArray_##TYPE(CDynamicArray_##TYPE##_* p, bool owner)\
     : m_owner(owner)\
     , mp_array(p)\
@@ -167,6 +162,4 @@ IMPL_CDynamicArray(CTranslationPair)
     return CDynamicArray_##TYPE##_Count(mp_array);\
   }
 
-IMPL_CDynamicArray(FLOAT)
-
-#undef IMPL_CDynamicArray
+IMPL_CDynamicArray_simple(FLOAT)

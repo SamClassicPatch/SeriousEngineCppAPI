@@ -1,6 +1,7 @@
 #pragma once
 #include "../Base/Types.h"
 #include "DynamicArray.h"
+#include <SeriousEngineCAPI/Templates/DynamicStackArray.h>
 
 #define DECLARE_CDynamicStackArray(TYPE)\
   class CDynamicStackArray_##TYPE : public CDynamicArray_##TYPE\
@@ -34,9 +35,7 @@
 DECLARE_CDynamicStackArray(CTString)
 DECLARE_CDynamicStackArray(CTFileName)
 
-#undef DECLARE_CDynamicStackArray
-
-#define DECLARE_CDynamicStackArray(TYPE)\
+#define DECLARE_CDynamicStackArray_simple(TYPE)\
   class CDynamicStackArray_##TYPE : public CDynamicArray_##TYPE\
   {\
     public:\
@@ -65,8 +64,6 @@ DECLARE_CDynamicStackArray(CTFileName)
       inline operator const CDynamicStackArray_##TYPE##_* () const { return C_Handle(); }\
   };
 
-DECLARE_CDynamicStackArray(FLOAT)
-
-#undef DECLARE_CDynamicStackArray
+DECLARE_CDynamicStackArray_simple(FLOAT)
 
 #include "DynamicStackArray.inl"

@@ -68,6 +68,10 @@ set(SRC_MATH
 source_group("Math" FILES ${SRC_MATH})
 
 set(SRC_MODELS
+  Models/Model_internal.h
+  Models/Model_internal.inl
+  Models/ModelData.h
+  Models/ModelData.inl
   Models/RenderModel.h
 )
 source_group("Models" FILES ${SRC_MODELS})
@@ -78,6 +82,9 @@ set(SRC_TEMPLATES
   Templates/DynamicStackArray.h
   Templates/DynamicStackArray.inl
   Templates/StaticArray.h
+  Templates/StaticArray.inl
+  Templates/StaticStackArray.h
+  Templates/StaticStackArray.inl
 )
 source_group("Templates" FILES ${SRC_TEMPLATES})
 

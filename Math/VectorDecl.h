@@ -603,6 +603,138 @@ protected:
   INDEX4D_* mp_vector = nullptr;
 };
 
+class SWORD3D
+{
+public:
+  SWORD3D(SWORD3D_* p, bool owner = false);
+  SWORD3D();
+  SWORD3D(SWORD x, SWORD y, SWORD z);
+  SWORD3D(const SWORD3D& o);
+  ~SWORD3D();
+
+  SWORD3D& operator=(const SWORD3D& o);
+
+  /* Clear function */
+  void Clear();
+  /* Conversion into scalar -- length of vector (Euclidian norm). */
+  SWORD Length() const;
+  /* Conversion into scalar -- Manhattan norm of vector. */
+  SWORD ManhattanNorm() const;
+  /* Conversion into scalar -- Max norm of vector. */
+  SWORD MaxNorm() const;
+
+  /* Reference vector member by it's SWORD (1-based indices!). */
+  SWORD& operator()(SWORD i);
+  SWORD operator()(SWORD i) const;
+
+  /* Normalize vector, i.e. make it a unit vector. */
+  SWORD3D& Normalize();
+  SWORD3D& SafeNormalize(); // gives vector with (0,0,0) orientation if input is too small
+
+  /* Mathematical operators. */
+  // unary minus
+  SWORD3D& Flip();
+  __forceinline SWORD3D operator-() const { return SWORD3D(SWORD3D_Negative(mp_vector), true); }
+  // between two vectors
+  __forceinline SWORD3D operator+(const SWORD3D& vector2) const { return SWORD3D(SWORD3D_Plus(mp_vector, vector2.mp_vector), true); }
+  SWORD3D& operator+=(const SWORD3D& vector2);
+  __forceinline SWORD3D operator-(const SWORD3D& vector2) const { return SWORD3D(SWORD3D_Minus(mp_vector, vector2.mp_vector), true); }
+  SWORD3D& operator-=(const SWORD3D& vector2);
+  // multiplication with scalar
+  __forceinline SWORD3D operator*(const SWORD scalar) const { return SWORD3D(SWORD3D_Multiply(mp_vector, scalar), true); }
+  SWORD3D& operator*=(const SWORD scalar);
+  // division with scalar
+  __forceinline SWORD3D operator/(const SWORD scalar) const { return SWORD3D(SWORD3D_Divide(mp_vector, scalar), true); }
+  SWORD3D& operator/=(const SWORD scalar);
+  // scalar product - dot product, inner product
+  SWORD operator%(const SWORD3D& vector2) const;
+  // vector product - cross product, outer product
+  __forceinline SWORD3D operator*(const SWORD3D& vector2) const { return SWORD3D(SWORD3D_Multiply_vector(mp_vector, vector2.mp_vector), true); }
+  SWORD3D& operator*=(const SWORD3D& vector2);
+  // comparing vectors
+  BOOL operator==(const SWORD3D& vector2) const;
+  BOOL operator!=(const SWORD3D& vector2) const;
+
+  /* Stream operations */
+  friend CTStream& operator>>(CTStream& strm, SWORD3D& vector);
+  friend CTStream& operator<<(CTStream& strm, SWORD3D& vector);
+
+  inline SWORD3D_* C_Handle() { return mp_vector; }
+  inline const SWORD3D_* C_Handle() const { return mp_vector; }
+  inline operator SWORD3D_* () { return C_Handle(); }
+  inline operator const SWORD3D_* () const { return C_Handle(); }
+
+protected:
+  bool m_owner = true;
+  SWORD3D_* mp_vector = nullptr;
+};
+
+class SBYTE3D
+{
+public:
+  SBYTE3D(SBYTE3D_* p, bool owner = false);
+  SBYTE3D();
+  SBYTE3D(SBYTE x, SBYTE y, SBYTE z);
+  SBYTE3D(const SBYTE3D& o);
+  ~SBYTE3D();
+
+  SBYTE3D& operator=(const SBYTE3D& o);
+
+  /* Clear function */
+  void Clear();
+  /* Conversion into scalar -- length of vector (Euclidian norm). */
+  SBYTE Length() const;
+  /* Conversion into scalar -- Manhattan norm of vector. */
+  SBYTE ManhattanNorm() const;
+  /* Conversion into scalar -- Max norm of vector. */
+  SBYTE MaxNorm() const;
+
+  /* Reference vector member by it's SBYTE (1-based indices!). */
+  SBYTE& operator()(SBYTE i);
+  SBYTE operator()(SBYTE i) const;
+
+  /* Normalize vector, i.e. make it a unit vector. */
+  SBYTE3D& Normalize();
+  SBYTE3D& SafeNormalize(); // gives vector with (0,0,0) orientation if input is too small
+
+  /* Mathematical operators. */
+  // unary minus
+  SBYTE3D& Flip();
+  __forceinline SBYTE3D operator-() const { return SBYTE3D(SBYTE3D_Negative(mp_vector), true); }
+  // between two vectors
+  __forceinline SBYTE3D operator+(const SBYTE3D& vector2) const { return SBYTE3D(SBYTE3D_Plus(mp_vector, vector2.mp_vector), true); }
+  SBYTE3D& operator+=(const SBYTE3D& vector2);
+  __forceinline SBYTE3D operator-(const SBYTE3D& vector2) const { return SBYTE3D(SBYTE3D_Minus(mp_vector, vector2.mp_vector), true); }
+  SBYTE3D& operator-=(const SBYTE3D& vector2);
+  // multiplication with scalar
+  __forceinline SBYTE3D operator*(const SBYTE scalar) const { return SBYTE3D(SBYTE3D_Multiply(mp_vector, scalar), true); }
+  SBYTE3D& operator*=(const SBYTE scalar);
+  // division with scalar
+  __forceinline SBYTE3D operator/(const SBYTE scalar) const { return SBYTE3D(SBYTE3D_Divide(mp_vector, scalar), true); }
+  SBYTE3D& operator/=(const SBYTE scalar);
+  // scalar product - dot product, inner product
+  SBYTE operator%(const SBYTE3D& vector2) const;
+  // vector product - cross product, outer product
+  __forceinline SBYTE3D operator*(const SBYTE3D& vector2) const { return SBYTE3D(SBYTE3D_Multiply_vector(mp_vector, vector2.mp_vector), true); }
+  SBYTE3D& operator*=(const SBYTE3D& vector2);
+  // comparing vectors
+  BOOL operator==(const SBYTE3D& vector2) const;
+  BOOL operator!=(const SBYTE3D& vector2) const;
+
+  /* Stream operations */
+  friend CTStream& operator>>(CTStream& strm, SBYTE3D& vector);
+  friend CTStream& operator<<(CTStream& strm, SBYTE3D& vector);
+
+  inline SBYTE3D_* C_Handle() { return mp_vector; }
+  inline const SBYTE3D_* C_Handle() const { return mp_vector; }
+  inline operator SBYTE3D_* () { return C_Handle(); }
+  inline operator const SBYTE3D_* () const { return C_Handle(); }
+
+protected:
+  bool m_owner = true;
+  SBYTE3D_* mp_vector = nullptr;
+};
+
 __forceinline FLOAT2D ComponentProduct(const FLOAT2D& a, const FLOAT2D& b) { return FLOAT2D(FLOAT2D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
 __forceinline FLOAT3D ComponentProduct(const FLOAT3D& a, const FLOAT3D& b) { return FLOAT3D(FLOAT3D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
 __forceinline FLOAT4D ComponentProduct(const FLOAT4D& a, const FLOAT4D& b) { return FLOAT4D(FLOAT4D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
@@ -612,6 +744,8 @@ __forceinline DOUBLE4D ComponentProduct(const DOUBLE4D& a, const DOUBLE4D& b) { 
 __forceinline INDEX2D ComponentProduct(const INDEX2D& a, const INDEX2D& b) { return INDEX2D(INDEX2D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
 __forceinline INDEX3D ComponentProduct(const INDEX3D& a, const INDEX3D& b) { return INDEX3D(INDEX3D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
 __forceinline INDEX4D ComponentProduct(const INDEX4D& a, const INDEX4D& b) { return INDEX4D(INDEX4D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
+__forceinline SWORD3D ComponentProduct(const SWORD3D& a, const SWORD3D& b) { return SWORD3D(SWORD3D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
+__forceinline SBYTE3D ComponentProduct(const SBYTE3D& a, const SBYTE3D& b) { return SBYTE3D(SBYTE3D_ComponentProduct(a.C_Handle(), b.C_Handle()), true); }
 
 // helper functions for converting between FLOAT and DOUBLE vectors
 __forceinline DOUBLE3D FLOATtoDOUBLE(const FLOAT3D& vf) { return DOUBLE3D(FLOAT2DOUBLE(vf.C_Handle()), true); }

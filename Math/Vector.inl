@@ -1350,3 +1350,291 @@ inline BOOL INDEX4D::operator!=(const INDEX4D& vector2) const
 {
   return INDEX4D_notequal(mp_vector, vector2.mp_vector);
 }
+
+
+inline SWORD3D::SWORD3D(SWORD3D_* p, bool owner)
+  : m_owner(owner)
+  , mp_vector(p)
+{
+}
+
+inline SWORD3D::SWORD3D()
+  : m_owner(true)
+  , mp_vector(SWORD3D_new())
+{
+}
+
+inline SWORD3D::SWORD3D(SWORD x, SWORD y, SWORD z)
+  : m_owner(true)
+  , mp_vector(SWORD3D_new_xyz(x, y, z))
+{
+}
+
+inline SWORD3D::SWORD3D(const SWORD3D& o)
+  : m_owner(true)
+  , mp_vector(SWORD3D_clone(o.mp_vector))
+{
+}
+
+inline SWORD3D::~SWORD3D()
+{
+  if (m_owner)
+    SWORD3D_delete(mp_vector);
+}
+
+inline void SWORD3D::Clear()
+{
+  SWORD3D_Clear(mp_vector);
+}
+
+inline SWORD SWORD3D::Length() const
+{
+  return SWORD3D_Length(mp_vector);
+}
+
+inline SWORD SWORD3D::ManhattanNorm() const
+{
+  return SWORD3D_ManhattanNorm(mp_vector);
+}
+
+inline SWORD SWORD3D::MaxNorm() const
+{
+  return SWORD3D_MaxNorm(mp_vector);
+}
+
+inline SWORD& SWORD3D::operator()(SWORD i)
+{
+  return *SWORD3D_Element(mp_vector, i);
+}
+
+inline SWORD SWORD3D::operator()(SWORD i) const
+{
+  return SWORD3D_Element_const(mp_vector, i);
+}
+
+inline SWORD3D& SWORD3D::Normalize()
+{
+  SWORD3D_Normalize(mp_vector);
+  return *this;
+}
+
+inline SWORD3D& SWORD3D::SafeNormalize()
+{
+  SWORD3D_SafeNormalize(mp_vector);
+  return *this;
+}
+
+inline SWORD3D& SWORD3D::Flip()
+{
+  SWORD3D_Flip(mp_vector);
+  return *this;
+}
+
+inline SWORD3D& SWORD3D::operator+=(const SWORD3D& vector2)
+{
+  SWORD3D_PlusInplace(mp_vector, vector2.mp_vector);
+  return *this;
+}
+
+inline SWORD3D& SWORD3D::operator-=(const SWORD3D& vector2)
+{
+  SWORD3D_MinusInplace(mp_vector, vector2.mp_vector);
+  return *this;
+}
+
+inline SWORD3D& SWORD3D::operator*=(const SWORD scalar)
+{
+  SWORD3D_MultiplyInplace(mp_vector, scalar);
+  return *this;
+}
+
+inline SWORD3D& SWORD3D::operator/=(const SWORD scalar)
+{
+  SWORD3D_DivideInplace(mp_vector, scalar);
+  return *this;
+}
+
+inline SWORD SWORD3D::operator%(const SWORD3D& vector2) const
+{
+  return SWORD3D_Dot(mp_vector, vector2.mp_vector);
+}
+
+inline SWORD3D& SWORD3D::operator*=(const SWORD3D& vector2)
+{
+  SWORD3D_MultiplyInplace_vector(mp_vector, vector2.mp_vector);
+  return *this;
+}
+
+inline BOOL SWORD3D::operator==(const SWORD3D& vector2) const
+{
+  return SWORD3D_equal(mp_vector, vector2.mp_vector);
+}
+
+inline BOOL SWORD3D::operator!=(const SWORD3D& vector2) const
+{
+  return SWORD3D_notequal(mp_vector, vector2.mp_vector);
+}
+
+inline CTStream& operator>>(CTStream& strm, SWORD3D& vector)
+{
+  SWORD3D_extract(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+inline CTStream& operator<<(CTStream& strm, SWORD3D& vector)
+{
+  SWORD3D_insert(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+inline SWORD3D& SWORD3D::operator=(const SWORD3D& o)
+{
+  SWORD3D_copy(mp_vector, o.mp_vector);
+  return *this;
+}
+
+
+inline SBYTE3D::SBYTE3D(SBYTE3D_* p, bool owner)
+  : m_owner(owner)
+  , mp_vector(p)
+{
+}
+
+inline SBYTE3D::SBYTE3D()
+  : m_owner(true)
+  , mp_vector(SBYTE3D_new())
+{
+}
+
+inline SBYTE3D::SBYTE3D(SBYTE x, SBYTE y, SBYTE z)
+  : m_owner(true)
+  , mp_vector(SBYTE3D_new_xyz(x, y, z))
+{
+}
+
+inline SBYTE3D::SBYTE3D(const SBYTE3D& o)
+  : m_owner(true)
+  , mp_vector(SBYTE3D_clone(o.mp_vector))
+{
+}
+
+inline SBYTE3D::~SBYTE3D()
+{
+  if (m_owner)
+    SBYTE3D_delete(mp_vector);
+}
+
+inline void SBYTE3D::Clear()
+{
+  SBYTE3D_Clear(mp_vector);
+}
+
+inline SBYTE SBYTE3D::Length() const
+{
+  return SBYTE3D_Length(mp_vector);
+}
+
+inline SBYTE SBYTE3D::ManhattanNorm() const
+{
+  return SBYTE3D_ManhattanNorm(mp_vector);
+}
+
+inline SBYTE SBYTE3D::MaxNorm() const
+{
+  return SBYTE3D_MaxNorm(mp_vector);
+}
+
+inline SBYTE& SBYTE3D::operator()(SBYTE i)
+{
+  return *SBYTE3D_Element(mp_vector, i);
+}
+
+inline SBYTE SBYTE3D::operator()(SBYTE i) const
+{
+  return SBYTE3D_Element_const(mp_vector, i);
+}
+
+inline SBYTE3D& SBYTE3D::Normalize()
+{
+  SBYTE3D_Normalize(mp_vector);
+  return *this;
+}
+
+inline SBYTE3D& SBYTE3D::SafeNormalize()
+{
+  SBYTE3D_SafeNormalize(mp_vector);
+  return *this;
+}
+
+inline SBYTE3D& SBYTE3D::Flip()
+{
+  SBYTE3D_Flip(mp_vector);
+  return *this;
+}
+
+inline SBYTE3D& SBYTE3D::operator+=(const SBYTE3D& vector2)
+{
+  SBYTE3D_PlusInplace(mp_vector, vector2.mp_vector);
+  return *this;
+}
+
+inline SBYTE3D& SBYTE3D::operator-=(const SBYTE3D& vector2)
+{
+  SBYTE3D_MinusInplace(mp_vector, vector2.mp_vector);
+  return *this;
+}
+
+inline SBYTE3D& SBYTE3D::operator*=(const SBYTE scalar)
+{
+  SBYTE3D_MultiplyInplace(mp_vector, scalar);
+  return *this;
+}
+
+inline SBYTE3D& SBYTE3D::operator/=(const SBYTE scalar)
+{
+  SBYTE3D_DivideInplace(mp_vector, scalar);
+  return *this;
+}
+
+inline SBYTE SBYTE3D::operator%(const SBYTE3D& vector2) const
+{
+  return SBYTE3D_Dot(mp_vector, vector2.mp_vector);
+}
+
+inline SBYTE3D& SBYTE3D::operator*=(const SBYTE3D& vector2)
+{
+  SBYTE3D_MultiplyInplace_vector(mp_vector, vector2.mp_vector);
+  return *this;
+}
+
+inline BOOL SBYTE3D::operator==(const SBYTE3D& vector2) const
+{
+  return SBYTE3D_equal(mp_vector, vector2.mp_vector);
+}
+
+inline BOOL SBYTE3D::operator!=(const SBYTE3D& vector2) const
+{
+  return SBYTE3D_notequal(mp_vector, vector2.mp_vector);
+}
+
+inline CTStream& operator>>(CTStream& strm, SBYTE3D& vector)
+{
+  SBYTE3D_extract(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+inline CTStream& operator<<(CTStream& strm, SBYTE3D& vector)
+{
+  SBYTE3D_insert(strm.C_Handle(), vector.C_Handle());
+  SECppAPI_CheckException();
+  return strm;
+}
+
+inline SBYTE3D& SBYTE3D::operator=(const SBYTE3D& o)
+{
+  SBYTE3D_copy(mp_vector, o.mp_vector);
+  return *this;
+}
