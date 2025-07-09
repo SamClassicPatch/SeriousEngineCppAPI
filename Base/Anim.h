@@ -145,7 +145,7 @@ public:
   void SetData_t(const CTFileName& fnmAnim); // throw char *
 
   /* Get current anim data ptr. */
-  CAnimData& GetData();
+  CAnimData GetData();
 
   /* Get animation's length. */
   FLOAT GetCurrentAnimLength() const;
@@ -194,9 +194,6 @@ public:
   INDEX& ao_iCurrentAnim;    // index of active animation
   ULONG& ao_ulFlags;         // flags
   INDEX& ao_iLastAnim;       // index of last animation (for smooth transition)
-
-private:
-  std::unique_ptr<CAnimData> mp_data;
 };
 
 #include "Anim.inl"

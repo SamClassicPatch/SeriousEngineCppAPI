@@ -111,6 +111,11 @@ class CStaticStackArray_INDEX;
 class CStaticStackArray_SLONG;
 class CStaticStackArray_FLOAT3D;
 class CStaticStackArray_PIX2D;
+class CModelRenderPrefs;
+class CRenderModel;
+class CModelObject;
+class CAttachmentModelObject;
+class CDrawPort;
 
 inline void SECppAPI_CheckException()
 {

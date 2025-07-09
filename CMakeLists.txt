@@ -35,6 +35,7 @@ set(SRC_BASE
 source_group("Base" FILES ${SRC_BASE})
 
 set(SRC_GRAPHICS
+  Graphics/DrawPort.h
   Graphics/ImageInfo.h
   Graphics/ImageInfo.inl
   Graphics/Texture.h
@@ -72,7 +73,10 @@ set(SRC_MODELS
   Models/Model_internal.inl
   Models/ModelData.h
   Models/ModelData.inl
+  Models/ModelObject.h
+  Models/ModelObject.inl
   Models/RenderModel.h
+  Models/RenderModel.inl
 )
 source_group("Models" FILES ${SRC_MODELS})
 
