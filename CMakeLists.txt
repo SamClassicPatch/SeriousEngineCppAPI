@@ -40,8 +40,12 @@ set(SRC_GRAPHICS
   Graphics/Font.inl
   Graphics/ImageInfo.h
   Graphics/ImageInfo.inl
+  Graphics/Raster.h
+  Graphics/Raster.inl
   Graphics/Texture.h
   Graphics/Texture.inl
+  Graphics/ViewPort.h
+  Graphics/ViewPort.inl
 )
 source_group("Graphics" FILES ${SRC_GRAPHICS})
 

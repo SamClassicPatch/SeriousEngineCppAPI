@@ -116,6 +116,8 @@ class CRenderModel;
 class CModelObject;
 class CAttachmentModelObject;
 class CDrawPort;
+class CViewPort;
+class CRaster;
 
 inline void SECppAPI_CheckException()
 {
