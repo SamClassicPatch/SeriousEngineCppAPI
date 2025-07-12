@@ -121,6 +121,8 @@ class CViewPort;
 class CRaster;
 class CSoundData;
 class CSoundObject;
+class CFontData;
+class CFontCharData;
 class CEntity;
 
 template<typename TObject, typename TObjectCHandle>
@@ -187,6 +189,10 @@ public:
   {
     return &(*m_object);
   }
+  inline void Reset()
+  {
+    m_object.reset();
+  }
 
 private:
   std::optional<TObject> m_object;
@@ -199,6 +205,7 @@ using CModelObjectPtr = TPointer<CModelObject, CModelObject_>;
 using ModelTextureVertexPtr = TPointer<ModelTextureVertex, ModelTextureVertex_>;
 using CDrawPortPtr = TPointer<CDrawPort, CDrawPort_>;
 using CViewPortPtr = TPointer<CViewPort, CViewPort_>;
+using CFontDataPtr = TPointer<CFontData, CFontData_>;
 
 inline void SECppAPI_CheckException()
 {
