@@ -27,3 +27,12 @@
 #include "Templates/DynamicStackArray.h"
 #include "Templates/StaticArray.h"
 #include "Templates/StaticStackArray.h"
+
+// some global stuff
+void SE_InitEngine(CTString strGameID);
+void SE_EndEngine();
+void SE_LoadDefaultFonts();
+void SE_UpdateWindowHandle(HWND hwndWindowed);
+void SE_PretouchIfNeeded();
+
+#include "Engine.inl"
