@@ -118,6 +118,7 @@ class CAttachmentModelObject;
 class CDrawPort;
 class CViewPort;
 class CRaster;
+class CEntity;
 
 inline void SECppAPI_CheckException()
 {

@@ -36,6 +36,7 @@ source_group("Base" FILES ${SRC_BASE})
 
 set(SRC_GRAPHICS
   Graphics/DrawPort.h
+  Graphics/DrawPort.inl
   Graphics/Font.h
   Graphics/Font.inl
   Graphics/ImageInfo.h

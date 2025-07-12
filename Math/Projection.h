@@ -15,6 +15,8 @@
 class CProjection3D
 {
 public:
+  CProjection3D(CProjection3D_* p, bool owner = false);
+
   // member referencing
   /* Reference object placement. */
   CPlacement3D& ObjectPlacementL();
@@ -116,7 +118,6 @@ public:
 
 protected:
   friend class CAnyProjection3D;
-  CProjection3D(CProjection3D_* p, bool owner = false);
   bool m_owner = true;
   CProjection3D_* mp_handle = nullptr;
 
