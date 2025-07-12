@@ -87,6 +87,14 @@ set(SRC_MODELS
 )
 source_group("Models" FILES ${SRC_MODELS})
 
+set(SRC_SOUND
+  Sound/SoundData.h
+  Sound/SoundData.inl
+  Sound/SoundObject.h
+  Sound/SoundObject.inl
+)
+source_group("Sound" FILES ${SRC_SOUND})
+
 set(SRC_TEMPLATES
   Templates/DynamicArray.h
   Templates/DynamicArray.inl
@@ -104,6 +112,9 @@ add_library(${PROJECT_NAME} INTERFACE
   ${SRC_GRAPHICS}
   ${SRC_MATH}
   ${SRC_MODELS}
+  ${SRC_SOUND}
   ${SRC_TEMPLATES}
+  Engine.h
+  EngineGUI.h
 )
 target_include_directories(${PROJECT_NAME} INTERFACE $<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}>)

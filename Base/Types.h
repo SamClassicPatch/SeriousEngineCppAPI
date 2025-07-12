@@ -1,5 +1,6 @@
 #pragma once
 #include <SeriousEngineCAPI/Base/Types.h>
+#include <optional>
 
 class FLOAT2D;
 class FLOAT3D;
@@ -118,7 +119,86 @@ class CAttachmentModelObject;
 class CDrawPort;
 class CViewPort;
 class CRaster;
+class CSoundData;
+class CSoundObject;
 class CEntity;
+
+template<typename TObject, typename TObjectCHandle>
+class TPointer
+{
+public:
+  inline TPointer()
+  {
+  }
+  inline TPointer(TObjectCHandle* p)
+  {
+    if (p)
+      m_object.emplace(p, false);
+  }
+  inline TPointer(TObject* p)
+  {
+    if (p)
+      m_object.emplace(p->C_Handle(), false);
+  }
+  inline TPointer(const TPointer<TObject, TObjectCHandle>& o)
+  {
+    if (o)
+      m_object.emplace(o.m_object->C_Handle(), false);
+  }
+  inline ~TPointer() = default;
+  inline TPointer& operator=(TObjectCHandle* p)
+  {
+    m_object.reset();
+    if (p)
+      m_object.emplace(p, false);
+    return *this;
+  }
+  inline TPointer& operator=(TObject* p)
+  {
+    m_object.reset();
+    if (p)
+      m_object.emplace(p, false);
+    return *this;
+  }
+  inline TPointer& operator=(const TPointer<TObject, TObjectCHandle>& o)
+  {
+    m_object.reset();
+    if (o)
+      m_object.emplace(o.m_object->C_Handle(), false);
+    return *this;
+  }
+  inline operator bool() const
+  {
+    return m_object.has_value();
+  }
+  inline TObject* operator->() const
+  {
+    if (m_object.has_value())
+      return &(*m_object);
+    return nullptr;
+  }
+  inline operator TObject* () const
+  {
+    if (m_object.has_value())
+      return &(*m_object);
+    return nullptr;
+  }
+  inline TObject& operator*() const
+  {
+    return &(*m_object);
+  }
+
+private:
+  std::optional<TObject> m_object;
+};
+
+using CTextureDataPtr = TPointer<CTextureData, CTextureData_>;
+using CTextureObjectPtr = TPointer<CTextureObject, CTextureObject_>;
+using CModelDataPtr = TPointer<CModelData, CModelData_>;
+using CModelObjectPtr = TPointer<CModelObject, CModelObject_>;
+using ModelTextureVertexPtr = TPointer<ModelTextureVertex, ModelTextureVertex_>;
+using CDrawPortPtr = TPointer<CDrawPort, CDrawPort_>;
+using CViewPortPtr = TPointer<CViewPort, CViewPort_>;
 
 inline void SECppAPI_CheckException()
 {

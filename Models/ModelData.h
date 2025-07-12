@@ -42,7 +42,7 @@ IMPL_CStaticArray(ModelTextureVertex)
 DECLARE_CStaticArray(MappingSurface)
 IMPL_CStaticArray(MappingSurface)
 
-struct ModelMipInfo
+class ModelMipInfo
 {
 public:
   ModelMipInfo(ModelMipInfo_* p, bool owner = false);

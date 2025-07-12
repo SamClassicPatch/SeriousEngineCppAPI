@@ -69,17 +69,17 @@ public:
   void PutTextR(const CTString& strText, PIX pixX0, PIX pixY0, const COLOR colBlend = 0xFFFFFFFF) const;
 
   // plain texture display
-  void PutTexture(class CTextureObject* pTO, const PIXaabbox2D& boxScreen,
+  void PutTexture(CTextureObject* pTO, const PIXaabbox2D& boxScreen,
     const COLOR colBlend = 0xFFFFFFFF) const;
-  void PutTexture(class CTextureObject* pTO, const PIXaabbox2D& boxScreen,
+  void PutTexture(CTextureObject* pTO, const PIXaabbox2D& boxScreen,
     const COLOR colUL, const COLOR colUR, const COLOR colDL, const COLOR colDR) const;
-  void PutTexture(class CTextureObject* pTO, const PIXaabbox2D& boxScreen,
+  void PutTexture(CTextureObject* pTO, const PIXaabbox2D& boxScreen,
     const MEXaabbox2D& boxTexture, const COLOR colBlend = 0xFFFFFFFF) const;
-  void PutTexture(class CTextureObject* pTO, const PIXaabbox2D& boxScreen, const MEXaabbox2D& boxTexture,
+  void PutTexture(CTextureObject* pTO, const PIXaabbox2D& boxScreen, const MEXaabbox2D& boxTexture,
     const COLOR colUL, const COLOR colUR, const COLOR colDL, const COLOR colDR) const;
 
   // advanced texture display
-  void InitTexture(class CTextureObject* pTO, const BOOL bClamp = FALSE) const; // prepares texture and rendering arrays
+  void InitTexture(CTextureObject* pTO, const BOOL bClamp = FALSE) const; // prepares texture and rendering arrays
   // adds one full texture to rendering queue
   void AddTexture(const FLOAT fI0, const FLOAT fJ0, const FLOAT fI1, const FLOAT fJ1, const COLOR col) const;
   // adds one part of texture to rendering queue
