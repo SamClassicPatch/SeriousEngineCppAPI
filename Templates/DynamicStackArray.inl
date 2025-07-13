@@ -33,11 +33,11 @@
   {\
     CDynamicStackArray_##TYPE##_Clear(C_Handle());\
   }\
-  __forceinline TYPE CDynamicStackArray_##TYPE::Push()\
+  __forceinline TYPE##Ptr CDynamicStackArray_##TYPE::Push()\
   {\
-    return TYPE(CDynamicStackArray_##TYPE##_Push(C_Handle()), false);\
+    return CDynamicStackArray_##TYPE##_Push(C_Handle());\
   }\
-  inline TYPE##_* CDynamicStackArray_##TYPE::Push(INDEX ct)\
+  __forceinline TYPE##Ptr CDynamicStackArray_##TYPE::Push(INDEX ct)\
   {\
     return CDynamicStackArray_##TYPE##_Push_i(C_Handle(), ct);\
   }\

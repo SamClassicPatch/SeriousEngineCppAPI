@@ -68,7 +68,7 @@ private:
   CTimerHandler_* mp_handle = nullptr;
 };
 
-CTCriticalSection _pTimer_tm_csHooks();
+CTCriticalSectionPtr _pTimer_tm_csHooks();
 CTimerValue _pTimer_GetHighPrecisionTimer();
 
 // convert a time value to a printable string (hh:mm:ss)

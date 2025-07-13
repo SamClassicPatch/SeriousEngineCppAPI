@@ -22,8 +22,8 @@ public:
 
   CRaster dp_Raster(); // pointer to the Raster this refers to
   const CRaster dp_Raster() const;
-  CFontData dp_FontData(); // pointer to the current text font
-  const CFontData dp_FontData() const;
+  CFontDataPtr dp_FontData(); // pointer to the current text font
+  const CFontDataPtr dp_FontData() const;
 
   // set orthogonal projection
   void SetOrtho() const;
@@ -191,7 +191,7 @@ void Particle_EndSystem(BOOL bRestoreOrtho = TRUE);
 FLOAT Particle_GetMipFactor();
 INDEX Particle_GetDrawPortID();
 CEntity_* Particle_GetViewer();
-CProjection3D Particle_GetProjection();
+CProjection3DPtr Particle_GetProjection();
 void Particle_PrepareTexture(CTextureObject* pto, ParticleBlendType pbt);
 void Particle_SetTexturePart(MEX mexWidth, MEX mexHeight, INDEX iCol, INDEX iRow);
 void Particle_RenderSquare(const FLOAT3D& vPos, FLOAT fSize, ANGLE aRotation, COLOR col, FLOAT fYRatio = 1.0f);

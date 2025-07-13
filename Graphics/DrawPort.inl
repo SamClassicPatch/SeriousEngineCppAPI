@@ -67,14 +67,14 @@ __forceinline const CRaster CDrawPort::dp_Raster() const
   return CRaster(CDrawPort_dp_Raster((CDrawPort_*)mp_handle));
 }
 
-__forceinline CFontData CDrawPort::dp_FontData()
+__forceinline CFontDataPtr CDrawPort::dp_FontData()
 {
-  return CFontData(CDrawPort_dp_FontData(mp_handle), false);
+  return CDrawPort_dp_FontData(mp_handle);
 }
 
-__forceinline const CFontData CDrawPort::dp_FontData() const
+__forceinline const CFontDataPtr CDrawPort::dp_FontData() const
 {
-  return CFontData(CDrawPort_dp_FontData((CDrawPort_*)mp_handle), false);
+  return CDrawPort_dp_FontData((CDrawPort_*)mp_handle);
 }
 
 inline void CDrawPort::SetOrtho() const
@@ -351,9 +351,9 @@ inline CEntity_* Particle_GetViewer()
   return Particle_GetViewer_();
 }
 
-__forceinline CProjection3D Particle_GetProjection()
+__forceinline CProjection3DPtr Particle_GetProjection()
 {
-  return CProjection3D(Particle_GetProjection_(), false);
+  return Particle_GetProjection_();
 }
 
 inline void Particle_PrepareTexture(CTextureObject* pto, ParticleBlendType pbt)

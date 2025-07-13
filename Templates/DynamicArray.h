@@ -46,21 +46,21 @@ public:
       /* Shrink pointer array by a given number of indices. */\
       void ShrinkPointers(INDEX count);\
       /* Allocate a new memory block. */\
-      TYPE##_* AllocBlock(INDEX count);\
+      TYPE##Ptr AllocBlock(INDEX count);\
       /* Get index of a object from it's pointer. */\
       INDEX GetIndex(TYPE##_* element);\
       /* Create a given number of new objects. */\
-      TYPE##_* New(INDEX iCount = 1);\
+      TYPE##Ptr New(INDEX iCount = 1);\
       /* Destroy a given member. */\
       void Delete(TYPE##_* ptObject);\
       /* Destroy all objects, and reset the array to initial (empty) state. */\
       void Clear();\
       /* Get pointer to a object from it's index. */\
-      TYPE##_* Pointer(INDEX iObject);\
-      const TYPE##_* Pointer(INDEX iObject) const;\
+      TYPE##Ptr Pointer(INDEX iObject);\
+      const TYPE##Ptr Pointer(INDEX iObject) const;\
       /* Random access operator. */\
-      TYPE operator[](INDEX iObject);\
-      const TYPE operator[](INDEX iObject) const;\
+      TYPE##Ptr operator[](INDEX iObject);\
+      const TYPE##Ptr operator[](INDEX iObject) const;\
       /* Move all elements of another array into this one. */\
       void MoveArray(CDynamicArray_##TYPE& arOther);\
       /* Get number of objects in array. */\

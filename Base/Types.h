@@ -41,6 +41,7 @@ class DOUBLEquat3D;
 class CPlacement3D;
 class FLOATplane3D;
 class DOUBLEplane3D;
+class CProjection3D;
 class CPlanarGradients;
 class CMappingDefinitionUI;
 class CMappingVectors;
@@ -206,6 +207,16 @@ using CDrawPortPtr = TPointer<CDrawPort, CDrawPort_>;
 using CViewPortPtr = TPointer<CViewPort, CViewPort_>;
 using CFontDataPtr = TPointer<CFontData, CFontData_>;
 using CAnimDataPtr = TPointer<CAnimData, CAnimData_>;
+using CTStringPtr = TPointer<CTString, CTString_>;
+using CTFileNamePtr = TPointer<CTFileName, CTFileName_>;
+using CTCriticalSectionPtr = TPointer<CTCriticalSection, CTCriticalSection_>;
+using CProjection3DPtr = TPointer<CProjection3D, CProjection3D_>;
+using CFontCharDataPtr = TPointer<CFontCharData, CFontCharData_>;
+using CAttachmentModelObjectPtr = TPointer<CAttachmentModelObject, CAttachmentModelObject_>;
+using ModelPolygonPtr = TPointer<ModelPolygon, ModelPolygon_>;
+using CTranslationPairPtr = TPointer<CTranslationPair, CTranslationPair_>;
+using CModelCollisionBoxPtr = TPointer<CModelCollisionBox, CModelCollisionBox_>;
+using CAttachedModelPositionPtr = TPointer<CAttachedModelPosition, CAttachedModelPosition_>;
 
 inline void SECppAPI_CheckException()
 {

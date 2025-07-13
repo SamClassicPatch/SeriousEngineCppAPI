@@ -78,7 +78,7 @@ public:
   // obtain texture and set it for this object
   void SetData_t(const CTFileName& fnmTexture); // throw char *
   // get filename of texture or empty string if no texture
-  const CTFileName GetName();
+  const CTFileNamePtr GetName();
 
   inline CTextureObject_* C_Handle() { return (CTextureObject_*)CAnimObject::C_Handle(); }
   inline const CTextureObject_* C_Handle() const { return (const CTextureObject_*)CAnimObject::C_Handle(); }

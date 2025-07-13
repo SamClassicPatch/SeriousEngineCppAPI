@@ -64,8 +64,8 @@ public:
   void SetFixedWidth();
   void SetVariableWidth();
   void SetSpaceWidth(FLOAT fWidthRatio);
-  CFontCharData fd_fcdFontCharData(unsigned char c);
-  const CFontCharData fd_fcdFontCharData(unsigned char c) const;
+  CFontCharDataPtr fd_fcdFontCharData(unsigned char c);
+  const CFontCharDataPtr fd_fcdFontCharData(unsigned char c) const;
 
   void Read_t(CTStream* inFile); // throw char *
   void Write_t(CTStream* outFile); // throw char *

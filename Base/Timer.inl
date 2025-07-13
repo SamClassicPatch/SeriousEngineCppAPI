@@ -107,9 +107,9 @@ inline CTimerHandler::~CTimerHandler()
   CTimerHandler_delete(mp_handle);
 }
 
-__forceinline CTCriticalSection _pTimer_tm_csHooks()
+__forceinline CTCriticalSectionPtr _pTimer_tm_csHooks()
 {
-  return CTCriticalSection(_pTimer_tm_csHooks(), false);
+  return _pTimer_tm_csHooks();
 }
 
 __forceinline CTimerValue _pTimer_GetHighPrecisionTimer()

@@ -151,9 +151,9 @@ inline void CTextureObject::SetData_t(const CTFileName& fnmTexture)
   SECppAPI_CheckException();
 }
 
-__forceinline const CTFileName CTextureObject::GetName()
+__forceinline const CTFileNamePtr CTextureObject::GetName()
 {
-  return CTFileName((CTFileName_*)CTextureObject_GetName(C_Handle()), false);
+  return (CTFileName_*)CTextureObject_GetName(C_Handle());
 }
 
 

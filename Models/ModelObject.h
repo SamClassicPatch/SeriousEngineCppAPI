@@ -63,9 +63,9 @@ public:
   void UnpackVertex(CRenderModel& rm, const INDEX iVertex, FLOAT3D& vVertex);
   BOOL CreateAttachment(CRenderModel& rmMain, CAttachmentModelObject& amo);
   void ResetAttachmentModelPosition(INDEX iAttachedPosition);
-  CAttachmentModelObject GetAttachmentModelList(INDEX iAttachedPosition, ...);
-  CAttachmentModelObject GetAttachmentModel(INDEX iAttachedPosition);
-  CAttachmentModelObject AddAttachmentModel(INDEX iAttachedPosition);
+  CAttachmentModelObjectPtr GetAttachmentModelList(INDEX iAttachedPosition, ...);
+  CAttachmentModelObjectPtr GetAttachmentModel(INDEX iAttachedPosition);
+  CAttachmentModelObjectPtr AddAttachmentModel(INDEX iAttachedPosition);
   void RemoveAttachmentModel(INDEX iAttachedPosition);
   void RemoveAllAttachmentModels();
   void StretchModel(const FLOAT3D& vStretch);
@@ -99,9 +99,9 @@ public:
     PIXaabbox2D box, INDEX iSurface, COLOR colSurfaceColor);
   void UnpackVertex(INDEX iFrame, INDEX iVertex, FLOAT3D& vVertex);
   CPlacement3D GetAttachmentPlacement(CAttachmentModelObject& amo);
-  ModelPolygon PolygonHit(CPlacement3D plRay, CPlacement3D plObject,
+  ModelPolygonPtr PolygonHit(CPlacement3D plRay, CPlacement3D plObject,
     INDEX iCurrentMip, FLOAT& fHitDistance); // returns ptr to hitted polygon (NULL if none)
-  ModelPolygon PolygonHitModelData(CModelData* pMD, CPlacement3D plRay,
+  ModelPolygonPtr PolygonHitModelData(CModelData* pMD, CPlacement3D plRay,
     CPlacement3D plObject, INDEX iCurrentMip, FLOAT& fHitDistance);
   void PickPolyColor(CDrawPort* pDP, CProjection3D* projection, PIX x1, PIX y1,
     INDEX& iPickedColorNo, BOOL bOnColorMode); // picks color from hitted polygon

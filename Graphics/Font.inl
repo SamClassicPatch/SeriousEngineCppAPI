@@ -130,14 +130,14 @@ inline void CFontData::SetSpaceWidth(FLOAT fWidthRatio)
   CFontData_SetSpaceWidth(C_Handle(), fWidthRatio);
 }
 
-__forceinline CFontCharData CFontData::fd_fcdFontCharData(unsigned char c)
+__forceinline CFontCharDataPtr CFontData::fd_fcdFontCharData(unsigned char c)
 {
-  return CFontCharData(CFontData_fd_fcdFontCharData(C_Handle(), c), false);
+  return CFontData_fd_fcdFontCharData(C_Handle(), c);
 }
 
-__forceinline const CFontCharData CFontData::fd_fcdFontCharData(unsigned char c) const
+__forceinline const CFontCharDataPtr CFontData::fd_fcdFontCharData(unsigned char c) const
 {
-  return CFontCharData(CFontData_fd_fcdFontCharData((CFontData_*)C_Handle(), c), false);
+  return CFontData_fd_fcdFontCharData((CFontData_*)C_Handle(), c);
 }
 
 inline void CFontData::Read_t(CTStream* inFile)

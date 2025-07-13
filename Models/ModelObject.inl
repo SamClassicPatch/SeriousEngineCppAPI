@@ -213,7 +213,7 @@ inline void CModelObject::ResetAttachmentModelPosition(INDEX iAttachedPosition)
   CModelObject_ResetAttachmentModelPosition(C_Handle(), iAttachedPosition);
 }
 
-inline CAttachmentModelObject CModelObject::GetAttachmentModelList(INDEX iAttachedPosition, ...)
+inline CAttachmentModelObjectPtr CModelObject::GetAttachmentModelList(INDEX iAttachedPosition, ...)
 {
   va_list marker;
   va_start(marker, iAttachedPosition);
@@ -229,7 +229,7 @@ inline CAttachmentModelObject CModelObject::GetAttachmentModelList(INDEX iAttach
     if (pamo == nullptr) {
       // return failure
       va_end(marker);
-      return CAttachmentModelObject(nullptr, false);
+      return static_cast<CAttachmentModelObject_*>(nullptr);
     }
     // get next attachment in list
     pmo = CAttachmentModelObject_amo_moModelObject(pamo);
@@ -238,17 +238,17 @@ inline CAttachmentModelObject CModelObject::GetAttachmentModelList(INDEX iAttach
   va_end(marker);
 
   // return current attachment
-  return CAttachmentModelObject(pamo, false);
+  return pamo;
 }
 
-__forceinline CAttachmentModelObject CModelObject::GetAttachmentModel(INDEX iAttachedPosition)
+__forceinline CAttachmentModelObjectPtr CModelObject::GetAttachmentModel(INDEX iAttachedPosition)
 {
-  return CAttachmentModelObject(CModelObject_GetAttachmentModel(C_Handle(), iAttachedPosition), false);
+  return CModelObject_GetAttachmentModel(C_Handle(), iAttachedPosition);
 }
 
-__forceinline CAttachmentModelObject CModelObject::AddAttachmentModel(INDEX iAttachedPosition)
+__forceinline CAttachmentModelObjectPtr CModelObject::AddAttachmentModel(INDEX iAttachedPosition)
 {
-  return CAttachmentModelObject(CModelObject_AddAttachmentModel(C_Handle(), iAttachedPosition), false);
+  return CModelObject_AddAttachmentModel(C_Handle(), iAttachedPosition);
 }
 
 inline void CModelObject::RemoveAttachmentModel(INDEX iAttachedPosition)
@@ -346,14 +346,14 @@ __forceinline CPlacement3D CModelObject::GetAttachmentPlacement(CAttachmentModel
   return CPlacement3D(CModelObject_GetAttachmentPlacement(C_Handle(), amo), true);
 }
 
-__forceinline ModelPolygon CModelObject::PolygonHit(CPlacement3D plRay, CPlacement3D plObject, INDEX iCurrentMip, FLOAT& fHitDistance)
+__forceinline ModelPolygonPtr CModelObject::PolygonHit(CPlacement3D plRay, CPlacement3D plObject, INDEX iCurrentMip, FLOAT& fHitDistance)
 {
-  return ModelPolygon(CModelObject_PolygonHit(C_Handle(), plRay, plObject, iCurrentMip, &fHitDistance), false);
+  return CModelObject_PolygonHit(C_Handle(), plRay, plObject, iCurrentMip, &fHitDistance);
 }
 
-__forceinline ModelPolygon CModelObject::PolygonHitModelData(CModelData* pMD, CPlacement3D plRay, CPlacement3D plObject, INDEX iCurrentMip, FLOAT& fHitDistance)
+__forceinline ModelPolygonPtr CModelObject::PolygonHitModelData(CModelData* pMD, CPlacement3D plRay, CPlacement3D plObject, INDEX iCurrentMip, FLOAT& fHitDistance)
 {
-  return ModelPolygon(CModelObject_PolygonHitModelData(C_Handle(), *pMD, plRay, plObject, iCurrentMip, &fHitDistance), false);
+  return CModelObject_PolygonHitModelData(C_Handle(), *pMD, plRay, plObject, iCurrentMip, &fHitDistance);
 }
 
 inline void CModelObject::PickPolyColor(CDrawPort* pDP, CProjection3D* projection, PIX x1, PIX y1, INDEX& iPickedColorNo, BOOL bOnColorMode)
