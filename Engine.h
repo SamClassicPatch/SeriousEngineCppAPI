@@ -6,6 +6,7 @@
 #include "Base/Lists.h"
 #include "Base/Timer.h"
 #include "Base/Translation.h"
+#include "Base/Shell.h"
 
 #include "Math/Object3D.h"
 #include "Math/Projection.h"
@@ -19,6 +20,7 @@
 
 #include "Graphics/Texture.h"
 #include "Graphics/Font.h"
+#include "Graphics/GfxLibrary.h"
 #include "Graphics/ViewPort.h"
 #include "Graphics/DrawPort.h"
 #include "Graphics/ImageInfo.h"

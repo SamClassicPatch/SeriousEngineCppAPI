@@ -18,6 +18,8 @@ set(SRC_BASE
   Base/Lists.inl
   Base/Serial.h
   Base/Serial.inl
+  Base/Shell.h
+  Base/Shell.inl
   Base/Stream.h
   Base/Stream.inl
   Base/Synchronization.h
@@ -39,6 +41,8 @@ set(SRC_GRAPHICS
   Graphics/DrawPort.inl
   Graphics/Font.h
   Graphics/Font.inl
+  Graphics/GfxLibrary.h
+  Graphics/GfxLibrary.inl
   Graphics/ImageInfo.h
   Graphics/ImageInfo.inl
   Graphics/Raster.h

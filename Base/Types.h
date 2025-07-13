@@ -173,21 +173,21 @@ public:
   {
     return m_object.has_value();
   }
-  inline TObject* operator->() const
+  inline TObject* operator->()
   {
     if (m_object.has_value())
       return &(*m_object);
     return nullptr;
   }
-  inline operator TObject* () const
+  inline operator TObject* ()
   {
     if (m_object.has_value())
       return &(*m_object);
     return nullptr;
   }
-  inline TObject& operator*() const
+  inline TObject& operator*()
   {
-    return &(*m_object);
+    return *m_object;
   }
   inline void Reset()
   {
