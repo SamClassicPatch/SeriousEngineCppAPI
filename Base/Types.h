@@ -49,7 +49,6 @@ class CTCriticalSection;
 class CTSingleLock;
 class CTimerValue;
 class CTimerHandler;
-class CTimer;
 class CChangeable;
 class CUpdateable;
 class CSerial;

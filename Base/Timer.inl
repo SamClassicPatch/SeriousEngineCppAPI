@@ -107,95 +107,15 @@ inline CTimerHandler::~CTimerHandler()
   CTimerHandler_delete(mp_handle);
 }
 
-
-inline CTimer::CTimer(CTimer_* p, bool owner)
-  : m_owner(owner)
-  , mp_handle(p)
-  , tm_csHooks(CTimer_tm_csHooks(mp_handle), false)
+__forceinline CTCriticalSection _pTimer_tm_csHooks()
 {
+  return CTCriticalSection(_pTimer_tm_csHooks(), false);
 }
 
-inline CTimer::CTimer(BOOL bInterrupt)
-  : CTimer(CTimer_new(bInterrupt), true)
+__forceinline CTimerValue _pTimer_GetHighPrecisionTimer()
 {
+  return CTimerValue(_pTimer_GetHighPrecisionTimer_(), true);
 }
-
-inline CTimer::~CTimer()
-{
-  if (m_owner)
-    CTimer_delete(mp_handle);
-}
-
-inline void CTimer::AddHandler(CTimerHandler* pthNew)
-{
-  CTimer_AddHandler(mp_handle, *pthNew);
-}
-
-inline void CTimer::RemHandler(CTimerHandler* pthOld)
-{
-  CTimer_RemHandler(mp_handle, *pthOld);
-}
-
-inline void CTimer::HandleTimerHandlers()
-{
-  CTimer_HandleTimerHandlers(mp_handle);
-}
-
-inline void CTimer::SetRealTimeTick(TIME tNewRealTimeTick)
-{
-  CTimer_SetRealTimeTick(mp_handle, tNewRealTimeTick);
-}
-
-inline TIME CTimer::GetRealTimeTick() const
-{
-  return CTimer_GetRealTimeTick(mp_handle);
-}
-
-inline void CTimer::SetCurrentTick(TIME tNewCurrentTick)
-{
-  CTimer_SetCurrentTick(mp_handle, tNewCurrentTick);
-}
-
-inline TIME CTimer::CurrentTick() const
-{
-  return CTimer_CurrentTick(mp_handle);
-}
-
-inline TIME CTimer::GetLerpedCurrentTick() const
-{
-  return CTimer_GetLerpedCurrentTick(mp_handle);
-}
-
-inline void CTimer::SetLerp(FLOAT fLerp)
-{
-  CTimer_SetLerp(mp_handle, fLerp);
-}
-
-inline void CTimer::SetLerp2(FLOAT fLerp)
-{
-  CTimer_SetLerp2(mp_handle, fLerp);
-}
-
-inline void CTimer::DisableLerp()
-{
-  CTimer_DisableLerp(mp_handle);
-}
-
-inline FLOAT CTimer::GetLerpFactor() const
-{
-  return CTimer_GetLerpFactor(mp_handle);
-}
-
-inline FLOAT CTimer::GetLerpFactor2() const
-{
-  return CTimer_GetLerpFactor2(mp_handle);
-}
-
-__forceinline CTimerValue CTimer::GetHighPrecisionTimer()
-{
-  return CTimerValue(CTimer_GetHighPrecisionTimer(mp_handle), true);
-}
-
 
 __forceinline CTString TimeToString(FLOAT fTime)
 {
