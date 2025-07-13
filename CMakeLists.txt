@@ -11,6 +11,8 @@ set(SRC_BASE
   Base/CTString.h
   Base/CTString.inl
   Base/CTStringDecl.h
+  Base/ErrorReporting.h
+  Base/ErrorReporting.inl
   Base/FileName.h
   Base/FileName.inl
   Base/FileNameDecl.h

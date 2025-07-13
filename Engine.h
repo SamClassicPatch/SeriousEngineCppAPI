@@ -2,6 +2,7 @@
 
 #include "Base/Types.h"
 #include "Base/Updateable.h"
+#include "Base/ErrorReporting.h"
 #include "Base/Stream.h"
 #include "Base/Lists.h"
 #include "Base/Timer.h"
