@@ -145,7 +145,7 @@ public:
   void SetData_t(const CTFileName& fnmAnim); // throw char *
 
   /* Get current anim data ptr. */
-  CAnimData GetData();
+  CAnimDataPtr GetData();
 
   /* Get animation's length. */
   FLOAT GetCurrentAnimLength() const;

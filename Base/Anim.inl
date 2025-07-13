@@ -241,9 +241,9 @@ inline void CAnimObject::SetData_t(const CTFileName& fnmAnim)
   SECppAPI_CheckException();
 }
 
-__forceinline CAnimData CAnimObject::GetData()
+__forceinline CAnimDataPtr CAnimObject::GetData()
 {
-  return CAnimData(CAnimObject_ao_AnimData(C_Handle()), false);
+  return CAnimDataPtr(CAnimObject_ao_AnimData(C_Handle()));
 }
 
 inline FLOAT CAnimObject::GetCurrentAnimLength() const

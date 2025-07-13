@@ -121,7 +121,7 @@ public:
   // obtain model and set it for this object
   void SetData_t(const CTFileName& fnmModel); // throw char *
   void SetData(CModelData* pmd);
-  CModelData GetData();
+  CModelDataPtr GetData();
 
   // synchronize with another model (copy animations/attachments positions etc from there)
   void Synchronize(CModelObject& moOther);

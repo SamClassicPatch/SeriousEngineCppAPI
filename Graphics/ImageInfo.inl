@@ -53,6 +53,13 @@ inline void CImageInfo::ExpandEdges(INDEX ctPasses)
   CImageInfo_ExpandEdges(mp_handle, ctPasses);
 }
 
+inline INDEX CImageInfo::GetGfxFileInfo_t(const CTFileName& strFileName)
+{
+  INDEX res = CImageInfo_GetGfxFileInfo_t(mp_handle, strFileName);
+  SECppAPI_CheckException();
+  return res;
+}
+
 inline void CImageInfo::LoadAnyGfxFormat_t(const CTFileName& strFileName)
 {
   CImageInfo_LoadAnyGfxFormat_t(mp_handle, strFileName);

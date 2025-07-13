@@ -424,9 +424,9 @@ inline void CModelObject::SetData(CModelData* pmd)
   CModelObject_SetData(C_Handle(), *pmd);
 }
 
-__forceinline CModelData CModelObject::GetData()
+__forceinline CModelDataPtr CModelObject::GetData()
 {
-  return CModelData(CModelObject_GetData(C_Handle()), false);
+  return CModelDataPtr(CModelObject_GetData(C_Handle()));
 }
 
 inline void CModelObject::Synchronize(CModelObject& moOther)

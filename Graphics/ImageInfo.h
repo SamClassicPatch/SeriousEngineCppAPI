@@ -24,6 +24,11 @@ public:
   // expand image edges
   void ExpandEdges(INDEX ctPasses = 8192);
 
+  // sets image info structure members with info form file of any supported graphic format,
+  //  but does not load picture content nor palette; returns format type (see #defines)
+  //  (supported formats: CroTeam's RAW, PCX24, TGA32 uncompressed)
+  INDEX GetGfxFileInfo_t(const CTFileName& strFileName); // throw char *
+
   // sets image info structure members with info form file of any supported graphic format
   //  and loads picture content and, eventually, palette
   void LoadAnyGfxFormat_t(const CTFileName& strFileName); // throw char *

@@ -205,6 +205,7 @@ using ModelTextureVertexPtr = TPointer<ModelTextureVertex, ModelTextureVertex_>;
 using CDrawPortPtr = TPointer<CDrawPort, CDrawPort_>;
 using CViewPortPtr = TPointer<CViewPort, CViewPort_>;
 using CFontDataPtr = TPointer<CFontData, CFontData_>;
+using CAnimDataPtr = TPointer<CAnimData, CAnimData_>;
 
 inline void SECppAPI_CheckException()
 {
