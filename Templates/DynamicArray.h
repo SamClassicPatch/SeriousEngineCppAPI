@@ -7,7 +7,7 @@
 #define FOREACHINDYNAMICARRAY(array, type, iter) \
   for(CDynamicArray_##type::TIterType iter(array); !iter.IsPastEnd(); iter.MoveToNext() )
 
-template<typename PtrType, typename Type, typename ArrType>
+template<typename PtrType, typename ArrType>
 class CDynamicArrayIterator {
 private:
   INDEX dai_Index = 0;    // index of current element
@@ -23,8 +23,8 @@ public:
   /* Check if finished. */
   inline BOOL IsPastEnd() { return dai_Index >= dai_Array.Count(); }
   /* Get current element. */
-  __forceinline Type Current() { return Type(dai_Array.Pointer(dai_Index), false); }
-  __forceinline Type operator*() { return Type(dai_Array.Pointer(dai_Index), false); }
+  __forceinline PtrType Current() { return PtrType(dai_Array.Pointer(dai_Index)); }
+  __forceinline PtrType operator*() { return PtrType(dai_Array.Pointer(dai_Index)); }
   __forceinline operator PtrType () { return PtrType(dai_Array.Pointer(dai_Index)); }
   __forceinline PtrType operator->() { return PtrType(dai_Array.Pointer(dai_Index)); }
 };
@@ -33,7 +33,7 @@ public:
   class CDynamicArray_##TYPE\
   {\
     public:\
-      using TIterType = CDynamicArrayIterator<TPointer<TYPE, TYPE##_>, TYPE, CDynamicArray_##TYPE>;\
+      using TIterType = CDynamicArrayIterator<TPointer<TYPE, TYPE##_>, CDynamicArray_##TYPE>;\
       CDynamicArray_##TYPE(CDynamicArray_##TYPE##_* p, bool owner = false);\
       CDynamicArray_##TYPE();\
       CDynamicArray_##TYPE(CDynamicArray_##TYPE& o);\

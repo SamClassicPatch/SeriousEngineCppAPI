@@ -1,5 +1,15 @@
 #pragma once
 
+__forceinline CDisplayModePtr _pGfx_GetEnumeratedDisplayMode(CDisplayModeEnumerator_* p, INDEX i)
+{
+  return _pGfx_GetEnumeratedDisplayMode_(p, i);
+}
+
+inline CDisplayModeEnumerator_* _pGfx_EnumDisplayModes(INDEX& ctModes, GfxAPIType eAPI, INDEX iAdapter)
+{
+  return _pGfx_EnumDisplayModes_(&ctModes, (GfxAPIType_)eAPI, iAdapter);
+}
+
 inline BOOL _pGfx_SetDisplayMode(GfxAPIType eAPI, INDEX iAdapter, PIX pixSizeI, PIX pixSizeJ, DisplayDepth eColorDepth)
 {
   return _pGfx_SetDisplayMode_((GfxAPIType_)eAPI, iAdapter, pixSizeI, pixSizeJ, (DisplayDepth_)eColorDepth);

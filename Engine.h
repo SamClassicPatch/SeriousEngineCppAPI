@@ -8,6 +8,8 @@
 #include "Base/Timer.h"
 #include "Base/Translation.h"
 #include "Base/Shell.h"
+#include "Base/Statistics.h"
+#include <SeriousEngineCAPI/Base/Memory.h>
 
 #include "Math/Object3D.h"
 #include "Math/Projection.h"
@@ -25,6 +27,7 @@
 #include "Graphics/ViewPort.h"
 #include "Graphics/DrawPort.h"
 #include "Graphics/ImageInfo.h"
+#include <SeriousEngineCAPI/Graphics/Color.h>
 
 #include "Templates/DynamicArray.h"
 #include "Templates/DynamicStackArray.h"

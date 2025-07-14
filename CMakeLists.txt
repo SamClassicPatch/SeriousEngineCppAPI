@@ -22,6 +22,7 @@ set(SRC_BASE
   Base/Serial.inl
   Base/Shell.h
   Base/Shell.inl
+  Base/Statistics.h
   Base/Stream.h
   Base/Stream.inl
   Base/Synchronization.h
@@ -39,6 +40,8 @@ set(SRC_BASE
 source_group("Base" FILES ${SRC_BASE})
 
 set(SRC_GRAPHICS
+  Graphics/DisplayMode.h
+  Graphics/DisplayMode.inl
   Graphics/DrawPort.h
   Graphics/DrawPort.inl
   Graphics/Font.h

@@ -119,6 +119,7 @@ class CAttachmentModelObject;
 class CDrawPort;
 class CViewPort;
 class CRaster;
+class CDisplayMode;
 class CSoundData;
 class CSoundObject;
 class CFontData;
@@ -203,6 +204,12 @@ public:
   {
     m_object.reset();
   }
+  inline TObject* get()
+  {
+    if (m_object.has_value())
+      return &(*m_object);
+    return nullptr;
+  }
 
 private:
   std::optional<TObject> m_object;
@@ -227,6 +234,7 @@ using ModelPolygonPtr = TPointer<ModelPolygon, ModelPolygon_>;
 using CTranslationPairPtr = TPointer<CTranslationPair, CTranslationPair_>;
 using CModelCollisionBoxPtr = TPointer<CModelCollisionBox, CModelCollisionBox_>;
 using CAttachedModelPositionPtr = TPointer<CAttachedModelPosition, CAttachedModelPosition_>;
+using CDisplayModePtr = TPointer<CDisplayMode, CDisplayMode_>;
 
 inline void SECppAPI_CheckException()
 {

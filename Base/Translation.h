@@ -15,7 +15,7 @@ void ReadTranslationTable_t(
   CDynamicArray_CTranslationPair& atpPairs, const CTFileName& fnmTable); // throw char *
 
 // translate a string
-char* Translate(char* str, INDEX iOffset = 0);
+char* Translate(const char* str, INDEX iOffset = 0);
 const char* TranslateConst(const char* str, INDEX iOffset = 0);
 
 // macro for inserting a string for translation into executables

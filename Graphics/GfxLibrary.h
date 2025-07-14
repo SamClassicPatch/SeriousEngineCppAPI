@@ -2,6 +2,7 @@
 #include "../Base/Types.h"
 #include "DrawPort.h"
 #include "ViewPort.h"
+#include "DisplayMode.h"
 #include <SeriousEngineCAPI/Graphics/GfxLibrary.h>
 
 enum GfxAPIType : INDEX
@@ -12,15 +13,8 @@ enum GfxAPIType : INDEX
   GAT_CURRENT = GAT_CURRENT_,   // current API
 };
 
-enum DisplayDepth : INDEX
-{
-  DD_NODEPTH = DD_NODEPTH_,
-  DD_DEFAULT = DD_DEFAULT_,
-  DD_16BIT = DD_16BIT_,
-  DD_32BIT = DD_32BIT_,
-  DD_24BIT = DD_24BIT_, // for z-buffer
-};
-
+CDisplayModePtr _pGfx_GetEnumeratedDisplayMode(CDisplayModeEnumerator_* p, INDEX i);
+CDisplayModeEnumerator_* _pGfx_EnumDisplayModes(INDEX& ctModes, GfxAPIType eAPI, INDEX iAdapter);
 BOOL _pGfx_SetDisplayMode(GfxAPIType eAPI, INDEX iAdapter, PIX pixSizeI, PIX pixSizeJ, DisplayDepth eColorDepth);
 BOOL _pGfx_ResetDisplayMode(GfxAPIType eAPI);
 GfxAPIType _pGfx_GetCurrentAPI();

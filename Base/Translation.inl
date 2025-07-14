@@ -31,9 +31,9 @@ inline void ReadTranslationTable_t(CDynamicArray_CTranslationPair& atpPairs, con
   SECppAPI_CheckException();
 }
 
-inline char* Translate(char* str, INDEX iOffset)
+inline char* Translate(const char* str, INDEX iOffset)
 {
-  return Translate_(str, iOffset);
+  return Translate_((char*)str, iOffset);
 }
 
 inline const char* TranslateConst(const char* str, INDEX iOffset)

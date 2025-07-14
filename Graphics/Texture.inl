@@ -2,6 +2,8 @@
 
 inline CTextureData::CTextureData(CTextureData_* p, bool owner)
   : CAnimData((CAnimData_*)p, owner)
+  , td_pixBufferWidth(*CTextureData_td_pixBufferWidth(C_Handle()))
+  , td_pixBufferHeight(*CTextureData_td_pixBufferHeight(C_Handle()))
   , td_ulFlags(*CTextureData_td_ulFlags(C_Handle()))
   , td_mexWidth(*CTextureData_td_mexWidth(C_Handle()))
   , td_mexHeight(*CTextureData_td_mexHeight(C_Handle()))
@@ -21,6 +23,11 @@ inline CTextureData::~CTextureData()
     CTextureData_delete(C_Handle());
   m_owner = false;
   mp_handle = nullptr;
+}
+
+inline DOUBLE CTextureData::td_ptegEffect_GetRenderingTime()
+{
+  return CTextureData_td_ptegEffect_GetRenderingTime(C_Handle());
 }
 
 inline BOOL CTextureData::HasEffectTexture() const

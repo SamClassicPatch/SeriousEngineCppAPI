@@ -13,6 +13,7 @@ public:
   CTextureData();
   ~CTextureData();
 
+  DOUBLE td_ptegEffect_GetRenderingTime();
   BOOL HasEffectTexture() const;
 
   // converts global mip level to the corresponding one of texture
@@ -53,6 +54,8 @@ public:
   inline operator const CTextureData_* () const { return C_Handle(); }
 
 public:
+  PIX&    td_pixBufferWidth; // effect buffer dimensions
+  PIX&    td_pixBufferHeight;
   ULONG&  td_ulFlags; // see defines
   MEX&    td_mexWidth; // texture dimensions
   MEX&    td_mexHeight;
