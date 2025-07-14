@@ -127,7 +127,7 @@ inline PIX CDrawPort::GetHeight() const
   return dp_Height;
 }
 
-inline void CDrawPort::SetFont(CFontData* pfd)
+inline void CDrawPort::SetFont(CFontDataPtr pfd)
 {
   CDrawPort_SetFont(mp_handle, *pfd);
 }

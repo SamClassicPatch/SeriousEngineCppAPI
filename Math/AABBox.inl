@@ -57,6 +57,7 @@ inline INDEXaabbox2D::~INDEXaabbox2D()
 inline INDEXaabbox2D& INDEXaabbox2D::operator=(const INDEXaabbox2D& o)
 {
   INDEXaabbox2D_copy(mp_handle, o);
+  return *this;
 }
 
 inline void INDEXaabbox2D::SetToNormalizedEmpty()
@@ -230,6 +231,7 @@ inline FLOATaabbox2D::~FLOATaabbox2D()
 inline FLOATaabbox2D& FLOATaabbox2D::operator=(const FLOATaabbox2D& o)
 {
   FLOATaabbox2D_copy(mp_handle, o);
+  return *this;
 }
 
 inline void FLOATaabbox2D::SetToNormalizedEmpty()
@@ -403,6 +405,7 @@ inline FLOATaabbox3D::~FLOATaabbox3D()
 inline FLOATaabbox3D& FLOATaabbox3D::operator=(const FLOATaabbox3D& o)
 {
   FLOATaabbox3D_copy(mp_handle, o);
+  return *this;
 }
 
 inline void FLOATaabbox3D::SetToNormalizedEmpty()
@@ -576,6 +579,7 @@ inline DOUBLEaabbox2D::~DOUBLEaabbox2D()
 inline DOUBLEaabbox2D& DOUBLEaabbox2D::operator=(const DOUBLEaabbox2D& o)
 {
   DOUBLEaabbox2D_copy(mp_handle, o);
+  return *this;
 }
 
 inline void DOUBLEaabbox2D::SetToNormalizedEmpty()
@@ -749,6 +753,7 @@ inline DOUBLEaabbox3D::~DOUBLEaabbox3D()
 inline DOUBLEaabbox3D& DOUBLEaabbox3D::operator=(const DOUBLEaabbox3D& o)
 {
   DOUBLEaabbox3D_copy(mp_handle, o);
+  return *this;
 }
 
 inline void DOUBLEaabbox3D::SetToNormalizedEmpty()

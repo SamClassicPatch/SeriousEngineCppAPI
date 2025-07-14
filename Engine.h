@@ -12,7 +12,9 @@
 #include <SeriousEngineCAPI/Base/Memory.h>
 
 #include "Math/Object3D.h"
+#include "Math/Functions.h"
 #include "Math/Projection.h"
+#include "Math/Quaternion.h"
 
 #include "Models/ModelObject.h"
 #include "Models/ModelData.h"

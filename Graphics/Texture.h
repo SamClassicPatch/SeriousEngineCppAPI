@@ -13,6 +13,8 @@ public:
   CTextureData();
   ~CTextureData();
 
+  ULONG td_ptegEffect_teg_ulEffectType();
+  void td_ptegEffect_AddEffectSource(ULONG ulEffectSourceType, PIX pixU0, PIX pixV0, PIX pixU1, PIX pixV1);
   DOUBLE td_ptegEffect_GetRenderingTime();
   BOOL HasEffectTexture() const;
 
@@ -32,6 +34,9 @@ public:
   BOOL IsModified();
   // export finest mipmap of one texture's frame to imageinfo
   void Export_t(class CImageInfo& iiExportedImage, INDEX iFrame);
+  // creates new effect texture with one frame
+  void CreateEffectTexture(PIX pixWidth, PIX pixHeight, MEX mexWidth,
+    CTextureData_* ptdBaseTexture, ULONG ulGlobalEffect);
   // creates new texture with one frame
   void Create_t(const CImageInfo* pII, MEX mexWanted, INDEX ctFineMips, BOOL bForce32bit);
 
@@ -56,6 +61,9 @@ public:
 public:
   PIX&    td_pixBufferWidth; // effect buffer dimensions
   PIX&    td_pixBufferHeight;
+  CTextureData_*& td_ptdBaseTexture;
+  INDEX&  td_iFirstMipLevel; // the highest quality mip level
+  INDEX&  td_ctFineMipLevels; // number of bilineary created mip levels
   ULONG&  td_ulFlags; // see defines
   MEX&    td_mexWidth; // texture dimensions
   MEX&    td_mexHeight;

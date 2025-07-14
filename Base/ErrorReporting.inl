@@ -1,6 +1,6 @@
 #pragma once
 
-inline void ThrowF_t [[noreturn]] (char* strFormat, ...)
+inline void ThrowF_t [[noreturn]] (const char* strFormat, ...)
 {
   const SLONG slBufferSize = 256;
   char strBuffer[slBufferSize + 1];

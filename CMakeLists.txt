@@ -62,6 +62,8 @@ source_group("Graphics" FILES ${SRC_GRAPHICS})
 set(SRC_MATH
   Math/AABBox.h
   Math/AABBox.inl
+  Math/Functions.h
+  Math/Functions.inl
   Math/Matrix.h
   Math/Matrix.inl
   Math/MatrixDecl.h

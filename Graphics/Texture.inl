@@ -4,6 +4,9 @@ inline CTextureData::CTextureData(CTextureData_* p, bool owner)
   : CAnimData((CAnimData_*)p, owner)
   , td_pixBufferWidth(*CTextureData_td_pixBufferWidth(C_Handle()))
   , td_pixBufferHeight(*CTextureData_td_pixBufferHeight(C_Handle()))
+  , td_ptdBaseTexture(*CTextureData_td_ptdBaseTexture(C_Handle()))
+  , td_iFirstMipLevel(*CTextureData_td_iFirstMipLevel(C_Handle()))
+  , td_ctFineMipLevels(*CTextureData_td_ctFineMipLevels(C_Handle()))
   , td_ulFlags(*CTextureData_td_ulFlags(C_Handle()))
   , td_mexWidth(*CTextureData_td_mexWidth(C_Handle()))
   , td_mexHeight(*CTextureData_td_mexHeight(C_Handle()))
@@ -23,6 +26,16 @@ inline CTextureData::~CTextureData()
     CTextureData_delete(C_Handle());
   m_owner = false;
   mp_handle = nullptr;
+}
+
+inline ULONG CTextureData::td_ptegEffect_teg_ulEffectType()
+{
+  return CTextureData_td_ptegEffect_teg_ulEffectType(C_Handle());
+}
+
+inline void CTextureData::td_ptegEffect_AddEffectSource(ULONG ulEffectSourceType, PIX pixU0, PIX pixV0, PIX pixU1, PIX pixV1)
+{
+  CTextureData_td_ptegEffect_AddEffectSource(C_Handle(), ulEffectSourceType, pixU0, pixV0, pixU1, pixV1);
 }
 
 inline DOUBLE CTextureData::td_ptegEffect_GetRenderingTime()
@@ -84,6 +97,11 @@ inline void CTextureData::Export_t(class CImageInfo& iiExportedImage, INDEX iFra
 {
   CTextureData_Export_t(C_Handle(), iiExportedImage, iFrame);
   SECppAPI_CheckException();
+}
+
+inline void CTextureData::CreateEffectTexture(PIX pixWidth, PIX pixHeight, MEX mexWidth, CTextureData_* ptdBaseTexture, ULONG ulGlobalEffect)
+{
+  CTextureData_CreateEffectTexture(C_Handle(), pixWidth, pixHeight, mexWidth, ptdBaseTexture, ulGlobalEffect);
 }
 
 inline void CTextureData::Create_t(const CImageInfo* pII, MEX mexWanted, INDEX ctFineMips, BOOL bForce32bit)

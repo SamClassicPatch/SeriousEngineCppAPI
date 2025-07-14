@@ -6,9 +6,9 @@
 
 // some default fonts
 #define _pfdDisplayFont\
-  _pfdDisplayFont_()
+  CFontDataPtr(_pfdDisplayFont_())
 #define _pfdConsoleFont\
-  _pfdConsoleFont_()
+  CFontDataPtr(_pfdConsoleFont_())
 
 /*
  * font letter description

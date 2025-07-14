@@ -4,7 +4,7 @@
 #include <SeriousEngineCAPI/Base/ErrorReporting.h>
 
 /* Throw an exception of formatted string. */
-void ThrowF_t [[noreturn]] (char* strFormat, ...); // throws char *
+void ThrowF_t [[noreturn]] (const char* strFormat, ...); // throws char *
 /* Report error and terminate program. */
 void FatalError [[noreturn]] (const char* strFormat, ...);
 /* Report warning without terminating program (stops program until user responds). */

@@ -1,8 +1,12 @@
 #pragma once
 
-CSerial::CSerial(CSerial_* p, bool owner)
+inline CSerial::CSerial(CSerial_* p, bool owner)
   : CChangeable(CChangeable_From_CSerial(p), owner)
   , m_name((CTFileName_*)CSerial_GetName(C_Handle()), false)
+{
+}
+
+inline CSerial::~CSerial()
 {
 }
 

@@ -35,6 +35,11 @@ inline BOOL _pGfx_IsCurrentModeAccelerated()
   return _pGfx_IsCurrentModeAccelerated_();
 }
 
+inline void _pGfx_GetCurrentDisplayMode(CDisplayMode& dmCurrent)
+{
+  _pGfx_GetCurrentDisplayMode_(dmCurrent);
+}
+
 inline BOOL _pGfx_HasAPI(GfxAPIType eAPI)
 {
   return _pGfx_HasAPI_((GfxAPIType_)eAPI);

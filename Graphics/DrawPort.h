@@ -50,7 +50,7 @@ public:
   PIX GetHeight() const;
 
   // text manipulation
-  void SetFont(CFontData* pfd);   // WARNING: this resets text variables
+  void SetFont(CFontDataPtr pfd);   // WARNING: this resets text variables
   void SetTextCharSpacing(PIX pixSpacing);
   void SetTextLineSpacing(PIX pixSpacing);
   void SetTextScaling(FLOAT fScalingFactor);

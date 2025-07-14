@@ -2,6 +2,10 @@
 #include <SeriousEngineCAPI/Base/Types.h>
 #include <optional>
 
+#define NONE 0
+#define NOTHING ((void) 0)
+#define FOREVER for(;;)
+
 class FLOAT2D;
 class FLOAT3D;
 class FLOAT4D;
