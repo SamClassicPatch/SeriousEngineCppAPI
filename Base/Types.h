@@ -147,6 +147,10 @@ public:
     if (o)
       m_object.emplace(o.m_object->C_Handle(), false);
   }
+  inline TPointer(TPointer<TObject, TObjectCHandle>&& o)
+  {
+    m_object = std::move(o.m_object);
+  }
   inline ~TPointer() = default;
   inline TPointer& operator=(TObjectCHandle* p)
   {
@@ -167,6 +171,12 @@ public:
     m_object.reset();
     if (o)
       m_object.emplace(o.m_object->C_Handle(), false);
+    return *this;
+  }
+  inline TPointer& operator=(TPointer<TObject, TObjectCHandle>&& o)
+  {
+    m_object.reset();
+    m_object = std::move(o.m_object);
     return *this;
   }
   inline operator bool() const
