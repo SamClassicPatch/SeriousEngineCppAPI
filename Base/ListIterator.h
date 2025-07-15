@@ -51,10 +51,10 @@ public:
   }
 
   /* Get current element. */
-  TObjectPtr::TObject& Current() { return *mp_object; }
-  TObjectPtr::TObject& operator*() { return *mp_object; }
-  operator TObjectPtr::TObject* () { return &(*mp_object); }
-  TObjectPtr::TObject* operator->() { return &(*mp_object); }
+  TObjectPtr::TObjectType& Current() { return *mp_object; }
+  TObjectPtr::TObjectType& operator*() { return *mp_object; }
+  operator TObjectPtr::TObjectType* () { return &(*mp_object); }
+  TObjectPtr::TObjectType* operator->() { return &(*mp_object); }
 
 private:
   inline void _UpdateObject()

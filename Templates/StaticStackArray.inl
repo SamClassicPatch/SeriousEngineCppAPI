@@ -41,9 +41,9 @@
   {\
     CStaticStackArray_##TYPE##_Clear(C_Handle());\
   }\
-  __forceinline TYPE CStaticStackArray_##TYPE::Push()\
+  __forceinline TYPE##Ptr CStaticStackArray_##TYPE::Push()\
   {\
-    return TYPE(CStaticStackArray_##TYPE##_Push(C_Handle()), false);\
+    return CStaticStackArray_##TYPE##_Push(C_Handle());\
   }\
   inline TYPE##_* CStaticStackArray_##TYPE::Push(INDEX ct)\
   {\

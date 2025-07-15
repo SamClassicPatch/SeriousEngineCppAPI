@@ -153,6 +153,18 @@ using CAttachedModelPositionPtr = TPointer<CAttachedModelPosition, CAttachedMode
 using CDisplayModePtr = TPointer<CDisplayMode, CDisplayMode_>;
 using CListHeadPtr = TPointer<CListHead, CListHead_>;
 using CListNodePtr = TPointer<CListNode, CListNode_>;
+using MappingSurfacePtr = TPointer<MappingSurface, MappingSurface_>;
+using PolygonsPerPatchPtr = TPointer<PolygonsPerPatch, PolygonsPerPatch_>;
+using ModelFrameVertex8Ptr = TPointer<ModelFrameVertex8, ModelFrameVertex8_>;
+using ModelFrameVertex16Ptr = TPointer<ModelFrameVertex16, ModelFrameVertex16_>;
+using ModelFrameInfoPtr = TPointer<ModelFrameInfo, ModelFrameInfo_>;
+using TransformedVertexDataPtr = TPointer<TransformedVertexData, TransformedVertexData_>;
+using ModelPolygonVertexPtr = TPointer<ModelPolygonVertex, ModelPolygonVertex_>;
+using PIX2DPtr = TPointer<PIX2D, PIX2D_>;
+using FLOAT2DPtr = TPointer<FLOAT2D, FLOAT2D_>;
+using FLOAT3DPtr = TPointer<FLOAT3D, FLOAT3D_>;
+using ModelMipInfoPtr = TPointer<ModelMipInfo, ModelMipInfo_>;
+using CRenderModelPtr = TPointer<CRenderModel, CRenderModel_>;
 
 inline void SECppAPI_CheckException()
 {

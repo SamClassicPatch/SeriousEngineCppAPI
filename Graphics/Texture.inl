@@ -170,6 +170,11 @@ inline ULONG CTextureObject::GetFlags() const
   return CTextureObject_GetFlags(C_Handle());
 }
 
+__forceinline CTextureDataPtr CTextureObject::GetData()
+{
+  return (CTextureData_*)CAnimObject::GetData().get_handle();
+}
+
 inline void CTextureObject::SetData_t(const CTFileName& fnmTexture)
 {
   CTextureObject_SetData_t(C_Handle(), fnmTexture);

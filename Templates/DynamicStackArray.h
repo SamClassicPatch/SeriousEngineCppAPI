@@ -20,7 +20,7 @@
       void Clear();\
       /* Add new object on top of stack. */\
       TYPE##Ptr Push();\
-      TYPE##Ptr Push(INDEX ct);\
+      TYPE##_* Push(INDEX ct);\
       /* Remove all objects from stack, but keep stack space. */\
       void PopAll();\
       /* Get number of objects in array. */\

@@ -103,22 +103,24 @@ public:
       return &(*m_object);
     return nullptr;
   }
+  inline TObjectCHandle* get_handle()
+  {
+    if (m_object.has_value())
+      return m_object->C_Handle();
+    return nullptr;
+  }
   inline bool operator==(const TObjectCHandle* p) const
   {
-    const TObjectCHandle* thisp = (m_object.has_value() ? m_object->C_Handle() : nullptr);
-    return thisp == p;
+    return get_handle() == p;
   }
   inline bool operator==(const TObject* p) const
   {
-    const TObjectCHandle* thisp = (m_object.has_value() ? m_object->C_Handle() : nullptr);
     const TObjectCHandle* op = (p ? p->C_Handle() : nullptr);
-    return thisp == op;
+    return get_handle() == op;
   }
   inline bool operator==(const TPointer<TObject, TObjectCHandle>& o) const
   {
-    const TObjectCHandle* thisp = (m_object.has_value() ? m_object->C_Handle() : nullptr);
-    const TObjectCHandle* op = (o.m_object.has_value() ? o.m_object->C_Handle() : nullptr);
-    return thisp == op;
+    return get_handle() == o.get_handle();
   }
   inline bool operator!=(const TObjectCHandle* p) const { return !((*this) == p); }
   inline bool operator!=(const TObject* p) const { return !((*this) == p); }

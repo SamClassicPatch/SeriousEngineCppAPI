@@ -86,6 +86,9 @@ public:
   MEX GetHeight() const;
   ULONG GetFlags() const;
 
+  /* Get current anim data ptr. */
+  CTextureDataPtr GetData();
+
   // obtain texture and set it for this object
   void SetData_t(const CTFileName& fnmTexture); // throw char *
   // get filename of texture or empty string if no texture

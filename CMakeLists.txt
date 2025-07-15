@@ -66,6 +66,8 @@ set(SRC_MATH
   Math/AABBox.inl
   Math/Functions.h
   Math/Functions.inl
+  Math/Geometry.h
+  Math/Geometry.inl
   Math/Matrix.h
   Math/Matrix.inl
   Math/MatrixDecl.h

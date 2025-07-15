@@ -24,8 +24,8 @@
       void Clear();\
       \
       /* Random access operator. */\
-      TYPE operator[](INDEX iObject);\
-      const TYPE operator[](INDEX iObject) const;\
+      TYPE##Ptr operator[](INDEX iObject);\
+      const TYPE##Ptr operator[](INDEX iObject) const;\
       /* Get number of objects in array. */\
       INDEX Count() const;\
       /* Get index of a object from it's pointer. */\

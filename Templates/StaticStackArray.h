@@ -22,7 +22,7 @@
       /* Destroy all objects, and reset the array to initial (empty) state. */\
       void Clear();\
       /* Add new object on top of stack. */\
-      TYPE Push();\
+      TYPE##Ptr Push();\
       TYPE##_* Push(INDEX ct);\
       /* Remove one object from top of stack and return it. */\
       TYPE Pop();\

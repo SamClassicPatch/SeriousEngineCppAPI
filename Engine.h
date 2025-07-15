@@ -12,6 +12,8 @@
 #include "Base/Statistics.h"
 #include <SeriousEngineCAPI/Base/Memory.h>
 
+#include "Math/Geometry.h"
+#include <SeriousEngineCAPI/Math/Clipping.h>
 #include "Math/Object3D.h"
 #include "Math/Functions.h"
 #include "Math/Projection.h"

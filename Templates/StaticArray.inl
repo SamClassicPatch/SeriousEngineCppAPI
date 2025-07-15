@@ -42,13 +42,13 @@
   {\
     CStaticArray_##TYPE##_Clear(mp_array);\
   }\
-  __forceinline TYPE CStaticArray_##TYPE::operator[](INDEX iObject)\
+  __forceinline TYPE##Ptr CStaticArray_##TYPE::operator[](INDEX iObject)\
   {\
-    return TYPE(CStaticArray_##TYPE##_Element(mp_array, iObject), false);\
+    return CStaticArray_##TYPE##_Element(mp_array, iObject);\
   }\
-  __forceinline const TYPE CStaticArray_##TYPE::operator[](INDEX iObject) const\
+  __forceinline const TYPE##Ptr CStaticArray_##TYPE::operator[](INDEX iObject) const\
   {\
-    return TYPE((TYPE##_*)CStaticArray_##TYPE##_Element_const(mp_array, iObject), false);\
+    return (TYPE##_*)CStaticArray_##TYPE##_Element_const(mp_array, iObject);\
   }\
   inline INDEX CStaticArray_##TYPE::Count() const\
   {\
