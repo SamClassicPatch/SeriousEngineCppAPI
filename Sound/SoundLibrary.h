@@ -35,4 +35,7 @@ void _pSound_AddSoundAware(CSoundData& CsdAdd);
 /* Remove a sound mode aware object */
 void _pSound_RemoveSoundAware(CSoundData& CsdRemove);
 
+#define snd_iFormat\
+  (*snd_iFormat_())
+
 #include "SoundLibrary.inl"
