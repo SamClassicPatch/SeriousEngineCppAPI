@@ -8,7 +8,8 @@ class CListNode
 public:
   CListNode(CListNode_* p, bool dummy = false);
   ~CListNode();
-  CListNode& operator=(const CListNode& lnOriginal);
+  CListNode(const CListNode& ln) = delete;
+  CListNode& operator=(const CListNode& ln) = delete;
 
   /* Check if list node is valid. */
   BOOL IsValid() const;
@@ -57,7 +58,7 @@ public:
   CListHead(CListHead_* p, bool dummy = false);
   ~CListHead();
   CListHead(const CListHead& lh) = delete;
-  void operator=(const CListHead& lh) = delete;
+  CListHead& operator=(const CListHead& lh) = delete;
 
   /* Check if this list head is valid. */
   BOOL IsValid() const;

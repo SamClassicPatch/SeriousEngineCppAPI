@@ -10,12 +10,6 @@ inline CListNode::~CListNode()
 {
 }
 
-inline CListNode& CListNode::operator=(const CListNode& lnOriginal)
-{
-  CListNode_copy(mp_handle, lnOriginal);
-  return *this;
-}
-
 inline BOOL CListNode::IsValid() const
 {
   return CListNode_IsValid(mp_handle);
