@@ -25,6 +25,7 @@
 #include "Models/RenderModel.h"
 
 #include "Sound/SoundObject.h"
+#include "Sound/SoundLibrary.h"
 
 #include "Graphics/Texture.h"
 #include "Graphics/Font.h"

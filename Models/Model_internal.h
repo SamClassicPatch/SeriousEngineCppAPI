@@ -7,7 +7,7 @@
 #include <SeriousEngineCAPI/Models/Model_internal.h>
 
 // surface shading types
-enum SurfaceShadingType : INDEX
+enum SurfaceShadingType : SurfaceShadingType_
 {
   SST_INVALID = SST_INVALID_,
   SST_FULLBRIGHT = SST_FULLBRIGHT_,
@@ -16,7 +16,7 @@ enum SurfaceShadingType : INDEX
 };
 
 // surface translucency types
-enum SurfaceTranslucencyType : INDEX
+enum SurfaceTranslucencyType : SurfaceTranslucencyType_
 {
   STT_INVALID = STT_INVALID_,
   STT_OPAQUE = STT_OPAQUE_,

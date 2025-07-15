@@ -5,7 +5,7 @@
 #include "DisplayMode.h"
 #include <SeriousEngineCAPI/Graphics/GfxLibrary.h>
 
-enum GfxAPIType : INDEX
+enum GfxAPIType : GfxAPIType_
 {
   GAT_NONE = GAT_NONE_,     // no gfx API (gfx functions are disabled)
   GAT_OGL = GAT_OGL_,     // OpenGL

@@ -2,7 +2,7 @@
 #include "../Base/Types.h"
 #include <SeriousEngineCAPI/Graphics/DisplayMode.h>
 
-enum DisplayDepth : INDEX
+enum DisplayDepth : DisplayDepth_
 {
   DD_NODEPTH = DD_NODEPTH_,
   DD_DEFAULT = DD_DEFAULT_,

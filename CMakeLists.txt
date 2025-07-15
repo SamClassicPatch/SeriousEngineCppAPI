@@ -105,6 +105,8 @@ source_group("Models" FILES ${SRC_MODELS})
 set(SRC_SOUND
   Sound/SoundData.h
   Sound/SoundData.inl
+  Sound/SoundLibrary.h
+  Sound/SoundLibrary.inl
   Sound/SoundObject.h
   Sound/SoundObject.inl
 )

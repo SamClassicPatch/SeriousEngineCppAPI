@@ -175,7 +175,7 @@ public:
   ULONG& dp_ulBlendingA;
 };
 
-enum ParticleBlendType : INDEX
+enum ParticleBlendType : ParticleBlendType_
 {
   PBT_BLEND = PBT_BLEND_,
   PBT_ADD = PBT_ADD_,
