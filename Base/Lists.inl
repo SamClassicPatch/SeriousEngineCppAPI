@@ -1,28 +1,13 @@
 #pragma once
 #include <SeriousEngineCAPI/Base/Lists.h>
 
-inline CListNode::CListNode(CListNode_* p, bool owner)
-  : m_owner(owner)
-  , mp_handle(p)
-{
-}
-
-inline CListNode::CListNode()
-  : m_owner(true)
-  , mp_handle(CListNode_new())
-{
-}
-
-inline CListNode::CListNode(const CListNode& lnOriginal)
-  : m_owner(true)
-  , mp_handle(CListNode_clone(lnOriginal))
+inline CListNode::CListNode(CListNode_* p, bool)
+  : mp_handle(p)
 {
 }
 
 inline CListNode::~CListNode()
 {
-  if (m_owner)
-    CListNode_delete(mp_handle);
 }
 
 inline CListNode& CListNode::operator=(const CListNode& lnOriginal)
@@ -86,12 +71,12 @@ inline BOOL CListNode::IsTail() const
   return CListNode_IsTail(mp_handle);
 }
 
-inline CListNode_* CListNode::Succ() const
+inline CListNodePtr CListNode::Succ() const
 {
   return CListNode_Succ(mp_handle);
 }
 
-inline CListNode_* CListNode::Pred() const
+inline CListNodePtr CListNode::Pred() const
 {
   return CListNode_Pred(mp_handle);
 }
@@ -106,27 +91,18 @@ inline void CListNode::IterationInsertAfter(CListNode& lnNew)
   CListNode_IterationInsertAfter(mp_handle, lnNew);
 }
 
-inline CListHead_* CListNode::GetHead()
+inline CListHeadPtr CListNode::GetHead()
 {
   return CListNode_GetHead(mp_handle);
 }
 
-inline CListHead::CListHead(CListHead_* p, bool owner)
-  : m_owner(owner)
-  , mp_handle(p)
-{
-}
-
-inline CListHead::CListHead()
-  : m_owner(true)
-  , mp_handle(CListHead_new())
+inline CListHead::CListHead(CListHead_* p, bool)
+  : mp_handle(p)
 {
 }
 
 inline CListHead::~CListHead()
 {
-  if (m_owner)
-    CListHead_delete(mp_handle);
 }
 
 inline BOOL CListHead::IsValid() const
@@ -139,12 +115,12 @@ inline void CListHead::Clear()
   CListHead_Clear(mp_handle);
 }
 
-inline CListNode_* CListHead::Head() const
+inline CListNodePtr CListHead::Head() const
 {
   return CListHead_Head(mp_handle);
 }
 
-inline CListNode_* CListHead::Tail() const
+inline CListNodePtr CListHead::Tail() const
 {
   return CListHead_Tail(mp_handle);
 }

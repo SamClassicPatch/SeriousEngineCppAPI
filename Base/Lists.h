@@ -6,9 +6,7 @@
 class CListNode
 {
 public:
-  CListNode(CListNode_* p, bool owner = false);
-  CListNode();
-  CListNode(const CListNode& lnOriginal);
+  CListNode(CListNode_* p, bool dummy = false);
   ~CListNode();
   CListNode& operator=(const CListNode& lnOriginal);
 
@@ -33,9 +31,9 @@ public:
   /* Check if this list node is at the tail of list. */
   BOOL IsTail() const;
   /* Get successor of this node. */
-  CListNode_* Succ() const;
+  CListNodePtr Succ() const;
   /* Get predeccessor of this node. */
-  CListNode_* Pred() const;
+  CListNodePtr Pred() const;
 
   /* Insert a node before current one during iteration. */
   void IterationInsertBefore(CListNode& lnNew);
@@ -43,22 +41,20 @@ public:
   void IterationInsertAfter(CListNode& lnNew);
 
   /* Find the head of the list that this node is in. */
-  CListHead_* GetHead();
+  CListHeadPtr GetHead();
 
   inline CListNode_* C_Handle() { return mp_handle; }
   inline const CListNode_* C_Handle() const { return mp_handle; }
   inline operator CListNode_* () { return C_Handle(); }
   inline operator const CListNode_* () const { return C_Handle(); }
 private:
-  bool m_owner = true;
   CListNode_* mp_handle = nullptr;
 };
 /* list head */
 class CListHead
 {
 public:
-  CListHead(CListHead_* p, bool owner = false);
-  CListHead();
+  CListHead(CListHead_* p, bool dummy = false);
   ~CListHead();
   CListHead(const CListHead& lh) = delete;
   void operator=(const CListHead& lh) = delete;
@@ -68,9 +64,9 @@ public:
   /* Clear the list head. */
   void Clear();
   /* Get list head. */
-  CListNode_* Head() const;
+  CListNodePtr Head() const;
   /* Get list tail. */
-  CListNode_* Tail() const;
+  CListNodePtr Tail() const;
   /* Add a new element to head of list. */
   void AddHead(CListNode& node);
   void AddHead(CListNode_* node);
@@ -97,8 +93,8 @@ public:
   inline const CListHead_* C_Handle() const { return mp_handle; }
   inline operator CListHead_* () { return C_Handle(); }
   inline operator const CListHead_* () const { return C_Handle(); }
+
 private:
-  bool m_owner = true;
   CListHead_* mp_handle = nullptr;
 };
 

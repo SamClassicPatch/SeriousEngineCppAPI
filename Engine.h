@@ -5,6 +5,7 @@
 #include "Base/ErrorReporting.h"
 #include "Base/Stream.h"
 #include "Base/Lists.h"
+#include "Base/ListIterator.h"
 #include "Base/Timer.h"
 #include "Base/Translation.h"
 #include "Base/Shell.h"
