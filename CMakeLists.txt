@@ -16,6 +16,8 @@ set(SRC_BASE
   Base/FileName.h
   Base/FileName.inl
   Base/FileNameDecl.h
+  Base/Input.h
+  Base/Input.inl
   Base/ListIterator.h
   Base/Lists.h
   Base/Lists.inl

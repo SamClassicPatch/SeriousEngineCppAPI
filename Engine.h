@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Base/Types.h"
+#include <SeriousEngineCAPI/Base/KeyNames.h>
+#include "Base/Input.h"
 #include "Base/Updateable.h"
 #include "Base/ErrorReporting.h"
 #include "Base/Stream.h"

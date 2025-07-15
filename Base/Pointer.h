@@ -23,11 +23,13 @@ public:
   inline TPointer(const TPointer<TObject, TObjectCHandle>& o)
   {
     if (o)
-      m_object.emplace(o.m_object->C_Handle(), false);
+      m_object.emplace((TObjectCHandle*)o.m_object->C_Handle(), false);
   }
   inline TPointer(TPointer<TObject, TObjectCHandle>&& o)
   {
-    m_object = std::move(o.m_object);
+    if (o)
+      m_object.emplace(o.m_object->C_Handle(), false);
+    o.m_object.reset();
   }
   inline ~TPointer() = default;
   inline TPointer& operator=(TObjectCHandle* p)
@@ -54,7 +56,9 @@ public:
   inline TPointer& operator=(TPointer<TObject, TObjectCHandle>&& o)
   {
     m_object.reset();
-    m_object = std::move(o.m_object);
+    if (o)
+      m_object.emplace(o.m_object->C_Handle(), false);
+    o.m_object.reset();
     return *this;
   }
   inline operator bool() const
@@ -104,6 +108,12 @@ public:
     return nullptr;
   }
   inline TObjectCHandle* get_handle()
+  {
+    if (m_object.has_value())
+      return m_object->C_Handle();
+    return nullptr;
+  }
+  inline const TObjectCHandle* get_handle() const
   {
     if (m_object.has_value())
       return m_object->C_Handle();
