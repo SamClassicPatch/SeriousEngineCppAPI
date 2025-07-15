@@ -175,7 +175,7 @@ public:
   {
     m_object.reset();
     if (o)
-      m_object.emplace(o.m_object->C_Handle(), false);
+      m_object.emplace((TObjectCHandle*)o.m_object->C_Handle(), false);
     return *this;
   }
   inline TPointer& operator=(TPointer<TObject, TObjectCHandle>&& o)
@@ -204,6 +204,22 @@ public:
   {
     return *m_object;
   }
+  inline const TObject* operator->() const
+  {
+    if (m_object.has_value())
+      return &(*m_object);
+    return nullptr;
+  }
+  inline operator const TObject* () const
+  {
+    if (m_object.has_value())
+      return &(*m_object);
+    return nullptr;
+  }
+  inline const TObject& operator*() const
+  {
+    return *m_object;
+  }
   inline void Reset()
   {
     m_object.reset();
@@ -214,6 +230,26 @@ public:
       return &(*m_object);
     return nullptr;
   }
+  inline bool operator==(const TObjectCHandle* p) const
+  {
+    const TObjectCHandle* thisp = (m_object.has_value() ? m_object->C_Handle() : nullptr);
+    return thisp == p;
+  }
+  inline bool operator==(const TObject* p) const
+  {
+    const TObjectCHandle* thisp = (m_object.has_value() ? m_object->C_Handle() : nullptr);
+    const TObjectCHandle* op = (p ? p->C_Handle() : nullptr);
+    return thisp == op;
+  }
+  inline bool operator==(const TPointer<TObject, TObjectCHandle>& o) const
+  {
+    const TObjectCHandle* thisp = (m_object.has_value() ? m_object->C_Handle() : nullptr);
+    const TObjectCHandle* op = (o.m_object.has_value() ? o.m_object->C_Handle() : nullptr);
+    return thisp == op;
+  }
+  inline bool operator!=(const TObjectCHandle* p) const { return !((*this) == p); }
+  inline bool operator!=(const TObject* p) const { return !((*this) == p); }
+  inline bool operator!=(const TPointer<TObject, TObjectCHandle>& o) const { return !((*this) == o); }
 
 private:
   std::optional<TObject> m_object;
