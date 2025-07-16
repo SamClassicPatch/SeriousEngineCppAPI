@@ -68,8 +68,8 @@ public:
   ~CAnimData();
   CAnimData& operator=(const CAnimData& oaAnim);
 
-  COneAnim_* ad_Anims(INDEX i);
-  COneAnim_* ad_Anims(INDEX i) const;
+  COneAnimPtr ad_Anims(INDEX i);
+  COneAnimPtr ad_Anims(INDEX i) const;
 
   // creates given number of default animations (1 frame, given name and apeed)
   void CreateAnimations(INDEX ctAnimations, CTString strName = "None",

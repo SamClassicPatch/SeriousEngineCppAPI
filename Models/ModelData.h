@@ -122,6 +122,7 @@ public:
   // array of mip factors determing where mip-models switch
   FLOAT& md_MipSwitchFactors(INDEX i);
   FLOAT md_MipSwitchFactors(INDEX i) const;
+  void CreateAnimationsRaw(INDEX ct);
 
   inline CModelData_* C_Handle() { return (CModelData_*)CAnimData::C_Handle(); }
   inline const CModelData_* C_Handle() const { return (const CModelData_*)CAnimData::C_Handle(); }

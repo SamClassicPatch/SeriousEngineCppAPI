@@ -64,6 +64,7 @@ public:
   inline CTStream& operator>>(FLOAT& f) { Read_t(&f, sizeof(f)); return *this; } // throw char *
   inline CTStream& operator>>(DOUBLE& d) { Read_t(&d, sizeof(d)); return *this; } // throw char *
   inline CTStream& operator>>(ULONG& ul) { Read_t(&ul, sizeof(ul)); return *this; } // throw char *
+  inline CTStream& operator>>(COLOR& ul) { Read_t(&ul, sizeof(ul)); return *this; } // throw char *
   inline CTStream& operator>>(UWORD& uw) { Read_t(&uw, sizeof(uw)); return *this; } // throw char *
   inline CTStream& operator>>(UBYTE& ub) { Read_t(&ub, sizeof(ub)); return *this; } // throw char *
   inline CTStream& operator>>(SWORD& sw) { Read_t(&sw, sizeof(sw)); return *this; } // throw char *
@@ -73,6 +74,7 @@ public:
   inline CTStream& operator<<(const FLOAT& f) { Write_t(&f, sizeof(f)); return *this; } // throw char *
   inline CTStream& operator<<(const DOUBLE& d) { Write_t(&d, sizeof(d)); return *this; } // throw char *
   inline CTStream& operator<<(const ULONG& ul) { Write_t(&ul, sizeof(ul)); return *this; } // throw char *
+  inline CTStream& operator<<(const COLOR& ul) { Write_t(&ul, sizeof(ul)); return *this; } // throw char *
   inline CTStream& operator<<(const UWORD& uw) { Write_t(&uw, sizeof(uw)); return *this; } // throw char *
   inline CTStream& operator<<(const UBYTE& ub) { Write_t(&ub, sizeof(ub)); return *this; } // throw char *
   inline CTStream& operator<<(const SWORD& sw) { Write_t(&sw, sizeof(sw)); return *this; } // throw char *

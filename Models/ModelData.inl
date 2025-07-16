@@ -311,3 +311,7 @@ inline FLOAT CModelData::md_MipSwitchFactors(INDEX i) const
   return *CModelData_md_MipSwitchFactors((CModelData_*)C_Handle(), i);
 }
 
+inline void CModelData::CreateAnimationsRaw(INDEX ct)
+{
+  CModelData_CreateAnimationsRaw(C_Handle(), ct);
+}

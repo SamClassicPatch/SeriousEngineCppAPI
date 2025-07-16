@@ -88,12 +88,12 @@ inline CAnimData& CAnimData::operator=(const CAnimData& oaAnim)
   return *this;
 }
 
-inline COneAnim_* CAnimData::ad_Anims(INDEX i)
+__forceinline COneAnimPtr CAnimData::ad_Anims(INDEX i)
 {
   return CAnimData_ad_Anims(C_Handle(), i);
 }
 
-inline COneAnim_* CAnimData::ad_Anims(INDEX i) const
+__forceinline COneAnimPtr CAnimData::ad_Anims(INDEX i) const
 {
   return CAnimData_ad_Anims((CAnimData_*)C_Handle(), i);
 }

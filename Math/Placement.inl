@@ -123,10 +123,12 @@ inline CTStream& operator>>(CTStream& strm, CPlacement3D& p3d)
 {
   CPlacement3D_extract(strm, p3d);
   SECppAPI_CheckException();
+  return strm;
 }
 
 inline CTStream& operator<<(CTStream& strm, const CPlacement3D& p3d)
 {
   CPlacement3D_insert(strm, p3d);
   SECppAPI_CheckException();
+  return strm;
 }

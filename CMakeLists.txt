@@ -99,6 +99,8 @@ set(SRC_MODELS
   Models/ModelData.inl
   Models/ModelObject.h
   Models/ModelObject.inl
+  Models/Normals.h
+  Models/Normals.inl
   Models/RenderModel.h
   Models/RenderModel.inl
 )

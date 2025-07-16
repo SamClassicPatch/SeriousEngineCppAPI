@@ -165,6 +165,7 @@ using FLOAT2DPtr = TPointer<FLOAT2D, FLOAT2D_>;
 using FLOAT3DPtr = TPointer<FLOAT3D, FLOAT3D_>;
 using ModelMipInfoPtr = TPointer<ModelMipInfo, ModelMipInfo_>;
 using CRenderModelPtr = TPointer<CRenderModel, CRenderModel_>;
+using COneAnimPtr = TPointer<COneAnim, COneAnim_>;
 
 inline void SECppAPI_CheckException()
 {
