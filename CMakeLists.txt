@@ -44,6 +44,8 @@ set(SRC_BASE
 source_group("Base" FILES ${SRC_BASE})
 
 set(SRC_GRAPHICS
+  Graphics/Color.h
+  Graphics/Color.inl
   Graphics/DisplayMode.h
   Graphics/DisplayMode.inl
   Graphics/DrawPort.h

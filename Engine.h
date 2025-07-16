@@ -30,12 +30,12 @@
 #include "Sound/SoundLibrary.h"
 
 #include "Graphics/Texture.h"
+#include "Graphics/Color.h"
 #include "Graphics/Font.h"
 #include "Graphics/GfxLibrary.h"
 #include "Graphics/ViewPort.h"
 #include "Graphics/DrawPort.h"
 #include "Graphics/ImageInfo.h"
-#include <SeriousEngineCAPI/Graphics/Color.h>
 
 #include "Templates/DynamicArray.h"
 #include "Templates/DynamicStackArray.h"
