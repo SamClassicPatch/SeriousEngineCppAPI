@@ -127,6 +127,10 @@ set(SRC_TEMPLATES
   Templates/StaticArray.inl
   Templates/StaticStackArray.h
   Templates/StaticStackArray.inl
+  Templates/Stock_CAnimData.h
+  Templates/Stock_CModelData.h
+  Templates/Stock_CSoundData.h
+  Templates/Stock_CTextureData.h
 )
 source_group("Templates" FILES ${SRC_TEMPLATES})
 

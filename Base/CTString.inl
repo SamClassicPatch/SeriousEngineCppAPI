@@ -30,10 +30,11 @@ inline CTString::CTString(const char* pString)
 
 inline CTString::CTString(INDEX iDummy, const char* strFormat, ...)
   : m_owner(true)
+  , mp_string(CTString_new())
 {
   va_list arg;
   va_start(arg, strFormat);
-  mp_string = CTString_new_fmt(iDummy, strFormat, arg);
+  VPrintF(strFormat, arg);
   va_end(arg);
 }
 
@@ -229,7 +230,22 @@ inline INDEX CTString::PrintF(const char* strFormat, ...)
 
 inline INDEX CTString::VPrintF(const char* strFormat, va_list arg)
 {
-  return CTString_VPrintF(mp_string, strFormat, arg);
+  static thread_local std::vector<char> _pchBuffer(256);
+
+  INDEX iLen;
+  FOREVER {
+    // print to the buffer
+    iLen = _vsnprintf(_pchBuffer.data(), _pchBuffer.size(), strFormat, arg);
+    // if printed ok
+  if (iLen != -1) {
+    // stop
+    break;
+  }
+  _pchBuffer.resize(_pchBuffer.size() + 256);
+  }
+
+  (*this) = _pchBuffer.data();
+  return iLen;
 }
 
 inline INDEX CTString::ScanF(const char* strFormat, ...)
