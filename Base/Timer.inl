@@ -97,7 +97,7 @@ inline int64_t CTimerValue::GetMilliseconds()
 }
 
 
-inline CTimerHandler::CTimerHandler(void(*callback)(void))
+inline CTimerHandler::CTimerHandler(void(*callback)(void) noexcept(true))
   : mp_handle(CTimerHandler_new(callback))
 {
 }

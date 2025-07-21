@@ -53,7 +53,7 @@ public:
 class CTimerHandler
 {
 public:
-  explicit CTimerHandler(void(*callback)(void));
+  explicit CTimerHandler(void(*callback)(void) noexcept(true));
   virtual ~CTimerHandler();
 
   /* This is called every TickQuantum seconds. */

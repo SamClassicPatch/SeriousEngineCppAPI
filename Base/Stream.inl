@@ -43,10 +43,15 @@ inline CChunkID::operator char* ()
 
 inline void CTStream::ExecuteWithStreamHandling(const std::function<void()>& func)
 {
-  static const std::function<void()>* p_func = nullptr;
+  static thread_local const std::function<void()>* p_func = nullptr;
+  static thread_local std::exception_ptr p_exc;
+  static thread_local std::exception_ptr* const p_exc_raw = &p_exc;
   p_func = &func;
-  void (*callback)(void) = [] { (*p_func)(); };
+  p_exc = nullptr;
+  void (*callback)(void) noexcept(true) = []() noexcept(true) { try { (*p_func)(); } catch (...) { (*p_exc_raw) = std::current_exception(); } };
   CTStream_ExecuteWithStreamHandling(callback);
+  if (p_exc)
+    std::rethrow_exception(p_exc);
 }
 
 inline void CTStream::Read_t(void* pvBuffer, SLONG slSize)
