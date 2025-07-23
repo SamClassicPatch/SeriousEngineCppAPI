@@ -114,13 +114,13 @@ public:
   void Write_t(CTStream* ostrFile);// throw char *
 
   // set texture data for main texture in surface of this model
-  void SetTextureData(CTextureData* ptdNewMainTexture);
+  void SetTextureData(CTextureData_* ptdNewMainTexture);
   CTFileName GetName();
   void AutoSetTextures();
   void AutoSetAttachments();
   // obtain model and set it for this object
   void SetData_t(const CTFileName& fnmModel); // throw char *
-  void SetData(CModelData* pmd);
+  void SetData(CModelData_* pmd);
   CModelDataPtr GetData();
 
   // synchronize with another model (copy animations/attachments positions etc from there)

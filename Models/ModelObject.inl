@@ -393,9 +393,9 @@ inline void CModelObject::Write_t(CTStream* ostrFile)
   SECppAPI_CheckException();
 }
 
-inline void CModelObject::SetTextureData(CTextureData* ptdNewMainTexture)
+inline void CModelObject::SetTextureData(CTextureData_* ptdNewMainTexture)
 {
-  CModelObject_SetTextureData(C_Handle(), *ptdNewMainTexture);
+  CModelObject_SetTextureData(C_Handle(), ptdNewMainTexture);
 }
 
 __forceinline CTFileName CModelObject::GetName()
@@ -419,9 +419,9 @@ inline void CModelObject::SetData_t(const CTFileName& fnmModel)
   SECppAPI_CheckException();
 }
 
-inline void CModelObject::SetData(CModelData* pmd)
+inline void CModelObject::SetData(CModelData_* pmd)
 {
-  CModelObject_SetData(C_Handle(), *pmd);
+  CModelObject_SetData(C_Handle(), pmd);
 }
 
 __forceinline CModelDataPtr CModelObject::GetData()
