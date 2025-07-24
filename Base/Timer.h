@@ -53,11 +53,9 @@ public:
 class CTimerHandler
 {
 public:
+  /* This is called every TickQuantum seconds. */
   explicit CTimerHandler(void(*callback)(void) noexcept(true));
   virtual ~CTimerHandler();
-
-  /* This is called every TickQuantum seconds. */
-  virtual void HandleTimer() = 0;
 
   inline CTimerHandler_* C_Handle() { return mp_handle; }
   inline const CTimerHandler_* C_Handle() const { return mp_handle; }
