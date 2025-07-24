@@ -109,7 +109,7 @@ inline CTimerHandler::~CTimerHandler()
 
 __forceinline CTCriticalSectionPtr _pTimer_tm_csHooks()
 {
-  return _pTimer_tm_csHooks();
+  return _pTimer_tm_csHooks_();
 }
 
 __forceinline CTimerValue _pTimer_GetHighPrecisionTimer()
