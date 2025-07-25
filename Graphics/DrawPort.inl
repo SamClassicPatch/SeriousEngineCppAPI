@@ -182,29 +182,29 @@ inline void CDrawPort::PutTextR(const CTString& strText, PIX pixX0, PIX pixY0, c
   CDrawPort_PutTextR(mp_handle, strText, pixX0, pixY0, colBlend);
 }
 
-inline void CDrawPort::PutTexture(CTextureObject* pTO, const PIXaabbox2D& boxScreen, const COLOR colBlend) const
+inline void CDrawPort::PutTexture(CTextureObject_* pTO, const PIXaabbox2D& boxScreen, const COLOR colBlend) const
 {
-  CDrawPort_PutTexture_b(mp_handle, *pTO, boxScreen, colBlend);
+  CDrawPort_PutTexture_b(mp_handle, pTO, boxScreen, colBlend);
 }
 
-inline void CDrawPort::PutTexture(CTextureObject* pTO, const PIXaabbox2D& boxScreen, const COLOR colUL, const COLOR colUR, const COLOR colDL, const COLOR colDR) const
+inline void CDrawPort::PutTexture(CTextureObject_* pTO, const PIXaabbox2D& boxScreen, const COLOR colUL, const COLOR colUR, const COLOR colDL, const COLOR colDR) const
 {
-  CDrawPort_PutTexture_cols(mp_handle, *pTO, boxScreen, colUL, colUR, colDL, colDR);
+  CDrawPort_PutTexture_cols(mp_handle, pTO, boxScreen, colUL, colUR, colDL, colDR);
 }
 
-inline void CDrawPort::PutTexture(CTextureObject* pTO, const PIXaabbox2D& boxScreen, const MEXaabbox2D& boxTexture, const COLOR colBlend) const
+inline void CDrawPort::PutTexture(CTextureObject_* pTO, const PIXaabbox2D& boxScreen, const MEXaabbox2D& boxTexture, const COLOR colBlend) const
 {
-  CDrawPort_PutTexture_box_b(mp_handle, *pTO, boxScreen, boxTexture, colBlend);
+  CDrawPort_PutTexture_box_b(mp_handle, pTO, boxScreen, boxTexture, colBlend);
 }
 
-inline void CDrawPort::PutTexture(CTextureObject* pTO, const PIXaabbox2D& boxScreen, const MEXaabbox2D& boxTexture, const COLOR colUL, const COLOR colUR, const COLOR colDL, const COLOR colDR) const
+inline void CDrawPort::PutTexture(CTextureObject_* pTO, const PIXaabbox2D& boxScreen, const MEXaabbox2D& boxTexture, const COLOR colUL, const COLOR colUR, const COLOR colDL, const COLOR colDR) const
 {
-  CDrawPort_PutTexture_box_cols(mp_handle, *pTO, boxScreen, boxTexture, colUL, colUR, colDL, colDR);
+  CDrawPort_PutTexture_box_cols(mp_handle, pTO, boxScreen, boxTexture, colUL, colUR, colDL, colDR);
 }
 
-inline void CDrawPort::InitTexture(CTextureObject* pTO, const BOOL bClamp) const
+inline void CDrawPort::InitTexture(CTextureObject_* pTO, const BOOL bClamp) const
 {
-  CDrawPort_InitTexture(mp_handle, *pTO, bClamp);
+  CDrawPort_InitTexture(mp_handle, pTO, bClamp);
 }
 
 inline void CDrawPort::AddTexture(const FLOAT fI0, const FLOAT fJ0, const FLOAT fI1, const FLOAT fJ1, const COLOR col) const
@@ -321,9 +321,9 @@ inline void CDrawPort::BlendScreen()
 }
 
 
-inline void Particle_PrepareSystem(CDrawPort* pdpDrawPort, CAnyProjection3D& prProjection)
+inline void Particle_PrepareSystem(CDrawPort_* pdpDrawPort, CAnyProjection3D& prProjection)
 {
-  Particle_PrepareSystem_(*pdpDrawPort, prProjection);
+  Particle_PrepareSystem_(pdpDrawPort, prProjection);
 }
 
 inline void Particle_PrepareEntity(FLOAT fMipFactor, BOOL bHasFog, BOOL bHasHaze, CEntity_* penViewer)
@@ -356,9 +356,9 @@ __forceinline CProjection3DPtr Particle_GetProjection()
   return Particle_GetProjection_();
 }
 
-inline void Particle_PrepareTexture(CTextureObject* pto, ParticleBlendType pbt)
+inline void Particle_PrepareTexture(CTextureObject_* pto, ParticleBlendType pbt)
 {
-  Particle_PrepareTexture_(*pto, (ParticleBlendType_)pbt);
+  Particle_PrepareTexture_(pto, (ParticleBlendType_)pbt);
 }
 
 inline void Particle_SetTexturePart(MEX mexWidth, MEX mexHeight, INDEX iCol, INDEX iRow)

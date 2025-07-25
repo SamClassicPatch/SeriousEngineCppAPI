@@ -69,17 +69,17 @@ public:
   void PutTextR(const CTString& strText, PIX pixX0, PIX pixY0, const COLOR colBlend = 0xFFFFFFFF) const;
 
   // plain texture display
-  void PutTexture(CTextureObject* pTO, const PIXaabbox2D& boxScreen,
+  void PutTexture(CTextureObject_* pTO, const PIXaabbox2D& boxScreen,
     const COLOR colBlend = 0xFFFFFFFF) const;
-  void PutTexture(CTextureObject* pTO, const PIXaabbox2D& boxScreen,
+  void PutTexture(CTextureObject_* pTO, const PIXaabbox2D& boxScreen,
     const COLOR colUL, const COLOR colUR, const COLOR colDL, const COLOR colDR) const;
-  void PutTexture(CTextureObject* pTO, const PIXaabbox2D& boxScreen,
+  void PutTexture(CTextureObject_* pTO, const PIXaabbox2D& boxScreen,
     const MEXaabbox2D& boxTexture, const COLOR colBlend = 0xFFFFFFFF) const;
-  void PutTexture(CTextureObject* pTO, const PIXaabbox2D& boxScreen, const MEXaabbox2D& boxTexture,
+  void PutTexture(CTextureObject_* pTO, const PIXaabbox2D& boxScreen, const MEXaabbox2D& boxTexture,
     const COLOR colUL, const COLOR colUR, const COLOR colDL, const COLOR colDR) const;
 
   // advanced texture display
-  void InitTexture(CTextureObject* pTO, const BOOL bClamp = FALSE) const; // prepares texture and rendering arrays
+  void InitTexture(CTextureObject_* pTO, const BOOL bClamp = FALSE) const; // prepares texture and rendering arrays
   // adds one full texture to rendering queue
   void AddTexture(const FLOAT fI0, const FLOAT fJ0, const FLOAT fI1, const FLOAT fJ1, const COLOR col) const;
   // adds one part of texture to rendering queue
@@ -185,14 +185,14 @@ enum ParticleBlendType : ParticleBlendType_
   PBT_TRANSPARENT = PBT_TRANSPARENT_,
 };
 
-void Particle_PrepareSystem(CDrawPort* pdpDrawPort, CAnyProjection3D& prProjection);
+void Particle_PrepareSystem(CDrawPort_* pdpDrawPort, CAnyProjection3D& prProjection);
 void Particle_PrepareEntity(FLOAT fMipFactor, BOOL bHasFog, BOOL bHasHaze, CEntity_* penViewer);
 void Particle_EndSystem(BOOL bRestoreOrtho = TRUE);
 FLOAT Particle_GetMipFactor();
 INDEX Particle_GetDrawPortID();
 CEntity_* Particle_GetViewer();
 CProjection3DPtr Particle_GetProjection();
-void Particle_PrepareTexture(CTextureObject* pto, ParticleBlendType pbt);
+void Particle_PrepareTexture(CTextureObject_* pto, ParticleBlendType pbt);
 void Particle_SetTexturePart(MEX mexWidth, MEX mexHeight, INDEX iCol, INDEX iRow);
 void Particle_RenderSquare(const FLOAT3D& vPos, FLOAT fSize, ANGLE aRotation, COLOR col, FLOAT fYRatio = 1.0f);
 void Particle_RenderQuad3D(const FLOAT3D& vPos0, const FLOAT3D& vPos1, const FLOAT3D& vPos2,
