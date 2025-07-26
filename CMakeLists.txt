@@ -113,6 +113,8 @@ set(SRC_SOUND
   Sound/SoundData.inl
   Sound/SoundLibrary.h
   Sound/SoundLibrary.inl
+  Sound/SoundListener.h
+  Sound/SoundListener.inl
   Sound/SoundObject.h
   Sound/SoundObject.inl
 )

@@ -39,3 +39,8 @@ inline void _pSound_RemoveSoundAware(CSoundData& CsdRemove)
 {
   _pSound_RemoveSoundAware_(CsdRemove);
 }
+
+inline void _pSound_Listen(CSoundListener& sl)
+{
+  _pSound_Listen_(sl);
+}

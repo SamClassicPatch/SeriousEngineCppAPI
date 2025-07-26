@@ -28,6 +28,7 @@
 
 #include "Sound/SoundObject.h"
 #include "Sound/SoundLibrary.h"
+#include "Sound/SoundListener.h"
 
 #include "Graphics/Texture.h"
 #include "Graphics/Color.h"

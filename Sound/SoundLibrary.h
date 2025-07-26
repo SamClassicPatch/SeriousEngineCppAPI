@@ -1,6 +1,7 @@
 #pragma once
 #include "../Base/Types.h"
 #include "SoundData.h"
+#include "SoundListener.h"
 #include <SeriousEngineCAPI/Sound/SoundLibrary.h>
 
 namespace CSoundLibrary
@@ -34,6 +35,9 @@ BOOL _pSound_SetEnvironment(INDEX iEnvNo, FLOAT fEnvSize = 0);
 void _pSound_AddSoundAware(CSoundData& CsdAdd);
 /* Remove a sound mode aware object */
 void _pSound_RemoveSoundAware(CSoundData& CsdRemove);
+
+// listen from this listener this frame
+void _pSound_Listen(CSoundListener& sl);
 
 #define snd_iFormat\
   (*snd_iFormat_())

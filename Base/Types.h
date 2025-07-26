@@ -127,6 +127,7 @@ class CRaster;
 class CDisplayMode;
 class CSoundData;
 class CSoundObject;
+class CSoundListener;
 class CFontData;
 class CFontCharData;
 class CEntity;
