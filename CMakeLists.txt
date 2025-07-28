@@ -145,5 +145,7 @@ add_library(${PROJECT_NAME} INTERFACE
   ${SRC_TEMPLATES}
   Engine.h
   Engine.inl
+  GameShell.h
+  GameShell.inl
 )
 target_include_directories(${PROJECT_NAME} INTERFACE $<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}>)
