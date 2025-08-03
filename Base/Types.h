@@ -57,6 +57,8 @@ class CTimerValue;
 class CTimerHandler;
 class CChangeable;
 class CUpdateable;
+class CChangeableRT;
+class CUpdateableRT;
 class CSerial;
 class CAnimInfo;
 class COneAnim;

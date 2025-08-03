@@ -8,6 +8,8 @@ set(SRC_BASE
   Base/Anim.inl
   Base/Changeable.h
   Base/Changeable.inl
+  Base/ChangeableRT.h
+  Base/ChangeableRT.inl
   Base/CTString.h
   Base/CTString.inl
   Base/CTStringDecl.h
@@ -40,6 +42,8 @@ set(SRC_BASE
   Base/Types.h
   Base/Updateable.h
   Base/Updateable.inl
+  Base/UpdateableRT.h
+  Base/UpdateableRT.inl
 )
 source_group("Base" FILES ${SRC_BASE})
 
