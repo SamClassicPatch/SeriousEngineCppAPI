@@ -140,6 +140,12 @@ set(SRC_TEMPLATES
 )
 source_group("Templates" FILES ${SRC_TEMPLATES})
 
+set(SRC_TERRAIN
+  Terrain/TerrainLayer.h
+  Terrain/TerrainLayer.inl
+)
+source_group("Terrain" FILES ${SRC_TERRAIN})
+
 add_library(${PROJECT_NAME} INTERFACE
   ${SRC_BASE}
   ${SRC_GRAPHICS}
@@ -147,6 +153,7 @@ add_library(${PROJECT_NAME} INTERFACE
   ${SRC_MODELS}
   ${SRC_SOUND}
   ${SRC_TEMPLATES}
+  ${SRC_TERRAIN}
   Engine.h
   Engine.inl
   GameShell.h
