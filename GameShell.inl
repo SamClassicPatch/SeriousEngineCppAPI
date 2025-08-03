@@ -25,11 +25,6 @@ inline void GameGUI_interface::QuickTest(const CTFileName& fnMapName, CDrawPort_
   GameGUI_interface_QuickTest(mp_handle, fnMapName, pdpDrawport, pvpViewport);
 }
 
-inline void GameGUI_interface::OnInvokeConsole()
-{
-  GameGUI_interface_OnInvokeConsole(mp_handle);
-}
-
 inline void GameGUI_interface::OnPlayerSettings()
 {
   GameGUI_interface_OnPlayerSettings(mp_handle);

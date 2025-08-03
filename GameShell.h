@@ -17,8 +17,6 @@ public:
   void End();
   // run a quicktest game from within editor
   void QuickTest(const CTFileName& fnMapName, CDrawPort_* pdpDrawport, CViewPort_* pvpViewport);
-  // show console window
-  void OnInvokeConsole();
   // adjust players and controls
   void OnPlayerSettings();
   // adjust audio settings
