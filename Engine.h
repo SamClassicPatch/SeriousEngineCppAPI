@@ -45,6 +45,7 @@
 
 // some global stuff
 void SE_InitEngine(CTString strGameID);
+void SE_InitEngineAtDirectory(CTString strGameID, const CTFileName& fnAppPath, const CTFileName& fnExePath);
 void SE_EndEngine();
 void SE_LoadDefaultFonts();
 void SE_UpdateWindowHandle(HWND hwndWindowed);

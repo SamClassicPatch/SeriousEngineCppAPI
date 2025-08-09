@@ -7,6 +7,12 @@ inline void SE_InitEngine(CTString strGameID)
   SECppAPI_CheckException();
 }
 
+inline void SE_InitEngineAtDirectory(CTString strGameID, const CTFileName& fnAppPath, const CTFileName& fnExePath)
+{
+  SE_InitEngineAtDirectory_(strGameID, fnAppPath, fnExePath);
+  SECppAPI_CheckException();
+}
+
 inline void SE_EndEngine()
 {
   SE_EndEngine_();
