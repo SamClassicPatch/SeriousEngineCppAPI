@@ -258,3 +258,11 @@ inline GFXNormal4& GFXNormal4::operator=(const GFXNormal4& o)
   GFXNormal4_copy(mp_handle, o);
   return *this;
 }
+
+IMPL_CStaticArray(GFXColor)
+IMPL_CStaticArray(GFXTexCoord)
+IMPL_CStaticArray(GFXVertex4)
+
+IMPL_CStaticStackArray(GFXColor)
+IMPL_CStaticStackArray(GFXTexCoord)
+IMPL_CStaticStackArray(GFXVertex4)
