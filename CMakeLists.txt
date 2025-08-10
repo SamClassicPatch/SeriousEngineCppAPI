@@ -147,6 +147,8 @@ set(SRC_TERRAIN
   Terrain/ArrayHolder.inl
   Terrain/TerrainLayer.h
   Terrain/TerrainLayer.inl
+  Terrain/TerrainTile.h
+  Terrain/TerrainTile.inl
 )
 source_group("Terrain" FILES ${SRC_TERRAIN})
 

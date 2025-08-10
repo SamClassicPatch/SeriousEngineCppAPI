@@ -153,6 +153,7 @@ class CEntity;
 class TileLayer;
 class TileArrays;
 class CArrayHolder;
+class CTerrainTile;
 
 using CTextureDataPtr = TPointer<CTextureData, CTextureData_>;
 using CTextureObjectPtr = TPointer<CTextureObject, CTextureObject_>;
