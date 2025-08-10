@@ -64,6 +64,8 @@ set(SRC_GRAPHICS
   Graphics/Raster.inl
   Graphics/Texture.h
   Graphics/Texture.inl
+  Graphics/Vertex.h
+  Graphics/Vertex.inl
   Graphics/ViewPort.h
   Graphics/ViewPort.inl
 )
