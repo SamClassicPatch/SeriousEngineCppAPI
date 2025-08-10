@@ -125,6 +125,8 @@ class CStaticArray_SLONG;
 class CStaticArray_GFXColor;
 class CStaticArray_GFXTexCoord;
 class CStaticArray_GFXVertex4;
+class CStaticArray_TileLayer;
+class CStaticArray_TileArrays;
 class CStaticStackArray_INDEX;
 class CStaticStackArray_SLONG;
 class CStaticStackArray_FLOAT3D;
@@ -132,6 +134,8 @@ class CStaticStackArray_PIX2D;
 class CStaticStackArray_GFXColor;
 class CStaticStackArray_GFXTexCoord;
 class CStaticStackArray_GFXVertex4;
+class CStaticStackArray_TileLayer;
+class CStaticStackArray_TileArrays;
 class CModelRenderPrefs;
 class CRenderModel;
 class CModelObject;
@@ -146,6 +150,9 @@ class CSoundListener;
 class CFontData;
 class CFontCharData;
 class CEntity;
+class TileLayer;
+class TileArrays;
+class CArrayHolder;
 
 using CTextureDataPtr = TPointer<CTextureData, CTextureData_>;
 using CTextureObjectPtr = TPointer<CTextureObject, CTextureObject_>;
@@ -185,6 +192,8 @@ using COneAnimPtr = TPointer<COneAnim, COneAnim_>;
 using GFXColorPtr = TPointer<GFXColor, GFXColor_>;
 using GFXTexCoordPtr = TPointer<GFXTexCoord, GFXTexCoord_>;
 using GFXVertex4Ptr = TPointer<GFXVertex4, GFXVertex4_>;
+using TileLayerPtr = TPointer<TileLayer, TileLayer_>;
+using TileArraysPtr = TPointer<TileArrays, TileArrays_>;
 
 inline void SECppAPI_CheckException()
 {

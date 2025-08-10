@@ -143,6 +143,8 @@ set(SRC_TEMPLATES
 source_group("Templates" FILES ${SRC_TEMPLATES})
 
 set(SRC_TERRAIN
+  Terrain/ArrayHolder.h
+  Terrain/ArrayHolder.inl
   Terrain/TerrainLayer.h
   Terrain/TerrainLayer.inl
 )

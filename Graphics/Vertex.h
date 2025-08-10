@@ -1,7 +1,5 @@
 #pragma once
 #include "../Base/Types.h"
-#include "../Templates/StaticArray.h"
-#include "../Templates/StaticStackArray.h"
 #include <SeriousEngineCAPI/Graphics/Vertex.h>
 
 class GFXVertex3
@@ -186,13 +184,5 @@ public:
   FLOAT& nz;
   ULONG& ul;
 };
-
-DECLARE_CStaticArray(GFXColor)
-DECLARE_CStaticArray(GFXTexCoord)
-DECLARE_CStaticArray(GFXVertex4)
-
-DECLARE_CStaticStackArray(GFXColor)
-DECLARE_CStaticStackArray(GFXTexCoord)
-DECLARE_CStaticStackArray(GFXVertex4)
 
 #include "Vertex.inl"
