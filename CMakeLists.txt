@@ -157,6 +157,8 @@ set(SRC_TERRAIN
   Terrain/Terrain.inl
   Terrain/TerrainLayer.h
   Terrain/TerrainLayer.inl
+  Terrain/TerrainMisc.h
+  Terrain/TerrainMisc.inl
   Terrain/TerrainTile.h
   Terrain/TerrainTile.inl
 )
