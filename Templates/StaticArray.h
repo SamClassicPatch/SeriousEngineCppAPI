@@ -1,6 +1,7 @@
 #pragma once
 #include "../Base/Types.h"
 #include "../Math/Vector.h"
+#include "../Graphics/Texture.h"
 #include <SeriousEngineCAPI/Templates/StaticArray.h>
 
 #define DECLARE_CStaticArray(TYPE)\
@@ -48,6 +49,7 @@
 DECLARE_CStaticArray(PIX2D)
 DECLARE_CStaticArray(FLOAT2D)
 DECLARE_CStaticArray(FLOAT3D)
+DECLARE_CStaticArray(CTextureData)
 
 #define DECLARE_CStaticArray_simple(TYPE)\
   class CStaticArray_##TYPE\

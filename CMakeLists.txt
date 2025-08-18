@@ -47,6 +47,12 @@ set(SRC_BASE
 )
 source_group("Base" FILES ${SRC_BASE})
 
+set(SRC_ENTITIES
+  Entities/ShadingInfo.h
+  Entities/ShadingInfo.inl
+)
+source_group("Entities" FILES ${SRC_ENTITIES})
+
 set(SRC_GRAPHICS
   Graphics/Color.h
   Graphics/Color.inl
@@ -129,6 +135,8 @@ source_group("Sound" FILES ${SRC_SOUND})
 set(SRC_TEMPLATES
   Templates/DynamicArray.h
   Templates/DynamicArray.inl
+  Templates/DynamicContainer.h
+  Templates/DynamicContainer.inl
   Templates/DynamicStackArray.h
   Templates/DynamicStackArray.inl
   Templates/StaticArray.h
@@ -145,6 +153,8 @@ source_group("Templates" FILES ${SRC_TEMPLATES})
 set(SRC_TERRAIN
   Terrain/ArrayHolder.h
   Terrain/ArrayHolder.inl
+  Terrain/Terrain.h
+  Terrain/Terrain.inl
   Terrain/TerrainLayer.h
   Terrain/TerrainLayer.inl
   Terrain/TerrainTile.h
@@ -154,6 +164,7 @@ source_group("Terrain" FILES ${SRC_TERRAIN})
 
 add_library(${PROJECT_NAME} INTERFACE
   ${SRC_BASE}
+  ${SRC_ENTITIES}
   ${SRC_GRAPHICS}
   ${SRC_MATH}
   ${SRC_MODELS}
