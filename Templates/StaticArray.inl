@@ -70,6 +70,7 @@
 IMPL_CStaticArray(PIX2D)
 IMPL_CStaticArray(FLOAT2D)
 IMPL_CStaticArray(FLOAT3D)
+IMPL_CStaticArray(DOUBLE3D)
 IMPL_CStaticArray(CTextureData)
 
 #define IMPL_CStaticArray_simple(TYPE)\

@@ -75,6 +75,45 @@ public:
       CDynamicArray_##TYPE##_* mp_array = nullptr;\
   };
 
+#define DECLARE_CDynamicArrayNoClear(TYPE)\
+  class CDynamicArray_##TYPE\
+  {\
+    public:\
+      using TIterType = CDynamicArrayIterator<TPointer<TYPE, TYPE##_>, CDynamicArray_##TYPE>;\
+      CDynamicArray_##TYPE(CDynamicArray_##TYPE##_* p, bool dummy = false);\
+      ~CDynamicArray_##TYPE();\
+      \
+      CDynamicArray_##TYPE& operator=(CDynamicArray_##TYPE& o);\
+      \
+      /* Grow pointer array by a given number of indices. */\
+      void GrowPointers(INDEX count);\
+      /* Shrink pointer array by a given number of indices. */\
+      void ShrinkPointers(INDEX count);\
+      /* Allocate a new memory block. */\
+      TYPE##Ptr AllocBlock(INDEX count);\
+      /* Get index of a object from it's pointer. */\
+      INDEX GetIndex(TYPE##_* element);\
+      /* Create a given number of new objects. */\
+      TYPE##Ptr New(INDEX iCount = 1);\
+      /* Get pointer to a object from it's index. */\
+      TYPE##Ptr Pointer(INDEX iObject);\
+      const TYPE##Ptr Pointer(INDEX iObject) const;\
+      /* Random access operator. */\
+      TYPE##Ptr operator[](INDEX iObject);\
+      const TYPE##Ptr operator[](INDEX iObject) const;\
+      /* Move all elements of another array into this one. */\
+      void MoveArray(CDynamicArray_##TYPE& arOther);\
+      /* Get number of objects in array. */\
+      INDEX Count() const;\
+      \
+      inline CDynamicArray_##TYPE##_* C_Handle() { return mp_array; }\
+      inline const CDynamicArray_##TYPE##_* C_Handle() const { return mp_array; }\
+      inline operator CDynamicArray_##TYPE##_* () { return C_Handle(); }\
+      inline operator const CDynamicArray_##TYPE##_* () const { return C_Handle(); }\
+    protected:\
+      CDynamicArray_##TYPE##_* mp_array = nullptr;\
+  };
+
 DECLARE_CDynamicArray(CTString)
 DECLARE_CDynamicArray(CTFileName)
 DECLARE_CDynamicArray(CTranslationPair)

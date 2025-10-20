@@ -49,6 +49,7 @@
 DECLARE_CStaticArray(PIX2D)
 DECLARE_CStaticArray(FLOAT2D)
 DECLARE_CStaticArray(FLOAT3D)
+DECLARE_CStaticArray(DOUBLE3D)
 DECLARE_CStaticArray(CTextureData)
 
 #define DECLARE_CStaticArray_simple(TYPE)\

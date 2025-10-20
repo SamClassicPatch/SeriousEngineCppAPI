@@ -79,6 +79,59 @@
     return CDynamicArray_##TYPE##_Count(mp_array);\
   }
 
+#define IMPL_CDynamicArrayNoClear(TYPE)\
+  inline CDynamicArray_##TYPE::CDynamicArray_##TYPE(CDynamicArray_##TYPE##_* p, bool)\
+    : mp_array(p)\
+  {\
+  }\
+  inline CDynamicArray_##TYPE::~CDynamicArray_##TYPE()\
+  {\
+  }\
+  inline void CDynamicArray_##TYPE::GrowPointers(INDEX count)\
+  {\
+    CDynamicArray_##TYPE##_GrowPointers(mp_array, count);\
+  }\
+  inline void CDynamicArray_##TYPE::ShrinkPointers(INDEX count)\
+  {\
+    CDynamicArray_##TYPE##_ShrinkPointers(mp_array, count);\
+  }\
+  __forceinline TYPE##Ptr CDynamicArray_##TYPE::AllocBlock(INDEX count)\
+  {\
+    return CDynamicArray_##TYPE##_AllocBlock(mp_array, count);\
+  }\
+  inline INDEX CDynamicArray_##TYPE::GetIndex(TYPE##_* element)\
+  {\
+    return CDynamicArray_##TYPE##_GetIndex(mp_array, element);\
+  }\
+  __forceinline TYPE##Ptr CDynamicArray_##TYPE::New(INDEX iCount)\
+  {\
+    return CDynamicArray_##TYPE##_New(mp_array, iCount);\
+  }\
+  __forceinline TYPE##Ptr CDynamicArray_##TYPE::Pointer(INDEX iObject)\
+  {\
+    return CDynamicArray_##TYPE##_Element(mp_array, iObject);\
+  }\
+  __forceinline const TYPE##Ptr CDynamicArray_##TYPE::Pointer(INDEX iObject) const\
+  {\
+    return (TYPE##_*)CDynamicArray_##TYPE##_Element_const(mp_array, iObject);\
+  }\
+  __forceinline TYPE##Ptr CDynamicArray_##TYPE::operator[](INDEX iObject)\
+  {\
+    return CDynamicArray_##TYPE##_Element(mp_array, iObject);\
+  }\
+  __forceinline const TYPE##Ptr CDynamicArray_##TYPE::operator[](INDEX iObject) const\
+  {\
+    return (TYPE##_*)CDynamicArray_##TYPE##_Element_const(mp_array, iObject);\
+  }\
+  inline void CDynamicArray_##TYPE::MoveArray(CDynamicArray_##TYPE& arOther)\
+  {\
+    CDynamicArray_##TYPE##_MoveArray(mp_array, arOther);\
+  }\
+  inline INDEX CDynamicArray_##TYPE::Count() const\
+  {\
+    return CDynamicArray_##TYPE##_Count(mp_array);\
+  }
+
 IMPL_CDynamicArray(CTString)
 IMPL_CDynamicArray(CTFileName)
 IMPL_CDynamicArray(CTranslationPair)

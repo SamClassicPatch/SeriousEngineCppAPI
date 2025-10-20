@@ -47,6 +47,7 @@ class CPlacement3D;
 class FLOATplane3D;
 class DOUBLEplane3D;
 class CProjection3D;
+class CSimpleProjection3D_DOUBLE;
 class CPlanarGradients;
 class CMappingDefinitionUI;
 class CMappingVectors;
@@ -118,6 +119,7 @@ class CStaticArray_ModelPolygonVertex;
 class CStaticArray_PIX2D;
 class CStaticArray_FLOAT2D;
 class CStaticArray_FLOAT3D;
+class CStaticArray_DOUBLE3D;
 class CStaticArray_UWORD;
 class CStaticArray_ULONG;
 class CStaticArray_INDEX;
@@ -171,52 +173,75 @@ class CTerrain;
 class QuadTreeNode;
 class QuadTreeLevel;
 class Rect;
+class CObjectVertex;
+class CObjectPlane;
+class CObjectEdge;
+class CObjectMaterial;
+class CObjectPolygonEdge;
+class CObjectPolygon;
+class CObjectSector;
+class CEdgeEx;
+class CObject3D;
 
-using CTextureDataPtr = TPointer<CTextureData, CTextureData_>;
-using CTextureObjectPtr = TPointer<CTextureObject, CTextureObject_>;
-using CModelDataPtr = TPointer<CModelData, CModelData_>;
-using CModelObjectPtr = TPointer<CModelObject, CModelObject_>;
-using ModelTextureVertexPtr = TPointer<ModelTextureVertex, ModelTextureVertex_>;
-using CDrawPortPtr = TPointer<CDrawPort, CDrawPort_>;
-using CViewPortPtr = TPointer<CViewPort, CViewPort_>;
-using CFontDataPtr = TPointer<CFontData, CFontData_>;
-using CAnimDataPtr = TPointer<CAnimData, CAnimData_>;
-using CTStringPtr = TPointer<CTString, CTString_>;
-using CTFileNamePtr = TPointer<CTFileName, CTFileName_>;
-using CTCriticalSectionPtr = TPointer<CTCriticalSection, CTCriticalSection_>;
-using CProjection3DPtr = TPointer<CProjection3D, CProjection3D_>;
-using CFontCharDataPtr = TPointer<CFontCharData, CFontCharData_>;
-using CAttachmentModelObjectPtr = TPointer<CAttachmentModelObject, CAttachmentModelObject_>;
-using ModelPolygonPtr = TPointer<ModelPolygon, ModelPolygon_>;
-using CTranslationPairPtr = TPointer<CTranslationPair, CTranslationPair_>;
-using CModelCollisionBoxPtr = TPointer<CModelCollisionBox, CModelCollisionBox_>;
-using CAttachedModelPositionPtr = TPointer<CAttachedModelPosition, CAttachedModelPosition_>;
-using CDisplayModePtr = TPointer<CDisplayMode, CDisplayMode_>;
-using CListHeadPtr = TPointer<CListHead, CListHead_>;
-using CListNodePtr = TPointer<CListNode, CListNode_>;
-using MappingSurfacePtr = TPointer<MappingSurface, MappingSurface_>;
-using PolygonsPerPatchPtr = TPointer<PolygonsPerPatch, PolygonsPerPatch_>;
-using ModelFrameVertex8Ptr = TPointer<ModelFrameVertex8, ModelFrameVertex8_>;
-using ModelFrameVertex16Ptr = TPointer<ModelFrameVertex16, ModelFrameVertex16_>;
-using ModelFrameInfoPtr = TPointer<ModelFrameInfo, ModelFrameInfo_>;
-using TransformedVertexDataPtr = TPointer<TransformedVertexData, TransformedVertexData_>;
-using ModelPolygonVertexPtr = TPointer<ModelPolygonVertex, ModelPolygonVertex_>;
-using PIX2DPtr = TPointer<PIX2D, PIX2D_>;
-using FLOAT2DPtr = TPointer<FLOAT2D, FLOAT2D_>;
-using FLOAT3DPtr = TPointer<FLOAT3D, FLOAT3D_>;
-using ModelMipInfoPtr = TPointer<ModelMipInfo, ModelMipInfo_>;
-using CRenderModelPtr = TPointer<CRenderModel, CRenderModel_>;
-using COneAnimPtr = TPointer<COneAnim, COneAnim_>;
-using GFXColorPtr = TPointer<GFXColor, GFXColor_>;
-using GFXTexCoordPtr = TPointer<GFXTexCoord, GFXTexCoord_>;
-using GFXVertex4Ptr = TPointer<GFXVertex4, GFXVertex4_>;
-using TileLayerPtr = TPointer<TileLayer, TileLayer_>;
-using TileArraysPtr = TPointer<TileArrays, TileArrays_>;
-using QuadTreeNodePtr = TPointer<QuadTreeNode, QuadTreeNode_>;
-using QuadTreeLevelPtr = TPointer<QuadTreeLevel, QuadTreeLevel_>;
-using CTerrainTilePtr = TPointer<CTerrainTile, CTerrainTile_>;
-using CArrayHolderPtr = TPointer<CArrayHolder, CArrayHolder_>;
-using CTerrainLayerPtr = TPointer<CTerrainLayer, CTerrainLayer_>;
+#define DECL_PTR(classname) using classname##Ptr = TPointer<classname, classname##_>;
+
+DECL_PTR(CTextureData)
+DECL_PTR(CTextureObject)
+DECL_PTR(CModelData)
+DECL_PTR(CModelObject)
+DECL_PTR(ModelTextureVertex)
+DECL_PTR(CDrawPort)
+DECL_PTR(CViewPort)
+DECL_PTR(CFontData)
+DECL_PTR(CAnimData)
+DECL_PTR(CTString)
+DECL_PTR(CTFileName)
+DECL_PTR(CTCriticalSection)
+DECL_PTR(CProjection3D)
+DECL_PTR(CFontCharData)
+DECL_PTR(CAttachmentModelObject)
+DECL_PTR(ModelPolygon)
+DECL_PTR(CTranslationPair)
+DECL_PTR(CModelCollisionBox)
+DECL_PTR(CAttachedModelPosition)
+DECL_PTR(CDisplayMode)
+DECL_PTR(CListHead)
+DECL_PTR(CListNode)
+DECL_PTR(MappingSurface)
+DECL_PTR(PolygonsPerPatch)
+DECL_PTR(ModelFrameVertex8)
+DECL_PTR(ModelFrameVertex16)
+DECL_PTR(ModelFrameInfo)
+DECL_PTR(TransformedVertexData)
+DECL_PTR(ModelPolygonVertex)
+DECL_PTR(PIX2D)
+DECL_PTR(FLOAT2D)
+DECL_PTR(FLOAT3D)
+DECL_PTR(DOUBLE3D)
+DECL_PTR(ModelMipInfo)
+DECL_PTR(CRenderModel)
+DECL_PTR(COneAnim)
+DECL_PTR(GFXColor)
+DECL_PTR(GFXTexCoord)
+DECL_PTR(GFXVertex4)
+DECL_PTR(TileLayer)
+DECL_PTR(TileArrays)
+DECL_PTR(QuadTreeNode)
+DECL_PTR(QuadTreeLevel)
+DECL_PTR(CTerrainTile)
+DECL_PTR(CArrayHolder)
+DECL_PTR(CTerrainLayer)
+DECL_PTR(CTerrain)
+DECL_PTR(CEntity)
+DECL_PTR(CObjectEdge)
+DECL_PTR(CObjectPolygonEdge)
+DECL_PTR(CObjectVertex)
+DECL_PTR(CObjectPlane)
+DECL_PTR(CObjectMaterial)
+DECL_PTR(CObjectPolygon)
+DECL_PTR(CObjectSector)
+
+#undef DECL_PTR
 
 inline void SECppAPI_CheckException()
 {

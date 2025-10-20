@@ -90,12 +90,15 @@ set(SRC_MATH
   Math/OBBox.h
   Math/OBBox.inl
   Math/Object3D.h
+  Math/Object3D.inl
   Math/Placement.h
   Math/Placement.inl
   Math/Plane.h
   Math/Plane.inl
   Math/Projection.h
   Math/Projection.inl
+  Math/Projection_DOUBLE.h
+  Math/Projection_DOUBLE.inl
   Math/Quaternion.h
   Math/Quaternion.inl
   Math/TextureMapping.h
