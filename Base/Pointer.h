@@ -1,4 +1,5 @@
 #pragma once
+#include <optional>
 
 template<typename TObject, typename TObjectCHandle>
 class TPointer

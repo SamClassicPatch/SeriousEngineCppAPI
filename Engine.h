@@ -26,6 +26,8 @@
 #include "Models/Model_internal.h"
 #include "Models/RenderModel.h"
 
+#include "Rendering/Render.h"
+
 #include "Sound/SoundObject.h"
 #include "Sound/SoundLibrary.h"
 #include "Sound/SoundListener.h"

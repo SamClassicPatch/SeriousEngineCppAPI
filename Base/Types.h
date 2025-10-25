@@ -1,6 +1,5 @@
 #pragma once
 #include <SeriousEngineCAPI/Base/Types.h>
-#include <optional>
 #include "Pointer.h"
 
 #define NONE 0
@@ -182,6 +181,7 @@ class CObjectPolygon;
 class CObjectSector;
 class CEdgeEx;
 class CObject3D;
+class CWorldRenderPrefs;
 
 #define DECL_PTR(classname) using classname##Ptr = TPointer<classname, classname##_>;
 
