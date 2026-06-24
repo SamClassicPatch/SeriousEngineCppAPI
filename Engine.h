@@ -14,6 +14,9 @@
 #include "Base/Statistics.h"
 #include <SeriousEngineCAPI/Base/Memory.h>
 
+#include "Brushes/Brush.h"
+#include "Brushes/BrushTransformed.h"
+
 #include "Math/Geometry.h"
 #include <SeriousEngineCAPI/Math/Clipping.h>
 #include "Math/Object3D.h"

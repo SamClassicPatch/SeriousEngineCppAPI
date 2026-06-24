@@ -24,6 +24,8 @@ set(SRC_BASE
   Base/Lists.h
   Base/Lists.inl
   Base/Pointer.h
+  Base/Relations.h
+  Base/Relations.inl
   Base/Serial.h
   Base/Serial.inl
   Base/Shell.h
@@ -46,6 +48,14 @@ set(SRC_BASE
   Base/UpdateableRT.inl
 )
 source_group("Base" FILES ${SRC_BASE})
+
+set(SRC_BRUSHES
+  Brushes/Brush.h
+  Brushes/Brush.inl
+  Brushes/BrushTransformed.h
+  Brushes/BrushTransformed.inl
+)
+source_group("Brushes" FILES ${SRC_BRUSHES})
 
 set(SRC_ENTITIES
   Entities/ShadingInfo.h
@@ -148,6 +158,8 @@ set(SRC_TEMPLATES
   Templates/DynamicContainer.inl
   Templates/DynamicStackArray.h
   Templates/DynamicStackArray.inl
+  Templates/Selection.h
+  Templates/Selection.inl
   Templates/StaticArray.h
   Templates/StaticArray.inl
   Templates/StaticStackArray.h
@@ -175,6 +187,7 @@ source_group("Terrain" FILES ${SRC_TERRAIN})
 
 add_library(${PROJECT_NAME} INTERFACE
   ${SRC_BASE}
+  ${SRC_BRUSHES}
   ${SRC_ENTITIES}
   ${SRC_GRAPHICS}
   ${SRC_MATH}

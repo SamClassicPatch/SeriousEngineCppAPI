@@ -134,6 +134,9 @@ class CStaticArray_QuadTreeLevel;
 class CStaticArray_CTerrainTile;
 class CStaticArray_CArrayHolder;
 class CStaticArray_CTerrainLayer;
+class CStaticArray_CBrushVertex;
+class CStaticArray_CBrushPolygon;
+class CStaticArray_CBrushSector;
 class CStaticStackArray_INDEX;
 class CStaticStackArray_SLONG;
 class CStaticStackArray_FLOAT3D;
@@ -147,7 +150,16 @@ class CStaticStackArray_CTextureData;
 class CStaticStackArray_QuadTreeNode;
 class CStaticStackArray_QuadTreeLevel;
 class CStaticStackArray_CTerrainLayer;
+class CStaticStackArray_CBrushVertex;
+class CStaticStackArray_CBrushPolygon;
+class CStaticStackArray_CBrushSector;
 class CDynamicContainer_CTextureData;
+class CDynamicContainer_CBrushVertex;
+class CDynamicContainer_CBrushPolygon;
+class CDynamicContainer_CBrushSector;
+class CSelection_CBrushVertex;
+class CSelection_CBrushPolygon;
+class CSelection_CBrushSector;
 class CModelRenderPrefs;
 class CRenderModel;
 class CModelObject;
@@ -182,6 +194,22 @@ class CObjectSector;
 class CEdgeEx;
 class CObject3D;
 class CWorldRenderPrefs;
+class CWorkingVertex;
+class CWorkingPlane;
+class CWorkingEdge;
+class CBrushVertex;
+class CBrushPlane;
+class CBrushEdge;
+class CBrushPolygonEdge;
+class CBrushShadowLayer;
+class CBrushShadowMap;
+class CBrushPolygonTexture;
+class CBrushPolygonProperties;
+class CBrushPolygon;
+class CBrushSector;
+class CBrushMip;
+class CBrush3D;
+class CRelationLnk;
 
 #define DECL_PTR(classname) using classname##Ptr = TPointer<classname, classname##_>;
 
@@ -240,6 +268,22 @@ DECL_PTR(CObjectPlane)
 DECL_PTR(CObjectMaterial)
 DECL_PTR(CObjectPolygon)
 DECL_PTR(CObjectSector)
+DECL_PTR(CWorkingVertex)
+DECL_PTR(CWorkingPlane)
+DECL_PTR(CWorkingEdge)
+DECL_PTR(CBrushVertex)
+DECL_PTR(CBrushPlane)
+DECL_PTR(CBrushEdge)
+DECL_PTR(CBrushPolygonEdge)
+DECL_PTR(CBrushShadowLayer)
+DECL_PTR(CBrushShadowMap)
+DECL_PTR(CBrushPolygonTexture)
+DECL_PTR(CBrushPolygonProperties)
+DECL_PTR(CBrushPolygon)
+DECL_PTR(CBrushSector)
+DECL_PTR(CBrushMip)
+DECL_PTR(CBrush3D)
+DECL_PTR(CRelationLnk)
 
 #undef DECL_PTR
 
