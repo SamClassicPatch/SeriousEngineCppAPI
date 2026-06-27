@@ -180,4 +180,22 @@ private:
 #define _wrpWorldRenderPrefs\
   CWorldRenderPrefs(_wrpWorldRenderPrefs_(), false)
 
+#define _pselbvxtSelectOnRender\
+  (*_pselbvxtSelectOnRender_())
+
+#define _pavpixSelectLasso\
+  (*_pavpixSelectLasso_())
+
+#define _vpixSelectNearPoint\
+  PIX2D(_vpixSelectNearPoint_(), false)
+
+#define _bSelectAlternative\
+  (*_bSelectAlternative_())
+
+#define _pixDeltaAroundVertex\
+  (*_pixDeltaAroundVertex_())
+
+#define _pselbscVisTweaks\
+  (*_pselbscVisTweaks_())
+
 #include "Render.inl"
