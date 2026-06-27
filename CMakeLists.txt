@@ -58,6 +58,8 @@ set(SRC_BRUSHES
 source_group("Brushes" FILES ${SRC_BRUSHES})
 
 set(SRC_ENTITIES
+  Entities/EntityProperties.h
+  Entities/EntityProperties.inl
   Entities/ShadingInfo.h
   Entities/ShadingInfo.inl
 )

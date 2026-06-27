@@ -17,6 +17,9 @@
 #include "Brushes/Brush.h"
 #include "Brushes/BrushTransformed.h"
 
+#include "Entities/EntityProperties.h"
+#include "Entities/ShadingInfo.h"
+
 #include "Math/Geometry.h"
 #include <SeriousEngineCAPI/Math/Clipping.h>
 #include "Math/Object3D.h"

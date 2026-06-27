@@ -210,6 +210,10 @@ class CBrushSector;
 class CBrushMip;
 class CBrush3D;
 class CRelationLnk;
+class CEntityPropertyEnumValue;
+class CEntityPropertyEnumType;
+class CEntityProperty;
+class CDLLEntityClass;
 
 #define DECL_PTR(classname) using classname##Ptr = TPointer<classname, classname##_>;
 
@@ -284,6 +288,10 @@ DECL_PTR(CBrushSector)
 DECL_PTR(CBrushMip)
 DECL_PTR(CBrush3D)
 DECL_PTR(CRelationLnk)
+DECL_PTR(CEntityPropertyEnumValue)
+DECL_PTR(CEntityPropertyEnumType)
+DECL_PTR(CEntityProperty)
+DECL_PTR(CDLLEntityClass)
 
 #undef DECL_PTR
 
