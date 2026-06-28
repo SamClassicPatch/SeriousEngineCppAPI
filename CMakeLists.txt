@@ -62,6 +62,8 @@ set(SRC_ENTITIES
   Entities/Entity.inl
   Entities/EntityClass.h
   Entities/EntityClass.inl
+  Entities/EntityPointer.h
+  Entities/EntityPointer.inl
   Entities/EntityProperties.h
   Entities/EntityProperties.inl
   Entities/ShadingInfo.h

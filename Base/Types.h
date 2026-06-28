@@ -215,6 +215,7 @@ class CEntityPropertyEnumType;
 class CEntityProperty;
 class CDLLEntityClass;
 class CEntityClass;
+class CEntityPointer;
 
 #define DECL_PTR(classname) using classname##Ptr = TPointer<classname, classname##_>;
 
