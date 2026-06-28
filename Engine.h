@@ -17,6 +17,7 @@
 #include "Brushes/Brush.h"
 #include "Brushes/BrushTransformed.h"
 
+#include "Entities/EntityClass.h"
 #include "Entities/EntityProperties.h"
 #include "Entities/ShadingInfo.h"
 

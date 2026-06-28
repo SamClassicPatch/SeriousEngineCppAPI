@@ -58,6 +58,10 @@ set(SRC_BRUSHES
 source_group("Brushes" FILES ${SRC_BRUSHES})
 
 set(SRC_ENTITIES
+  Entities/Entity.h
+  Entities/Entity.inl
+  Entities/EntityClass.h
+  Entities/EntityClass.inl
   Entities/EntityProperties.h
   Entities/EntityProperties.inl
   Entities/ShadingInfo.h
@@ -167,6 +171,7 @@ set(SRC_TEMPLATES
   Templates/StaticStackArray.h
   Templates/StaticStackArray.inl
   Templates/Stock_CAnimData.h
+  Templates/Stock_CEntityClass.h
   Templates/Stock_CModelData.h
   Templates/Stock_CSoundData.h
   Templates/Stock_CTextureData.h
