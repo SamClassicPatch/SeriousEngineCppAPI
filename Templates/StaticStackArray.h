@@ -43,7 +43,6 @@
 
 DECLARE_CStaticStackArray(PIX2D)
 DECLARE_CStaticStackArray(FLOAT3D)
-DECLARE_CStaticStackArray(CTextureData)
 
 #define DECLARE_CStaticStackArray_simple(TYPE)\
   class CStaticStackArray_##TYPE : public CStaticArray_##TYPE\

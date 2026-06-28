@@ -2,7 +2,8 @@
 
 #define IMPL_CDynamicContainer(TYPE)\
   inline CDynamicContainer_##TYPE::CDynamicContainer_##TYPE(CDynamicContainer_##TYPE##_* p, bool owner)\
-    : CStaticStackArray_##TYPE((CStaticStackArray_##TYPE##_*)p, owner)\
+    : mp_array(p)\
+    , m_owner(owner)\
   {\
   }\
   inline CDynamicContainer_##TYPE::CDynamicContainer_##TYPE()\
@@ -74,7 +75,8 @@ IMPL_CDynamicContainer(CTextureData)
 
 #define IMPL_CDynamicContainer_simple(TYPE)\
   inline CDynamicContainer_##TYPE::CDynamicContainer_##TYPE(CDynamicContainer_##TYPE##_* p, bool owner)\
-    : CStaticStackArray_##TYPE((CStaticStackArray_##TYPE##_*)p, owner)\
+    : mp_array(p)\
+    , m_owner(owner)\
   {\
   }\
   inline CDynamicContainer_##TYPE::CDynamicContainer_##TYPE()\

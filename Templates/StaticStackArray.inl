@@ -72,7 +72,6 @@
 
 IMPL_CStaticStackArray(PIX2D)
 IMPL_CStaticStackArray(FLOAT3D)
-IMPL_CStaticStackArray(CTextureData)
 
 #define IMPL_CStaticStackArray_simple(TYPE)\
   inline CStaticStackArray_##TYPE::CStaticStackArray_##TYPE(CStaticStackArray_##TYPE##_* p, bool owner)\

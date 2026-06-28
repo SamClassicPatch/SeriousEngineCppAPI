@@ -3,7 +3,7 @@
 #include <SeriousEngineCAPI/Templates/DynamicContainer.h>
 
 #define DECLARE_CDynamicContainer(TYPE)\
-  class CDynamicContainer_##TYPE : public CStaticStackArray_##TYPE\
+  class CDynamicContainer_##TYPE\
   {\
     public:\
       CDynamicContainer_##TYPE(CDynamicContainer_##TYPE##_* p, bool owner = false);\
@@ -36,16 +36,19 @@
       /* Get first object in container (there must be at least one when calling this). */\
       TYPE##Ptr GetFirst();\
       \
-      inline CDynamicContainer_##TYPE##_* C_Handle() { return (CDynamicContainer_##TYPE##_*)mp_array; }\
-      inline const CDynamicContainer_##TYPE##_* C_Handle() const { return (const CDynamicContainer_##TYPE##_*)mp_array; }\
+      inline CDynamicContainer_##TYPE##_* C_Handle() { return mp_array; }\
+      inline const CDynamicContainer_##TYPE##_* C_Handle() const { return mp_array; }\
       inline operator CDynamicContainer_##TYPE##_* () { return C_Handle(); }\
       inline operator const CDynamicContainer_##TYPE##_* () const { return C_Handle(); }\
+    protected:\
+      bool m_owner = true;\
+      CDynamicContainer_##TYPE##_* mp_array = nullptr;\
   };
 
 DECLARE_CDynamicContainer(CTextureData)
 
 #define DECLARE_CDynamicContainer_simple(TYPE)\
-  class CDynamicContainer_##TYPE : public CStaticStackArray_##TYPE\
+  class CDynamicContainer_##TYPE\
   {\
     public:\
       CDynamicContainer_##TYPE(CDynamicContainer_##TYPE##_* p, bool owner = false);\
@@ -78,10 +81,13 @@ DECLARE_CDynamicContainer(CTextureData)
       /* Get first object in container (there must be at least one when calling this). */\
       TYPE& GetFirst();\
       \
-      inline CDynamicContainer_##TYPE##_* C_Handle() { return (CDynamicContainer_##TYPE##_*)mp_array; }\
-      inline const CDynamicContainer_##TYPE##_* C_Handle() const { return (const CDynamicContainer_##TYPE##_*)mp_array; }\
+      inline CDynamicContainer_##TYPE##_* C_Handle() { return mp_array; }\
+      inline const CDynamicContainer_##TYPE##_* C_Handle() const { return mp_array; }\
       inline operator CDynamicContainer_##TYPE##_* () { return C_Handle(); }\
       inline operator const CDynamicContainer_##TYPE##_* () const { return C_Handle(); }\
+    protected:\
+      bool m_owner = true;\
+      CDynamicContainer_##TYPE##_* mp_array = nullptr;\
   };
 
 #include "DynamicContainer.inl"

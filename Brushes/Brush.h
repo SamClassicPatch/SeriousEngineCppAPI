@@ -41,8 +41,6 @@ public:
 
 DECLARE_CStaticArray(CBrushVertex)
 IMPL_CStaticArray(CBrushVertex)
-DECLARE_CStaticStackArray(CBrushVertex)
-IMPL_CStaticStackArray(CBrushVertex)
 DECLARE_CDynamicContainer(CBrushVertex)
 IMPL_CDynamicContainer(CBrushVertex)
 DECLARE_CSelection(CBrushVertex)
@@ -308,8 +306,6 @@ public:
 
 DECLARE_CStaticArray(CBrushPolygon)
 IMPL_CStaticArray(CBrushPolygon)
-DECLARE_CStaticStackArray(CBrushPolygon)
-IMPL_CStaticStackArray(CBrushPolygon)
 DECLARE_CDynamicContainer(CBrushPolygon)
 IMPL_CDynamicContainer(CBrushPolygon)
 DECLARE_CSelection(CBrushPolygon)
@@ -384,10 +380,6 @@ public:
   CTString bsc_strName;                        // sector name
 };
 
-DECLARE_CStaticArray(CBrushSector)
-IMPL_CStaticArray(CBrushSector)
-DECLARE_CStaticStackArray(CBrushSector)
-IMPL_CStaticStackArray(CBrushSector)
 DECLARE_CDynamicContainer(CBrushSector)
 IMPL_CDynamicContainer(CBrushSector)
 DECLARE_CSelection(CBrushSector)
