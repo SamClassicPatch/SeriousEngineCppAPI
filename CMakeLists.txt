@@ -210,6 +210,10 @@ source_group("Terrain" FILES ${SRC_TERRAIN})
 set(SRC_WORLD
   World/World.h
   World/World.inl
+  World/WorldRayCasting.h
+  World/WorldRayCasting.inl
+  World/WorldSettings.h
+  World/WorldSettings.inl
 )
 source_group("World" FILES ${SRC_WORLD})
 

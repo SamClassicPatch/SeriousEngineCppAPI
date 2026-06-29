@@ -218,6 +218,12 @@ class CEntityClass;
 class CEntityPointer;
 class CWorld;
 class CLightSource;
+class CTextureTransformation;
+class CTextureBlending;
+class CSurfaceType;
+class CContentType;
+class CEnvironmentType;
+class CIlluminationType;
 
 #define DECL_PTR(classname) using classname##Ptr = TPointer<classname, classname##_>;
 

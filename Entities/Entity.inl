@@ -2,6 +2,7 @@
 
 inline CEntity::CEntity(CEntity_* p, bool)
   : mp_handle(p)
+  , en_pwoWorld(*CEntity_en_pwoWorld(p))
   , en_RenderType(*((RenderType*)CEntity_en_RenderType(p)))
   , en_ulPhysicsFlags(*CEntity_en_ulPhysicsFlags(p))
   , en_ulCollisionFlags(*CEntity_en_ulCollisionFlags(p))
@@ -29,11 +30,6 @@ __forceinline CBrush3DPtr CEntity::en_pbrBrush()
 __forceinline CTerrainPtr CEntity::en_ptrTerrain()
 {
   return *CEntity_en_ptrTerrain(C_Handle());
-}
-
-__forceinline CWorldPtr CEntity::en_pwoWorld()
-{
-  return *CEntity_en_pwoWorld(C_Handle());
 }
 
 inline BOOL CEntity::IsSelected() const

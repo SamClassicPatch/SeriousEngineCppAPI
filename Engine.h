@@ -55,6 +55,7 @@
 #include "Templates/StaticStackArray.h"
 
 #include "World/World.h"
+#include "World/WorldSettings.h"
 
 // some global stuff
 void SE_InitEngine(CTString strGameID);

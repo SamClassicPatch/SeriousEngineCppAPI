@@ -2,6 +2,7 @@
 #include "../Base/Types.h"
 #include "../Brushes/Brush.h"
 #include "../Terrain/Terrain.h"
+#include "../Light/LightSource.h"
 #include "EntityEvent.h"
 #include "EntityClass.h"
 #include <SeriousEngineCAPI/Entities/Entity.h>
@@ -34,8 +35,6 @@ public:
   CBrush3DPtr en_pbrBrush();
   // terrain -- if terrain entity
   CTerrainPtr en_ptrTerrain();
-  // the world this entity belongs to
-  CWorldPtr en_pwoWorld();
 
   BOOL IsSelected() const;
 
@@ -117,6 +116,7 @@ private:
   CEntity_* mp_handle = nullptr;
 
 public:
+  CWorld_*& en_pwoWorld;        // the world this entity belongs to
   RenderType& en_RenderType;    // how is it rendered
   ULONG& en_ulPhysicsFlags;     // ways of interacting with environment
   ULONG& en_ulCollisionFlags;   // which entities to collide with

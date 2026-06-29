@@ -322,3 +322,8 @@ inline BOOL CWorldRenderPrefs::IsFarClipPlaneInIsometricProjectionOn()
 {
   return CWorldRenderPrefs_IsFarClipPlaneInIsometricProjectionOn(mp_handle);
 }
+
+inline void RenderView(CWorld& woWorld, CEntity& enViewer, CAnyProjection3D& prProjection, CDrawPort& dpDrawport)
+{
+  RenderView_(woWorld, enViewer, prProjection, dpDrawport);
+}
