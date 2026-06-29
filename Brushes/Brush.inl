@@ -626,17 +626,17 @@ inline void CBrush3D::Copy(CBrush3D& brOther, FLOAT fStretch, BOOL bMirrorX)
 
 inline void CBrush3D::DeleteBrushMip(CBrushMip* pbmToDelete)
 {
-  CBrush3D_DeleteBrushMip(C_Handle(), *pbmToDelete);
+  CBrush3D_DeleteBrushMip(C_Handle(), pbmToDelete ? pbmToDelete->C_Handle() : nullptr);
 }
 
 __forceinline CBrushMipPtr CBrush3D::NewBrushMipAfter(CBrushMip* pbm, BOOL bCopy)
 {
-  return CBrush3D_NewBrushMipAfter(C_Handle(), *pbm, bCopy);
+  return CBrush3D_NewBrushMipAfter(C_Handle(), pbm ? pbm->C_Handle() : nullptr, bCopy);
 }
 
 __forceinline CBrushMipPtr CBrush3D::NewBrushMipBefore(CBrushMip* pbm, BOOL bCopy)
 {
-  return CBrush3D_NewBrushMipBefore(C_Handle(), *pbm, bCopy);
+  return CBrush3D_NewBrushMipBefore(C_Handle(), pbm ? pbm->C_Handle() : nullptr, bCopy);
 }
 
 __forceinline CBrushMipPtr CBrush3D::GetBrushMipByDistance(FLOAT fDistance)

@@ -303,7 +303,7 @@ inline void CModelObject::GetModelVertices(CStaticStackArray_FLOAT3D& avVertices
 
 inline void CModelObject::GetAttachmentMatrices(CAttachmentModelObject* pamo, FLOATmatrix3D& mRotation, FLOAT3D& vPosition)
 {
-  CModelObject_GetAttachmentMatrices(C_Handle(), *pamo, mRotation, vPosition);
+  CModelObject_GetAttachmentMatrices(C_Handle(), pamo ? pamo->C_Handle() : nullptr, mRotation, vPosition);
 }
 
 inline void CModelObject::GetAttachmentTransformations(INDEX iAttachment, FLOATmatrix3D& mRotation, FLOAT3D& vPosition, BOOL bDummyAttachment)
@@ -313,27 +313,27 @@ inline void CModelObject::GetAttachmentTransformations(INDEX iAttachment, FLOATm
 
 inline void CModelObject::ProjectFrameVertices(CProjection3D* pProjection, INDEX iMipModel)
 {
-  CModelObject_ProjectFrameVertices(C_Handle(), *pProjection, iMipModel);
+  CModelObject_ProjectFrameVertices(C_Handle(), pProjection ? pProjection->C_Handle() : nullptr, iMipModel);
 }
 
 inline void CModelObject::ColorizeRegion(CDrawPort* pDP, CProjection3D* projection, PIXaabbox2D box, INDEX iChoosedColor, BOOL bOnColorMode)
 {
-  CModelObject_ColorizeRegion(C_Handle(), *pDP, *projection, box, iChoosedColor, bOnColorMode);
+  CModelObject_ColorizeRegion(C_Handle(), pDP ? pDP->C_Handle() : nullptr, projection ? projection->C_Handle() : nullptr, box, iChoosedColor, bOnColorMode);
 }
 
 inline void CModelObject::ColorizePolygon(CDrawPort* pDP, CProjection3D* projection, PIX x1, PIX y1, INDEX iChoosedColor, BOOL bOnColorMode)
 {
-  CModelObject_ColorizePolygon(C_Handle(), *pDP, *projection, x1, y1, iChoosedColor, bOnColorMode);
+  CModelObject_ColorizePolygon(C_Handle(), pDP ? pDP->C_Handle() : nullptr, projection ? projection->C_Handle() : nullptr, x1, y1, iChoosedColor, bOnColorMode);
 }
 
 inline void CModelObject::ApplySurfaceToPolygon(CDrawPort* pDP, CProjection3D* projection, PIX x1, PIX y1, INDEX iSurface, COLOR colSurfaceColor)
 {
-  CModelObject_ApplySurfaceToPolygon(C_Handle(), *pDP, *projection, x1, y1, iSurface, colSurfaceColor);
+  CModelObject_ApplySurfaceToPolygon(C_Handle(), pDP ? pDP->C_Handle() : nullptr, projection ? projection->C_Handle() : nullptr, x1, y1, iSurface, colSurfaceColor);
 }
 
 inline void CModelObject::ApplySurfaceToPolygonsInRegion(CDrawPort* pDP, CProjection3D* projection, PIXaabbox2D box, INDEX iSurface, COLOR colSurfaceColor)
 {
-  CModelObject_ApplySurfaceToPolygonsInRegion(C_Handle(), *pDP, *projection, box, iSurface, colSurfaceColor);
+  CModelObject_ApplySurfaceToPolygonsInRegion(C_Handle(), pDP ? pDP->C_Handle() : nullptr, projection ? projection->C_Handle() : nullptr, box, iSurface, colSurfaceColor);
 }
 
 inline void CModelObject::UnpackVertex(INDEX iFrame, INDEX iVertex, FLOAT3D& vVertex)
@@ -353,22 +353,22 @@ __forceinline ModelPolygonPtr CModelObject::PolygonHit(CPlacement3D plRay, CPlac
 
 __forceinline ModelPolygonPtr CModelObject::PolygonHitModelData(CModelData* pMD, CPlacement3D plRay, CPlacement3D plObject, INDEX iCurrentMip, FLOAT& fHitDistance)
 {
-  return CModelObject_PolygonHitModelData(C_Handle(), *pMD, plRay, plObject, iCurrentMip, &fHitDistance);
+  return CModelObject_PolygonHitModelData(C_Handle(), pMD ? pMD->C_Handle() : nullptr, plRay, plObject, iCurrentMip, &fHitDistance);
 }
 
 inline void CModelObject::PickPolyColor(CDrawPort* pDP, CProjection3D* projection, PIX x1, PIX y1, INDEX& iPickedColorNo, BOOL bOnColorMode)
 {
-  CModelObject_PickPolyColor(C_Handle(), *pDP, *projection, x1, y1, &iPickedColorNo, bOnColorMode);
+  CModelObject_PickPolyColor(C_Handle(), pDP ? pDP->C_Handle() : nullptr, projection ? projection->C_Handle() : nullptr, x1, y1, &iPickedColorNo, bOnColorMode);
 }
 
 inline INDEX CModelObject::PickPolySurface(CDrawPort* pDP, CProjection3D* projection, PIX x1, PIX y1)
 {
-  return CModelObject_PickPolySurface(C_Handle(), *pDP, *projection, x1, y1);
+  return CModelObject_PickPolySurface(C_Handle(), pDP ? pDP->C_Handle() : nullptr, projection ? projection->C_Handle() : nullptr, x1, y1);
 }
 
 inline INDEX CModelObject::PickVertexIndex(CDrawPort* pDP, CProjection3D* projection, PIX x1, PIX y1, FLOAT3D& vClosestVertex)
 {
-  return CModelObject_PickVertexIndex(C_Handle(), *pDP, *projection, x1, y1, vClosestVertex);
+  return CModelObject_PickVertexIndex(C_Handle(), pDP ? pDP->C_Handle() : nullptr, projection ? projection->C_Handle() : nullptr, x1, y1, vClosestVertex);
 }
 
 inline void CModelObject::ShowPatch(INDEX iMaskBit)

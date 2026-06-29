@@ -32,22 +32,22 @@ inline CDrawPort::CDrawPort(CDrawPort_* p, bool owner)
 }
 
 inline CDrawPort::CDrawPort(CRaster* praBase)
-  : CDrawPort(CDrawPort_new(*praBase), true)
+  : CDrawPort(CDrawPort_new(praBase ? praBase->C_Handle() : nullptr), true)
 {
 }
 
 inline CDrawPort::CDrawPort(CDrawPort* pdpBase, DOUBLE rMinI, DOUBLE rMinJ, DOUBLE rSizeI, DOUBLE rSizeJ)
-  : CDrawPort(CDrawPort_new_cloned(*pdpBase, rMinI, rMinJ, rSizeI, rSizeJ), true)
+  : CDrawPort(CDrawPort_new_cloned(pdpBase ? pdpBase->C_Handle() : nullptr, rMinI, rMinJ, rSizeI, rSizeJ), true)
 {
 }
 
 inline CDrawPort::CDrawPort(CDrawPort* pdpBase, const PIXaabbox2D& box)
-  : CDrawPort(CDrawPort_new_cloned_box(*pdpBase, box), true)
+  : CDrawPort(CDrawPort_new_cloned_box(pdpBase ? pdpBase->C_Handle() : nullptr, box), true)
 {
 }
 
 inline CDrawPort::CDrawPort(CDrawPort* pdpBase, BOOL bLeft)
-  : CDrawPort(CDrawPort_new_cloned_dualhead(*pdpBase, bLeft), true)
+  : CDrawPort(CDrawPort_new_cloned_dualhead(pdpBase ? pdpBase->C_Handle() : nullptr, bLeft), true)
 {
 }
 
@@ -89,7 +89,7 @@ inline void CDrawPort::SetProjection(CAnyProjection3D& apr) const
 
 inline void CDrawPort::MakeWideScreen(CDrawPort* pdp)
 {
-  CDrawPort_MakeWideScreen(mp_handle, *pdp);
+  CDrawPort_MakeWideScreen(mp_handle, pdp ? pdp->C_Handle() : nullptr);
 }
 
 inline BOOL CDrawPort::IsDualHead()
