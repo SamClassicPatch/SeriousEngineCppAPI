@@ -1,7 +1,6 @@
 #pragma once
 #include "../Base/Types.h"
 #include "../Base/Serial.h"
-#include "Entity.h"
 #include "EntityProperties.h"
 #include <SeriousEngineCAPI/Entities/EntityClass.h>
 
@@ -14,7 +13,7 @@ public:
   CEntityClass& operator=(const CEntityClass& ln) = delete;
 
   /* Construct a new member of the class. */
-  CEntityPtr New();
+  CEntity_* New();
 
   /* Get pointer to entity property from its name. */
   CEntityPropertyPtr PropertyForName(const CTString& strPropertyName);

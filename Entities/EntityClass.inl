@@ -10,7 +10,7 @@ inline CEntityClass::~CEntityClass()
 {
 }
 
-__forceinline CEntityPtr CEntityClass::New()
+__forceinline CEntity_* CEntityClass::New()
 {
   return CEntityClass_New(C_Handle());
 }

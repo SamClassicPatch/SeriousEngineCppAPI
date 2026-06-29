@@ -57,11 +57,18 @@ set(SRC_BRUSHES
 )
 source_group("Brushes" FILES ${SRC_BRUSHES})
 
+set(SRC_CLASSES
+  Classes/BaseEvents.h
+  Classes/BaseEvents.inl
+)
+source_group("Classes" FILES ${SRC_CLASSES})
+
 set(SRC_ENTITIES
   Entities/Entity.h
   Entities/Entity.inl
   Entities/EntityClass.h
   Entities/EntityClass.inl
+  Entities/EntityEvent.h
   Entities/EntityPointer.h
   Entities/EntityPointer.inl
   Entities/EntityProperties.h
@@ -94,6 +101,12 @@ set(SRC_GRAPHICS
   Graphics/ViewPort.inl
 )
 source_group("Graphics" FILES ${SRC_GRAPHICS})
+
+set(SRC_LIGHT
+  Light/LightSource.h
+  Light/LightSource.inl
+)
+source_group("Light" FILES ${SRC_LIGHT})
 
 set(SRC_MATH
   Math/AABBox.h
@@ -194,17 +207,26 @@ set(SRC_TERRAIN
 )
 source_group("Terrain" FILES ${SRC_TERRAIN})
 
+set(SRC_WORLD
+  World/World.h
+  World/World.inl
+)
+source_group("World" FILES ${SRC_WORLD})
+
 add_library(${PROJECT_NAME} INTERFACE
   ${SRC_BASE}
   ${SRC_BRUSHES}
+  ${SRC_CLASSES}
   ${SRC_ENTITIES}
   ${SRC_GRAPHICS}
+  ${SRC_LIGHT}
   ${SRC_MATH}
   ${SRC_MODELS}
   ${SRC_RENDERING}
   ${SRC_SOUND}
   ${SRC_TEMPLATES}
   ${SRC_TERRAIN}
+  ${SRC_WORLD}
   Engine.h
   Engine.inl
   GameShell.h

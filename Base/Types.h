@@ -216,6 +216,8 @@ class CEntityProperty;
 class CDLLEntityClass;
 class CEntityClass;
 class CEntityPointer;
+class CWorld;
+class CLightSource;
 
 #define DECL_PTR(classname) using classname##Ptr = TPointer<classname, classname##_>;
 
@@ -295,6 +297,8 @@ DECL_PTR(CEntityPropertyEnumType)
 DECL_PTR(CEntityProperty)
 DECL_PTR(CDLLEntityClass)
 DECL_PTR(CEntityClass)
+DECL_PTR(CWorld)
+DECL_PTR(CLightSource)
 
 #undef DECL_PTR
 

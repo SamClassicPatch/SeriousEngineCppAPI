@@ -47,10 +47,14 @@
 #include "Graphics/DrawPort.h"
 #include "Graphics/ImageInfo.h"
 
+#include "Light/LightSource.h"
+
 #include "Templates/DynamicArray.h"
 #include "Templates/DynamicStackArray.h"
 #include "Templates/StaticArray.h"
 #include "Templates/StaticStackArray.h"
+
+#include "World/World.h"
 
 // some global stuff
 void SE_InitEngine(CTString strGameID);
