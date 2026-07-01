@@ -35,13 +35,3 @@ inline CCastRay::~CCastRay()
   if (m_owner)
     CCastRay_delete(mp_handle);
 }
-
-inline void CCastRay::Cast(CWorld* pwoWorld)
-{
-  CCastRay_Cast(C_Handle(), pwoWorld ? pwoWorld->C_Handle() : nullptr);
-}
-
-inline void CCastRay::ContinueCast(CWorld* pwoWorld)
-{
-  CCastRay_ContinueCast(C_Handle(), pwoWorld ? pwoWorld->C_Handle() : nullptr);
-}

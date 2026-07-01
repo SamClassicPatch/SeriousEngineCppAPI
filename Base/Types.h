@@ -305,6 +305,12 @@ DECL_PTR(CDLLEntityClass)
 DECL_PTR(CEntityClass)
 DECL_PTR(CWorld)
 DECL_PTR(CLightSource)
+DECL_PTR(CTextureTransformation)
+DECL_PTR(CTextureBlending)
+DECL_PTR(CSurfaceType)
+DECL_PTR(CContentType)
+DECL_PTR(CEnvironmentType)
+DECL_PTR(CIlluminationType)
 
 #undef DECL_PTR
 
