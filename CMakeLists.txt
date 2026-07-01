@@ -198,6 +198,8 @@ set(SRC_TERRAIN
   Terrain/ArrayHolder.inl
   Terrain/Terrain.h
   Terrain/Terrain.inl
+  Terrain/TerrainEditing.h
+  Terrain/TerrainEditing.inl
   Terrain/TerrainLayer.h
   Terrain/TerrainLayer.inl
   Terrain/TerrainMisc.h

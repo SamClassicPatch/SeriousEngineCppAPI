@@ -227,6 +227,7 @@ class CIlluminationType;
 
 #define DECL_PTR(classname) using classname##Ptr = TPointer<classname, classname##_>;
 
+DECL_PTR(CImageInfo)
 DECL_PTR(CTextureData)
 DECL_PTR(CTextureObject)
 DECL_PTR(CModelData)

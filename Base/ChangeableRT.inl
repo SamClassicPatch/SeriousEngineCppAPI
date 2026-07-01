@@ -1,6 +1,6 @@
 #pragma once
 
-inline CChangeableRT::CChangeableRT(CChangeable_* p, bool owner)
+inline CChangeableRT::CChangeableRT(CChangeableRT_* p, bool owner)
   : m_owner(owner)
   , mp_handle(p)
 {
