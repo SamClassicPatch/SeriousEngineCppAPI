@@ -49,15 +49,16 @@
   private:\
     INDEX dci_Index;\
     CDynamicContainer_##TYPE& dci_Array;\
+    TYPE##Ptr p_cur;\
   public:\
-    inline CDynamicContainerIterator_##TYPE(CDynamicContainer_##TYPE& da) : dci_Array(da) { dci_Index = 0; }\
-    inline ~CDynamicContainerIterator_##TYPE() { dci_Index = -1; }\
-    inline void MoveToNext() { dci_Index++; }\
+    inline CDynamicContainerIterator_##TYPE(CDynamicContainer_##TYPE& da) : dci_Array(da) { dci_Index = 0; p_cur = dci_Array.Pointer(dci_Index); }\
+    inline ~CDynamicContainerIterator_##TYPE() { dci_Index = -1; p_cur.Reset(); }\
+    inline void MoveToNext() { dci_Index++; p_cur = dci_Array.Pointer(dci_Index); }\
     inline BOOL IsPastEnd() { return dci_Index>=dci_Array.Count(); }\
-    inline TYPE##Ptr Current() { return dci_Array.Pointer(dci_Index); }\
-    inline TYPE##Ptr operator*() { return dci_Array.Pointer(dci_Index); }\
-    inline operator TYPE##Ptr () { return dci_Array.Pointer(dci_Index); }\
-    inline TYPE##Ptr operator->() { return dci_Array.Pointer(dci_Index); }\
+    inline TYPE##Ptr Current() { return p_cur; }\
+    inline TYPE##Ptr operator*() { return p_cur; }\
+    inline operator TYPE##Ptr () { return p_cur; }\
+    inline TYPE##Ptr operator->() { return p_cur; }\
   };
 
 DECLARE_CDynamicContainer(CTextureData)

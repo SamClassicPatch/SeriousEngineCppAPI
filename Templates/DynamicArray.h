@@ -12,21 +12,22 @@ class CDynamicArrayIterator {
 private:
   INDEX dai_Index = 0;    // index of current element
   ArrType& dai_Array; // reference to array
+  PtrType p_cur;
 public:
   /* Constructor for given array. */
-  inline CDynamicArrayIterator(ArrType& da) : dai_Array(da) {}
+  inline CDynamicArrayIterator(ArrType& da) : dai_Array(da) { p_cur = dai_Array.Pointer(dai_Index); }
   /* Destructor. */
   inline ~CDynamicArrayIterator() {}
 
   /* Move to next object. */
-  inline void MoveToNext() { ++dai_Index; }
+  inline void MoveToNext() { ++dai_Index; p_cur = dai_Array.Pointer(dai_Index); }
   /* Check if finished. */
   inline BOOL IsPastEnd() { return dai_Index >= dai_Array.Count(); }
   /* Get current element. */
-  __forceinline PtrType Current() { return PtrType(dai_Array.Pointer(dai_Index)); }
-  __forceinline PtrType operator*() { return PtrType(dai_Array.Pointer(dai_Index)); }
-  __forceinline operator PtrType () { return PtrType(dai_Array.Pointer(dai_Index)); }
-  __forceinline PtrType operator->() { return PtrType(dai_Array.Pointer(dai_Index)); }
+  __forceinline PtrType Current() { return p_cur; }
+  __forceinline PtrType operator*() { return p_cur; }
+  __forceinline operator PtrType () { return p_cur; }
+  __forceinline PtrType operator->() { return p_cur; }
 };
 
 #define DECLARE_CDynamicArray(TYPE)\
