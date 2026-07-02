@@ -37,6 +37,16 @@ inline BOOL CEntity::IsSelected() const
   return CEntity_IsSelected(C_Handle());
 }
 
+inline void CEntity::Select()
+{
+  CEntity_Select(C_Handle());
+}
+
+inline void CEntity::Deselect()
+{
+  CEntity_Deselect(C_Handle());
+}
+
 __forceinline CEntityPropertyPtr CEntity::PropertyForName(const CTString& strPropertyName)
 {
   return CEntity_PropertyForName(C_Handle(), strPropertyName);
@@ -117,9 +127,19 @@ inline void CEntity::SetCollisionFlags(ULONG ulFlags)
   CEntity_SetCollisionFlags(C_Handle(), ulFlags);
 }
 
+__forceinline CEntityPtr CEntity::GetParent()
+{
+  return *CEntity_en_penParent(C_Handle());
+}
+
 inline void CEntity::SetParent(CEntity* penNewParent)
 {
   CEntity_SetParent(C_Handle(), penNewParent ? penNewParent->C_Handle() : nullptr);
+}
+
+inline void CEntity::SetParent(CEntity_* penNewParent)
+{
+  CEntity_SetParent(C_Handle(), penNewParent);
 }
 
 inline BOOL CEntity::IsEmptyBrush() const

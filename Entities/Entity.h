@@ -33,10 +33,14 @@ public:
 
   // brush -- if brush entity
   CBrush3DPtr en_pbrBrush();
+  inline CBrush3DPtr GetBrush() { return en_pbrBrush(); }
   // terrain -- if terrain entity
   CTerrainPtr en_ptrTerrain();
+  inline CTerrainPtr GetTerrain() { return en_ptrTerrain(); }
 
   BOOL IsSelected() const;
+  void Select();
+  void Deselect();
 
   /* Get pointer to entity property from its name. */
   CEntityPropertyPtr PropertyForName(const CTString& strPropertyName);
@@ -55,19 +59,25 @@ public:
   void Destroy();
   void SetPlacement(const CPlacement3D& plNew);     // use this only in WEd
   void FallDownToFloor();
+  inline const CPlacement3D& GetPlacement() const { return en_plPlacement; }
+  inline const FLOATmatrix3D& GetRotationMatrix() const { return en_mRotation; }
   /* Find first sector that entity is in */
   CBrushSectorPtr GetFirstSector();
   /* Find first sector that entity is in (for UI purpuses) */
   CBrushSectorPtr GetFirstSectorWithName();
+  inline RenderType GetRenderType() { return en_RenderType; }
   void SetFlags(ULONG ulFlags);
-  inline ULONG GetFlags() const { return en_ulFlags; };
+  inline ULONG GetFlags() const { return en_ulFlags; }
   void SetSpawnFlags(ULONG ulFlags);
-  inline ULONG GetSpawnFlags() const { return en_ulSpawnFlags; };
+  inline ULONG GetSpawnFlags() const { return en_ulSpawnFlags; }
   void SetPhysicsFlags(ULONG ulFlags);
-  inline ULONG GetPhysicsFlags() const { return en_ulPhysicsFlags; };
+  inline ULONG GetPhysicsFlags() const { return en_ulPhysicsFlags; }
   void SetCollisionFlags(ULONG ulFlags);
-  inline ULONG GetCollisionFlags() const { return en_ulCollisionFlags; };
+  inline ULONG GetCollisionFlags() const { return en_ulCollisionFlags; }
+  inline CEntityClassPtr GetClass() { return en_pecClass; }
+  CEntityPtr GetParent();
   void SetParent(CEntity* penNewParent);
+  void SetParent(CEntity_* penNewParent);
   /* Test if the entity is an empty brush. */
   BOOL IsEmptyBrush() const;
   /* Get size of this entity - for UI purposes only. */

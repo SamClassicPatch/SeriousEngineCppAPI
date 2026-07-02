@@ -66,6 +66,10 @@
   {\
     CDynamicContainer_##TYPE##_MoveContainer(C_Handle(), coOther);\
   }\
+  inline INDEX CDynamicContainer_##TYPE::Count() const\
+  {\
+    return CDynamicContainer_##TYPE##_Count(C_Handle());\
+  }\
   __forceinline TYPE##Ptr CDynamicContainer_##TYPE::GetFirst()\
   {\
     return CDynamicContainer_##TYPE##_GetFirst(C_Handle());\
@@ -138,6 +142,10 @@ IMPL_CDynamicContainer(CTextureData)
   inline void CDynamicContainer_##TYPE::MoveContainer(CDynamicContainer_##TYPE& coOther)\
   {\
     CDynamicContainer_##TYPE##_MoveContainer(C_Handle(), coOther);\
+  }\
+  inline INDEX CDynamicContainer_##TYPE::Count() const\
+  {\
+    return CDynamicContainer_##TYPE##_Count(C_Handle());\
   }\
   inline TYPE& CDynamicContainer_##TYPE::GetFirst()\
   {\

@@ -44,6 +44,20 @@
     protected:\
       bool m_owner = true;\
       CStaticArray_##TYPE##_* mp_array = nullptr;\
+  };\
+  class CStaticArrayIterator_##TYPE {\
+  private:\
+    INDEX sai_Index;\
+    CStaticArray_##TYPE& sai_Array;\
+  public:\
+    inline CStaticArrayIterator_##TYPE(CStaticArray_##TYPE& sa) : sai_Array(sa) { sai_Index = 0; }\
+    inline ~CStaticArrayIterator_##TYPE() { sai_Index = -1; }\
+    inline void MoveToNext() { sai_Index++; }\
+    inline BOOL IsPastEnd() { return sai_Index>=sai_Array.Count(); }\
+    inline TYPE##Ptr Current() { return sai_Array[sai_Index]; }\
+    inline TYPE##Ptr operator*() { return sai_Array[sai_Index]; }\
+    inline operator TYPE##Ptr () { return sai_Array[sai_Index]; }\
+    inline TYPE##Ptr operator->(void) { return sai_Array[sai_Index]; }\
   };
 
 DECLARE_CStaticArray(PIX2D)
@@ -91,7 +105,24 @@ DECLARE_CStaticArray(DOUBLE3D)
     protected:\
       bool m_owner = true;\
       CStaticArray_##TYPE##_* mp_array = nullptr;\
+  };\
+  class CStaticArrayIterator_##TYPE {\
+  private:\
+    INDEX sai_Index;\
+    CStaticArray_##TYPE& sai_Array;\
+  public:\
+    inline CStaticArrayIterator_##TYPE(CStaticArray_##TYPE& sa) : sai_Array(sa) { sai_Index = 0; }\
+    inline ~CStaticArrayIterator_##TYPE() { sai_Index = -1; }\
+    inline void MoveToNext() { sai_Index++; }\
+    inline BOOL IsPastEnd() { return sai_Index>=sai_Array.Count(); }\
+    inline TYPE& Current() { return sai_Array[sai_Index]; }\
+    inline TYPE& operator*() { return sai_Array[sai_Index]; }\
+    inline operator TYPE* () { return &sai_Array[sai_Index]; }\
+    inline TYPE* operator->(void) { return &sai_Array[sai_Index]; }\
   };
+
+#define FOREACHINSTATICARRAY(array, type, iter) \
+  for(CStaticArrayIterator_##type iter(array); !iter.IsPastEnd(); iter.MoveToNext() )
 
 DECLARE_CStaticArray_simple(UWORD)
 DECLARE_CStaticArray_simple(ULONG)

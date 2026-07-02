@@ -62,6 +62,10 @@ public:
     o.m_object.reset();
     return *this;
   }
+  inline operator bool()
+  {
+    return m_object.has_value() && m_object->C_Handle();
+  }
   inline operator bool() const
   {
     return m_object.has_value() && m_object->C_Handle();
@@ -120,6 +124,14 @@ public:
       return m_object->C_Handle();
     return nullptr;
   }
+  inline operator TObjectCHandle* ()
+  {
+    return get_handle();
+  }
+  inline operator const TObjectCHandle* () const
+  {
+    return get_handle();
+  }
   inline bool operator==(const TObjectCHandle* p) const
   {
     return get_handle() == p;
@@ -136,6 +148,7 @@ public:
   inline bool operator!=(const TObjectCHandle* p) const { return !((*this) == p); }
   inline bool operator!=(const TObject* p) const { return !((*this) == p); }
   inline bool operator!=(const TPointer<TObject, TObjectCHandle>& o) const { return !((*this) == o); }
+  inline bool operator<(const TPointer<TObject, TObjectCHandle>& o) const { return get_handle() < o.get_handle(); }
 
 private:
   std::optional<TObject> m_object;

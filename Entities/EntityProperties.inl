@@ -58,7 +58,7 @@ __forceinline CEntityPropertyPtr CDLLEntityClass::PropertyForName(const CTString
   return CDLLEntityClass_PropertyForName(C_Handle(), strPropertyName);
 }
 
-__forceinline CEntityProperty CDLLEntityClass::dec_aepProperties(INDEX i)
+__forceinline CEntityPropertyPtr CDLLEntityClass::dec_aepProperties(INDEX i)
 {
   return CDLLEntityClass_dec_aepProperties(C_Handle(), i);
 }

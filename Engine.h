@@ -21,6 +21,7 @@
 #include "Entities/EntityProperties.h"
 #include "Entities/ShadingInfo.h"
 
+#include "Math/Float.h"
 #include "Math/Geometry.h"
 #include <SeriousEngineCAPI/Math/Clipping.h>
 #include "Math/Object3D.h"
@@ -56,6 +57,8 @@
 
 #include "World/World.h"
 #include "World/WorldSettings.h"
+
+#include "Entities/EntityPointer.h"
 
 // some global stuff
 void SE_InitEngine(CTString strGameID);

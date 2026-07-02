@@ -111,6 +111,8 @@ source_group("Light" FILES ${SRC_LIGHT})
 set(SRC_MATH
   Math/AABBox.h
   Math/AABBox.inl
+  Math/Float.h
+  Math/Float.inl
   Math/Functions.h
   Math/Functions.inl
   Math/Geometry.h

@@ -111,7 +111,7 @@ public:
 };
 
 // macro for accessing property inside an entity
-#define ENTITY_PROPERTY(entity, offset, type) ((type *)(((UBYTE *)(entity.C_Handle()))+offset))
+#define ENTITY_PROPERTY(entity, offset, type) ((type *)(((UBYTE *)(entity.get_handle()))+offset))
 
 /////////////////////////////////////////////////////////////////////
 // The class defining an entity class DLL itself
@@ -127,7 +127,7 @@ public:
   /* Get pointer to entity property from its name. */
   CEntityPropertyPtr PropertyForName(const CTString& strPropertyName);
 
-  CEntityProperty dec_aepProperties(INDEX i);
+  CEntityPropertyPtr dec_aepProperties(INDEX i);
 
   // pointer to the base class
   CDLLEntityClassPtr dec_pdecBase();

@@ -32,6 +32,7 @@
       const TYPE##Ptr operator[](INDEX iObject) const;\
       /* Move all elements of another container into this one. */\
       void MoveContainer(CDynamicContainer_##TYPE& coOther);\
+      INDEX Count() const;\
       \
       /* Get first object in container (there must be at least one when calling this). */\
       TYPE##Ptr GetFirst();\
@@ -43,6 +44,20 @@
     protected:\
       bool m_owner = true;\
       CDynamicContainer_##TYPE##_* mp_array = nullptr;\
+  };\
+  class CDynamicContainerIterator_##TYPE {\
+  private:\
+    INDEX dci_Index;\
+    CDynamicContainer_##TYPE& dci_Array;\
+  public:\
+    inline CDynamicContainerIterator_##TYPE(CDynamicContainer_##TYPE& da) : dci_Array(da) { dci_Index = 0; }\
+    inline ~CDynamicContainerIterator_##TYPE() { dci_Index = -1; }\
+    inline void MoveToNext() { dci_Index++; }\
+    inline BOOL IsPastEnd() { return dci_Index>=dci_Array.Count(); }\
+    inline TYPE##Ptr Current() { return dci_Array.Pointer(dci_Index); }\
+    inline TYPE##Ptr operator*() { return dci_Array.Pointer(dci_Index); }\
+    inline operator TYPE##Ptr () { return dci_Array.Pointer(dci_Index); }\
+    inline TYPE##Ptr operator->() { return dci_Array.Pointer(dci_Index); }\
   };
 
 DECLARE_CDynamicContainer(CTextureData)
@@ -77,6 +92,7 @@ DECLARE_CDynamicContainer(CTextureData)
       const TYPE& operator[](INDEX iObject) const;\
       /* Move all elements of another container into this one. */\
       void MoveContainer(CDynamicContainer_##TYPE& coOther);\
+      INDEX Count() const;\
       \
       /* Get first object in container (there must be at least one when calling this). */\
       TYPE& GetFirst();\
@@ -88,6 +104,27 @@ DECLARE_CDynamicContainer(CTextureData)
     protected:\
       bool m_owner = true;\
       CDynamicContainer_##TYPE##_* mp_array = nullptr;\
+  };\
+  class CDynamicContainerIterator_##TYPE {\
+  private:\
+    INDEX dci_Index;\
+    CDynamicContainer_##TYPE& dci_Array;\
+  public:\
+    inline CDynamicContainerIterator_##TYPE(CDynamicContainer_##TYPE& da) : dci_Array(da) { dci_Index = 0; }\
+    inline ~CDynamicContainerIterator_##TYPE() { dci_Index = -1; }\
+    inline void MoveToNext() { dci_Index++; }\
+    inline BOOL IsPastEnd() { return dci_Index>=dci_Array.Count(); }\
+    inline TYPE& Current() { return *dci_Array.Pointer(dci_Index); }\
+    inline TYPE& operator*() { return *dci_Array.Pointer(dci_Index); }\
+    inline operator TYPE* () { return dci_Array.Pointer(dci_Index); }\
+    inline TYPE* operator->() { return dci_Array.Pointer(dci_Index); }\
   };
+
+// iterate whole dynamic container
+/* NOTE: The iterator defined by this macro must be destroyed before adding/removing
+ * elements in the container. To do so, embed the for loop in additional curly braces.
+ */
+#define FOREACHINDYNAMICCONTAINER(container, type, iter) \
+  for(CDynamicContainerIterator_##type iter(container); !iter.IsPastEnd(); iter.MoveToNext() )
 
 #include "DynamicContainer.inl"
