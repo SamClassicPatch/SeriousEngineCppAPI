@@ -26,8 +26,8 @@ enum SelectionFill : SelectionFill_ {
   SF_POINTS = SF_POINTS_
 };
 
-UWORD* GetBufferForEditing(CTerrain* ptrTerrain, Rect& rcExtract, BufferType btBufferType, INDEX iBufferData = -1);
-void SetBufferForEditing(CTerrain* ptrTerrain, UWORD* puwEditedBuffer, Rect& rcExtract, BufferType btBufferType, INDEX iBufferData = -1);
-void ShowSelection(CTerrain* ptrTerrain, Rect& rcExtract, CTextureData* ptdBrush, COLOR colSelection, FLOAT fStrenght, SelectionFill sfFill = SF_POLYGON);
+UWORD* GetBufferForEditing(CTerrain_* ptrTerrain, Rect& rcExtract, BufferType btBufferType, INDEX iBufferData = -1);
+void SetBufferForEditing(CTerrain_* ptrTerrain, UWORD* puwEditedBuffer, Rect& rcExtract, BufferType btBufferType, INDEX iBufferData = -1);
+void ShowSelection(CTerrain_* ptrTerrain, Rect& rcExtract, CTextureData_* ptdBrush, COLOR colSelection, FLOAT fStrenght, SelectionFill sfFill = SF_POLYGON);
 
 #include "TerrainEditing.inl"

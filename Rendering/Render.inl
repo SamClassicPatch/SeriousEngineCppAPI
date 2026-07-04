@@ -3,6 +3,8 @@
 inline CWorldRenderPrefs::CWorldRenderPrefs(CWorldRenderPrefs_* p, bool owner)
   : m_owner(owner)
   , mp_handle(p)
+  , wrp_fFarClipPlane(*CWorldRenderPrefs_wrp_fFarClipPlane(p))
+  , wrp_bApplyFarClipPlaneInIsometricProjection(*CWorldRenderPrefs_wrp_bApplyFarClipPlaneInIsometricProjection(p))
 {
 }
 

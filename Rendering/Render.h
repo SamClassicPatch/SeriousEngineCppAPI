@@ -176,6 +176,10 @@ public:
 private:
   bool m_owner = true;
   CWorldRenderPrefs_* mp_handle = nullptr;
+
+public:
+  FLOAT& wrp_fFarClipPlane;                          // far clip plane
+  BOOL& wrp_bApplyFarClipPlaneInIsometricProjection; // if far clip plane should be applied in isometric projections
 };
 
 // global instance used in rendering

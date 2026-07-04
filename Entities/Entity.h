@@ -98,7 +98,7 @@ public:
   /* Get light source information - return NULL if not a light source. */
   CLightSourcePtr GetLightSource();
   /* Is target valid. */
-  BOOL IsTargetValid(SLONG slPropertyOffset, CEntity* penTarget);
+  BOOL IsTargetValid(SLONG slPropertyOffset, CEntity_* penTarget);
   /* Get force type name, return empty string if not used. */
   CTString GetForceName(INDEX iForce);
   /* Get fog type name, return empty string if not used. */

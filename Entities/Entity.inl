@@ -192,9 +192,9 @@ __forceinline CLightSourcePtr CEntity::GetLightSource()
   return CEntity_GetLightSource(C_Handle());
 }
 
-inline BOOL CEntity::IsTargetValid(SLONG slPropertyOffset, CEntity* penTarget)
+inline BOOL CEntity::IsTargetValid(SLONG slPropertyOffset, CEntity_* penTarget)
 {
-  return CEntity_IsTargetValid(C_Handle(), slPropertyOffset, penTarget ? penTarget->C_Handle() : nullptr);
+  return CEntity_IsTargetValid(C_Handle(), slPropertyOffset, penTarget);
 }
 
 inline CTString CEntity::GetForceName(INDEX iForce)
