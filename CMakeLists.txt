@@ -10,6 +10,8 @@ set(SRC_BASE
   Base/Changeable.inl
   Base/ChangeableRT.h
   Base/ChangeableRT.inl
+  Base/Console.h
+  Base/Console.inl
   Base/CTString.h
   Base/CTString.inl
   Base/CTStringDecl.h
@@ -24,6 +26,8 @@ set(SRC_BASE
   Base/Lists.h
   Base/Lists.inl
   Base/Pointer.h
+  Base/Profiling.h
+  Base/Profiling.inl
   Base/Relations.h
   Base/Relations.inl
   Base/Serial.h

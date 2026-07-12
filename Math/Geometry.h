@@ -28,4 +28,11 @@ void DirectionVectorToAnglesNoSnap(const FLOAT3D& vDirection, ANGLE3D& a3dAngles
    (up vector must be normalized!)*/
 void UpVectorToAngles(const FLOAT3D& vUp, ANGLE3D& a3dAngles);
 
+/* Calculate rotation matrix from angles in 3D. */
+void operator^=(DOUBLEmatrix3D& t3dRotation, const ANGLE3D& a3dAngles);
+/* Calculate inverse rotation matrix from angles in 3D. */
+void operator!=(DOUBLEmatrix3D& t3dRotation, const ANGLE3D& a3dAngles);
+/* Decompose rotation matrix into angles in 3D. */
+void operator^=(ANGLE3D& a3dAngles, const DOUBLEmatrix3D& t3dRotation);
+
 #include "Geometry.inl"

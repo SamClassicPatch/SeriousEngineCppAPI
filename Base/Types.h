@@ -5,6 +5,7 @@
 #define NONE 0
 #define NOTHING ((void) 0)
 #define FOREVER for(;;)
+#define ARRAYCOUNT(array) (sizeof(array)/sizeof((array)[0]))
 
 class FLOAT2D;
 class FLOAT3D;

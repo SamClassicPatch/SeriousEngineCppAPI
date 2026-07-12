@@ -61,7 +61,7 @@ private:
   CTextureObject(_toSimpleModelShadow_(), false)
 
 // begin/end model rendering to screen
-void BeginModelRenderingView(CAnyProjection3D& prProjection, CDrawPort* pdp);
+void BeginModelRenderingView(CAnyProjection3D& prProjection, CDrawPort_* pdp);
 void EndModelRenderingView(BOOL bRestoreOrtho = TRUE);
 
 // begin/end model rendering to shadow mask

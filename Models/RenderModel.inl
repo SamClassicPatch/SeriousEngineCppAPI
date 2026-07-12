@@ -128,9 +128,9 @@ inline INDEX CModelRenderPrefs::GetShadowQuality()
   return CModelRenderPrefs_GetShadowQuality(mp_handle);
 }
 
-inline void BeginModelRenderingView(CAnyProjection3D& prProjection, CDrawPort* pdp)
+inline void BeginModelRenderingView(CAnyProjection3D& prProjection, CDrawPort_* pdp)
 {
-  BeginModelRenderingView_(prProjection, *pdp);
+  BeginModelRenderingView_(prProjection, pdp);
 }
 
 inline void EndModelRenderingView(BOOL bRestoreOrtho)

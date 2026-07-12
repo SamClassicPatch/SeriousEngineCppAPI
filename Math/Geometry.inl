@@ -49,3 +49,18 @@ inline void UpVectorToAngles(const FLOAT3D& vUp, ANGLE3D& a3dAngles)
 {
   UpVectorToAngles_(vUp, a3dAngles);
 }
+
+inline void operator^=(DOUBLEmatrix3D& t3dRotation, const ANGLE3D& a3dAngles)
+{
+  MakeRotationMatrixDOUBLE_(t3dRotation, a3dAngles);
+}
+
+inline void operator!=(DOUBLEmatrix3D& t3dRotation, const ANGLE3D& a3dAngles)
+{
+  MakeInverseRotationMatrixDOUBLE_(t3dRotation, a3dAngles);
+}
+
+inline void operator^=(ANGLE3D& a3dAngles, const DOUBLEmatrix3D& t3dRotation)
+{
+  DecomposeRotationMatrixDOUBLE_(a3dAngles, t3dRotation);
+}

@@ -76,23 +76,11 @@ public:
       return &(*m_object);
     return nullptr;
   }
-  inline operator TObject* ()
-  {
-    if (m_object.has_value())
-      return &(*m_object);
-    return nullptr;
-  }
   inline TObject& operator*()
   {
     return *m_object;
   }
   inline const TObject* operator->() const
-  {
-    if (m_object.has_value())
-      return &(*m_object);
-    return nullptr;
-  }
-  inline operator const TObject* () const
   {
     if (m_object.has_value())
       return &(*m_object);

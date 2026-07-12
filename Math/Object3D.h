@@ -277,6 +277,7 @@ public:
   CObject3D(CObject3D& o);
   ~CObject3D();
   CObject3D& operator=(CObject3D& o);
+  CObject3D& operator=(const CObject3D& o);
 
   /* Remove sectors with no polygons. */
   void RemoveEmptySectors();

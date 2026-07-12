@@ -7,14 +7,12 @@ inline EFirstWorldBase::EFirstWorldBase(EFirstWorldBase_* p, bool owner)
 }
 
 inline EFirstWorldBase::EFirstWorldBase()
-  : EFirstWorldBase(EFirstWorldBase_new())
-  , m_owner(true)
+  : EFirstWorldBase(EFirstWorldBase_new(), true)
 {
 }
 
 inline EFirstWorldBase::EFirstWorldBase(const EFirstWorldBase& o)
-  : EFirstWorldBase(EFirstWorldBase_clone(o))
-  , m_owner(true)
+  : EFirstWorldBase(EFirstWorldBase_clone(o), true)
 {
 }
 

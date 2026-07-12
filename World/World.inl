@@ -56,9 +56,9 @@ inline CWorld::~CWorld()
     CWorld_delete(C_Handle());
 }
 
-inline void CWorld::UntargetEntity(CEntity* penToUntarget)
+inline void CWorld::UntargetEntity(CEntity_* penToUntarget)
 {
-  CWorld_UntargetEntity(C_Handle(), penToUntarget ? penToUntarget->C_Handle() : nullptr);
+  CWorld_UntargetEntity(C_Handle(), penToUntarget);
   SECppAPI_CheckException();
 }
 
@@ -107,9 +107,9 @@ inline void CWorld::DestroyEntities(CEntitySelection& senToDestroy)
   SECppAPI_CheckException();
 }
 
-inline void CWorld::DestroyOneEntity(CEntity* penToDestroy)
+inline void CWorld::DestroyOneEntity(CEntity_* penToDestroy)
 {
-  CWorld_DestroyOneEntity(C_Handle(), penToDestroy ? penToDestroy->C_Handle() : nullptr);
+  CWorld_DestroyOneEntity(C_Handle(), penToDestroy);
   SECppAPI_CheckException();
 }
 

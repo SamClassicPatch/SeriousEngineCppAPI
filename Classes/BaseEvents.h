@@ -12,8 +12,8 @@ public:
   ~EFirstWorldBase();
   EFirstWorldBase& operator=(const EFirstWorldBase& o);
 
-  inline EFirstWorldBase_* C_Handle() { return EFirstWorldBase_to_CEntityEvent(mp_handle); }
-  inline const EFirstWorldBase_* C_Handle() const { return EFirstWorldBase_to_CEntityEvent_const(mp_handle); }
+  inline EFirstWorldBase_* C_Handle() { return CEntityEvent_to_EFirstWorldBase(mp_handle); }
+  inline const EFirstWorldBase_* C_Handle() const { return CEntityEvent_to_EFirstWorldBase_const(mp_handle); }
   inline operator EFirstWorldBase_* () { return C_Handle(); }
   inline operator const EFirstWorldBase_* () const { return C_Handle(); }
 

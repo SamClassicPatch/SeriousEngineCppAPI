@@ -382,6 +382,12 @@ inline CObject3D& CObject3D::operator=(CObject3D& o)
   return *this;
 }
 
+inline CObject3D& CObject3D::operator=(const CObject3D& o)
+{
+  CObject3D_copy(mp_handle, const_cast<CObject3D&>(o));
+  return *this;
+}
+
 inline void CObject3D::RemoveEmptySectors()
 {
   CObject3D_RemoveEmptySectors(mp_handle);

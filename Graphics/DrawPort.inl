@@ -129,7 +129,7 @@ inline PIX CDrawPort::GetHeight() const
 
 inline void CDrawPort::SetFont(CFontDataPtr pfd)
 {
-  CDrawPort_SetFont(mp_handle, *pfd);
+  CDrawPort_SetFont(mp_handle, pfd.get_handle());
 }
 
 inline void CDrawPort::SetTextCharSpacing(PIX pixSpacing)

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Base/Types.h"
+#include "Base/Console.h"
 #include <SeriousEngineCAPI/Base/KeyNames.h>
 #include "Base/Input.h"
 #include "Base/Updateable.h"
@@ -13,6 +14,7 @@
 #include "Base/Shell.h"
 #include "Base/Statistics.h"
 #include <SeriousEngineCAPI/Base/Memory.h>
+#include "Base/Profiling.h"
 
 #include "Brushes/Brush.h"
 #include "Brushes/BrushTransformed.h"

@@ -56,7 +56,7 @@ inline void _pGfx_CreateWindowCanvas(void* hWnd, CViewPortPtr& vp, CDrawPortPtr&
 
 inline void _pGfx_DestroyWindowCanvas(CViewPortPtr& pvpOld)
 {
-  _pGfx_DestroyWindowCanvas_(*pvpOld);
+  _pGfx_DestroyWindowCanvas_(pvpOld.get_handle());
   pvpOld.Reset();
 }
 
@@ -69,6 +69,6 @@ inline void _pGfx_CreateWorkCanvas(PIX pixWidth, PIX pixHeight, CDrawPortPtr& dp
 
 inline void _pGfx_DestroyWorkCanvas(CDrawPortPtr& pdpOld)
 {
-  _pGfx_DestroyWorkCanvas_(*pdpOld);
+  _pGfx_DestroyWorkCanvas_(pdpOld.get_handle());
   pdpOld.Reset();
 }

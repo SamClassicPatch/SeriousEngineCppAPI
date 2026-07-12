@@ -37,7 +37,7 @@ public:
   CWorld& operator=(const CWorld& ln) = delete;
 
   /* Clear all entity pointers that point to this entity. */
-  void UntargetEntity(CEntity* penToUntarget);
+  void UntargetEntity(CEntity_* penToUntarget);
   // triangularize selected polygons
   void TriangularizePolygons(CDynamicContainer_CBrushPolygon& dcPolygons);
   /* Clear all arrays. */
@@ -53,7 +53,7 @@ public:
   /* Destroy a selection of entities - reserved for use in WEd only! */
   void DestroyEntities(CEntitySelection& senToDestroy);
   /* Destroy given entity - reserved for use in WEd only! */
-  void DestroyOneEntity(CEntity* penToDestroy);
+  void DestroyOneEntity(CEntity_* penToDestroy);
   /* Cast a ray and see what it hits. */
   void CastRay(CCastRay& crRay);
   /* Continue to cast already cast ray */

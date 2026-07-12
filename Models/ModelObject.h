@@ -85,28 +85,28 @@ public:
   // Get model vertices in absoulte space
   void GetModelVertices(CStaticStackArray_FLOAT3D& avVertices, FLOATmatrix3D& mRotation,
     FLOAT3D& vPosition, FLOAT fNormalOffset, FLOAT fMipFactor);
-  void GetAttachmentMatrices(CAttachmentModelObject* pamo, FLOATmatrix3D& mRotation, FLOAT3D& vPosition);
+  void GetAttachmentMatrices(CAttachmentModelObject_* pamo, FLOATmatrix3D& mRotation, FLOAT3D& vPosition);
   void GetAttachmentTransformations(INDEX iAttachment, FLOATmatrix3D& mRotation, FLOAT3D& vPosition, BOOL bDummyAttachment);
 
-  void ProjectFrameVertices(CProjection3D* pProjection, INDEX iMipModel);
-  void ColorizeRegion(CDrawPort* pDP, CProjection3D* projection, PIXaabbox2D box,
+  void ProjectFrameVertices(CProjection3D_* pProjection, INDEX iMipModel);
+  void ColorizeRegion(CDrawPort_* pDP, CProjection3D_* projection, PIXaabbox2D box,
     INDEX iChoosedColor, BOOL bOnColorMode); // colorizes polygons touching given box
-  void ColorizePolygon(CDrawPort* pDP, CProjection3D* projection, PIX x1, PIX y1,
+  void ColorizePolygon(CDrawPort_* pDP, CProjection3D_* projection, PIX x1, PIX y1,
     INDEX iChoosedColor, BOOL bOnColorMode); // colorizes hitted polygon
-  void ApplySurfaceToPolygon(CDrawPort* pDP, CProjection3D* projection, PIX x1, PIX y1,
+  void ApplySurfaceToPolygon(CDrawPort_* pDP, CProjection3D_* projection, PIX x1, PIX y1,
     INDEX iSurface, COLOR colSurfaceColor);
-  void ApplySurfaceToPolygonsInRegion(CDrawPort* pDP, CProjection3D* projection,
+  void ApplySurfaceToPolygonsInRegion(CDrawPort_* pDP, CProjection3D_* projection,
     PIXaabbox2D box, INDEX iSurface, COLOR colSurfaceColor);
   void UnpackVertex(INDEX iFrame, INDEX iVertex, FLOAT3D& vVertex);
   CPlacement3D GetAttachmentPlacement(CAttachmentModelObject& amo);
   ModelPolygonPtr PolygonHit(CPlacement3D plRay, CPlacement3D plObject,
     INDEX iCurrentMip, FLOAT& fHitDistance); // returns ptr to hitted polygon (NULL if none)
-  ModelPolygonPtr PolygonHitModelData(CModelData* pMD, CPlacement3D plRay,
+  ModelPolygonPtr PolygonHitModelData(CModelData_* pMD, CPlacement3D plRay,
     CPlacement3D plObject, INDEX iCurrentMip, FLOAT& fHitDistance);
-  void PickPolyColor(CDrawPort* pDP, CProjection3D* projection, PIX x1, PIX y1,
+  void PickPolyColor(CDrawPort_* pDP, CProjection3D_* projection, PIX x1, PIX y1,
     INDEX& iPickedColorNo, BOOL bOnColorMode); // picks color from hitted polygon
-  INDEX PickPolySurface(CDrawPort* pDP, CProjection3D* projection, PIX x1, PIX y1); // picks surface from hitted polygon
-  INDEX PickVertexIndex(CDrawPort* pDP, CProjection3D* projection, PIX x1, PIX y1, FLOAT3D& vClosestVertex); // obtains index of closest vertex
+  INDEX PickPolySurface(CDrawPort_* pDP, CProjection3D_* projection, PIX x1, PIX y1); // picks surface from hitted polygon
+  INDEX PickVertexIndex(CDrawPort_* pDP, CProjection3D_* projection, PIX x1, PIX y1, FLOAT3D& vClosestVertex); // obtains index of closest vertex
 
   void ShowPatch(INDEX iMaskBit);
   void HidePatch(INDEX iMaskBit);

@@ -76,3 +76,9 @@ private:
 // make 'for' construct for walking a list
 #define FOREACHINLIST(baseclass, member, head, iter) \
   for ( LISTITER(baseclass, member) iter(head); !iter.IsPastEnd(); iter.MoveToNext() )
+
+// make 'for' construct for deleting a list
+#define FORDELETELIST(baseclass, member, head, iter)  \
+   for ( LISTITER(baseclass, member) iter(head), iter##next(head);  \
+   iter##next=iter, iter##next.IsPastEnd() || (iter##next.MoveToNext(),1), !iter.IsPastEnd(); \
+     iter = iter##next)

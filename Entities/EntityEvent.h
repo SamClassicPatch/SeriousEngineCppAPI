@@ -4,6 +4,7 @@
 class CEntityEvent
 {
 public:
+  inline CEntityEvent(CEntityEvent_* p) : mp_handle(p) {}
   virtual ~CEntityEvent() = 0;
 
   inline CEntityEvent_* C_Handle() { return mp_handle; }
