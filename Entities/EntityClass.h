@@ -18,12 +18,10 @@ public:
   /* Get pointer to entity property from its name. */
   CEntityPropertyPtr PropertyForName(const CTString& strPropertyName);
 
-  inline CEntityClass_* C_Handle() { return mp_handle; }
-  inline const CEntityClass_* C_Handle() const { return mp_handle; }
+  inline CEntityClass_* C_Handle() { return (CEntityClass_*)CSerial::C_Handle(); }
+  inline const CEntityClass_* C_Handle() const { return (const CEntityClass_*)CSerial::C_Handle(); }
   inline operator CEntityClass_* () { return C_Handle(); }
   inline operator const CEntityClass_* () const { return C_Handle(); }
-private:
-  CEntityClass_* mp_handle = nullptr;
 
 public:
   CDLLEntityClassPtr ec_pdecDLLClass; // pointer to DLL class in the DLL

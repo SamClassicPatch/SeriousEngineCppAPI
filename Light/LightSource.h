@@ -19,6 +19,7 @@ private:
 
 public:
   ULONG& ls_ulFlags; // various flags
+  CEntity_*& ls_penEntity; // the entity of this light source
 };
 
 #include "LightSource.inl"

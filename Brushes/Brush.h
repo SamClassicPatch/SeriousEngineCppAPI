@@ -457,10 +457,10 @@ public:
   void Copy(CBrush3D& brOther, FLOAT fStretch, BOOL bMirrorX);
 
   /* Delete a brush mip with given factor. */
-  void DeleteBrushMip(CBrushMip* pbmToDelete);
+  void DeleteBrushMip(CBrushMip_* pbmToDelete);
   /* Create a new brush mip. */
-  CBrushMipPtr NewBrushMipAfter(CBrushMip* pbm, BOOL bCopy);
-  CBrushMipPtr NewBrushMipBefore(CBrushMip* pbm, BOOL bCopy);
+  CBrushMipPtr NewBrushMipAfter(CBrushMip_* pbm, BOOL bCopy);
+  CBrushMipPtr NewBrushMipBefore(CBrushMip_* pbm, BOOL bCopy);
   /* Get a brush mip for given mip-factor. */
   CBrushMipPtr GetBrushMipByDistance(FLOAT fDistance);
   // get first brush mip

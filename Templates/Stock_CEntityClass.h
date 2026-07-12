@@ -8,3 +8,9 @@ inline CEntityClassPtr _pEntityClassStock_Obtain_t(const CTFileName_* f)
   SECppAPI_CheckException();
   return res;
 }
+
+inline void _pEntityClassStock_Release(CEntityClass_* p)
+{
+  _pEntityClassStock_Release_(p);
+  SECppAPI_CheckException();
+}

@@ -208,6 +208,6 @@ public:
  * Rendering interface
  */
  // Render a world with some viewer, projection and drawport.
-void RenderView(CWorld& woWorld, CEntity& enViewer, CAnyProjection3D& prProjection, CDrawPort& dpDrawport);
+void RenderView(CWorld& woWorld, CEntity_* enViewer, CAnyProjection3D& prProjection, CDrawPort& dpDrawport);
 
 #include "Render.inl"

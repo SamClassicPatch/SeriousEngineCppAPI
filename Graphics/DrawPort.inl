@@ -36,18 +36,18 @@ inline CDrawPort::CDrawPort(CRaster* praBase)
 {
 }
 
-inline CDrawPort::CDrawPort(CDrawPort* pdpBase, DOUBLE rMinI, DOUBLE rMinJ, DOUBLE rSizeI, DOUBLE rSizeJ)
-  : CDrawPort(CDrawPort_new_cloned(pdpBase ? pdpBase->C_Handle() : nullptr, rMinI, rMinJ, rSizeI, rSizeJ), true)
+inline CDrawPort::CDrawPort(CDrawPort_* pdpBase, DOUBLE rMinI, DOUBLE rMinJ, DOUBLE rSizeI, DOUBLE rSizeJ)
+  : CDrawPort(CDrawPort_new_cloned(pdpBase, rMinI, rMinJ, rSizeI, rSizeJ), true)
 {
 }
 
-inline CDrawPort::CDrawPort(CDrawPort* pdpBase, const PIXaabbox2D& box)
-  : CDrawPort(CDrawPort_new_cloned_box(pdpBase ? pdpBase->C_Handle() : nullptr, box), true)
+inline CDrawPort::CDrawPort(CDrawPort_* pdpBase, const PIXaabbox2D& box)
+  : CDrawPort(CDrawPort_new_cloned_box(pdpBase, box), true)
 {
 }
 
-inline CDrawPort::CDrawPort(CDrawPort* pdpBase, BOOL bLeft)
-  : CDrawPort(CDrawPort_new_cloned_dualhead(pdpBase ? pdpBase->C_Handle() : nullptr, bLeft), true)
+inline CDrawPort::CDrawPort(CDrawPort_* pdpBase, BOOL bLeft)
+  : CDrawPort(CDrawPort_new_cloned_dualhead(pdpBase, bLeft), true)
 {
 }
 

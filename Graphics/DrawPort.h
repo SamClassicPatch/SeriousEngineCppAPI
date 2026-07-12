@@ -14,10 +14,10 @@ public:
   // Create a drawport for full raster
   CDrawPort(CRaster* praBase = nullptr);
   // Clone a drawport
-  CDrawPort(CDrawPort* pdpBase, DOUBLE rMinI, DOUBLE rMinJ, DOUBLE rSizeI, DOUBLE rSizeJ);
-  CDrawPort(CDrawPort* pdpBase, const PIXaabbox2D& box);
+  CDrawPort(CDrawPort_* pdpBase, DOUBLE rMinI, DOUBLE rMinJ, DOUBLE rSizeI, DOUBLE rSizeJ);
+  CDrawPort(CDrawPort_* pdpBase, const PIXaabbox2D& box);
   // dualhead cloning
-  CDrawPort(CDrawPort* pdpBase, BOOL bLeft);
+  CDrawPort(CDrawPort_* pdpBase, BOOL bLeft);
   ~CDrawPort();
 
   CRaster dp_Raster(); // pointer to the Raster this refers to

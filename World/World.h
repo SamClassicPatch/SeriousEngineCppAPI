@@ -119,11 +119,11 @@ public:
   BOOL CanJoinAllPossiblePolygons(CBrushPolygonSelection& selbpoPolygonsToJoin);
   /* Copy selected sectors from one brush to a new entity in another world. */
   BOOL CanCopySectors(CBrushSectorSelection& selbscSectorsToCopy);
-  void CopySectors(CBrushSectorSelection& selbscSectorsToCopy, CEntity* penTarget, BOOL bWithEntities);
+  void CopySectors(CBrushSectorSelection& selbscSectorsToCopy, CEntity_* penTarget, BOOL bWithEntities);
   /* Delete selected sectors. */
   void DeleteSectors(CBrushSectorSelection& selbscSectorsToDelete, BOOL bClearPortalFlags);
   void CopyPolygonInWorld(CBrushPolygon& bpoSrc, CBrushSector& bsc, INDEX iPol, INDEX& iEdg, INDEX& iVtx);
-  void CopyPolygonsToBrush(CBrushPolygonSelection& selPolygons, CEntity* penbr);
+  void CopyPolygonsToBrush(CBrushPolygonSelection& selPolygons, CEntity_* penbr);
   void DeletePolygons(CDynamicContainer_CBrushPolygon& dcPolygons);
   void CreatePolygon(CBrushVertexSelection& selVtx);
   void FlipPolygon(CBrushPolygon& bpo);

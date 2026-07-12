@@ -36,3 +36,5 @@ private:
   CEntityPointer_* mp_handle = nullptr;
   mutable CEntityPtr mp_cache;
 };
+
+#include "EntityPointer.inl"

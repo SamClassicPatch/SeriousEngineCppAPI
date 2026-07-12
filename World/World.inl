@@ -281,9 +281,9 @@ inline BOOL CWorld::CanCopySectors(CBrushSectorSelection& selbscSectorsToCopy)
   return CWorld_CanCopySectors(C_Handle(), selbscSectorsToCopy);
 }
 
-inline void CWorld::CopySectors(CBrushSectorSelection& selbscSectorsToCopy, CEntity* penTarget, BOOL bWithEntities)
+inline void CWorld::CopySectors(CBrushSectorSelection& selbscSectorsToCopy, CEntity_* penTarget, BOOL bWithEntities)
 {
-  CWorld_CopySectors(C_Handle(), selbscSectorsToCopy, penTarget ? penTarget->C_Handle() : nullptr, bWithEntities);
+  CWorld_CopySectors(C_Handle(), selbscSectorsToCopy, penTarget, bWithEntities);
   SECppAPI_CheckException();
 }
 
@@ -299,9 +299,9 @@ inline void CWorld::CopyPolygonInWorld(CBrushPolygon& bpoSrc, CBrushSector& bsc,
   SECppAPI_CheckException();
 }
 
-inline void CWorld::CopyPolygonsToBrush(CBrushPolygonSelection& selPolygons, CEntity* penbr)
+inline void CWorld::CopyPolygonsToBrush(CBrushPolygonSelection& selPolygons, CEntity_* penbr)
 {
-  CWorld_CopyPolygonsToBrush(C_Handle(), selPolygons, penbr ? penbr->C_Handle() : nullptr);
+  CWorld_CopyPolygonsToBrush(C_Handle(), selPolygons, penbr);
   SECppAPI_CheckException();
 }
 

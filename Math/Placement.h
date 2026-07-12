@@ -65,4 +65,7 @@ public:
 CTStream& operator>>(CTStream& strm, CPlacement3D& p3d);
 CTStream& operator<<(CTStream& strm, const CPlacement3D& p3d);
 
+#define _plOrigin\
+  CPlacement3D(_plOrigin_(), false)
+
 #include "Placement.inl"

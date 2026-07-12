@@ -15,18 +15,23 @@ inline CCastRay::CCastRay(CCastRay_* p, bool owner)
 {
 }
 
-inline CCastRay::CCastRay(CEntity* penOrigin, const CPlacement3D& plOrigin)
-  : CCastRay(CCastRay_new_pl(penOrigin ? penOrigin->C_Handle() : nullptr, plOrigin), true)
+inline CCastRay::CCastRay(CEntity_* penOrigin, const CPlacement3D& plOrigin)
+  : CCastRay(CCastRay_new_pl(penOrigin, plOrigin), true)
 {
 }
 
-inline CCastRay::CCastRay(CEntity* penOrigin, const CPlacement3D& plOrigin, FLOAT fMaxTestDistance)
-  : CCastRay(CCastRay_new_plf(penOrigin ? penOrigin->C_Handle() : nullptr, plOrigin, fMaxTestDistance), true)
+inline CCastRay::CCastRay(CEntity_* penOrigin, const CPlacement3D& plOrigin, FLOAT fMaxTestDistance)
+  : CCastRay(CCastRay_new_plf(penOrigin, plOrigin, fMaxTestDistance), true)
 {
 }
 
-inline CCastRay::CCastRay(CEntity* penOrigin, const FLOAT3D& vOrigin, const FLOAT3D& vTarget)
-  : CCastRay(CCastRay_new_vv(penOrigin ? penOrigin->C_Handle() : nullptr, vOrigin, vTarget), true)
+inline CCastRay::CCastRay(CEntity_* penOrigin, const FLOAT3D& vOrigin, const FLOAT3D& vTarget)
+  : CCastRay(CCastRay_new_vv(penOrigin, vOrigin, vTarget), true)
+{
+}
+
+inline CCastRay::CCastRay(const CCastRay& o)
+  : CCastRay(CCastRay_clone(o), true)
 {
 }
 
@@ -34,4 +39,10 @@ inline CCastRay::~CCastRay()
 {
   if (m_owner)
     CCastRay_delete(mp_handle);
+}
+
+inline CCastRay& CCastRay::operator=(const CCastRay& o)
+{
+  CCastRay_copy(mp_handle, o);
+  return *this;
 }

@@ -6,12 +6,12 @@ class CCastRay
 {
 public:
   CCastRay(CCastRay_* p, bool owner = false);
-  CCastRay(CEntity* penOrigin, const CPlacement3D& plOrigin); // target is very far away
-  CCastRay(CEntity* penOrigin, const CPlacement3D& plOrigin, FLOAT fMaxTestDistance);
-  CCastRay(CEntity* penOrigin, const FLOAT3D& vOrigin, const FLOAT3D& vTarget);
-  CCastRay(const CCastRay& o) = delete;
+  CCastRay(CEntity_* penOrigin, const CPlacement3D& plOrigin); // target is very far away
+  CCastRay(CEntity_* penOrigin, const CPlacement3D& plOrigin, FLOAT fMaxTestDistance);
+  CCastRay(CEntity_* penOrigin, const FLOAT3D& vOrigin, const FLOAT3D& vTarget);
+  CCastRay(const CCastRay& o);
   ~CCastRay();
-  CCastRay& operator=(const CCastRay& o) = delete;
+  CCastRay& operator=(const CCastRay& o);
 
   // diferent types of testing
   enum TestType : TestType_ {
