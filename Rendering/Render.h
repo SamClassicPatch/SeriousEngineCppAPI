@@ -168,6 +168,9 @@ public:
   /* Test if far clip plane in isometric projection is on. */
   BOOL IsFarClipPlaneInIsometricProjectionOn();
 
+  void Read_t(CTStream* istrFile);   // throw char * // read and
+  void Write_t(CTStream* ostrFile);  // throw char * // write functions
+
   inline CWorldRenderPrefs_* C_Handle() { return mp_handle; }
   inline const CWorldRenderPrefs_* C_Handle() const { return mp_handle; }
   inline operator CWorldRenderPrefs_* () { return C_Handle(); }

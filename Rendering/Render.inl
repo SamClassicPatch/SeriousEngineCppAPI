@@ -325,6 +325,18 @@ inline BOOL CWorldRenderPrefs::IsFarClipPlaneInIsometricProjectionOn()
   return CWorldRenderPrefs_IsFarClipPlaneInIsometricProjectionOn(mp_handle);
 }
 
+inline void CWorldRenderPrefs::Read_t(CTStream* inFile)
+{
+  CWorldRenderPrefs_Read_t(mp_handle, *inFile);
+  SECppAPI_CheckException();
+}
+
+inline void CWorldRenderPrefs::Write_t(CTStream* outFile)
+{
+  CWorldRenderPrefs_Write_t(mp_handle, *outFile);
+  SECppAPI_CheckException();
+}
+
 inline void RenderView(CWorld& woWorld, CEntity_* enViewer, CAnyProjection3D& prProjection, CDrawPort& dpDrawport)
 {
   RenderView_(woWorld, enViewer, prProjection, dpDrawport);

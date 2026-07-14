@@ -38,6 +38,8 @@ public:
   void BBoxAllShow(BOOL bShow);                   // show bounding box all frames
   ULONG GetRenderType();                      // get model rendering type
   INDEX GetShadowQuality();                   // retrieves current shadow quality level
+  void Read_t(CTStream* istrFile);   // throw char * // read and
+  void Write_t(CTStream* ostrFile);  // throw char * // write functions
 
   inline CModelRenderPrefs_* C_Handle() { return mp_handle; }
   inline const CModelRenderPrefs_* C_Handle() const { return mp_handle; }

@@ -128,6 +128,18 @@ inline INDEX CModelRenderPrefs::GetShadowQuality()
   return CModelRenderPrefs_GetShadowQuality(mp_handle);
 }
 
+inline void CModelRenderPrefs::Read_t(CTStream* inFile)
+{
+  CModelRenderPrefs_Read_t(mp_handle, *inFile);
+  SECppAPI_CheckException();
+}
+
+inline void CModelRenderPrefs::Write_t(CTStream* outFile)
+{
+  CModelRenderPrefs_Write_t(mp_handle, *outFile);
+  SECppAPI_CheckException();
+}
+
 inline void BeginModelRenderingView(CAnyProjection3D& prProjection, CDrawPort_* pdp)
 {
   BeginModelRenderingView_(prProjection, pdp);
