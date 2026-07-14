@@ -104,9 +104,9 @@ inline void CTextureData::CreateEffectTexture(PIX pixWidth, PIX pixHeight, MEX m
   CTextureData_CreateEffectTexture(C_Handle(), pixWidth, pixHeight, mexWidth, ptdBaseTexture, ulGlobalEffect);
 }
 
-inline void CTextureData::Create_t(const CImageInfo* pII, MEX mexWanted, INDEX ctFineMips, BOOL bForce32bit)
+inline void CTextureData::Create_t(const CImageInfo_* pII, MEX mexWanted, INDEX ctFineMips, BOOL bForce32bit)
 {
-  CTextureData_Create_t(C_Handle(), pII ? pII->C_Handle() : nullptr, mexWanted, ctFineMips, bForce32bit);
+  CTextureData_Create_t(C_Handle(), pII, mexWanted, ctFineMips, bForce32bit);
   SECppAPI_CheckException();
 }
 

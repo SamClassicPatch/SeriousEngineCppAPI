@@ -21,11 +21,6 @@ inline CEntityPointer::CEntityPointer(CEntity_* o)
 {
 }
 
-inline CEntityPointer::CEntityPointer(CEntity* o)
-  : CEntityPointer(CEntityPointer_new_e(o ? o->C_Handle() : nullptr), true)
-{
-}
-
 inline CEntityPointer::~CEntityPointer()
 {
   if (m_owner)
@@ -41,12 +36,6 @@ inline CEntityPointer& CEntityPointer::operator=(const CEntityPointer& o)
 inline CEntityPointer& CEntityPointer::operator=(CEntity_* o)
 {
   CEntityPointer_copy_e(C_Handle(), o);
-  return *this;
-}
-
-inline CEntityPointer& CEntityPointer::operator=(CEntity* o)
-{
-  CEntityPointer_copy_e(C_Handle(), o ? o->C_Handle() : nullptr);
   return *this;
 }
 

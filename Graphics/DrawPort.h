@@ -12,7 +12,7 @@ class CDrawPort
 public:
   CDrawPort(CDrawPort_* p, bool owner = false);
   // Create a drawport for full raster
-  CDrawPort(CRaster* praBase = nullptr);
+  CDrawPort(CRaster_* praBase = nullptr);
   // Clone a drawport
   CDrawPort(CDrawPort_* pdpBase, DOUBLE rMinI, DOUBLE rMinJ, DOUBLE rSizeI, DOUBLE rSizeJ);
   CDrawPort(CDrawPort_* pdpBase, const PIXaabbox2D& box);
@@ -31,7 +31,7 @@ public:
   void SetProjection(CAnyProjection3D& apr) const;
 
   //  wide-screen cloning
-  void MakeWideScreen(CDrawPort* pdp);
+  void MakeWideScreen(CDrawPort_* pdp);
 
   // check if a drawport is dualhead
   BOOL IsDualHead();

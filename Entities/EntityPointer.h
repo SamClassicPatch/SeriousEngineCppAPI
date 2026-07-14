@@ -13,11 +13,9 @@ public:
   CEntityPointer();
   CEntityPointer(const CEntityPointer& o);
   CEntityPointer(CEntity_* o);
-  CEntityPointer(CEntity* o);
   ~CEntityPointer();
   CEntityPointer& operator=(const CEntityPointer& o);
   CEntityPointer& operator=(CEntity_* o);
-  CEntityPointer& operator=(CEntity* o);
   bool operator==(const CEntityPointer& o) const;
 
   CEntityPtr ep_pen() const;

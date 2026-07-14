@@ -38,7 +38,7 @@ public:
   void CreateEffectTexture(PIX pixWidth, PIX pixHeight, MEX mexWidth,
     CTextureData_* ptdBaseTexture, ULONG ulGlobalEffect);
   // creates new texture with one frame
-  void Create_t(const CImageInfo* pII, MEX mexWanted, INDEX ctFineMips, BOOL bForce32bit);
+  void Create_t(const CImageInfo_* pII, MEX mexWanted, INDEX ctFineMips, BOOL bForce32bit);
 
   // free memory allocated for texture
   void Clear();

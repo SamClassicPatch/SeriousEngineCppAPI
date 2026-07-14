@@ -24,9 +24,9 @@ inline CTSingleLock::CTSingleLock(CTSingleLock_* p, bool owner)
 {
 }
 
-inline CTSingleLock::CTSingleLock(CTCriticalSection* pcs, BOOL bLock)
+inline CTSingleLock::CTSingleLock(CTCriticalSection_* pcs, BOOL bLock)
   : m_owner(true)
-  , mp_handle(CTSingleLock_new(pcs ? pcs->C_Handle() : nullptr, bLock))
+  , mp_handle(CTSingleLock_new(pcs, bLock))
 {
 }
 

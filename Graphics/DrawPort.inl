@@ -31,8 +31,8 @@ inline CDrawPort::CDrawPort(CDrawPort_* p, bool owner)
 {
 }
 
-inline CDrawPort::CDrawPort(CRaster* praBase)
-  : CDrawPort(CDrawPort_new(praBase ? praBase->C_Handle() : nullptr), true)
+inline CDrawPort::CDrawPort(CRaster_* praBase)
+  : CDrawPort(CDrawPort_new(praBase), true)
 {
 }
 
@@ -87,9 +87,9 @@ inline void CDrawPort::SetProjection(CAnyProjection3D& apr) const
   CDrawPort_SetProjection(mp_handle, apr);
 }
 
-inline void CDrawPort::MakeWideScreen(CDrawPort* pdp)
+inline void CDrawPort::MakeWideScreen(CDrawPort_* pdp)
 {
-  CDrawPort_MakeWideScreen(mp_handle, pdp ? pdp->C_Handle() : nullptr);
+  CDrawPort_MakeWideScreen(mp_handle, pdp);
 }
 
 inline BOOL CDrawPort::IsDualHead()

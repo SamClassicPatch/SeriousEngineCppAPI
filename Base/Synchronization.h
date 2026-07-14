@@ -26,7 +26,7 @@ class CTSingleLock
 {
 public:
   CTSingleLock(CTSingleLock_* p, bool owner = false);
-  CTSingleLock(CTCriticalSection* pcs, BOOL bLock);
+  CTSingleLock(CTCriticalSection_* pcs, BOOL bLock);
   ~CTSingleLock();
 
   void Lock();
