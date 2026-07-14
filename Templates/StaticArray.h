@@ -51,9 +51,9 @@
     CStaticArray_##TYPE& sai_Array;\
     TYPE##Ptr p_cur;\
   public:\
-    inline CStaticArrayIterator_##TYPE(CStaticArray_##TYPE& sa) : sai_Array(sa) { sai_Index = 0; p_cur = sai_Array[sai_Index]; }\
+    inline CStaticArrayIterator_##TYPE(CStaticArray_##TYPE& sa) : sai_Array(sa) { sai_Index = 0; if(!IsPastEnd()) p_cur = sai_Array[sai_Index]; }\
     inline ~CStaticArrayIterator_##TYPE() { sai_Index = -1; p_cur.Reset(); }\
-    inline void MoveToNext() { sai_Index++; p_cur = sai_Array[sai_Index]; }\
+    inline void MoveToNext() { sai_Index++; if(IsPastEnd()) p_cur.Reset(); else p_cur = sai_Array[sai_Index]; }\
     inline BOOL IsPastEnd() { return sai_Index>=sai_Array.Count(); }\
     inline TYPE##Ptr Current() { return p_cur; }\
     inline TYPE##Ptr operator*() { return p_cur; }\

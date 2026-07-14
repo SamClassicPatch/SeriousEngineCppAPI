@@ -15,12 +15,12 @@ private:
   PtrType p_cur;
 public:
   /* Constructor for given array. */
-  inline CDynamicArrayIterator(ArrType& da) : dai_Array(da) { p_cur = dai_Array.Pointer(dai_Index); }
+  inline CDynamicArrayIterator(ArrType& da) : dai_Array(da) { if (!IsPastEnd()) p_cur = dai_Array.Pointer(dai_Index); }
   /* Destructor. */
   inline ~CDynamicArrayIterator() {}
 
   /* Move to next object. */
-  inline void MoveToNext() { ++dai_Index; p_cur = dai_Array.Pointer(dai_Index); }
+  inline void MoveToNext() { ++dai_Index; if (IsPastEnd()) p_cur.Reset(); else p_cur = dai_Array.Pointer(dai_Index); }
   /* Check if finished. */
   inline BOOL IsPastEnd() { return dai_Index >= dai_Array.Count(); }
   /* Get current element. */

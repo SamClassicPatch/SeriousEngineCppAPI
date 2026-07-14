@@ -59,7 +59,7 @@ public:
 private:
   inline void _UpdateObject()
   {
-    if (li_CurrentNode)
+    if (li_CurrentNode && !IsPastEnd())
       mp_object = getterFunc(*li_CurrentNode);
     else
       mp_object.Reset();

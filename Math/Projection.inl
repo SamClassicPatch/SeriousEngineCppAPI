@@ -554,13 +554,31 @@ inline BOOL CAnyProjection3D::IsParallel()
 
 inline CProjection3D* CAnyProjection3D::operator->()
 {
-  mp_proj.reset(new CProjection3D(CAnyProjection3D_GetActive(mp_handle), false));
+  if (IsPerspective())
+    mp_proj.reset(new CPerspectiveProjection3D((CPerspectiveProjection3D_*)CAnyProjection3D_GetActive(mp_handle), false));
+  else if (IsIsometric())
+    mp_proj.reset(new CIsometricProjection3D((CIsometricProjection3D_*)CAnyProjection3D_GetActive(mp_handle), false));
+  else if (IsParallel())
+    mp_proj.reset(new CParallelProjection3D((CParallelProjection3D_*)CAnyProjection3D_GetActive(mp_handle), false));
+  else if (IsSimple())
+    mp_proj.reset(new CSimpleProjection3D((CSimpleProjection3D_*)CAnyProjection3D_GetActive(mp_handle), false));
+  else
+    mp_proj.reset();
   return mp_proj.get();
 }
 
 inline CAnyProjection3D::operator CProjection3D* ()
 {
-  mp_proj.reset(new CProjection3D(CAnyProjection3D_GetActive(mp_handle), false));
+  if (IsPerspective())
+    mp_proj.reset(new CPerspectiveProjection3D((CPerspectiveProjection3D_*)CAnyProjection3D_GetActive(mp_handle), false));
+  else if (IsIsometric())
+    mp_proj.reset(new CIsometricProjection3D((CIsometricProjection3D_*)CAnyProjection3D_GetActive(mp_handle), false));
+  else if (IsParallel())
+    mp_proj.reset(new CParallelProjection3D((CParallelProjection3D_*)CAnyProjection3D_GetActive(mp_handle), false));
+  else if (IsSimple())
+    mp_proj.reset(new CSimpleProjection3D((CSimpleProjection3D_*)CAnyProjection3D_GetActive(mp_handle), false));
+  else
+    mp_proj.reset();
   return mp_proj.get();
 }
 

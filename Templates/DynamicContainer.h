@@ -51,9 +51,9 @@
     CDynamicContainer_##TYPE& dci_Array;\
     TYPE##Ptr p_cur;\
   public:\
-    inline CDynamicContainerIterator_##TYPE(CDynamicContainer_##TYPE& da) : dci_Array(da) { dci_Index = 0; p_cur = dci_Array.Pointer(dci_Index); }\
+    inline CDynamicContainerIterator_##TYPE(CDynamicContainer_##TYPE& da) : dci_Array(da) { dci_Index = 0; if(!IsPastEnd()) p_cur = dci_Array.Pointer(dci_Index); }\
     inline ~CDynamicContainerIterator_##TYPE() { dci_Index = -1; p_cur.Reset(); }\
-    inline void MoveToNext() { dci_Index++; p_cur = dci_Array.Pointer(dci_Index); }\
+    inline void MoveToNext() { dci_Index++; if(IsPastEnd()) p_cur.Reset(); else p_cur = dci_Array.Pointer(dci_Index); }\
     inline BOOL IsPastEnd() { return dci_Index>=dci_Array.Count(); }\
     inline TYPE##Ptr Current() { return p_cur; }\
     inline TYPE##Ptr operator*() { return p_cur; }\
