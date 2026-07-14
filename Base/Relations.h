@@ -40,7 +40,7 @@ private:
 // make 'for' construct for walking all domain members related to a codomain member
 #define FOREACHSRCOFDST(dsthead, srcclass, srcmember, psrc) \
   FOREACHDSTLINK(dsthead, psrc##_iter) { \
-    TPointer<srcclass, srcclass##_> psrc(srcclass##_from_##srcmember(psrc##_iter->GetDst()));
+    TPointer<srcclass, srcclass##_> psrc(srcclass##_from_##srcmember(psrc##_iter->GetSrc()));
 #define ENDFOR }
 
 #include "Relations.inl"
