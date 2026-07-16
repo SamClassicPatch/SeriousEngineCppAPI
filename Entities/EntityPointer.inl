@@ -44,6 +44,31 @@ inline bool CEntityPointer::operator==(const CEntityPointer& o) const
   return CEntityPointer_equal(C_Handle(), o) == TRUE;
 }
 
+inline bool CEntityPointer::operator==(const CEntity_* o) const
+{
+  return *CEntityPointer_ep_pen(C_Handle()) == o;
+}
+
+inline bool CEntityPointer::operator!=(const CEntityPointer& o) const
+{
+  return !((*this) == o);
+}
+
+inline bool CEntityPointer::operator!=(const CEntity_* o) const
+{
+  return !((*this) == o);
+}
+
+inline CEntityPointer::operator bool()
+{
+  return *CEntityPointer_ep_pen(C_Handle()) != nullptr;
+}
+
+inline CEntityPointer::operator bool() const
+{
+  return *CEntityPointer_ep_pen(C_Handle()) != nullptr;
+}
+
 __forceinline CEntityPtr CEntityPointer::ep_pen() const
 {
   return *CEntityPointer_ep_pen(C_Handle());

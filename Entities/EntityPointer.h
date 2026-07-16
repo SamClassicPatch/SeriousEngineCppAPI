@@ -17,6 +17,11 @@ public:
   CEntityPointer& operator=(const CEntityPointer& o);
   CEntityPointer& operator=(CEntity_* o);
   bool operator==(const CEntityPointer& o) const;
+  bool operator==(const CEntity_* o) const;
+  bool operator!=(const CEntityPointer& o) const;
+  bool operator!=(const CEntity_* o) const;
+  operator bool();
+  operator bool() const;
 
   CEntityPtr ep_pen() const;
 
