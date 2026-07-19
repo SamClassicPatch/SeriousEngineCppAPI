@@ -362,24 +362,29 @@ inline void CWorld::ShowAllSectors()
 inline void CWorld::CalculateDirectionalShadows()
 {
   CWorld_CalculateDirectionalShadows(C_Handle());
+  SECppAPI_CheckException();
 }
 
 inline void CWorld::CalculateNonDirectionalShadows()
 {
   CWorld_CalculateNonDirectionalShadows(C_Handle());
+  SECppAPI_CheckException();
 }
 
 inline void CWorld::FindShadowLayers(const FLOATaabbox3D& boxNear, BOOL bSelectedOnly, BOOL bDirectional)
 {
   CWorld_FindShadowLayers(C_Handle(), boxNear, bSelectedOnly, bDirectional);
+  SECppAPI_CheckException();
 }
 
 inline void CWorld::DiscardAllShadows()
 {
   CWorld_DiscardAllShadows(C_Handle());
+  SECppAPI_CheckException();
 }
 
 inline void CWorld::RebuildLinks()
 {
   CWorld_RebuildLinks(C_Handle());
+  SECppAPI_CheckException();
 }

@@ -340,4 +340,5 @@ inline void CWorldRenderPrefs::Write_t(CTStream* outFile)
 inline void RenderView(CWorld& woWorld, CEntity_* enViewer, CAnyProjection3D& prProjection, CDrawPort& dpDrawport)
 {
   RenderView_(woWorld, enViewer, prProjection, dpDrawport);
+  SECppAPI_CheckException();
 }
