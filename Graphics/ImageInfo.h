@@ -46,10 +46,10 @@ private:
   CImageInfo_* mp_handle = nullptr;
 
 public:
-  PIX&    ii_Width;	           // width of image in pixels
-  PIX&    ii_Height;	           // height of image in pixels
+  PIX&    ii_Width;             // width of image in pixels
+  PIX&    ii_Height;             // height of image in pixels
   SLONG&  ii_BitsPerPixel;      // depth of image (color bits; 24 or 32=24+8 alpha)
-  UBYTE*& ii_Picture; 	         // pointer to picture contents (raw bytes)
+  UBYTE*& ii_Picture;            // pointer to picture contents (raw bytes)
 };
 
 #include "ImageInfo.inl"
