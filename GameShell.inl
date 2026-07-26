@@ -24,23 +24,3 @@ inline void GameGUI_interface::QuickTest(const CTFileName& fnMapName, CDrawPort_
 {
   GameGUI_interface_QuickTest(mp_handle, fnMapName, pdpDrawport, pvpViewport);
 }
-
-inline void GameGUI_interface::OnPlayerSettings()
-{
-  GameGUI_interface_OnPlayerSettings(mp_handle);
-}
-
-inline void GameGUI_interface::OnAudioQuality()
-{
-  GameGUI_interface_OnAudioQuality(mp_handle);
-}
-
-inline void GameGUI_interface::OnVideoQuality()
-{
-  GameGUI_interface_OnVideoQuality(mp_handle);
-}
-
-inline void GameGUI_interface::OnSelectPlayerAndControls()
-{
-  GameGUI_interface_OnSelectPlayerAndControls(mp_handle);
-}

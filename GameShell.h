@@ -17,14 +17,6 @@ public:
   void End();
   // run a quicktest game from within editor
   void QuickTest(const CTFileName& fnMapName, CDrawPort_* pdpDrawport, CViewPort_* pvpViewport);
-  // adjust players and controls
-  void OnPlayerSettings();
-  // adjust audio settings
-  void OnAudioQuality();
-  // adjust video settings
-  void OnVideoQuality();
-  // select current active player and controls
-  void OnSelectPlayerAndControls();
 
   inline GameGUI_interface_* C_Handle() { return mp_handle; }
   inline const GameGUI_interface_* C_Handle() const { return mp_handle; }
