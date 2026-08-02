@@ -53,7 +53,10 @@ inline CWorld::CWorld()
 inline CWorld::~CWorld()
 {
   if (m_owner)
+  {
     CWorld_delete(C_Handle());
+    SECppAPI_CheckException();
+  }
 }
 
 inline void CWorld::UntargetEntity(CEntity_* penToUntarget)
