@@ -246,4 +246,6 @@ void MakeDirList(
 void UseApplicationPath();
 void IgnoreApplicationPath();
 
+inline CTFileName GetGroFileAtIndex(INDEX i) { return CTFileName(_GetGroFileAtIndex(i), true); }
+
 #include "Stream.inl"
