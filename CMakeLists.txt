@@ -97,6 +97,8 @@ set(SRC_GRAPHICS
   Graphics/ImageInfo.inl
   Graphics/Raster.h
   Graphics/Raster.inl
+  Graphics/Shader.h
+  Graphics/Shader.inl
   Graphics/Texture.h
   Graphics/Texture.inl
   Graphics/Vertex.h
