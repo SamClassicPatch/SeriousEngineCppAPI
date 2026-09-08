@@ -247,5 +247,6 @@ void UseApplicationPath();
 void IgnoreApplicationPath();
 
 inline CTFileName GetGroFileAtIndex(INDEX i) { return CTFileName(_GetGroFileAtIndex(i), true); }
+inline CTFileName GetGroFileArchiveAtIndex(INDEX i) { return CTFileName(_GetGroFileArchiveAtIndex(i), false); }
 
 #include "Stream.inl"
