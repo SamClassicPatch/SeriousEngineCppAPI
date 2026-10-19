@@ -39,10 +39,10 @@ public:
   /* Check if finished. */
   inline BOOL IsPastEnd() { return dai_Index >= dai_Array.Count(); }
   /* Get current element. */
-  __forceinline PtrType Current() { return p_cur; }
-  __forceinline PtrType operator*() { return p_cur; }
-  __forceinline operator PtrType () { return p_cur; }
-  __forceinline PtrType operator->() { return p_cur; }
+  __forceinline PtrType& Current() { return p_cur; }
+  __forceinline PtrType& operator*() { return p_cur; }
+  __forceinline operator PtrType& () { return p_cur; }
+  __forceinline PtrType& operator->() { return p_cur; }
 };
 
 #define DECLARE_CDynamicArray(TYPE)\
